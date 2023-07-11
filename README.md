@@ -16,7 +16,7 @@ Membantu pasangan menumbuhkan
 
 ### Git Commit
 Berikut adalah format pesan commit:
-> <type>: <description>
+> [type]: [description]
 
 - Sebelum melakukan commit tentukan dahulu jenis commitnya
 - Jika melakukan perbaikan maka jenisnya adalah "fix"
