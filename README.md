@@ -50,7 +50,7 @@ Ada beberapa convention untuk menamai, antara lain:
 - Choose clear and concise names that accurately describe the purpose and role of each entity.
 
 ```swift
-// Good example
+// Example
 struct UserProfileView: View {
     ...
     var userFullName: String
@@ -69,7 +69,7 @@ struct UserProfileView: View {
 - Consider using a namespace prefix for constants related to a specific module or feature.
 
 ```swift
-// Good example
+// Example
 enum UserStatus {
     case active
     case suspended
@@ -86,7 +86,7 @@ let APIEndpoint = "https://api.example.com"
 - Avoid using all uppercase or lowercase acronyms in names, as they can reduce readability.
 
 ```swift
-// Good example
+// Example
 struct HTTPRequest {
     var method: String
     var url: String
@@ -99,7 +99,7 @@ struct HTTPRequest {
 - Use clear and descriptive names to indicate the purpose of the boolean value or function.
 
 ```swift
-// Good example
+// Example
 var isCompleted: Bool
 var isProfileEmpty: Bool
 
@@ -114,7 +114,7 @@ func hasValidCredentials() -> Bool {
 - Prefer names that describe what the protocol does rather than how it is implemented.
 
 ```swift
-// Good example
+// Example
 protocol Authenticatable {
     func authenticate()
 }
@@ -126,7 +126,7 @@ protocol Authenticatable {
 - Use full words or descriptive names to improve clarity and readability.
 
 ```swift
-// Good example
+// Example
 struct UserProfile {
     var firstName: String
     var lastName: String
@@ -141,7 +141,7 @@ struct UserProfile {
 - Place opening and closing braces on their own lines.
 
 ```swift
-// Good example
+// Example
 struct ContentView: View {
     var body: some View {
         VStack {
@@ -160,7 +160,7 @@ struct ContentView: View {
 - Arrange properties, functions, and initializers in a logical order to enhance code comprehension.
 
 ```swift
-// Good example
+// Example
 struct UserProfileView: View {
     // MARK: - Properties
     var userFullName: String
@@ -187,7 +187,7 @@ struct UserProfileView: View {
 - Utilize SwiftUI's property wrappers like @State, @Binding, and @ObservableObject to manage state and data flow effectively.
 
 ```swift
-// Good example
+// Example
 struct ContentView: View {
     var placeholder: String?
     @State private var isShowingModal = false
@@ -212,7 +212,7 @@ struct ContentView: View {
 - When throwing an error, provide descriptive error messages to assist in debugging and troubleshooting.
 
 ```swift
-// Good example
+// Example
 func fetchData(completion: (Result<Data, Error>) -> Void) {
     do {
         let data = try fetchDataFromAPI()
@@ -229,16 +229,16 @@ func fetchData(completion: (Result<Data, Error>) -> Void) {
 - Document public functions, properties, and types using Swift's documentation comments (///) to generate documentation that can be easily accessed within Xcode.
 
 ```swift
+// Example
 /// Animation modifier will ignore later animation modifier
 ///
 ///     Circle("hallo world!")
 ///         .offset(x: animated: ? 0 : 70)
-///         .animation(.linear(duration: 0.5), value: animated)
-///         .animation(.linear(duration: 3), value: size)
+///         .animation(Animation.linear(duration: 0.5), value: animated)
+///         .animation(Animation.linear(duration: 3), value: size)
 ///
 /// In the example above the last animation configuration is ignored. The animation will be
 /// linear in 0.5 sec duration instead of 3 sec
-///
 struct MultipleAnimationDepedency: View {
     ...
 }
