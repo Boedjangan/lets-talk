@@ -30,7 +30,14 @@ Berikut adalah format pesan commit:
 ### Git Push
 - Setelah selesai commit bisa langsung melakukan push dengan cara
 > git push
-- Jika tiket sudah selesai dikerjakan bisa kembali ke branch main, sebelum branching lagi mengerjakan tiker lainnya  
+- Jika tiket sudah selesai dikerjakan bisa kembali ke branch main, sebelum branching lagi mengerjakan tiker lainnya
+
+### Pull Request
+- Setelah push code, agar bisa dimerge ke main branch, lakukan pull request
+- Buka github repo project, lalu masuk ke tab pull request
+- Buat pull request baru yang mencantumkan reviewer
+- Silahkan tunggu pull request diterima atau ditolak
+- Jika diterima maka branch akan dimerge ke main branch
 
 ## Code Convention
 
@@ -162,9 +169,11 @@ struct ContentView: View {
 ```swift
 // Example
 struct UserProfileView: View {
-    // MARK: - Properties
-    var userFullName: String
+    // MARK: - Reactive Properties
     @State private var isProfileUpdated = false
+    
+    // MARK: - Non-reactive Properties
+    var userFullName: String
 
     // MARK: - Body
     var body: some View {
@@ -189,8 +198,9 @@ struct UserProfileView: View {
 ```swift
 // Example
 struct ContentView: View {
-    var placeholder: String?
     @State private var isShowingModal = false
+    
+    var placeholder: String?
     
     var body: some View {
         VStack {
