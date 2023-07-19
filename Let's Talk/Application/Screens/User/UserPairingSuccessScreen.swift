@@ -9,7 +9,25 @@ import SwiftUI
 
 struct UserPairingSuccessScreen: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            
+            Text("🎉Selamat🎉")
+                .foregroundColor(Color.white)
+                .font(Font.avatarIcon)
+                .padding(.top,40)
+                .padding(.bottom,50)
+            Text("Kamu telah terkoneksi dengan pasanganmu ")
+                .foregroundColor(Color.white)
+                .padding(.bottom,50)
+            HStack(){
+                AvatarView(userName: "Ethan")
+                AvatarView(userName: "Anne")
+            }
+            Spacer()
+            
+        }
+        .frame(maxWidth: .infinity,maxHeight: .infinity)
+        .background(Color.background)
     }
 }
 
