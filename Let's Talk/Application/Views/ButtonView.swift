@@ -30,18 +30,20 @@ struct ButtonView<Label:View>: View {
 
 struct ButtonView_Previews: PreviewProvider {
     static var previews: some View {
-        ButtonView() {
+        VStack {
+            ButtonView() {
+                
+            } label: {
+                Text("Hehehe")
+            }
+            .buttonStyle(.primary)
             
-        } label: {
-            Text("Hehehe")
+            ButtonView() {
+                
+            } label: {
+                Text("Hehehe")
+            }
+            .buttonStyle(.secondary)
         }
-        .buttonStyle(.primary)
-        
-        ButtonView() {
-            
-        } label: {
-            Text("Hehehe")
-        }
-        .buttonStyle(.secondary)
     }
 }

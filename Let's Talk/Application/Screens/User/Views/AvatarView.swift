@@ -20,12 +20,11 @@ struct AvatarView: View {
                     .foregroundColor(Color.black)
                     .font(.system(size: 100))
             }
-                .padding(18)
+            .padding(18)
             
             Text(userName)
                 .font(Font.avatarIcon)
                 .foregroundColor(Color.white)
-            
         }
     }
 }
