@@ -10,4 +10,6 @@ import SwiftUI
 
 extension Color{
     static let avatarPlaceHolder = Color("Gray")
+    static let buttonPrimary = Color("Pink")
+    static let buttonSecondary = Color("Emerald")
 }
