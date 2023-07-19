@@ -20,4 +20,6 @@ extension Color{
     static let genderSelectorWrapper = Color("DarkGray").opacity(0.17)
     static let genderSelected = Color.white
     static let genderNotSelected = Color.clear
+
+    static let background = Color("Black")
 }
