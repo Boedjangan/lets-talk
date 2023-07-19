@@ -9,7 +9,33 @@ import SwiftUI
 
 struct UserOnboardingScreen: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        LayoutView {
+            VStack {
+                
+                Spacer()
+                HStack {
+                    Image(systemName: "person")
+                        .offset(y: -40)
+                    Image(systemName: "person")
+                        .offset(y: 40)
+                }
+                .font(Font.system(size: 150, weight: .regular, design: .rounded))
+                .frame(maxHeight: 300)
+                Spacer()
+                Text("Welcome and Let’s Talk")
+                    .font(Font.system(size: 16, weight: .bold, design: .rounded))
+                    .padding(.vertical, 20)
+                Text("Where love and communication come together to create stronger and more meaningful relationships")
+                    .font(Font.system(size: 16, weight: .regular, design: .rounded))
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal)
+                    .padding(.bottom, 100)
+                Button("Next", action: {
+                    // Add action here
+                })
+                .buttonStyle(PrimaryButtonStyle())
+            }
+        }
     }
 }
 
