@@ -8,23 +8,31 @@
 import SwiftUI
 
 struct UserPairingSuccessScreen: View {
+    var maleName : String = "male"
+    var femaleName : String = "female"
     var body: some View {
         VStack{
             
             Text("🎉Selamat🎉")
                 .foregroundColor(Color.white)
                 .font(Font.avatarIcon)
-                .padding(.top,40)
-                .padding(.bottom,50)
+                .padding(.top,38)
+                .padding(.bottom,38)
             Text("Kamu telah terkoneksi dengan pasanganmu ")
                 .foregroundColor(Color.white)
-                .padding(.bottom,50)
+                .padding(.bottom,78)
             HStack(){
-                AvatarView(userName: "Ethan")
-                AvatarView(userName: "Anne")
+                AvatarView(userName: maleName)
+                AvatarView(userName: femaleName)
             }
             Spacer()
-            
+            ButtonView(){
+                
+            }label:{
+                Text("Next")
+            }
+            .buttonStyle(.primary)
+            .padding(.bottom,36)
         }
         .frame(maxWidth: .infinity,maxHeight: .infinity)
         .background(Color.background)
@@ -33,6 +41,6 @@ struct UserPairingSuccessScreen: View {
 
 struct UserPairingSuccessScreen_Previews: PreviewProvider {
     static var previews: some View {
-        UserPairingSuccessScreen()
+        UserPairingSuccessScreen(maleName: "Ethan",femaleName: "Anne")
     }
 }
