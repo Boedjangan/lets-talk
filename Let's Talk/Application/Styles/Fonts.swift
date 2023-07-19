@@ -6,3 +6,8 @@
 //
 
 import Foundation
+import SwiftUI
+
+extension Font{
+    static let avatarIcon = Font.system(size:24,weight: .bold)
+}
