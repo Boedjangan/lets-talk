@@ -48,6 +48,7 @@
 		4EF769672A5D1D6800F489DF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF769662A5D1D6800F489DF /* Persistence.swift */; };
 		4EF7696A2A5D1D6800F489DF /* Let_s_Talk.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4EF769682A5D1D6800F489DF /* Let_s_Talk.xcdatamodeld */; };
 		9BAAA2762A67EEF400671179 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2752A67EEF400671179 /* AvatarView.swift */; };
+		C94650862A6837F700BEAC7A /* HeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94650852A6837F700BEAC7A /* HeroView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,6 +95,7 @@
 		4EF769692A5D1D6800F489DF /* Let_s_Talk.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Let_s_Talk.xcdatamodel; sourceTree = "<group>"; };
 		4EF769702A5D1DB100F489DF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9BAAA2752A67EEF400671179 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		C94650852A6837F700BEAC7A /* HeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -359,6 +361,7 @@
 			children = (
 				4E7990FC2A66A37E002027D1 /* GenderSelectorView.swift */,
 				9BAAA2752A67EEF400671179 /* AvatarView.swift */,
+				C94650852A6837F700BEAC7A /* HeroView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -596,6 +599,7 @@
 				4E7990E02A66460D002027D1 /* TopicViewModel.swift in Sources */,
 				4E7990D32A6645C3002027D1 /* UserViewModel.swift in Sources */,
 				4E7990FD2A66A37E002027D1 /* GenderSelectorView.swift in Sources */,
+				C94650862A6837F700BEAC7A /* HeroView.swift in Sources */,
 				4E7991032A66A404002027D1 /* UserPairingSuccessScreen.swift in Sources */,
 				4EDF2ADA2A6805C1002E0645 /* ButtonView.swift in Sources */,
 				4E7990C22A6644A8002027D1 /* TopicRepository.swift in Sources */,
