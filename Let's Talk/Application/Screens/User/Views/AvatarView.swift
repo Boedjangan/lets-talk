@@ -24,6 +24,7 @@ struct AvatarView: View {
             
             Text(userName)
                 .font(Font.avatarIcon)
+                .foregroundColor(Color.white)
             
         }
     }
