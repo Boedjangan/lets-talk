@@ -10,6 +10,7 @@ import SwiftUI
 struct PrimaryButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
+            .font(Font.button)
             .foregroundColor(foregroundColor(for: configuration.role))
             .frame(maxWidth: CGFloat.infinity)
             .padding(Edge.Set.vertical, 17)
@@ -42,6 +43,7 @@ extension ButtonStyle where Self == PrimaryButtonStyle {
 struct SecondaryButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
+            .font(Font.button)
             .foregroundColor(foregroundColor(for: configuration.role))
             .frame(maxWidth: CGFloat.infinity)
             .padding(Edge.Set.vertical, 17)
