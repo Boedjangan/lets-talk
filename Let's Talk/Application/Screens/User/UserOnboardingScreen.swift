@@ -9,7 +9,25 @@ import SwiftUI
 
 struct UserOnboardingScreen: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        LayoutView {
+            Spacer()
+            HeroView(maleHero: "person.fill", femaleHero: "person")
+            Spacer()
+            Text("Welcome and Let’s Talk")
+                .font(Font.system(size: 16, weight: .bold, design: .rounded))
+                .padding(.vertical, 20)
+            Text("Where love and communication come together to create stronger and more meaningful relationships")
+                .font(Font.system(size: 16, weight: .regular, design: .rounded))
+                .multilineTextAlignment(.center)
+                .padding(.horizontal)
+                .padding(.bottom, 100)
+            ButtonView {
+                //
+            } label: {
+                Text("Next")
+            }
+            .buttonStyle(.primary)
+        }
     }
 }
 
