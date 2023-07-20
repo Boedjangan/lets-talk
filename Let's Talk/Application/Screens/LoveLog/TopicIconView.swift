@@ -10,6 +10,7 @@ import SwiftUI
 struct TopIconView: View {
     var foregroundColor:Color = Color.blue
     var icon:String = "person.fill"
+    
     var body: some View {
         ZStack{
             Circle()
