@@ -22,4 +22,6 @@ extension Color{
     static let genderNotSelected = Color.clear
 
     static let background = Color("Black")
+    
+    static let tabBar = Color("BlackTabBar")
 }
