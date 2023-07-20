@@ -78,7 +78,7 @@ struct UserProfileView: View {
 ```swift
 // Example
 enum UserStatus {
-    case active
+    case active_user
     case suspended
     case banned
 }
