@@ -56,6 +56,7 @@
 		9BAAA27C2A68E8CD00671179 /* LoveLogScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA27B2A68E8CD00671179 /* LoveLogScreen.swift */; };
 		9BAAA2822A68F9F700671179 /* TopicIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2812A68F9F700671179 /* TopicIconView.swift */; };
 		9BAAA2862A69599900671179 /* TopicProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2852A69599900671179 /* TopicProgressView.swift */; };
+		9BAAA28A2A6987E100671179 /* BarProgressStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2892A6987E100671179 /* BarProgressStyle.swift */; };
 		C94650862A6837F700BEAC7A /* HeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94650852A6837F700BEAC7A /* HeroView.swift */; };
 		C94650882A690BC600BEAC7A /* AppLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94650872A690BC600BEAC7A /* AppLogoView.swift */; };
 /* End PBXBuildFile section */
@@ -112,6 +113,7 @@
 		9BAAA27B2A68E8CD00671179 /* LoveLogScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLogScreen.swift; sourceTree = "<group>"; };
 		9BAAA2812A68F9F700671179 /* TopicIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TopicIconView.swift; path = "Let's Talk/Application/Screens/LoveLog/TopicIconView.swift"; sourceTree = SOURCE_ROOT; };
 		9BAAA2852A69599900671179 /* TopicProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TopicProgressView.swift; path = "Let's Talk/Application/Screens/LoveLog/TopicProgressView.swift"; sourceTree = SOURCE_ROOT; };
+		9BAAA2892A6987E100671179 /* BarProgressStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarProgressStyle.swift; sourceTree = "<group>"; };
 		C94650852A6837F700BEAC7A /* HeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroView.swift; sourceTree = "<group>"; };
 		C94650872A690BC600BEAC7A /* AppLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -341,6 +343,7 @@
 				4E7990EF2A66A1B9002027D1 /* Colors.swift */,
 				4E7990F12A66A1C0002027D1 /* Fonts.swift */,
 				4E7990F32A66A1CA002027D1 /* ButtonStyles.swift */,
+				9BAAA2892A6987E100671179 /* BarProgressStyle.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -596,6 +599,7 @@
 				4EF769672A5D1D6800F489DF /* Persistence.swift in Sources */,
 				4E7990FB2A66A333002027D1 /* UserPairingScreen.swift in Sources */,
 				4EAE9D2B2A68EEDA00A7B7E6 /* StatefulPreviewView.swift in Sources */,
+				9BAAA28A2A6987E100671179 /* BarProgressStyle.swift in Sources */,
 				4E7990D92A6645E6002027D1 /* LoveLogRepository.swift in Sources */,
 				9BAAA27A2A68E8A300671179 /* DashboardScreen.swift in Sources */,
 				4E7990F22A66A1C0002027D1 /* Fonts.swift in Sources */,
