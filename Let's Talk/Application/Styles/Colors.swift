@@ -25,4 +25,6 @@ extension Color{
     static let talkTimeForeground = Color.white
 
     static let background = Color("Black")
+    
+    static let tabBar = Color("BlackTabBar")
 }

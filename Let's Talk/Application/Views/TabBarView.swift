@@ -10,6 +10,7 @@ import SwiftUI
 struct TabBarView: View {
     @ObservedObject var dashboardNavigation: DashboardNavigationManager
     
+    
     var body: some View {
         TabView{
             NavigationStack(path: $dashboardNavigation.navigationPaths) {
@@ -40,6 +41,10 @@ struct TabBarView: View {
                
         }
         .accentColor(Color.buttonPrimary)
+        .onAppear() {
+            UITabBar.appearance().barTintColor = UIColor(Color.tabBar)
+            UITabBar.appearance().backgroundColor = UIColor(Color.tabBar)
+           }
     }
 }
 
