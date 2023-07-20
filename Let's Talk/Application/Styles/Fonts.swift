@@ -21,4 +21,6 @@ extension Font {
     static let avatarIconSmall = Font.system(size: 9, weight: .regular, design: .default)
     
     static let textInput = Font.system(size: 16, weight: .bold, design: .default)
+    
+    static let bigNumber = Font.system(size: 78, weight: .bold, design: .default)
 }
