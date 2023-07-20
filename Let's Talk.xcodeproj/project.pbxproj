@@ -39,6 +39,7 @@
 		4E79910F2A66A569002027D1 /* JSONHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E79910E2A66A569002027D1 /* JSONHandler.swift */; };
 		4E7991112A66A5B2002027D1 /* SwipeDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7991102A66A5B2002027D1 /* SwipeDetection.swift */; };
 		4E7991132A66A605002027D1 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7991122A66A605002027D1 /* Collection+Extensions.swift */; };
+		4EAE9D2B2A68EEDA00A7B7E6 /* StatefulPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAE9D2A2A68EEDA00A7B7E6 /* StatefulPreviewView.swift */; };
 		4EDF2ADA2A6805C1002E0645 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDF2AD92A6805C1002E0645 /* ButtonView.swift */; };
 		4EDF2ADC2A681933002E0645 /* LayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDF2ADB2A681933002E0645 /* LayoutView.swift */; };
 		4EE799632A683D2800675622 /* UnitConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE799622A683D2800675622 /* UnitConverter.swift */; };
@@ -89,6 +90,7 @@
 		4E79910E2A66A569002027D1 /* JSONHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHandler.swift; sourceTree = "<group>"; };
 		4E7991102A66A5B2002027D1 /* SwipeDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeDetection.swift; sourceTree = "<group>"; };
 		4E7991122A66A605002027D1 /* Collection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
+		4EAE9D2A2A68EEDA00A7B7E6 /* StatefulPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatefulPreviewView.swift; sourceTree = "<group>"; };
 		4EDF2AD92A6805C1002E0645 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		4EDF2ADB2A681933002E0645 /* LayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutView.swift; sourceTree = "<group>"; };
 		4EE799622A683D2800675622 /* UnitConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitConverter.swift; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				4EDF2ADB2A681933002E0645 /* LayoutView.swift */,
 				4EE799642A6842EB00675622 /* TextFieldView.swift */,
 				9BAAA2772A68E7DA00671179 /* TabBarView.swift */,
+				4EAE9D2A2A68EEDA00A7B7E6 /* StatefulPreviewView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -583,6 +586,7 @@
 				4E7991012A66A3E9002027D1 /* UserSetupScreen.swift in Sources */,
 				4EF769672A5D1D6800F489DF /* Persistence.swift in Sources */,
 				4E7990FB2A66A333002027D1 /* UserPairingScreen.swift in Sources */,
+				4EAE9D2B2A68EEDA00A7B7E6 /* StatefulPreviewView.swift in Sources */,
 				4E7990D92A6645E6002027D1 /* LoveLogRepository.swift in Sources */,
 				9BAAA27A2A68E8A300671179 /* DashboardScreen.swift in Sources */,
 				4E7990F22A66A1C0002027D1 /* Fonts.swift in Sources */,
