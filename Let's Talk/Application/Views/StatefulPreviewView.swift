@@ -13,8 +13,12 @@ import SwiftUI
 /// That's why we need a view that wraps the view that receive binding.
 /// Just put the default value to the paremeter of this stateful preview.
 ///
-///     StatefulPreviewView(stateValue) { state in
-///         ViewAcceptBinding(bind: $state)
+///     struct GenderSelectorView_Previews: PreviewProvider {
+///         static var previews: some View {
+///            StatefulPreviewView(Gender.male) { gender in
+///               GenderSelectorView(gender: gender)
+///             }
+///         }
 ///     }
 ///
 struct StatefulPreviewView<Value, Content: View>: View {
