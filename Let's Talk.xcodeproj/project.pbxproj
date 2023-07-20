@@ -57,6 +57,7 @@
 		9BAAA2822A68F9F700671179 /* TopicIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2812A68F9F700671179 /* TopicIconView.swift */; };
 		C94650862A6837F700BEAC7A /* HeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94650852A6837F700BEAC7A /* HeroView.swift */; };
 		C94650882A690BC600BEAC7A /* AppLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94650872A690BC600BEAC7A /* AppLogoView.swift */; };
+		C9EE06162A69283F00AD061B /* TalkTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06152A69283F00AD061B /* TalkTimeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +113,7 @@
 		9BAAA2812A68F9F700671179 /* TopicIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TopicIconView.swift; path = "Let's Talk/Application/Screens/LoveLog/TopicIconView.swift"; sourceTree = SOURCE_ROOT; };
 		C94650852A6837F700BEAC7A /* HeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroView.swift; sourceTree = "<group>"; };
 		C94650872A690BC600BEAC7A /* AppLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogoView.swift; sourceTree = "<group>"; };
+		C9EE06152A69283F00AD061B /* TalkTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkTimeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -382,6 +384,7 @@
 				9BAAA2752A67EEF400671179 /* AvatarView.swift */,
 				C94650852A6837F700BEAC7A /* HeroView.swift */,
 				C94650872A690BC600BEAC7A /* AppLogoView.swift */,
+				C9EE06152A69283F00AD061B /* TalkTimeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -597,6 +600,7 @@
 				9BAAA27A2A68E8A300671179 /* DashboardScreen.swift in Sources */,
 				4E7990F22A66A1C0002027D1 /* Fonts.swift in Sources */,
 				4E7990FF2A66A3A0002027D1 /* UserOnboardingScreen.swift in Sources */,
+				C9EE06162A69283F00AD061B /* TalkTimeView.swift in Sources */,
 				4E7990C02A664481002027D1 /* Topic.swift in Sources */,
 				4E7990CE2A664593002027D1 /* QuestionRepositoryImpl.swift in Sources */,
 				4EE799652A6842EB00675622 /* TextFieldView.swift in Sources */,

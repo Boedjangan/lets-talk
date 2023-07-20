@@ -20,6 +20,9 @@ extension Color{
     static let genderSelectorWrapper = Color("DarkGray").opacity(0.17)
     static let genderSelected = Color.white
     static let genderNotSelected = Color.clear
+    
+    static let talkTimeBackground = Color("Purple")
+    static let talkTimeForeground = Color.white
 
     static let background = Color("Black")
 }
