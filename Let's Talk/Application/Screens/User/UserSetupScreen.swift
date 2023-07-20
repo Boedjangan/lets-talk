@@ -13,9 +13,7 @@ struct UserSetupScreen: View {
     var body: some View {
         LayoutView {
             Spacer()
-            Image(systemName: "apple.logo")
-                .font(.system(size: 100))
-                .frame(maxHeight: 300)
+            AppLogoView()
             Spacer()
             Text("Bantu kami lebih mengenal kamu")
             Text("Siapa nama panggilan kamu?")
