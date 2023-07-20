@@ -26,7 +26,7 @@ struct UserOnboardingScreen: View {
             } label: {
                 Text("Next")
             }
-            .buttonStyle(.primary)
+            .buttonStyle(.fill())
         }
     }
 }

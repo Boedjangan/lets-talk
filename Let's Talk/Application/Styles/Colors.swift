@@ -15,7 +15,14 @@ extension Color{
     static let avatarBackgroundLightPink = Color("LightPink")
     
     static let buttonPrimary = Color("Pink")
+    static let buttonHoverPrimary = Color("PinkBright")
+    static let buttonHoverBorderPrimary = Color("GrayBorder")
     static let buttonSecondary = Color("Tosca")
+    
+    static let buttonOutlineCommitment = Color("Tosca")
+    static let buttonOutlineTrust = Color("Blue")
+    static let buttonOutlineHonesty = Color("Purple")
+    static let buttonOutlineExecution = Color("Pink")
     
     static let genderSelectorWrapper = Color("DarkGray").opacity(0.17)
     static let genderSelected = Color.white

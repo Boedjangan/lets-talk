@@ -14,6 +14,7 @@ extension Font {
     static let paragraph = Font.system(size: 16, weight: .regular, design: .default)
     
     static let button = Font.system(size: 14, weight: .regular, design: .default)
+    static let topicButton = Font.system(size: 10, weight: .semibold, design: .default)
     
     static let genderPickerLabel = Font.system(size: 13, weight: .medium, design: .default)
     
