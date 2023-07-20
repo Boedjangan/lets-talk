@@ -54,6 +54,7 @@
 		9BAAA2782A68E7DA00671179 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2772A68E7DA00671179 /* TabBarView.swift */; };
 		9BAAA27A2A68E8A300671179 /* DashboardScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2792A68E8A300671179 /* DashboardScreen.swift */; };
 		9BAAA27C2A68E8CD00671179 /* LoveLogScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA27B2A68E8CD00671179 /* LoveLogScreen.swift */; };
+		9BAAA2822A68F9F700671179 /* TopicIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2812A68F9F700671179 /* TopicIconView.swift */; };
 		C94650862A6837F700BEAC7A /* HeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94650852A6837F700BEAC7A /* HeroView.swift */; };
 /* End PBXBuildFile section */
 
@@ -107,6 +108,7 @@
 		9BAAA2772A68E7DA00671179 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		9BAAA2792A68E8A300671179 /* DashboardScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardScreen.swift; sourceTree = "<group>"; };
 		9BAAA27B2A68E8CD00671179 /* LoveLogScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLogScreen.swift; sourceTree = "<group>"; };
+		9BAAA2812A68F9F700671179 /* TopicIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TopicIconView.swift; path = "Let's Talk/Application/Screens/LoveLog/TopicIconView.swift"; sourceTree = SOURCE_ROOT; };
 		C94650852A6837F700BEAC7A /* HeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -429,6 +431,7 @@
 		4E7991082A66A445002027D1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				9BAAA2812A68F9F700671179 /* TopicIconView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -601,6 +604,7 @@
 				4E7990F02A66A1B9002027D1 /* Colors.swift in Sources */,
 				9BAAA2762A67EEF400671179 /* AvatarView.swift in Sources */,
 				4E7990CC2A664586002027D1 /* QuestionRepository.swift in Sources */,
+				9BAAA2822A68F9F700671179 /* TopicIconView.swift in Sources */,
 				4E7990B92A66443B002027D1 /* UserRepositoryImpl.swift in Sources */,
 				4EF7696A2A5D1D6800F489DF /* Let_s_Talk.xcdatamodeld in Sources */,
 				4E7990BB2A66445A002027D1 /* User.swift in Sources */,
