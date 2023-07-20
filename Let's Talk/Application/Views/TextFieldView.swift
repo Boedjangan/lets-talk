@@ -12,7 +12,9 @@ import Combine
 ///
 /// Pass a binded state of String to the text parameter, when user change the text field value
 /// it will not immediately change the binded state, but there will be a delay until user stop
-/// typing before reading change to prevent unnecessary re-render because of state change
+/// typing before reading change to prevent unnecessary re-render because of state change.
+///
+/// This is accomplished by using Combine. There is a publisher set up.
 ///
 ///     TextFieldView(text: $text, placeholder: "Placeholder")
 ///
