@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TalkTimeView: View {
-    @Binding var talkTime: Int
+    let talkTime: Int
     var body: some View {
         HStack {
             Text("\(talkTime)")
@@ -28,6 +28,6 @@ struct TalkTimeView: View {
 
 struct TalkTimeView_Previews: PreviewProvider {
     static var previews: some View {
-        TalkTimeView(talkTime: .constant(20))
+        TalkTimeView(talkTime: 20)
     }
 }
