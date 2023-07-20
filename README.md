@@ -104,6 +104,8 @@ struct HTTPRequest {
 
 - Name boolean variables and functions as a question or statement that can be answered with a true or false.
 - Use clear and descriptive names to indicate the purpose of the boolean value or function.
+- For conditional or ternary instead of doing it imperatively, please abstract it as a explicitly by extending or creating a constant. 
+
 
 ```swift
 // Example
@@ -111,6 +113,16 @@ var isCompleted: Bool
 var isProfileEmpty: Bool
 
 func hasValidCredentials() -> Bool {
+    ...
+}
+
+// Instead of this
+if user === "student" {
+    ...
+}
+
+// Do this
+if user.isStudent {
     ...
 }
 ```
