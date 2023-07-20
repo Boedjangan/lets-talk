@@ -30,7 +30,7 @@
 		4E7990F02A66A1B9002027D1 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990EF2A66A1B9002027D1 /* Colors.swift */; };
 		4E7990F22A66A1C0002027D1 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990F12A66A1C0002027D1 /* Fonts.swift */; };
 		4E7990F42A66A1CA002027D1 /* ButtonStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990F32A66A1CA002027D1 /* ButtonStyles.swift */; };
-		4E7990F62A66A28C002027D1 /* MainRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990F52A66A28C002027D1 /* MainRoutes.swift */; };
+		4E7990F62A66A28C002027D1 /* DashboardRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990F52A66A28C002027D1 /* DashboardRoutes.swift */; };
 		4E7990FB2A66A333002027D1 /* UserPairingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990FA2A66A333002027D1 /* UserPairingScreen.swift */; };
 		4E7990FD2A66A37E002027D1 /* GenderSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990FC2A66A37E002027D1 /* GenderSelectorView.swift */; };
 		4E7990FF2A66A3A0002027D1 /* UserOnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990FE2A66A3A0002027D1 /* UserOnboardingScreen.swift */; };
@@ -83,7 +83,7 @@
 		4E7990EF2A66A1B9002027D1 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		4E7990F12A66A1C0002027D1 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		4E7990F32A66A1CA002027D1 /* ButtonStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyles.swift; sourceTree = "<group>"; };
-		4E7990F52A66A28C002027D1 /* MainRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRoutes.swift; sourceTree = "<group>"; };
+		4E7990F52A66A28C002027D1 /* DashboardRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardRoutes.swift; sourceTree = "<group>"; };
 		4E7990FA2A66A333002027D1 /* UserPairingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserPairingScreen.swift; sourceTree = "<group>"; };
 		4E7990FC2A66A37E002027D1 /* GenderSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderSelectorView.swift; sourceTree = "<group>"; };
 		4E7990FE2A66A3A0002027D1 /* UserOnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOnboardingScreen.swift; sourceTree = "<group>"; };
@@ -303,7 +303,7 @@
 		4E7990E72A66473E002027D1 /* Routes */ = {
 			isa = PBXGroup;
 			children = (
-				4E7990F52A66A28C002027D1 /* MainRoutes.swift */,
+				4E7990F52A66A28C002027D1 /* DashboardRoutes.swift */,
 			);
 			path = Routes;
 			sourceTree = "<group>";
@@ -634,7 +634,7 @@
 				4E7991032A66A404002027D1 /* UserPairingSuccessScreen.swift in Sources */,
 				4EDF2ADA2A6805C1002E0645 /* ButtonView.swift in Sources */,
 				4E7990C22A6644A8002027D1 /* TopicRepository.swift in Sources */,
-				4E7990F62A66A28C002027D1 /* MainRoutes.swift in Sources */,
+				4E7990F62A66A28C002027D1 /* DashboardRoutes.swift in Sources */,
 				4EE799632A683D2800675622 /* UnitConverter.swift in Sources */,
 				4E7990C42A6644B6002027D1 /* TopicRepositoryImpl.swift in Sources */,
 			);

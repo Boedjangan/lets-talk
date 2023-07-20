@@ -36,3 +36,20 @@ struct StatefulPreviewView<Value, Content: View>: View {
         self.content = content
     }
 }
+
+
+struct StatefulObjectPreviewView<Value: ObservableObject, Content: View>: View {
+    @StateObject var value: Value
+    var content: (Value) -> Content
+
+    var body: some View {
+        VStack {
+            content(value)
+        }
+    }
+
+    init(_ value: Value, content: @escaping (Value) -> Content) {
+        self._value = StateObject(wrappedValue: value)
+        self.content = content
+    }
+}
