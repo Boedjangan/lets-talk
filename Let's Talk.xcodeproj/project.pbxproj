@@ -50,6 +50,9 @@
 		4EF769672A5D1D6800F489DF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF769662A5D1D6800F489DF /* Persistence.swift */; };
 		4EF7696A2A5D1D6800F489DF /* Let_s_Talk.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4EF769682A5D1D6800F489DF /* Let_s_Talk.xcdatamodeld */; };
 		9BAAA2762A67EEF400671179 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2752A67EEF400671179 /* AvatarView.swift */; };
+		9BAAA2782A68E7DA00671179 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2772A68E7DA00671179 /* TabBarView.swift */; };
+		9BAAA27A2A68E8A300671179 /* DashboardScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2792A68E8A300671179 /* DashboardScreen.swift */; };
+		9BAAA27C2A68E8CD00671179 /* LoveLogScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA27B2A68E8CD00671179 /* LoveLogScreen.swift */; };
 		C94650862A6837F700BEAC7A /* HeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94650852A6837F700BEAC7A /* HeroView.swift */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +102,9 @@
 		4EF769692A5D1D6800F489DF /* Let_s_Talk.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Let_s_Talk.xcdatamodel; sourceTree = "<group>"; };
 		4EF769702A5D1DB100F489DF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9BAAA2752A67EEF400671179 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		9BAAA2772A68E7DA00671179 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		9BAAA2792A68E8A300671179 /* DashboardScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardScreen.swift; sourceTree = "<group>"; };
+		9BAAA27B2A68E8CD00671179 /* LoveLogScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLogScreen.swift; sourceTree = "<group>"; };
 		C94650852A6837F700BEAC7A /* HeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -282,6 +288,7 @@
 				4EDF2AD92A6805C1002E0645 /* ButtonView.swift */,
 				4EDF2ADB2A681933002E0645 /* LayoutView.swift */,
 				4EE799642A6842EB00675622 /* TextFieldView.swift */,
+				9BAAA2772A68E7DA00671179 /* TabBarView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -384,6 +391,7 @@
 			children = (
 				4E7991082A66A445002027D1 /* Views */,
 				4E7991072A66A42F002027D1 /* ViewModels */,
+				9BAAA2792A68E8A300671179 /* DashboardScreen.swift */,
 			);
 			path = Topic;
 			sourceTree = "<group>";
@@ -402,6 +410,7 @@
 			children = (
 				4E79910C2A66A46A002027D1 /* ViewModels */,
 				4E79910B2A66A466002027D1 /* Views */,
+				9BAAA27B2A68E8CD00671179 /* LoveLogScreen.swift */,
 			);
 			path = LoveLog;
 			sourceTree = "<group>";
@@ -575,6 +584,7 @@
 				4EF769672A5D1D6800F489DF /* Persistence.swift in Sources */,
 				4E7990FB2A66A333002027D1 /* UserPairingScreen.swift in Sources */,
 				4E7990D92A6645E6002027D1 /* LoveLogRepository.swift in Sources */,
+				9BAAA27A2A68E8A300671179 /* DashboardScreen.swift in Sources */,
 				4E7990F22A66A1C0002027D1 /* Fonts.swift in Sources */,
 				4E7990FF2A66A3A0002027D1 /* UserOnboardingScreen.swift in Sources */,
 				4E7990C02A664481002027D1 /* Topic.swift in Sources */,
@@ -603,9 +613,11 @@
 				4E7990DB2A6645F1002027D1 /* LoveLogRepositoryImpl.swift in Sources */,
 				4E7990DE2A664603002027D1 /* LoveLogService.swift in Sources */,
 				4E7990F42A66A1CA002027D1 /* ButtonStyles.swift in Sources */,
+				9BAAA27C2A68E8CD00671179 /* LoveLogScreen.swift in Sources */,
 				4E7990E02A66460D002027D1 /* TopicViewModel.swift in Sources */,
 				4E7990D32A6645C3002027D1 /* UserViewModel.swift in Sources */,
 				4E7990FD2A66A37E002027D1 /* GenderSelectorView.swift in Sources */,
+				9BAAA2782A68E7DA00671179 /* TabBarView.swift in Sources */,
 				C94650862A6837F700BEAC7A /* HeroView.swift in Sources */,
 				4E7991032A66A404002027D1 /* UserPairingSuccessScreen.swift in Sources */,
 				4EDF2ADA2A6805C1002E0645 /* ButtonView.swift in Sources */,
