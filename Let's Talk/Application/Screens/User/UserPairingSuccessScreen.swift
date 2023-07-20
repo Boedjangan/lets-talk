@@ -10,15 +10,15 @@ import SwiftUI
 struct UserPairingSuccessScreen: View {
     var maleName : String = "male"
     var femaleName : String = "female"
+    
     var body: some View {
-        VStack{
-            
+        LayoutView{
             Text("🎉Selamat🎉")
                 .foregroundColor(Color.white)
                 .font(Font.avatarIcon)
                 .padding(.top,38)
                 .padding(.bottom,38)
-            Text("Kamu telah terkoneksi dengan pasanganmu ")
+            Text("Kamu telah terhubung dengan pasanganmu ")
                 .foregroundColor(Color.white)
                 .padding(.bottom,78)
             HStack(){
@@ -34,8 +34,6 @@ struct UserPairingSuccessScreen: View {
             .buttonStyle(.primary)
             .padding(.bottom,36)
         }
-        .frame(maxWidth: .infinity,maxHeight: .infinity)
-        .background(Color.background)
     }
 }
 
