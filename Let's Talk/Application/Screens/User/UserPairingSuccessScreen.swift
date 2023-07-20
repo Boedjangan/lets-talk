@@ -31,7 +31,7 @@ struct UserPairingSuccessScreen: View {
             }label:{
                 Text("Next")
             }
-            .buttonStyle(.primary)
+            .buttonStyle(.fill())
             .padding(.bottom,36)
         }
     }
