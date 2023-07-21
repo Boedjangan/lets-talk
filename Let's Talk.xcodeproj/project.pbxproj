@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E1A55552A6A29720056951B /* LoveLogRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1A55542A6A29720056951B /* LoveLogRoutes.swift */; };
 		4E7990B52A6643FF002027D1 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990B42A6643FF002027D1 /* UserService.swift */; };
 		4E7990B72A664414002027D1 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990B62A664414002027D1 /* UserRepository.swift */; };
 		4E7990B92A66443B002027D1 /* UserRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990B82A66443B002027D1 /* UserRepositoryImpl.swift */; };
@@ -59,11 +60,12 @@
 		9BAAA28A2A6987E100671179 /* BarProgressStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2892A6987E100671179 /* BarProgressStyle.swift */; };
 		C94650862A6837F700BEAC7A /* HeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94650852A6837F700BEAC7A /* HeroView.swift */; };
 		C94650882A690BC600BEAC7A /* AppLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94650872A690BC600BEAC7A /* AppLogoView.swift */; };
-		C9EE06182A696DB500AD061B /* WarmUpCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06172A696DB500AD061B /* WarmUpCardView.swift */; };
 		C9EE06162A69283F00AD061B /* TalkTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06152A69283F00AD061B /* TalkTimeView.swift */; };
+		C9EE06182A696DB500AD061B /* WarmUpCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06172A696DB500AD061B /* WarmUpCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4E1A55542A6A29720056951B /* LoveLogRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLogRoutes.swift; sourceTree = "<group>"; };
 		4E7990B42A6643FF002027D1 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		4E7990B62A664414002027D1 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		4E7990B82A66443B002027D1 /* UserRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryImpl.swift; sourceTree = "<group>"; };
@@ -118,8 +120,8 @@
 		9BAAA2892A6987E100671179 /* BarProgressStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarProgressStyle.swift; sourceTree = "<group>"; };
 		C94650852A6837F700BEAC7A /* HeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroView.swift; sourceTree = "<group>"; };
 		C94650872A690BC600BEAC7A /* AppLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogoView.swift; sourceTree = "<group>"; };
-		C9EE06172A696DB500AD061B /* WarmUpCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmUpCardView.swift; sourceTree = "<group>"; };
 		C9EE06152A69283F00AD061B /* TalkTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkTimeView.swift; sourceTree = "<group>"; };
+		C9EE06172A696DB500AD061B /* WarmUpCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmUpCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -312,6 +314,7 @@
 			isa = PBXGroup;
 			children = (
 				4E7990F52A66A28C002027D1 /* DashboardRoutes.swift */,
+				4E1A55542A6A29720056951B /* LoveLogRoutes.swift */,
 			);
 			path = Routes;
 			sourceTree = "<group>";
@@ -644,6 +647,7 @@
 				4E7990D32A6645C3002027D1 /* UserViewModel.swift in Sources */,
 				4E7990FD2A66A37E002027D1 /* GenderSelectorView.swift in Sources */,
 				9BAAA2862A69599900671179 /* TopicProgressView.swift in Sources */,
+				4E1A55552A6A29720056951B /* LoveLogRoutes.swift in Sources */,
 				C94650882A690BC600BEAC7A /* AppLogoView.swift in Sources */,
 				9BAAA2782A68E7DA00671179 /* TabBarView.swift in Sources */,
 				C94650862A6837F700BEAC7A /* HeroView.swift in Sources */,
