@@ -16,16 +16,16 @@ struct PairItemView: View {
             ZStack {
                 Circle()
                     .foregroundColor(Color.avatarPlaceHolder)
-                    .frame(width: 80, height: 80)
+                    .frame(width: 60, height: 60)
                 
                 Image(systemName: image)
                     .foregroundColor(Color.black)
-                    .font(.system(size: 60))
+                    .font(.system(size: 45))
             }
             
             Text(name)
                 .multilineTextAlignment(.center)
-                .frame(maxWidth: 80)
+                .frame(maxWidth: 60)
                 .font(Font.avatarIconSmall)
                 .foregroundColor(Color.white)
         }
