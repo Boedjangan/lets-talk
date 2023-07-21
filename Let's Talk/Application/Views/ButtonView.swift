@@ -36,14 +36,49 @@ struct ButtonView_Previews: PreviewProvider {
             } label: {
                 Text("Hehehe")
             }
-            .buttonStyle(.primary)
+            .buttonStyle(.fill(.primary))
             
             ButtonView() {
                 
             } label: {
                 Text("Hehehe")
             }
-            .buttonStyle(.secondary)
+            .buttonStyle(.fill(.secondary))
+            
+            ButtonView() {
+                
+            } label: {
+                Text("Hehehe")
+            }
+            .buttonStyle(.fill(.destructive))
+            
+            ButtonView() {
+                
+            } label: {
+                Text("Hehehe")
+            }
+            .buttonStyle(.outline(.commitment))
+            
+            ButtonView() {
+                
+            } label: {
+                Text("Hehehe")
+            }
+            .buttonStyle(.outline(.trust))
+            
+            ButtonView() {
+                
+            } label: {
+                Text("Hehehe")
+            }
+            .buttonStyle(.outline(.honesty))
+            
+            ButtonView() {
+                
+            } label: {
+                Text("Hehehe")
+            }
+            .buttonStyle(.outline(.execution))
         }
     }
 }
