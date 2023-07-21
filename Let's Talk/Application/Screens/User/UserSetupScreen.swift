@@ -31,7 +31,7 @@ struct UserSetupScreen: View {
             } label: {
                 Text("Selanjutnya")
             }
-            .buttonStyle(.primary)
+            .buttonStyle(.fill())
         }
     }
 }

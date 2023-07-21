@@ -9,13 +9,15 @@ import SwiftUI
 
 struct TabBarView: View {
     @ObservedObject var dashboardNavigation: DashboardNavigationManager
+    @ObservedObject var loveLogNavigation: LoveLogNavigationManager
+    
     
     var body: some View {
         TabView{
             NavigationStack(path: $dashboardNavigation.navigationPaths) {
                 DashboardScreen()
-                    .navigationDestination(for: DashboardRoutes.self) { route in
-                        switch(route) {
+                    .navigationDestination(for: DashboardRoutes.self) { routes in
+                        switch(routes) {
                         case .dashboard:
                             DashboardScreen()
                         case .warmup:
@@ -33,13 +35,24 @@ struct TabBarView: View {
                 Label("Test",systemImage: "heart.circle.fill")
             }
             
-            LoveLogScreen()
-                .tabItem{
-                    Label("Love Log",systemImage: "calendar.circle")
-                }
-               
+            NavigationStack(path: $dashboardNavigation.navigationPaths) {
+                LoveLogScreen()
+                    .navigationDestination(for: LoveLogRoutes.self) { routes in
+                        switch(routes) {
+                        case .lovelog:
+                            LoveLogScreen()
+                        }
+                    }
+            }
+            .tabItem{
+                Label("Love Log",systemImage: "calendar.circle")
+            }
         }
         .accentColor(Color.buttonPrimary)
+        .onAppear() {
+            UITabBar.appearance().barTintColor = UIColor(Color.tabBar)
+            UITabBar.appearance().backgroundColor = UIColor(Color.tabBar)
+           }
     }
 }
 
