@@ -25,5 +25,5 @@ extension Font {
     
     static let bigNumber = Font.system(size: 78, weight: .bold, design: .default)
     
-    static let textQuestion = Font.system(size: 17, design: .default)
+    static let textQuestion = Font.system(size: 17, weight: .regular, design: .default)
 }
