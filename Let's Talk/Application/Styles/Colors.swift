@@ -15,13 +15,25 @@ extension Color{
     static let avatarBackgroundLightPink = Color("LightPink")
     
     static let buttonPrimary = Color("Pink")
+    static let buttonHoverPrimary = Color("PinkBright")
+    static let buttonHoverBorderPrimary = Color("GrayBorder")
     static let buttonSecondary = Color("Tosca")
     
     static let warpUpCardBackground = Color("Ash")
+  
+    static let buttonOutlineCommitment = Color("Tosca")
+    static let buttonOutlineTrust = Color("Blue")
+    static let buttonOutlineHonesty = Color("Purple")
+    static let buttonOutlineExecution = Color("Pink")
     
     static let genderSelectorWrapper = Color("DarkGray").opacity(0.17)
     static let genderSelected = Color.white
     static let genderNotSelected = Color.clear
+    
+    static let talkTimeBackground = Color("Purple")
+    static let talkTimeForeground = Color.white
 
     static let background = Color("Black")
+    
+    static let tabBar = Color("BlackTabBar")
 }
