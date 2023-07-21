@@ -10,7 +10,7 @@ import SwiftUI
 
 extension Font {
     static let heading = Font.system(size: 16, weight: .bold, design: .default)
-    static let headingBig = Font.system(size: 16, weight: .bold, design: .default)
+    static let headingBig = Font.system(size: 24, weight: .bold, design: .default)
     static let paragraph = Font.system(size: 16, weight: .regular, design: .default)
     
     static let button = Font.system(size: 14, weight: .regular, design: .default)

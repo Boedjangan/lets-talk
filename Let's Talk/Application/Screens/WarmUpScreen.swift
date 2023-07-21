@@ -9,28 +9,29 @@ import SwiftUI
 
 struct WarmUpScreen: View {
     @State private var answer: String = ""
-    
+    let warmUpQuestion: String = "Siapa teman terbaik kamu?"
     var body: some View {
         LayoutView {
             Text("Warming Up!")
-                .font(.system(size: 22))
+                .font(.headingBig)
+                .padding(.vertical)
             WarmUpTimerView()
             Text("Jawab pertanyaan ini dengan pasanganmu")
                 .font(.paragraph)
-            VStack {
-                Text("dksajhb")
+                .padding(.vertical, 20)
+            WarmUpCardView {
+                Text(warmUpQuestion)
+                    .font(.paragraph)
             }
-            .frame(maxHeight: 200)
-            .background(.red)
-            .padding(.vertical, 30)
             TextFieldView(text: $answer, placeholder: "Tulis jawabanmu disini")
+                .padding(.vertical, 20)
             Spacer()
             ButtonView {
                 //
             } label: {
                 Text("Jawab")
             }
-            .buttonStyle(.primary)
+            .buttonStyle(.fill(.primary))
         }
     }
 }
