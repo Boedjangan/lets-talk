@@ -19,6 +19,8 @@ extension Color{
     static let buttonHoverBorderPrimary = Color("GrayBorder")
     static let buttonSecondary = Color("Tosca")
     
+    static let subQuestionTextBackground = Color("Tosca")
+    
     static let warmUpCardBackground = Color("Ash")
   
     static let buttonOutlineCommitment = Color("Tosca")

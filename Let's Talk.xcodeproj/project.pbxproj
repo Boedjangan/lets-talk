@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4E1A55552A6A29720056951B /* LoveLogRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1A55542A6A29720056951B /* LoveLogRoutes.swift */; };
+		4E1A55572A6A37660056951B /* SubQuestionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E1A55562A6A37660056951B /* SubQuestionTextView.swift */; };
 		4E7990B52A6643FF002027D1 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990B42A6643FF002027D1 /* UserService.swift */; };
 		4E7990B72A664414002027D1 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990B62A664414002027D1 /* UserRepository.swift */; };
 		4E7990B92A66443B002027D1 /* UserRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990B82A66443B002027D1 /* UserRepositoryImpl.swift */; };
@@ -66,6 +67,7 @@
 
 /* Begin PBXFileReference section */
 		4E1A55542A6A29720056951B /* LoveLogRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLogRoutes.swift; sourceTree = "<group>"; };
+		4E1A55562A6A37660056951B /* SubQuestionTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubQuestionTextView.swift; sourceTree = "<group>"; };
 		4E7990B42A6643FF002027D1 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		4E7990B62A664414002027D1 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		4E7990B82A66443B002027D1 /* UserRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryImpl.swift; sourceTree = "<group>"; };
@@ -457,6 +459,7 @@
 			isa = PBXGroup;
 			children = (
 				C9EE06172A696DB500AD061B /* WarmUpCardView.swift */,
+				4E1A55562A6A37660056951B /* SubQuestionTextView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -628,6 +631,7 @@
 				4E7990B92A66443B002027D1 /* UserRepositoryImpl.swift in Sources */,
 				4EF7696A2A5D1D6800F489DF /* Let_s_Talk.xcdatamodeld in Sources */,
 				4E7990BB2A66445A002027D1 /* User.swift in Sources */,
+				4E1A55572A6A37660056951B /* SubQuestionTextView.swift in Sources */,
 				4EF769602A5D1D6800F489DF /* ContentView.swift in Sources */,
 				4E7991132A66A605002027D1 /* Collection+Extensions.swift in Sources */,
 				4E7990E22A664617002027D1 /* QuestionViewModel.swift in Sources */,
