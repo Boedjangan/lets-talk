@@ -9,10 +9,8 @@ import SwiftUI
 
 struct WarmUpCardView<Content: View>: View {
     private let content: () -> Content
-    private let backgroundColor: Color
 
-    init(backgroundColor: Color = .warmUpCardBackground, @ViewBuilder content: @escaping () -> Content) {
-        self.backgroundColor = backgroundColor
+    init(@ViewBuilder content: @escaping () -> Content) {
         self.content = content
     }
 
@@ -24,7 +22,7 @@ struct WarmUpCardView<Content: View>: View {
         .multilineTextAlignment(.center)
         .foregroundColor(Color.white)
         .frame(maxWidth: .infinity, maxHeight: 200)
-        .background(backgroundColor)
+        .background(Color.warmUpCardBackground)
         .cornerRadius(10)
     }
 }
@@ -32,7 +30,7 @@ struct WarmUpCardView<Content: View>: View {
 
 struct WarmUpCardView_Previews: PreviewProvider {
     static var previews: some View {
-        WarmUpCardView(backgroundColor: Color.warmUpCardBackground) {
+        WarmUpCardView() {
             Text("Heading")
             Text("Paragraph")
         }
