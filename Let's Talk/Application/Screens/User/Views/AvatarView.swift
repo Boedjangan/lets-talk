@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AvatarView: View {
-    var userName : String = "User"
+    var userName : String = ""
 //    var iconImage : Image = nil
     var body: some View {
         VStack{
