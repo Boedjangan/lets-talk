@@ -17,7 +17,7 @@ extension Color{
     static let buttonPrimary = Color("Pink")
     static let buttonSecondary = Color("Tosca")
     
-    static let warpUpCardBackground = Color("Ash")
+    static let warmUpCardBackground = Color("Ash")
     
     static let genderSelectorWrapper = Color("DarkGray").opacity(0.17)
     static let genderSelected = Color.white
