@@ -60,6 +60,8 @@
 		9BAAA28A2A6987E100671179 /* BarProgressStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2892A6987E100671179 /* BarProgressStyle.swift */; };
 		C94650862A6837F700BEAC7A /* HeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94650852A6837F700BEAC7A /* HeroView.swift */; };
 		C94650882A690BC600BEAC7A /* AppLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94650872A690BC600BEAC7A /* AppLogoView.swift */; };
+		C9EE061A2A69713D00AD061B /* WarmUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06192A69713D00AD061B /* WarmUpScreen.swift */; };
+		C9EE061C2A69F94D00AD061B /* WarmUpTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE061B2A69F94D00AD061B /* WarmUpTimerView.swift */; };
 		C9EE06162A69283F00AD061B /* TalkTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06152A69283F00AD061B /* TalkTimeView.swift */; };
 		C9EE06182A696DB500AD061B /* WarmUpCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06172A696DB500AD061B /* WarmUpCardView.swift */; };
 /* End PBXBuildFile section */
@@ -120,6 +122,8 @@
 		9BAAA2892A6987E100671179 /* BarProgressStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarProgressStyle.swift; sourceTree = "<group>"; };
 		C94650852A6837F700BEAC7A /* HeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroView.swift; sourceTree = "<group>"; };
 		C94650872A690BC600BEAC7A /* AppLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogoView.swift; sourceTree = "<group>"; };
+		C9EE06192A69713D00AD061B /* WarmUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmUpScreen.swift; sourceTree = "<group>"; };
+		C9EE061B2A69F94D00AD061B /* WarmUpTimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WarmUpTimerView.swift; path = "Let's Talk/Application/Screens/Topic/WarmUpTimerView.swift"; sourceTree = SOURCE_ROOT; };
 		C9EE06152A69283F00AD061B /* TalkTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkTimeView.swift; sourceTree = "<group>"; };
 		C9EE06172A696DB500AD061B /* WarmUpCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmUpCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -368,6 +372,7 @@
 			children = (
 				4E7991062A66A423002027D1 /* LoveLog */,
 				4E7991052A66A41D002027D1 /* Question */,
+				C9EE06192A69713D00AD061B /* WarmUpScreen.swift */,
 				4E7991042A66A415002027D1 /* Topic */,
 				4E7990F72A66A29B002027D1 /* User */,
 			);
@@ -456,6 +461,7 @@
 		4E7991092A66A454002027D1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C9EE061B2A69F94D00AD061B /* WarmUpTimerView.swift */,
 				C9EE06172A696DB500AD061B /* WarmUpCardView.swift */,
 			);
 			path = Views;
@@ -611,6 +617,7 @@
 				9BAAA28A2A6987E100671179 /* BarProgressStyle.swift in Sources */,
 				4E7990D92A6645E6002027D1 /* LoveLogRepository.swift in Sources */,
 				9BAAA27A2A68E8A300671179 /* DashboardScreen.swift in Sources */,
+				C9EE061A2A69713D00AD061B /* WarmUpScreen.swift in Sources */,
 				4E7990F22A66A1C0002027D1 /* Fonts.swift in Sources */,
 				4E7990FF2A66A3A0002027D1 /* UserOnboardingScreen.swift in Sources */,
 				C9EE06162A69283F00AD061B /* TalkTimeView.swift in Sources */,
@@ -650,6 +657,7 @@
 				4E1A55552A6A29720056951B /* LoveLogRoutes.swift in Sources */,
 				C94650882A690BC600BEAC7A /* AppLogoView.swift in Sources */,
 				9BAAA2782A68E7DA00671179 /* TabBarView.swift in Sources */,
+				C9EE061C2A69F94D00AD061B /* WarmUpTimerView.swift in Sources */,
 				C94650862A6837F700BEAC7A /* HeroView.swift in Sources */,
 				4E7991032A66A404002027D1 /* UserPairingSuccessScreen.swift in Sources */,
 				4EDF2ADA2A6805C1002E0645 /* ButtonView.swift in Sources */,
