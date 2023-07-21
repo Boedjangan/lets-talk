@@ -62,6 +62,22 @@
 		C94650882A690BC600BEAC7A /* AppLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94650872A690BC600BEAC7A /* AppLogoView.swift */; };
 		C9EE06162A69283F00AD061B /* TalkTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06152A69283F00AD061B /* TalkTimeView.swift */; };
 		C9EE06182A696DB500AD061B /* WarmUpCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06172A696DB500AD061B /* WarmUpCardView.swift */; };
+		C9EE06462A6B512C00AD061B /* TopicExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06452A6B512C00AD061B /* TopicExtension.swift */; };
+		C9EE06482A6B51BD00AD061B /* QuestionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06472A6B51BD00AD061B /* QuestionExtension.swift */; };
+		C9EE06552A6B574700AD061B /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06492A6B574700AD061B /* User+CoreDataClass.swift */; };
+		C9EE06562A6B574700AD061B /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE064A2A6B574700AD061B /* User+CoreDataProperties.swift */; };
+		C9EE06572A6B574700AD061B /* LoveLog+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE064B2A6B574700AD061B /* LoveLog+CoreDataClass.swift */; };
+		C9EE06582A6B574700AD061B /* LoveLog+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE064C2A6B574700AD061B /* LoveLog+CoreDataProperties.swift */; };
+		C9EE06592A6B574700AD061B /* Question+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE064D2A6B574700AD061B /* Question+CoreDataClass.swift */; };
+		C9EE065A2A6B574700AD061B /* Question+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE064E2A6B574700AD061B /* Question+CoreDataProperties.swift */; };
+		C9EE065B2A6B574700AD061B /* Topic+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE064F2A6B574700AD061B /* Topic+CoreDataClass.swift */; };
+		C9EE065C2A6B574700AD061B /* Topic+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06502A6B574700AD061B /* Topic+CoreDataProperties.swift */; };
+		C9EE065D2A6B574700AD061B /* Answer+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06512A6B574700AD061B /* Answer+CoreDataClass.swift */; };
+		C9EE065E2A6B574700AD061B /* Answer+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06522A6B574700AD061B /* Answer+CoreDataProperties.swift */; };
+		C9EE065F2A6B574700AD061B /* SubQuestion+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06532A6B574700AD061B /* SubQuestion+CoreDataClass.swift */; };
+		C9EE06602A6B574700AD061B /* SubQuestion+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06542A6B574700AD061B /* SubQuestion+CoreDataProperties.swift */; };
+		C9EE06622A6B57BD00AD061B /* LoveLogExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06612A6B57BD00AD061B /* LoveLogExtension.swift */; };
+		C9EE06642A6B581200AD061B /* UserExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06632A6B581200AD061B /* UserExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,6 +138,22 @@
 		C94650872A690BC600BEAC7A /* AppLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogoView.swift; sourceTree = "<group>"; };
 		C9EE06152A69283F00AD061B /* TalkTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkTimeView.swift; sourceTree = "<group>"; };
 		C9EE06172A696DB500AD061B /* WarmUpCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmUpCardView.swift; sourceTree = "<group>"; };
+		C9EE06452A6B512C00AD061B /* TopicExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicExtension.swift; sourceTree = "<group>"; };
+		C9EE06472A6B51BD00AD061B /* QuestionExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionExtension.swift; sourceTree = "<group>"; };
+		C9EE06492A6B574700AD061B /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C9EE064A2A6B574700AD061B /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C9EE064B2A6B574700AD061B /* LoveLog+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoveLog+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C9EE064C2A6B574700AD061B /* LoveLog+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoveLog+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C9EE064D2A6B574700AD061B /* Question+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Question+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C9EE064E2A6B574700AD061B /* Question+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Question+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C9EE064F2A6B574700AD061B /* Topic+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C9EE06502A6B574700AD061B /* Topic+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Topic+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C9EE06512A6B574700AD061B /* Answer+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Answer+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C9EE06522A6B574700AD061B /* Answer+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Answer+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C9EE06532A6B574700AD061B /* SubQuestion+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SubQuestion+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C9EE06542A6B574700AD061B /* SubQuestion+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SubQuestion+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C9EE06612A6B57BD00AD061B /* LoveLogExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLogExtension.swift; sourceTree = "<group>"; };
+		C9EE06632A6B581200AD061B /* UserExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -330,6 +362,7 @@
 		4E7990E92A664861002027D1 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				C9EE06442A6B4CF900AD061B /* Model */,
 				4EF769662A5D1D6800F489DF /* Persistence.swift */,
 				4EF769682A5D1D6800F489DF /* Let_s_Talk.xcdatamodeld */,
 			);
@@ -534,6 +567,29 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		C9EE06442A6B4CF900AD061B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				C9EE06492A6B574700AD061B /* User+CoreDataClass.swift */,
+				C9EE064A2A6B574700AD061B /* User+CoreDataProperties.swift */,
+				C9EE064B2A6B574700AD061B /* LoveLog+CoreDataClass.swift */,
+				C9EE064C2A6B574700AD061B /* LoveLog+CoreDataProperties.swift */,
+				C9EE064D2A6B574700AD061B /* Question+CoreDataClass.swift */,
+				C9EE064E2A6B574700AD061B /* Question+CoreDataProperties.swift */,
+				C9EE064F2A6B574700AD061B /* Topic+CoreDataClass.swift */,
+				C9EE06502A6B574700AD061B /* Topic+CoreDataProperties.swift */,
+				C9EE06512A6B574700AD061B /* Answer+CoreDataClass.swift */,
+				C9EE06522A6B574700AD061B /* Answer+CoreDataProperties.swift */,
+				C9EE06532A6B574700AD061B /* SubQuestion+CoreDataClass.swift */,
+				C9EE06542A6B574700AD061B /* SubQuestion+CoreDataProperties.swift */,
+				C9EE06632A6B581200AD061B /* UserExtension.swift */,
+				C9EE06612A6B57BD00AD061B /* LoveLogExtension.swift */,
+				C9EE06472A6B51BD00AD061B /* QuestionExtension.swift */,
+				C9EE06452A6B512C00AD061B /* TopicExtension.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -604,13 +660,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9EE065F2A6B574700AD061B /* SubQuestion+CoreDataClass.swift in Sources */,
 				4E7991012A66A3E9002027D1 /* UserSetupScreen.swift in Sources */,
 				4EF769672A5D1D6800F489DF /* Persistence.swift in Sources */,
 				4E7990FB2A66A333002027D1 /* UserPairingScreen.swift in Sources */,
+				C9EE065E2A6B574700AD061B /* Answer+CoreDataProperties.swift in Sources */,
 				4EAE9D2B2A68EEDA00A7B7E6 /* StatefulPreviewView.swift in Sources */,
 				9BAAA28A2A6987E100671179 /* BarProgressStyle.swift in Sources */,
 				4E7990D92A6645E6002027D1 /* LoveLogRepository.swift in Sources */,
+				C9EE06552A6B574700AD061B /* User+CoreDataClass.swift in Sources */,
+				C9EE065B2A6B574700AD061B /* Topic+CoreDataClass.swift in Sources */,
 				9BAAA27A2A68E8A300671179 /* DashboardScreen.swift in Sources */,
+				C9EE065D2A6B574700AD061B /* Answer+CoreDataClass.swift in Sources */,
 				4E7990F22A66A1C0002027D1 /* Fonts.swift in Sources */,
 				4E7990FF2A66A3A0002027D1 /* UserOnboardingScreen.swift in Sources */,
 				C9EE06162A69283F00AD061B /* TalkTimeView.swift in Sources */,
@@ -623,17 +684,24 @@
 				4E79910F2A66A569002027D1 /* JSONHandler.swift in Sources */,
 				4E7990F02A66A1B9002027D1 /* Colors.swift in Sources */,
 				9BAAA2762A67EEF400671179 /* AvatarView.swift in Sources */,
+				C9EE06572A6B574700AD061B /* LoveLog+CoreDataClass.swift in Sources */,
 				4E7990CC2A664586002027D1 /* QuestionRepository.swift in Sources */,
 				9BAAA2822A68F9F700671179 /* TopicIconView.swift in Sources */,
+				C9EE06642A6B581200AD061B /* UserExtension.swift in Sources */,
+				C9EE06582A6B574700AD061B /* LoveLog+CoreDataProperties.swift in Sources */,
 				4E7990B92A66443B002027D1 /* UserRepositoryImpl.swift in Sources */,
 				4EF7696A2A5D1D6800F489DF /* Let_s_Talk.xcdatamodeld in Sources */,
 				4E7990BB2A66445A002027D1 /* User.swift in Sources */,
+				C9EE06462A6B512C00AD061B /* TopicExtension.swift in Sources */,
 				4EF769602A5D1D6800F489DF /* ContentView.swift in Sources */,
 				4E7991132A66A605002027D1 /* Collection+Extensions.swift in Sources */,
+				C9EE06622A6B57BD00AD061B /* LoveLogExtension.swift in Sources */,
 				4E7990E22A664617002027D1 /* QuestionViewModel.swift in Sources */,
+				C9EE06562A6B574700AD061B /* User+CoreDataProperties.swift in Sources */,
 				4E7991112A66A5B2002027D1 /* SwipeDetection.swift in Sources */,
 				4E7990D12A6645A6002027D1 /* QuestionService.swift in Sources */,
 				4EF7695E2A5D1D6800F489DF /* Let_s_TalkApp.swift in Sources */,
+				C9EE065C2A6B574700AD061B /* Topic+CoreDataProperties.swift in Sources */,
 				4E7990C92A664569002027D1 /* Question.swift in Sources */,
 				4E7990B72A664414002027D1 /* UserRepository.swift in Sources */,
 				4E7990C62A6644C2002027D1 /* TopicService.swift in Sources */,
@@ -653,10 +721,14 @@
 				C94650862A6837F700BEAC7A /* HeroView.swift in Sources */,
 				4E7991032A66A404002027D1 /* UserPairingSuccessScreen.swift in Sources */,
 				4EDF2ADA2A6805C1002E0645 /* ButtonView.swift in Sources */,
+				C9EE06602A6B574700AD061B /* SubQuestion+CoreDataProperties.swift in Sources */,
 				4E7990C22A6644A8002027D1 /* TopicRepository.swift in Sources */,
 				4E7990F62A66A28C002027D1 /* DashboardRoutes.swift in Sources */,
+				C9EE065A2A6B574700AD061B /* Question+CoreDataProperties.swift in Sources */,
 				4EE799632A683D2800675622 /* UnitConverter.swift in Sources */,
 				4E7990C42A6644B6002027D1 /* TopicRepositoryImpl.swift in Sources */,
+				C9EE06482A6B51BD00AD061B /* QuestionExtension.swift in Sources */,
+				C9EE06592A6B574700AD061B /* Question+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
