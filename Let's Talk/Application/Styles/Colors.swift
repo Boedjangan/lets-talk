@@ -19,7 +19,7 @@ extension Color{
     static let buttonHoverBorderPrimary = Color("GrayBorder")
     static let buttonSecondary = Color("Tosca")
     
-    static let warpUpCardBackground = Color("Ash")
+    static let warmUpCardBackground = Color("Ash")
   
     static let buttonOutlineCommitment = Color("Tosca")
     static let buttonOutlineTrust = Color("Blue")
