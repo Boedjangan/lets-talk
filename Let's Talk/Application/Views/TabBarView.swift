@@ -59,7 +59,9 @@ struct TabBarView: View {
 struct TabBarView_Previews: PreviewProvider {    
     static var previews: some View {
         StatefulObjectPreviewView(DashboardNavigationManager()) { dash in
-            TabBarView(dashboardNavigation: dash)
+            StatefulObjectPreviewView(LoveLogNavigationManager()) { love in
+                TabBarView(dashboardNavigation: dash, loveLogNavigation: love)
+            }
         }
     }
 }
