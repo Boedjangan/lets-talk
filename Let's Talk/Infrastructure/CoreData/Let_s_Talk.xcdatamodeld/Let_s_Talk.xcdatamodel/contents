@@ -21,7 +21,7 @@
         <attribute name="image" optional="YES" attributeType="String"/>
         <attribute name="isCompleted" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="question" optional="YES" attributeType="String"/>
-        <attribute name="talkDuration" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="talkDuration" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="warmUp" optional="YES" attributeType="String"/>
         <relationship name="answer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Answer" inverseName="question" inverseEntity="Answer"/>
@@ -51,8 +51,9 @@
     <entity name="User" representedClassName="User" syncable="YES">
         <attribute name="coupleId" optional="YES" attributeType="String"/>
         <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="gender" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
-        <attribute name="talkDuration" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="gender" optional="YES" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="talkDuration" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="username" optional="YES" attributeType="String"/>
         <relationship name="loveLog" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LoveLog" inverseName="user" inverseEntity="LoveLog"/>

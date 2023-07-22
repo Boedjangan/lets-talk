@@ -18,10 +18,11 @@ extension User {
 
     @NSManaged public var coupleId: String?
     @NSManaged public var createdAt: Date?
-    @NSManaged public var gender: Bool
-    @NSManaged public var talkDuration: Int16
+    @NSManaged public var gender: Int16
+    @NSManaged public var talkDuration: Int64
     @NSManaged public var updatedAt: Date?
     @NSManaged public var username: String?
+    @NSManaged public var id: UUID?
     @NSManaged public var loveLog: NSSet?
 
 }

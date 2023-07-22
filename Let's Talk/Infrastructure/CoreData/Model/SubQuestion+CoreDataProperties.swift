@@ -16,10 +16,10 @@ extension SubQuestion {
         return NSFetchRequest<SubQuestion>(entityName: "SubQuestion")
     }
 
+    @NSManaged public var createdAt: Date?
     @NSManaged public var id: UUID?
     @NSManaged public var subQuestion: String?
-    @NSManaged public var createdAt: Date?
-    @NSManaged public var updatedAt: NSObject?
+    @NSManaged public var updatedAt: Date?
     @NSManaged public var question: Question?
 
 }

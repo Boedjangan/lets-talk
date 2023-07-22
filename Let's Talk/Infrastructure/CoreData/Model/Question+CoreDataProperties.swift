@@ -21,7 +21,7 @@ extension Question {
     @NSManaged public var image: String?
     @NSManaged public var isCompleted: Bool
     @NSManaged public var question: String?
-    @NSManaged public var talkDuration: Int16
+    @NSManaged public var talkDuration: Int64
     @NSManaged public var updatedAt: Date?
     @NSManaged public var warmUp: String?
     @NSManaged public var answer: Answer?
