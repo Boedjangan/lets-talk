@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+protocol UserRepository {
+    func getUserDetails() -> UserEntity?
+    func updateUserDetails() -> UserEntity?
+    func updateUserTalkDuration() -> UserEntity?
+}
