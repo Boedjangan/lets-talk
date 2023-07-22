@@ -23,6 +23,9 @@ extension Font {
     
     static let textInput = Font.system(size: 16, weight: .bold, design: .default)
     
+    static let warmUpAnswerHeading = Font.system(size: 17, weight: .semibold, design: .default)
+    static let warmUpAnswer = Font.system(size: 17, weight: .regular, design: .default)
+    
     static let subQuestion = Font.system(size: 12, weight: .regular, design: .default)
     
     static let bigNumber = Font.system(size: 78, weight: .bold, design: .default)
