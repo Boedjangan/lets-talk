@@ -10,23 +10,23 @@ import Foundation
 class UserService {
     private let userRepository: UserRepository
     
-    init init(userRepository: UserRepository) {
+    init(userRepository: UserRepository) {
         self.userRepository = userRepository
     }
     
     func createNewUser(newUser: UserEntity) -> UserEntity? {
-        return self.createNewUser(newUser: newUser)
+        return userRepository.createNewUser(newUser: newUser)
     }
     
     func getUserDetails() -> UserEntity? {
-        return self.getUserDetails()
+        return userRepository.getUserDetails()
     }
     
     func updateUserDetails(mutatedUser: UserEntity) -> UserEntity? {
-        return self.updateUserDetails(mutatedUser: mutatedUser)
+        return userRepository.updateUserDetails(mutatedUser: mutatedUser)
     }
     
     func updateUserTalkDuration(newTalkDuration: Int) -> UserEntity? {
-        return self.updateUserTalkDuration(newTalkDuration: newTalkDuration)
+        return userRepository.updateUserTalkDuration(newTalkDuration: newTalkDuration)
     }
 }

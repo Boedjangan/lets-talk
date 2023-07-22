@@ -12,6 +12,8 @@ class CoreDataAdapter: UserRepository {
     private let coreDataContext = CoreDataConnection.shared.managedObjectContext
     
     func createNewUser(newUser: UserEntity) -> UserEntity? {
+        let request: NSFetchRequest<User> = User.fetchRequest()
+        
         do {
             let users = try coreDataContext.fetch(request)
             
@@ -31,9 +33,9 @@ class CoreDataAdapter: UserRepository {
         
         user.id = newUser.id
         user.username = newUser.username
-        user.gender = newUser.gender.rawValue
+        user.gender = Int16(newUser.gender.rawValue)
         user.coupleId = newUser.coupleId
-        user.talkDuration = newUser.talkDuration
+        user.talkDuration = Int64(newUser.talkDuration ?? 0)
         user.createdAt = newUser.createdAt
         user.updatedAt = newUser.updatedAt
         
@@ -60,13 +62,13 @@ class CoreDataAdapter: UserRepository {
             }
             
             return UserEntity(
-                id: user.id,
-                username: user.username,
-                gender: Gender(rawValue: user.gender),
+                id: user.id.unsafelyUnwrapped,
+                username: user.username.unsafelyUnwrapped,
+                gender: Gender(rawValue: user.gender.toInt) ?? .male,
                 coupleId: user.coupleId ?? "",
-                talkDuration: user.talkDuration,
-                createdAt: user.createdAt,
-                updatedAt: user.updatedAt
+                talkDuration: user.talkDuration.toInt,
+                createdAt: user.createdAt.unsafelyUnwrapped,
+                updatedAt: user.updatedAt.unsafelyUnwrapped
             )
         } catch {
             print("Failed getting user details")
@@ -87,20 +89,20 @@ class CoreDataAdapter: UserRepository {
             }
             
             user.username = mutatedUser.username
-            user.gender = mutatedUser.gender.rawValue
+            user.gender = mutatedUser.gender.rawValue.toInt16
             user.coupleId = mutatedUser.coupleId ?? user.coupleId
             user.updatedAt = Date()
             
             try coreDataContext.save()
             
             return UserEntity(
-                id: user.id,
-                username: user.username,
-                gender: Gender(rawValue: user.gender),
+                id: user.id.unsafelyUnwrapped,
+                username: user.username.unsafelyUnwrapped,
+                gender: Gender(rawValue: user.gender.toInt) ?? .male,
                 coupleId: user.coupleId ?? "",
-                talkDuration: user.talkDuration,
-                createdAt: user.createdAt,
-                updatedAt: user.updatedAt
+                talkDuration: user.talkDuration.toInt,
+                createdAt: user.createdAt.unsafelyUnwrapped,
+                updatedAt: user.updatedAt.unsafelyUnwrapped
             )
         } catch {
             print("Failed updating user details")
@@ -120,19 +122,19 @@ class CoreDataAdapter: UserRepository {
                 return nil
             }
             
-            user.talkDuration = newTalkDuration
+            user.talkDuration = newTalkDuration.toInt64
             user.updatedAt = Date()
             
             try coreDataContext.save()
             
             return UserEntity(
-                id: user.id,
-                username: user.username,
-                gender: Gender(rawValue: user.gender),
+                id: user.id.unsafelyUnwrapped,
+                username: user.username.unsafelyUnwrapped,
+                gender: Gender(rawValue: user.gender.toInt) ?? .male,
                 coupleId: user.coupleId ?? "",
-                talkDuration: user.talkDuration,
-                createdAt: user.createdAt,
-                updatedAt: user.updatedAt
+                talkDuration: user.talkDuration.toInt,
+                createdAt: user.createdAt.unsafelyUnwrapped,
+                updatedAt: user.updatedAt.unsafelyUnwrapped
             )
         } catch {
             print("Failed updating user talk duration")
