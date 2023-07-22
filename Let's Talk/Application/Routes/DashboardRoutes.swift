@@ -7,15 +7,18 @@
 
 import SwiftUI
 
-enum MainRoutes: Hashable {
-    case a
-    case b
+enum DashboardRoutes: Hashable {
+    case dashboard
+    case warmup
+    case warmup_result
+    case question_sender
+    case question_receiver
 }
 
-class MainNavigationManager: ObservableObject{
+class DashboardNavigationManager: ObservableObject {
     @Published var navigationPaths = NavigationPath()
     
-    func push(to route: MainRoutes) {
+    func push(to route: DashboardRoutes) {
         navigationPaths.append(route)
     }
     

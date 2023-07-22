@@ -32,15 +32,15 @@ struct AvatarView: View {
                     .font(Font.avatarIcon)
                     .foregroundColor(Color.white)
             }
-            
-            
         }
     }
 }
 
 struct AvatarView_Previews: PreviewProvider {
     static var previews: some View {
-        AvatarView()
+        LayoutView {
+            AvatarView()
+        }
     }
 }
 
