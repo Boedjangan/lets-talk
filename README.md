@@ -39,6 +39,14 @@ Berikut adalah format pesan commit:
 - Silahkan tunggu pull request diterima atau ditolak
 - Jika diterima maka branch akan dimerge ke main branch
 
+### Menemukan Issue
+- Jika saat mengerjakan code menemukan masalah pada cara kerja code atau penulisan atau error lainnya
+- Silahkan menuju repo github, lalu klik tab Issues
+- Pencet tombol new issue
+- Tulis judul dan deskripsi issue yang ditemukan
+- Berikan assigne ke orang yang mengerjakan code tersebut
+- Jika sudah lengkap diisi dan diassign orangnya, silahkan submit
+
 ## Code Convention
 
 ### Naming Convention
@@ -78,7 +86,7 @@ struct UserProfileView: View {
 ```swift
 // Example
 enum UserStatus {
-    case active
+    case active_user
     case suspended
     case banned
 }
@@ -104,6 +112,8 @@ struct HTTPRequest {
 
 - Name boolean variables and functions as a question or statement that can be answered with a true or false.
 - Use clear and descriptive names to indicate the purpose of the boolean value or function.
+- For conditional or ternary instead of doing it imperatively, please abstract it as a explicitly by extending or creating a constant. 
+
 
 ```swift
 // Example
@@ -111,6 +121,16 @@ var isCompleted: Bool
 var isProfileEmpty: Bool
 
 func hasValidCredentials() -> Bool {
+    ...
+}
+
+// Instead of this
+if user === "student" {
+    ...
+}
+
+// Do this
+if user.isStudent {
     ...
 }
 ```

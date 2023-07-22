@@ -26,6 +26,7 @@ struct AvatarView: View {
                 }
                
             }
+<<<<<<< HEAD
                 .padding(18)
             if(userName != ""){
                 Text(userName)
@@ -34,13 +35,22 @@ struct AvatarView: View {
             }
             
             
+=======
+            .padding(18)
+            
+            Text(userName)
+                .font(Font.avatarIcon)
+                .foregroundColor(Color.white)
+>>>>>>> ca9f30f20ca0b8d82145948b5bfad9ee28971eab
         }
     }
 }
 
 struct AvatarView_Previews: PreviewProvider {
     static var previews: some View {
-        AvatarView()
+        LayoutView {
+            AvatarView()
+        }
     }
 }
 
