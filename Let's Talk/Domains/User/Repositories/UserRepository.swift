@@ -10,6 +10,6 @@ import Foundation
 protocol UserRepository {
     func createNewUser(newUser: UserEntity) -> UserEntity?
     func getUserDetails() -> UserEntity?
-    func updateUserDetails(username: String, gender: Gender, coupleId: String) -> UserEntity?
+    func updateUserDetails(mutatedUser: UserEntity) -> UserEntity?
     func updateUserTalkDuration(newTalkDuration: Int) -> UserEntity?
 }

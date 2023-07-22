@@ -22,8 +22,8 @@ class UserService {
         return self.getUserDetails()
     }
     
-    func updateUserDetails(username: String, gender: Gender, coupleId: String) -> UserEntity? {
-        return self.updateUserDetails(username: username, gender: gender, coupleId: coupleId)
+    func updateUserDetails(mutatedUser: UserEntity) -> UserEntity? {
+        return self.updateUserDetails(mutatedUser: mutatedUser)
     }
     
     func updateUserTalkDuration(newTalkDuration: Int) -> UserEntity? {

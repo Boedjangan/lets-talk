@@ -1,5 +1,5 @@
 //
-//  UserRepositoryImpl.swift
+//  CoreDataAdapter.swift
 //  Let's Talk
 //
 //  Created by Bisma Mahendra I Dewa Gede on 18/07/23.
@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-class UserRepositoryImpl: UserRepository {
+class CoreDataAdapter: UserRepository {
     private let coreDataContext = CoreDataConnection.shared.managedObjectContext
     
     func createNewUser(newUser: UserEntity) -> UserEntity? {
@@ -76,7 +76,7 @@ class UserRepositoryImpl: UserRepository {
         }
     }
     
-    func updateUserDetails(username: String, gender: Gender, coupleId: String) -> UserEntity? {
+    func updateUserDetails(mutatedUser: UserEntity) -> UserEntity? {
         let request: NSFetchRequest<User> = User.fetchRequest()
         
         do {
@@ -86,9 +86,9 @@ class UserRepositoryImpl: UserRepository {
                 return nil
             }
             
-            user.username = username
-            user.gender = gender.rawValue
-            user.coupleId = coupleId
+            user.username = mutatedUser.username
+            user.gender = mutatedUser.gender.rawValue
+            user.coupleId = mutatedUser.coupleId ?? user.coupleId
             user.updatedAt = Date()
             
             try coreDataContext.save()
