@@ -10,6 +10,7 @@ import SwiftUI
 struct UserSetupScreen: View {
     @State private var userName: String = ""
     @State private var gender: Gender = .male
+    
     var body: some View {
         LayoutView {
             Spacer()

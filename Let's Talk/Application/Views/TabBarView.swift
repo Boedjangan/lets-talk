@@ -35,7 +35,7 @@ struct TabBarView: View {
                 Label("Test",systemImage: "heart.circle.fill")
             }
             
-            NavigationStack(path: $dashboardNavigation.navigationPaths) {
+            NavigationStack(path: $loveLogNavigation.navigationPaths) {
                 LoveLogScreen()
                     .navigationDestination(for: LoveLogRoutes.self) { routes in
                         switch(routes) {
