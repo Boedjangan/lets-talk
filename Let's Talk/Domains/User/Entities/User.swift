@@ -6,3 +6,14 @@
 //
 
 import Foundation
+
+struct User: Identifiable {
+    var id: UUID
+    var username: String
+    var gender: Gender
+    var coupleId: String
+    var talkDuration: Int
+    var createdAt: Date
+    var updatedAt: Date
+}
+

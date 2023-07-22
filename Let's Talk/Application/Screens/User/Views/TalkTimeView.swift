@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TalkTimeView: View {
     let talkTime: Int
+    
     var body: some View {
         HStack {
             Text("\(talkTime)")
