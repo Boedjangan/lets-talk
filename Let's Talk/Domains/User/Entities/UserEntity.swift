@@ -8,12 +8,12 @@
 import Foundation
 
 struct UserEntity: Identifiable {
-    var id: UUID
-    var username: String
-    var gender: Gender
+    var id: UUID = UUID()
+    var username: String = ""
+    var gender: Gender = .male
     var coupleId: String?
     var talkDuration: Int?
-    var createdAt: Date
-    var updatedAt: Date
+    var createdAt: Date = Date()
+    var updatedAt: Date = Date()
 }
 
