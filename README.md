@@ -39,6 +39,14 @@ Berikut adalah format pesan commit:
 - Silahkan tunggu pull request diterima atau ditolak
 - Jika diterima maka branch akan dimerge ke main branch
 
+### Menemukan Issue
+- Jika saat mengerjakan code menemukan masalah pada cara kerja code atau penulisan atau error lainnya
+- Silahkan menuju repo github, lalu klik tab Issues
+- Pencet tombol new issue
+- Tulis judul dan deskripsi issue yang ditemukan
+- Berikan assigne ke orang yang mengerjakan code tersebut
+- Jika sudah lengkap diisi dan diassign orangnya, silahkan submit
+
 ## Code Convention
 
 ### Naming Convention

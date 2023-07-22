@@ -1,9 +1,61 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
-        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22F82" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Answer" representedClassName="Answer" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="recordedAnswer" optional="YES" attributeType="String"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="question" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Question" inverseName="answer" inverseEntity="Question"/>
     </entity>
-    <elements>
-        <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
-    </elements>
+    <entity name="LoveLog" representedClassName="LoveLog" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="question" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Question" inverseName="loveLog" inverseEntity="Question"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="loveLog" inverseEntity="User"/>
+    </entity>
+    <entity name="Question" representedClassName="Question" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="image" optional="YES" attributeType="String"/>
+        <attribute name="isCompleted" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="question" optional="YES" attributeType="String"/>
+        <attribute name="talkDuration" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="warmUp" optional="YES" attributeType="String"/>
+        <relationship name="answer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Answer" inverseName="question" inverseEntity="Answer"/>
+        <relationship name="loveLog" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LoveLog" inverseName="question" inverseEntity="LoveLog"/>
+        <relationship name="subQuestion" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SubQuestion" inverseName="question" inverseEntity="SubQuestion"/>
+        <relationship name="topic" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Topic" inverseName="question" inverseEntity="Topic"/>
+    </entity>
+    <entity name="SubQuestion" representedClassName="SubQuestion" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="subQuestion" optional="YES" attributeType="String"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="question" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Question" inverseName="subQuestion" inverseEntity="Question"/>
+    </entity>
+    <entity name="Topic" representedClassName="Topic" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="iconName" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isActive" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isCompleted" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="level" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="progress" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="question" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Question" inverseName="topic" inverseEntity="Question"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="coupleId" optional="YES" attributeType="String"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="gender" optional="YES" attributeType="Integer 16" usesScalarValueType="YES"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="talkDuration" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="username" optional="YES" attributeType="String"/>
+        <relationship name="loveLog" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="LoveLog" inverseName="user" inverseEntity="LoveLog"/>
+    </entity>
 </model>
