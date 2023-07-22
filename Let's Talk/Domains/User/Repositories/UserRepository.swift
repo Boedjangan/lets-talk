@@ -8,7 +8,8 @@
 import Foundation
 
 protocol UserRepository {
+    func createNewUser(newUser: UserEntity) -> UserEntity?
     func getUserDetails() -> UserEntity?
-    func updateUserDetails() -> UserEntity?
-    func updateUserTalkDuration() -> UserEntity?
+    func updateUserDetails(username: String, gender: Gender, coupleId: String) -> UserEntity?
+    func updateUserTalkDuration(newTalkDuration: Int) -> UserEntity?
 }
