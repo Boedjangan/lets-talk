@@ -10,17 +10,16 @@ import Foundation
 //TODO: Still need to implement more logic, will update as we go with integration
 @MainActor
 class UserViewModel: ObservableObject {
-    @Published var user: UserEntity
+    @Published var user: UserEntity = UserEntity()
     
-    private userService = UserService(userRepository: CoreDataAdapter())
+    private var userService = UserService(userRepository: CoreDataAdapter())
     
     init() {
-        self.user = user
+       initializeUser()
     }
     
     private func initializeUser() {
         guard let userDetails = userService.getUserDetails() else {
-            user = UserEntity()
             userService.createNewUser(newUser: user)
             
             return
@@ -36,6 +35,6 @@ class UserViewModel: ObservableObject {
     
     // TODO: Handle error on return nil
     func updateTalkDuration() {
-        userService.updateUserTalkDuration(newTalkDuration: user.talkDuration)
+        userService.updateUserTalkDuration(newTalkDuration: user.talkDuration ?? 0)
     }
 }
