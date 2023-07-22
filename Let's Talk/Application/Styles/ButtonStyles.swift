@@ -41,7 +41,7 @@ struct FillButtonStyle: ButtonStyle {
                 width: configuration.isPressed ? 1 : 0
             )
             .cornerRadius(10)
-            .shadow(color: Color.black.opacity(0.25), radius: 1, x: 0, y: 4)
+            .shadow(color: Color.black.opacity(0.25), radius: 4, x: 0, y: 4)
     }
     
     func foregroundColor(for role: FillButtonRole?) -> Color? {

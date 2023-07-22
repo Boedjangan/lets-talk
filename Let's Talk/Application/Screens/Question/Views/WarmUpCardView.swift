@@ -7,19 +7,32 @@
 
 import SwiftUI
 
-struct WarmUpCardView: View {
-    let question: String = "Siapa teman terbaik kamu?"
+struct WarmUpCardView<Content: View>: View {
+    private let content: () -> Content
+
+    init(@ViewBuilder content: @escaping () -> Content) {
+        self.content = content
+    }
+
     var body: some View {
-        Text(question)
+        VStack {
+            content()
+        }
+        .padding()
+        .multilineTextAlignment(.center)
         .foregroundColor(Color.white)
         .frame(maxWidth: .infinity, maxHeight: 200)
-        .background(Color.warpUpCardBackground)
+        .background(Color.warmUpCardBackground)
         .cornerRadius(10)
     }
 }
 
+
 struct WarmUpCardView_Previews: PreviewProvider {
     static var previews: some View {
-        WarmUpCardView()
+        WarmUpCardView() {
+            Text("Heading")
+            Text("Paragraph")
+        }
     }
 }
