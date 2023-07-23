@@ -24,24 +24,13 @@ struct AvatarView: View {
                     Image(iconImage)
                         .font(.system(size: 100))
                 }
-               
             }
-<<<<<<< HEAD
-                .padding(18)
+            .padding(.bottom,18)
             if(userName != ""){
                 Text(userName)
                     .font(Font.avatarIcon)
                     .foregroundColor(Color.white)
             }
-            
-            
-=======
-            .padding(18)
-            
-            Text(userName)
-                .font(Font.avatarIcon)
-                .foregroundColor(Color.white)
->>>>>>> ca9f30f20ca0b8d82145948b5bfad9ee28971eab
         }
     }
 }
