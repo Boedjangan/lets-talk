@@ -85,6 +85,7 @@
 		C9EE067A2A6B83A500AD061B /* Question+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE066E2A6B83A500AD061B /* Question+CoreDataProperties.swift */; };
 		C9EE067B2A6B83A500AD061B /* SubQuestion+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE066F2A6B83A500AD061B /* SubQuestion+CoreDataClass.swift */; };
 		C9EE067C2A6B83A500AD061B /* SubQuestion+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06702A6B83A500AD061B /* SubQuestion+CoreDataProperties.swift */; };
+		F53960E72A6D1214005211F4 /* TopicListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53960E62A6D1214005211F4 /* TopicListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -168,6 +169,7 @@
 		C9EE066E2A6B83A500AD061B /* Question+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Question+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C9EE066F2A6B83A500AD061B /* SubQuestion+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SubQuestion+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C9EE06702A6B83A500AD061B /* SubQuestion+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SubQuestion+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F53960E62A6D1214005211F4 /* TopicListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TopicListView.swift; path = "Let's Talk/TopicListView.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -501,6 +503,7 @@
 			children = (
 				9BAAA2812A68F9F700671179 /* TopicIconView.swift */,
 				9BAAA2852A69599900671179 /* TopicProgressView.swift */,
+				F53960E62A6D1214005211F4 /* TopicListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -728,6 +731,7 @@
 				4E7990B72A664414002027D1 /* UserRepository.swift in Sources */,
 				4E1A555B2A6AD6470056951B /* PairListView.swift in Sources */,
 				4E7990C62A6644C2002027D1 /* TopicService.swift in Sources */,
+				F53960E72A6D1214005211F4 /* TopicListView.swift in Sources */,
 				4E7990D62A6645D6002027D1 /* LoveLog.swift in Sources */,
 				4E7990DB2A6645F1002027D1 /* LoveLogRepositoryImpl.swift in Sources */,
 				C9EE06722A6B83A500AD061B /* Topic+CoreDataProperties.swift in Sources */,
