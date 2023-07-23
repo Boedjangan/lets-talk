@@ -16,7 +16,7 @@ struct WarmUpCorrectScreen: View {
                 Text("Sedang menunggu jawaban dari pasanganmu. setelah itu akan kami proses.")
                     .font(.paragraph)
             }
-            WarmUpCoupleAnswerView()
+            WarmUpUserAnswerView(username: "Ricky", answer: "Ricky")
             WarmUpCardView {
                 Text("Langkah awal yang baik!")
                     .font(.heading)
