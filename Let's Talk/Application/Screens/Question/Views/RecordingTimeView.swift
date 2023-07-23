@@ -6,7 +6,8 @@
 //
 
 import SwiftUI
-
+/// Recording time view untuk perhitungan detik, menggunakan second (INT)
+///     RecordingTimeView(timer:$timer)
 struct RecordingTimeView: View {
     @Binding var timer:Int
     var hours: Int{
