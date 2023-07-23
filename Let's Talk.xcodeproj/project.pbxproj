@@ -64,6 +64,7 @@
 		9BAAA2862A69599900671179 /* TopicProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2852A69599900671179 /* TopicProgressView.swift */; };
 		9BAAA28A2A6987E100671179 /* BarProgressStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2892A6987E100671179 /* BarProgressStyle.swift */; };
 		9BAAA2902A6A2E0100671179 /* RecordingTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA28F2A6A2E0100671179 /* RecordingTimeView.swift */; };
+		9BAAA28E2A6A26B200671179 /* QuestionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA28D2A6A26B200671179 /* QuestionTextView.swift */; };
 		C94650862A6837F700BEAC7A /* HeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94650852A6837F700BEAC7A /* HeroView.swift */; };
 		C94650882A690BC600BEAC7A /* AppLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94650872A690BC600BEAC7A /* AppLogoView.swift */; };
 		C9EE06162A69283F00AD061B /* TalkTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06152A69283F00AD061B /* TalkTimeView.swift */; };
@@ -148,6 +149,7 @@
 		9BAAA2852A69599900671179 /* TopicProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TopicProgressView.swift; path = "Let's Talk/Application/Screens/LoveLog/TopicProgressView.swift"; sourceTree = SOURCE_ROOT; };
 		9BAAA2892A6987E100671179 /* BarProgressStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarProgressStyle.swift; sourceTree = "<group>"; };
 		9BAAA28F2A6A2E0100671179 /* RecordingTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingTimeView.swift; sourceTree = "<group>"; };
+		9BAAA28D2A6A26B200671179 /* QuestionTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuestionTextView.swift; path = "../../../../../../../../.Trash/lets-talk 09.28.25/Let's Talk/Application/Screens/Question/Views/QuestionTextView.swift"; sourceTree = "<group>"; };
 		C94650852A6837F700BEAC7A /* HeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroView.swift; sourceTree = "<group>"; };
 		C94650872A690BC600BEAC7A /* AppLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogoView.swift; sourceTree = "<group>"; };
 		C9EE06152A69283F00AD061B /* TalkTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkTimeView.swift; sourceTree = "<group>"; };
@@ -513,6 +515,7 @@
 				C9EE061B2A69F94D00AD061B /* WarmUpTimerView.swift */,
 				C9EE06172A696DB500AD061B /* WarmUpCardView.swift */,
 				9BAAA28F2A6A2E0100671179 /* RecordingTimeView.swift */,
+				9BAAA28D2A6A26B200671179 /* QuestionTextView.swift */,
 				4E1A55562A6A37660056951B /* SubQuestionTextView.swift */,
 				4E435B2B2A6C2F1D00602281 /* WarmUpUserAnswerView.swift */,
 			);
