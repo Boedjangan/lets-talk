@@ -41,4 +41,8 @@ extension Color{
     static let background = Color("Black")
     
     static let tabBar = Color("BlackTabBar")
+    
+    static let questionBackground = Color("AshBlue")
+    
+    static let recording = Color("Maroon")
 }

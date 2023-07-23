@@ -63,6 +63,7 @@
 		9BAAA2822A68F9F700671179 /* TopicIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2812A68F9F700671179 /* TopicIconView.swift */; };
 		9BAAA2862A69599900671179 /* TopicProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2852A69599900671179 /* TopicProgressView.swift */; };
 		9BAAA28A2A6987E100671179 /* BarProgressStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2892A6987E100671179 /* BarProgressStyle.swift */; };
+		9BAAA2922A6D0D3000671179 /* QuestionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2912A6D0D3000671179 /* QuestionCardView.swift */; };
 		C94650862A6837F700BEAC7A /* HeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94650852A6837F700BEAC7A /* HeroView.swift */; };
 		C94650882A690BC600BEAC7A /* AppLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94650872A690BC600BEAC7A /* AppLogoView.swift */; };
 		C9EE06162A69283F00AD061B /* TalkTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06152A69283F00AD061B /* TalkTimeView.swift */; };
@@ -146,6 +147,7 @@
 		9BAAA2812A68F9F700671179 /* TopicIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TopicIconView.swift; path = "Let's Talk/Application/Screens/LoveLog/TopicIconView.swift"; sourceTree = SOURCE_ROOT; };
 		9BAAA2852A69599900671179 /* TopicProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TopicProgressView.swift; path = "Let's Talk/Application/Screens/LoveLog/TopicProgressView.swift"; sourceTree = SOURCE_ROOT; };
 		9BAAA2892A6987E100671179 /* BarProgressStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarProgressStyle.swift; sourceTree = "<group>"; };
+		9BAAA2912A6D0D3000671179 /* QuestionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCardView.swift; sourceTree = "<group>"; };
 		C94650852A6837F700BEAC7A /* HeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroView.swift; sourceTree = "<group>"; };
 		C94650872A690BC600BEAC7A /* AppLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogoView.swift; sourceTree = "<group>"; };
 		C9EE06152A69283F00AD061B /* TalkTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkTimeView.swift; sourceTree = "<group>"; };
@@ -447,6 +449,7 @@
 				C9EE06152A69283F00AD061B /* TalkTimeView.swift */,
 				4E1A55582A6ACCD30056951B /* PairItemView.swift */,
 				4E1A555A2A6AD6460056951B /* PairListView.swift */,
+				9BAAA2912A6D0D3000671179 /* QuestionCardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -735,6 +738,7 @@
 				4E7990F42A66A1CA002027D1 /* ButtonStyles.swift in Sources */,
 				C9EE06182A696DB500AD061B /* WarmUpCardView.swift in Sources */,
 				C9EE06792A6B83A500AD061B /* Question+CoreDataClass.swift in Sources */,
+				9BAAA2922A6D0D3000671179 /* QuestionCardView.swift in Sources */,
 				C9EE067C2A6B83A500AD061B /* SubQuestion+CoreDataProperties.swift in Sources */,
 				9BAAA27C2A68E8CD00671179 /* LoveLogScreen.swift in Sources */,
 				4E1A55592A6ACCD30056951B /* PairItemView.swift in Sources */,
