@@ -22,6 +22,9 @@ extension Color{
     static let subQuestionTextBackground = Color("Tosca")
     
     static let warmUpCardBackground = Color("Ash")
+    static let warmUpAnswerWaiting = Color("Ash")
+    static let warmUpAnswerCorrect = Color("Tosca")
+    static let warmUpAnswerWrong = Color.red
   
     static let buttonOutlineCommitment = Color("Tosca")
     static let buttonOutlineTrust = Color("Blue")

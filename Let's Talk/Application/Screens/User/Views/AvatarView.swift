@@ -8,23 +8,30 @@
 import SwiftUI
 
 struct AvatarView: View {
-    var userName : String = "User"
-//    var iconImage : Image = nil
+    var userName : String = ""
+    var iconImage : String = ""
     var body: some View {
         VStack{
             ZStack{
                 Circle()
                     .foregroundColor(Color.avatarPlaceHolder)
                     .frame(width:141,height: 141)
-                Image(systemName: "person.fill")
-                    .foregroundColor(Color.black)
-                    .font(.system(size: 100))
+                if(iconImage == ""){
+                    Image(systemName: "person.fill")
+                        .foregroundColor(Color.black)
+                        .font(.system(size: 100))
+                }else{
+                    Image(iconImage)
+                        .font(.system(size: 100))
+                }
+               
             }
-            .padding(18)
-            
-            Text(userName)
-                .font(Font.avatarIcon)
-                .foregroundColor(Color.white)
+                .padding(18)
+            if(userName != ""){
+                Text(userName)
+                    .font(Font.avatarIcon)
+                    .foregroundColor(Color.white)
+            }
         }
     }
 }
