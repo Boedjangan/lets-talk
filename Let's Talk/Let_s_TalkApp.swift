@@ -9,11 +9,15 @@ import SwiftUI
 
 @main
 struct Let_s_TalkApp: App {
+    @StateObject var userVM: UserViewModel = UserViewModel()
 
     var body: some Scene {
         WindowGroup {
-            VStack {
-                Text("HEHE")
+//            VStack {
+//                Text("HEHE")
+//            }
+            LayoutView{
+                UserPairingScreen(userVM: userVM)
             }
         }
     }
