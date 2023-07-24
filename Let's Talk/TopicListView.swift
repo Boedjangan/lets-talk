@@ -14,7 +14,6 @@ struct TopicListView: View {
     var progress: Double = 0.5
     
     var body: some View {
-        LayoutView{
             HStack(alignment: .center, spacing: 16){
                 TopIconView(foregroundColor: Color.buttonOutlineCommitment, icon: icon)
                 TopicProgressView(color: Color.buttonOutlineCommitment, level: level, label: title, progress: progress)
@@ -32,11 +31,12 @@ struct TopicListView: View {
                 .buttonStyle(.outline(.commitment))
             }
         }
-    }
 }
 
 struct TopicListView_Previews: PreviewProvider {
     static var previews: some View {
-        TopicListView()
+        LayoutView{
+            TopicListView()
+        }
     }
 }
