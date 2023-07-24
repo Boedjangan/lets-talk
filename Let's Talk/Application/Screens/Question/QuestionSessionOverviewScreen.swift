@@ -41,11 +41,11 @@ struct ImagePreview: View {
         Image(image)
             .resizable()
             .scaledToFill()
-            .frame(maxWidth: 400, maxHeight: 400)
-            .clipped()
+            .frame(width: 350, height: 350)
             .cornerRadius(10)
-            .shadow(color: .gray.opacity(0.6) ,radius: 10)
+            .shadow(color: .gray.opacity(0.6), radius: 10)
             .clipShape(RoundedRectangle(cornerRadius: 10))
+            .clipped()
     }
 }
 
@@ -58,11 +58,15 @@ struct TalkTimeDetailCardView: View {
             VStack {
                 Text("+\(maleTalkTime) Menit")
                     .font(.paragraph)
-                AvatarView()
-                    .scaleEffect(0.5)
-                    .padding(-60)
+                ZStack{
+                    Circle()
+                        .foregroundColor(Color.avatarPlaceHolder)
+                        .frame(width:70,height: 70)
+                    Image(systemName: "person.fill")
+                        .foregroundColor(Color.black)
+                        .font(.system(size: 50))
+                }
             }
-            Spacer()
             VStack {
                 Text("\(coupleTalkTime) Menit")
                     .font(.headingBig)
@@ -70,14 +74,14 @@ struct TalkTimeDetailCardView: View {
                     .font(.genderPickerLabel)
                     .multilineTextAlignment(.center)
             }
-            Spacer()
-                .multilineTextAlignment(.center)
+            .multilineTextAlignment(.center)
             VStack {
                 Text("+\(femaleTalkTime) Menit")
                     .font(.paragraph)
                 AvatarView()
                     .scaleEffect(0.5)
-                    .padding(-60)
+                    .padding(.horizontal, -60)
+                    .padding(.vertical, -40)
             }
         }
         .padding()

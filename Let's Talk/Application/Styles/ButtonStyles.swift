@@ -80,7 +80,7 @@ struct OutlineButtonStyle: ButtonStyle {
             .font(Font.topicButton)
             .foregroundColor(foregroundColor(for: role))
             .frame(maxWidth: CGFloat.infinity)
-            .padding(Edge.Set.vertical, 10)
+            .padding(Edge.Set.vertical, 12)
             .background(
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(color(for: role), lineWidth: 1)

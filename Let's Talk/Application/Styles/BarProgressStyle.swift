@@ -17,10 +17,9 @@ struct BarProgressStyle: ProgressViewStyle {
     
     func makeBody(configuration: Configuration) -> some View {
         let progress = configuration.fractionCompleted ?? 0.0
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 11) {
             configuration.label
-                .font(Font.headingBig)
-                .padding(.bottom,11)
+                .font(Font.titleTopic)
                 .foregroundColor(Color.white)
             
             ZStack(alignment:.leading) {
