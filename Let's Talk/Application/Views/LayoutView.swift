@@ -8,14 +8,19 @@
 import SwiftUI
 
 struct LayoutView<Children: View>: View {
+    private let alignment: HorizontalAlignment
+    private let spacing: CGFloat?
     private let children: () -> Children
     
-    init(@ViewBuilder children: @escaping () -> Children) {
+    
+    init(alignment: HorizontalAlignment = .center, spacing: CGFloat? = nil, @ViewBuilder children: @escaping () -> Children) {
+        self.alignment = alignment
+        self.spacing = spacing
         self.children = children
     }
     
     var body: some View {
-        VStack {
+        VStack(alignment: alignment, spacing: spacing) {
             children()
         }
         .foregroundColor(Color.white)
@@ -32,6 +37,8 @@ struct LayoutView<Children: View>: View {
 struct LayoutView_Previews: PreviewProvider {
     static var previews: some View {
         LayoutView() {
+            Text("Tai")
+            Text("Tai")
             Text("Tai")
         }
     }
