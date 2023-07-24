@@ -41,11 +41,11 @@ struct ImagePreview: View {
         Image(image)
             .resizable()
             .scaledToFill()
-            .frame(maxWidth: 400, maxHeight: 400)
-            .clipped()
+            .frame(width: 350, height: 350)
             .cornerRadius(10)
-            .shadow(color: .gray.opacity(0.6) ,radius: 10)
+            .shadow(color: .gray.opacity(0.6), radius: 10)
             .clipShape(RoundedRectangle(cornerRadius: 10))
+            .clipped()
     }
 }
 
@@ -60,7 +60,8 @@ struct TalkTimeDetailCardView: View {
                     .font(.paragraph)
                 AvatarView()
                     .scaleEffect(0.5)
-                    .padding(-60)
+                    .padding(.horizontal, -60)
+                    .padding(.vertical, -40)
             }
             Spacer()
             VStack {
@@ -77,7 +78,8 @@ struct TalkTimeDetailCardView: View {
                     .font(.paragraph)
                 AvatarView()
                     .scaleEffect(0.5)
-                    .padding(-60)
+                    .padding(.horizontal, -60)
+                    .padding(.vertical, -40)
             }
         }
         .padding()
