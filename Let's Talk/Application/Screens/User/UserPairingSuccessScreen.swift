@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct UserPairingSuccessScreen: View {
+    @AppStorage("onboarding") var onboarding: String = OnboardingRoutes.welcome.rawValue
+    
     var maleName : String = "male"
     var femaleName : String = "female"
     
@@ -27,7 +29,7 @@ struct UserPairingSuccessScreen: View {
             }
             Spacer()
             ButtonView(){
-                
+                onboarding = OnboardingRoutes.done.rawValue
             }label:{
                 Text("Next")
             }
