@@ -14,15 +14,7 @@ struct DashboardScreen: View {
             
             // GreetingView here
             
-            ScrollView {
-                VStack(spacing: 24) {
-                    TopicListView(progress: 0)
-                    
-                    TopicListView(level: "Level 2", progress: 0.25)
-                    
-                    TopicListView(level: "Level 3", progress: 0.50)
-                }
-            }
+           TopicListView()
         }
     }
 }
