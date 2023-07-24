@@ -138,6 +138,7 @@
 		4E7991122A66A605002027D1 /* Collection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
 		4E819F572A6E474D00A12485 /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
 		4E819F5A2A6E4C5500A12485 /* AVManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVManager.swift; sourceTree = "<group>"; };
+		4E819F5D2A6E8C8400A12485 /* MockData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockData.json; sourceTree = "<group>"; };
 		4EAE9D2A2A68EEDA00A7B7E6 /* StatefulPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatefulPreviewView.swift; sourceTree = "<group>"; };
 		4EDF2AD92A6805C1002E0645 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		4EDF2ADB2A681933002E0645 /* LayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutView.swift; sourceTree = "<group>"; };
@@ -395,6 +396,7 @@
 		4E7990E92A664861002027D1 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				4E819F5C2A6E8B6200A12485 /* SeedData */,
 				C9EE06442A6B4CF900AD061B /* Model */,
 				4EF769662A5D1D6800F489DF /* CoreDataConnection.swift */,
 				4EF769682A5D1D6800F489DF /* Let_s_Talk.xcdatamodeld */,
@@ -584,6 +586,14 @@
 				4E819F5A2A6E4C5500A12485 /* AVManager.swift */,
 			);
 			path = AVFoundation;
+			sourceTree = "<group>";
+		};
+		4E819F5C2A6E8B6200A12485 /* SeedData */ = {
+			isa = PBXGroup;
+			children = (
+				4E819F5D2A6E8C8400A12485 /* MockData.json */,
+			);
+			path = SeedData;
 			sourceTree = "<group>";
 		};
 		4EF769512A5D1D6800F489DF = {
