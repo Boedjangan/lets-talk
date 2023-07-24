@@ -6,3 +6,27 @@
 //
 
 import Foundation
+
+class TopicService {
+    private let topicRepository: TopicRepository
+    
+    init(topicRepository: TopicRepository) {
+        self.topicRepository = topicRepository
+    }
+    
+    func getTopics() -> [TopicEntity] {
+        return topicRepository.getTopics()
+    }
+    
+    func updateTopicProgress(id: UUID, newProgress: Int16) -> TopicEntity? {
+        return topicRepository.updateTopicProgress(id: id, newProgress: newProgress)
+    }
+    
+    func updateActiveStatus(id: UUID, activeStatus: Bool) -> TopicEntity? {
+        return topicRepository.updateActiveStatus(id: id, activeStatus: activeStatus)
+    }
+    
+    func updateCompletedStatus(id: UUID, completedStatus: Bool) -> TopicEntity? {
+        return topicRepository.updateCompletedStatus(id: id, completedStatus: completedStatus)
+    }
+}

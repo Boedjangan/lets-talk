@@ -12,8 +12,8 @@ struct TopicEntity: Identifiable {
     var iconName: String = ""
     var isActive: Bool = false
     var isCompleted: Bool = false
-    var level: Int16 = 0
-    var progress: Int16 = 0
+    var level: Int = 0
+    var progress: Int = 0
     var title: String = ""
     var createdAt: Date = Date()
     var updatedAt: Date = Date()
