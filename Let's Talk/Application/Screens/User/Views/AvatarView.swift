@@ -24,9 +24,8 @@ struct AvatarView: View {
                     Image(iconImage)
                         .font(.system(size: 100))
                 }
-               
             }
-                .padding(18)
+            .padding(.bottom,18)
             if(userName != ""){
                 Text(userName)
                     .font(Font.avatarIcon)
