@@ -46,6 +46,7 @@
 		4E79910F2A66A569002027D1 /* JSONHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E79910E2A66A569002027D1 /* JSONHandler.swift */; };
 		4E7991112A66A5B2002027D1 /* SwipeDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7991102A66A5B2002027D1 /* SwipeDetection.swift */; };
 		4E7991132A66A605002027D1 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7991122A66A605002027D1 /* Collection+Extensions.swift */; };
+		4E819F582A6E474D00A12485 /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E819F572A6E474D00A12485 /* AddPhotoView.swift */; };
 		4EAE9D2B2A68EEDA00A7B7E6 /* StatefulPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAE9D2A2A68EEDA00A7B7E6 /* StatefulPreviewView.swift */; };
 		4EDF2ADA2A6805C1002E0645 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDF2AD92A6805C1002E0645 /* ButtonView.swift */; };
 		4EDF2ADC2A681933002E0645 /* LayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDF2ADB2A681933002E0645 /* LayoutView.swift */; };
@@ -64,14 +65,13 @@
 		9BAAA2862A69599900671179 /* TopicProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2852A69599900671179 /* TopicProgressView.swift */; };
 		9BAAA28A2A6987E100671179 /* BarProgressStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2892A6987E100671179 /* BarProgressStyle.swift */; };
 		9BAAA2902A6A2E0100671179 /* RecordingTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA28F2A6A2E0100671179 /* RecordingTimeView.swift */; };
-		9BAAA28E2A6A26B200671179 /* QuestionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA28D2A6A26B200671179 /* QuestionTextView.swift */; };
 		9BAAA2962A6D140300671179 /* QuestionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2952A6D140300671179 /* QuestionTextView.swift */; };
 		C94650862A6837F700BEAC7A /* HeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94650852A6837F700BEAC7A /* HeroView.swift */; };
 		C94650882A690BC600BEAC7A /* AppLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94650872A690BC600BEAC7A /* AppLogoView.swift */; };
-		C96355EB2A6D11D600FA260D /* QuestionSessionOverviewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96355EA2A6D11D600FA260D /* QuestionSessionOverviewScreen.swift */; };
-		C96355E92A6D048C00FA260D /* AddQuestionMediaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96355E82A6D048C00FA260D /* AddQuestionMediaScreen.swift */; };
 		C96355E32A6CEB2500FA260D /* WarmUpCorrectScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96355E22A6CEB2500FA260D /* WarmUpCorrectScreen.swift */; };
 		C96355E72A6CF4C500FA260D /* TurnChangeAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96355E62A6CF4C500FA260D /* TurnChangeAlertView.swift */; };
+		C96355E92A6D048C00FA260D /* AddQuestionMediaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96355E82A6D048C00FA260D /* AddQuestionMediaScreen.swift */; };
+		C96355EB2A6D11D600FA260D /* QuestionSessionOverviewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96355EA2A6D11D600FA260D /* QuestionSessionOverviewScreen.swift */; };
 		C9EE06162A69283F00AD061B /* TalkTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06152A69283F00AD061B /* TalkTimeView.swift */; };
 		C9EE06182A696DB500AD061B /* WarmUpCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06172A696DB500AD061B /* WarmUpCardView.swift */; };
 		C9EE061A2A69713D00AD061B /* WarmUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06192A69713D00AD061B /* WarmUpScreen.swift */; };
@@ -135,6 +135,7 @@
 		4E79910E2A66A569002027D1 /* JSONHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHandler.swift; sourceTree = "<group>"; };
 		4E7991102A66A5B2002027D1 /* SwipeDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeDetection.swift; sourceTree = "<group>"; };
 		4E7991122A66A605002027D1 /* Collection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
+		4E819F572A6E474D00A12485 /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
 		4EAE9D2A2A68EEDA00A7B7E6 /* StatefulPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatefulPreviewView.swift; sourceTree = "<group>"; };
 		4EDF2AD92A6805C1002E0645 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		4EDF2ADB2A681933002E0645 /* LayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutView.swift; sourceTree = "<group>"; };
@@ -154,15 +155,15 @@
 		9BAAA2812A68F9F700671179 /* TopicIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TopicIconView.swift; path = "Let's Talk/Application/Screens/LoveLog/TopicIconView.swift"; sourceTree = SOURCE_ROOT; };
 		9BAAA2852A69599900671179 /* TopicProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TopicProgressView.swift; path = "Let's Talk/Application/Screens/LoveLog/TopicProgressView.swift"; sourceTree = SOURCE_ROOT; };
 		9BAAA2892A6987E100671179 /* BarProgressStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarProgressStyle.swift; sourceTree = "<group>"; };
-		9BAAA28F2A6A2E0100671179 /* RecordingTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingTimeView.swift; sourceTree = "<group>"; };
 		9BAAA28D2A6A26B200671179 /* QuestionTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuestionTextView.swift; path = "../../../../../../../../.Trash/lets-talk 09.28.25/Let's Talk/Application/Screens/Question/Views/QuestionTextView.swift"; sourceTree = "<group>"; };
+		9BAAA28F2A6A2E0100671179 /* RecordingTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingTimeView.swift; sourceTree = "<group>"; };
 		9BAAA2952A6D140300671179 /* QuestionTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTextView.swift; sourceTree = "<group>"; };
 		C94650852A6837F700BEAC7A /* HeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroView.swift; sourceTree = "<group>"; };
 		C94650872A690BC600BEAC7A /* AppLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogoView.swift; sourceTree = "<group>"; };
-		C96355EA2A6D11D600FA260D /* QuestionSessionOverviewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionSessionOverviewScreen.swift; sourceTree = "<group>"; };
-		C96355E82A6D048C00FA260D /* AddQuestionMediaScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestionMediaScreen.swift; sourceTree = "<group>"; };
 		C96355E22A6CEB2500FA260D /* WarmUpCorrectScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmUpCorrectScreen.swift; sourceTree = "<group>"; };
 		C96355E62A6CF4C500FA260D /* TurnChangeAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnChangeAlertView.swift; sourceTree = "<group>"; };
+		C96355E82A6D048C00FA260D /* AddQuestionMediaScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestionMediaScreen.swift; sourceTree = "<group>"; };
+		C96355EA2A6D11D600FA260D /* QuestionSessionOverviewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionSessionOverviewScreen.swift; sourceTree = "<group>"; };
 		C9EE06152A69283F00AD061B /* TalkTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkTimeView.swift; sourceTree = "<group>"; };
 		C9EE06172A696DB500AD061B /* WarmUpCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmUpCardView.swift; sourceTree = "<group>"; };
 		C9EE06192A69713D00AD061B /* WarmUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmUpScreen.swift; sourceTree = "<group>"; };
@@ -487,10 +488,10 @@
 		4E7991052A66A41D002027D1 /* Question */ = {
 			isa = PBXGroup;
 			children = (
-				C9EE06192A69713D00AD061B /* WarmUpScreen.swift */,
-				C96355E22A6CEB2500FA260D /* WarmUpCorrectScreen.swift */,
 				4E79910A2A66A459002027D1 /* ViewModels */,
 				4E7991092A66A454002027D1 /* Views */,
+				C9EE06192A69713D00AD061B /* WarmUpScreen.swift */,
+				C96355E22A6CEB2500FA260D /* WarmUpCorrectScreen.swift */,
 				C96355EA2A6D11D600FA260D /* QuestionSessionOverviewScreen.swift */,
 				C96355E82A6D048C00FA260D /* AddQuestionMediaScreen.swift */,
 			);
@@ -536,6 +537,7 @@
 				4E435B2B2A6C2F1D00602281 /* WarmUpUserAnswerView.swift */,
 				C96355E62A6CF4C500FA260D /* TurnChangeAlertView.swift */,
 				9BAAA2952A6D140300671179 /* QuestionTextView.swift */,
+				4E819F572A6E474D00A12485 /* AddPhotoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -784,6 +786,7 @@
 				4E7990C22A6644A8002027D1 /* TopicRepository.swift in Sources */,
 				4E7990F62A66A28C002027D1 /* DashboardRoutes.swift in Sources */,
 				9BAAA2902A6A2E0100671179 /* RecordingTimeView.swift in Sources */,
+				4E819F582A6E474D00A12485 /* AddPhotoView.swift in Sources */,
 				4EE799632A683D2800675622 /* UnitConverter.swift in Sources */,
 				4E7990C42A6644B6002027D1 /* TopicRepositoryImpl.swift in Sources */,
 				C9EE06482A6B51BD00AD061B /* QuestionExtension.swift in Sources */,
