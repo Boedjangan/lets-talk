@@ -58,6 +58,7 @@
 		4EF769652A5D1D6800F489DF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EF769642A5D1D6800F489DF /* Preview Assets.xcassets */; };
 		4EF769672A5D1D6800F489DF /* CoreDataConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF769662A5D1D6800F489DF /* CoreDataConnection.swift */; };
 		4EF7696A2A5D1D6800F489DF /* Let_s_Talk.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4EF769682A5D1D6800F489DF /* Let_s_Talk.xcdatamodeld */; };
+		9B836CD72A6E9ED70075D450 /* TopicItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B836CD62A6E9ED70075D450 /* TopicItemView.swift */; };
 		9BAAA2762A67EEF400671179 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2752A67EEF400671179 /* AvatarView.swift */; };
 		9BAAA2782A68E7DA00671179 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2772A68E7DA00671179 /* TabBarView.swift */; };
 		9BAAA27A2A68E8A300671179 /* DashboardScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2792A68E8A300671179 /* DashboardScreen.swift */; };
@@ -65,11 +66,11 @@
 		9BAAA2822A68F9F700671179 /* TopicIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2812A68F9F700671179 /* TopicIconView.swift */; };
 		9BAAA2862A69599900671179 /* TopicProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2852A69599900671179 /* TopicProgressView.swift */; };
 		9BAAA28A2A6987E100671179 /* BarProgressStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2892A6987E100671179 /* BarProgressStyle.swift */; };
+		9BAAA2902A6A2E0100671179 /* RecordingTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA28F2A6A2E0100671179 /* RecordingTimeView.swift */; };
+		9BAAA2962A6D140300671179 /* QuestionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2952A6D140300671179 /* QuestionTextView.swift */; };
 		9BAAA2992A6E154800671179 /* MultipeerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2982A6E154800671179 /* MultipeerHandler.swift */; };
 		9BAAA29B2A6E15AB00671179 /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BAAA29A2A6E15AB00671179 /* Property List.plist */; };
 		9BAAA29E2A6E196000671179 /* PhoneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA29D2A6E196000671179 /* PhoneModel.swift */; };
-		9BAAA2902A6A2E0100671179 /* RecordingTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA28F2A6A2E0100671179 /* RecordingTimeView.swift */; };
-		9BAAA2962A6D140300671179 /* QuestionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2952A6D140300671179 /* QuestionTextView.swift */; };
 		C94650862A6837F700BEAC7A /* HeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94650852A6837F700BEAC7A /* HeroView.swift */; };
 		C94650882A690BC600BEAC7A /* AppLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94650872A690BC600BEAC7A /* AppLogoView.swift */; };
 		C96355E32A6CEB2500FA260D /* WarmUpCorrectScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96355E22A6CEB2500FA260D /* WarmUpCorrectScreen.swift */; };
@@ -154,6 +155,7 @@
 		4EF769662A5D1D6800F489DF /* CoreDataConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataConnection.swift; sourceTree = "<group>"; };
 		4EF769692A5D1D6800F489DF /* Let_s_Talk.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Let_s_Talk.xcdatamodel; sourceTree = "<group>"; };
 		4EF769702A5D1DB100F489DF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		9B836CD62A6E9ED70075D450 /* TopicItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TopicItemView.swift; path = "Let's Talk/Infrastructure/Multipeer/Model/TopicItemView.swift"; sourceTree = SOURCE_ROOT; };
 		9BAAA2752A67EEF400671179 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		9BAAA2772A68E7DA00671179 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		9BAAA2792A68E8A300671179 /* DashboardScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardScreen.swift; sourceTree = "<group>"; };
@@ -161,12 +163,12 @@
 		9BAAA2812A68F9F700671179 /* TopicIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TopicIconView.swift; path = "Let's Talk/Application/Screens/LoveLog/TopicIconView.swift"; sourceTree = SOURCE_ROOT; };
 		9BAAA2852A69599900671179 /* TopicProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TopicProgressView.swift; path = "Let's Talk/Application/Screens/LoveLog/TopicProgressView.swift"; sourceTree = SOURCE_ROOT; };
 		9BAAA2892A6987E100671179 /* BarProgressStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarProgressStyle.swift; sourceTree = "<group>"; };
-		9BAAA2982A6E154800671179 /* MultipeerHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerHandler.swift; sourceTree = "<group>"; };
-		9BAAA29A2A6E15AB00671179 /* Property List.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
-		9BAAA29D2A6E196000671179 /* PhoneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneModel.swift; sourceTree = "<group>"; };
 		9BAAA28D2A6A26B200671179 /* QuestionTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuestionTextView.swift; path = "../../../../../../../../.Trash/lets-talk 09.28.25/Let's Talk/Application/Screens/Question/Views/QuestionTextView.swift"; sourceTree = "<group>"; };
 		9BAAA28F2A6A2E0100671179 /* RecordingTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingTimeView.swift; sourceTree = "<group>"; };
 		9BAAA2952A6D140300671179 /* QuestionTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTextView.swift; sourceTree = "<group>"; };
+		9BAAA2982A6E154800671179 /* MultipeerHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerHandler.swift; sourceTree = "<group>"; };
+		9BAAA29A2A6E15AB00671179 /* Property List.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
+		9BAAA29D2A6E196000671179 /* PhoneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneModel.swift; sourceTree = "<group>"; };
 		C94650852A6837F700BEAC7A /* HeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroView.swift; sourceTree = "<group>"; };
 		C94650872A690BC600BEAC7A /* AppLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogoView.swift; sourceTree = "<group>"; };
 		C96355E22A6CEB2500FA260D /* WarmUpCorrectScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmUpCorrectScreen.swift; sourceTree = "<group>"; };
@@ -534,6 +536,7 @@
 				9BAAA2812A68F9F700671179 /* TopicIconView.swift */,
 				9BAAA2852A69599900671179 /* TopicProgressView.swift */,
 				F53960E62A6D1214005211F4 /* TopicListView.swift */,
+				9B836CD62A6E9ED70075D450 /* TopicItemView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -801,6 +804,7 @@
 				9BAAA2962A6D140300671179 /* QuestionTextView.swift in Sources */,
 				4EF7695E2A5D1D6800F489DF /* Let_s_TalkApp.swift in Sources */,
 				4E1A555D2A6ADD220056951B /* View+Extensions.swift in Sources */,
+				9B836CD72A6E9ED70075D450 /* TopicItemView.swift in Sources */,
 				4E7990C92A664569002027D1 /* Question.swift in Sources */,
 				4E7990B72A664414002027D1 /* UserRepository.swift in Sources */,
 				4E1A555B2A6AD6470056951B /* PairListView.swift in Sources */,
