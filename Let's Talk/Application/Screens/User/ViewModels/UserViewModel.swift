@@ -39,7 +39,6 @@ class UserViewModel: ObservableObject {
     }
     
     func updateCoupleID(coupleID:String){
-        
         userService.updateCoupleID(coupleID: coupleID)
     }
 }

@@ -10,6 +10,7 @@ import SwiftUI
 // TODO: multipeer dipindahin ke root
 // TODO: pindah screen pairing success 
 struct UserPairingScreen: View {
+    @AppStorage("onboarding") var onboarding: String = OnboardingRoutes.welcome.rawValue
     @StateObject var multipeerHandler : MultipeerHandler = MultipeerHandler()
     @ObservedObject var userVM:UserViewModel
     
@@ -39,6 +40,7 @@ struct UserPairingScreen: View {
             if newState == .connected {
                 print(multipeerHandler.coupleID as Any , "<<<ini")
                 userVM.updateCoupleID(coupleID: multipeerHandler.coupleID!)
+                onboarding = OnboardingRoutes.congrats.rawValue
                 print("ganti screeen")
             }
             
