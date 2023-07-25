@@ -102,7 +102,7 @@ class QuestionCoreDataAdapter: QuestionRepository {
         
     }
     
-    func updateQuestionCompleteStatus(questionID:UUID,newStatus: Bool) -> QuestionEntity? {
+    func updateQuestionCompleteStatus(questionID: UUID, newStatus: Bool) -> QuestionEntity? {
         let request: NSFetchRequest<Question> = Question.fetchRequest()
         request.predicate = NSPredicate(format: "id == %@", questionID as CVarArg)
         
@@ -115,6 +115,8 @@ class QuestionCoreDataAdapter: QuestionRepository {
             }
             
             question.isCompleted = newStatus
+            question.updatedAt = Date()
+            
             try coreDataContext.save()
             
             return convertToQuestionEntity(question: question)
@@ -125,8 +127,6 @@ class QuestionCoreDataAdapter: QuestionRepository {
             return nil
         }
     }
-    
-    
     
     func updateQuestionImage(questionID:UUID, newImage: String) -> QuestionEntity? {
         let request: NSFetchRequest<Question> = Question.fetchRequest()
@@ -139,7 +139,10 @@ class QuestionCoreDataAdapter: QuestionRepository {
                 print("No question is found with the provided ID.")
                 return nil
             }
+            
             question.image = newImage
+            question.updatedAt = Date()
+            
             try coreDataContext.save()
             
             return convertToQuestionEntity(question: question)
@@ -163,6 +166,8 @@ class QuestionCoreDataAdapter: QuestionRepository {
                 return nil
             }
             question.talkDuration = newDuration.toInt64
+            question.updatedAt = Date()
+            
             try coreDataContext.save()
             
             return convertToQuestionEntity(question: question)
@@ -179,8 +184,6 @@ class QuestionCoreDataAdapter: QuestionRepository {
 //        let request: NSFetchRequest<Topic> = Topic.fetchRequest()
         
         return []
-        
-        
     }
     
     
@@ -200,6 +203,5 @@ class QuestionCoreDataAdapter: QuestionRepository {
             subQuestions: arrSubQuestions,
             topic: question.topic?.title
         )
-        
     }
 }
