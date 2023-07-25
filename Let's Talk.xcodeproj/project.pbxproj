@@ -81,6 +81,7 @@
 		C96355EB2A6D11D600FA260D /* QuestionSessionOverviewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96355EA2A6D11D600FA260D /* QuestionSessionOverviewScreen.swift */; };
 		C97231652A6EC22600FD8302 /* TopicCoreDataAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97231642A6EC22600FD8302 /* TopicCoreDataAdapter.swift */; };
 		C97231672A6ED2CB00FD8302 /* GreetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97231662A6ED2CB00FD8302 /* GreetingView.swift */; };
+		C98F81312A6F6B2600F62000 /* SenderQuestionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98F81302A6F6B2600F62000 /* SenderQuestionScreen.swift */; };
 		C9EE06162A69283F00AD061B /* TalkTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06152A69283F00AD061B /* TalkTimeView.swift */; };
 		C9EE06182A696DB500AD061B /* WarmUpCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06172A696DB500AD061B /* WarmUpCardView.swift */; };
 		C9EE061A2A69713D00AD061B /* WarmUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06192A69713D00AD061B /* WarmUpScreen.swift */; };
@@ -183,6 +184,7 @@
 		C96355EA2A6D11D600FA260D /* QuestionSessionOverviewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionSessionOverviewScreen.swift; sourceTree = "<group>"; };
 		C97231642A6EC22600FD8302 /* TopicCoreDataAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCoreDataAdapter.swift; sourceTree = "<group>"; };
 		C97231662A6ED2CB00FD8302 /* GreetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GreetingView.swift; path = "Let's Talk/Domains/Topic/Repositories/GreetingView.swift"; sourceTree = SOURCE_ROOT; };
+		C98F81302A6F6B2600F62000 /* SenderQuestionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SenderQuestionScreen.swift; sourceTree = "<group>"; };
 		C9EE06152A69283F00AD061B /* TalkTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkTimeView.swift; sourceTree = "<group>"; };
 		C9EE06172A696DB500AD061B /* WarmUpCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmUpCardView.swift; sourceTree = "<group>"; };
 		C9EE06192A69713D00AD061B /* WarmUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmUpScreen.swift; sourceTree = "<group>"; };
@@ -517,6 +519,7 @@
 				C96355E22A6CEB2500FA260D /* WarmUpCorrectScreen.swift */,
 				C96355EA2A6D11D600FA260D /* QuestionSessionOverviewScreen.swift */,
 				C96355E82A6D048C00FA260D /* AddQuestionMediaScreen.swift */,
+				C98F81302A6F6B2600F62000 /* SenderQuestionScreen.swift */,
 			);
 			path = Question;
 			sourceTree = "<group>";
@@ -800,6 +803,7 @@
 				4EF7696A2A5D1D6800F489DF /* Let_s_Talk.xcdatamodeld in Sources */,
 				4E7990BB2A66445A002027D1 /* UserEntity.swift in Sources */,
 				C9EE06462A6B512C00AD061B /* TopicExtension.swift in Sources */,
+				C98F81312A6F6B2600F62000 /* SenderQuestionScreen.swift in Sources */,
 				4E1A55572A6A37660056951B /* SubQuestionTextView.swift in Sources */,
 				C96355E92A6D048C00FA260D /* AddQuestionMediaScreen.swift in Sources */,
 				4E435B2C2A6C2F1D00602281 /* WarmUpUserAnswerView.swift in Sources */,
