@@ -9,7 +9,13 @@ import SwiftUI
 
 struct DashboardScreen: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        LayoutView(spacing: 40) {
+            TalkTimeView(talkTime: 0)
+            
+            // GreetingView here
+            
+           TopicListView()
+        }
     }
 }
 

@@ -12,19 +12,23 @@ struct TopicProgressView: View {
     var level : String = "level 1"
     var label : String = "Commitment"
     var progress : Double = 1
+    var isActive : Bool = false
     
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 11) {
             Text(level)
-                .padding(.bottom,10)
+                .font(Font.subQuestion)
                 .foregroundColor(Color.white)
             ProgressView(
                 value: progress,
                 label: { Text(label) },
                 currentValueLabel: {
-                    Text(String(progress * 100) + "%")
+                    if isActive{
+                        Text(String(progress * 100) + "%")
+                    }
+                    
                 })
-            .progressViewStyle(BarProgressStyle(color:.red,height: 40,width:121, isLocked: false))
+            .progressViewStyle(BarProgressStyle(color: color,height: 40,width:121, isLocked: !isActive))
         }
         
     }

@@ -10,11 +10,13 @@ import SwiftUI
 
 extension Font {
     static let heading = Font.system(size: 16, weight: .bold, design: .default)
+    static let subHeading = Font.system(size: 20, weight: .bold, design: .default)
     static let headingBig = Font.system(size: 24, weight: .bold, design: .default)
     static let paragraph = Font.system(size: 16, weight: .regular, design: .default)
     
     static let button = Font.system(size: 14, weight: .regular, design: .default)
     static let topicButton = Font.system(size: 10, weight: .semibold, design: .default)
+    static let titleTopic = Font.system(size: 14, weight: .bold, design: .default)
     
     static let genderPickerLabel = Font.system(size: 13, weight: .medium, design: .default)
     
@@ -31,4 +33,5 @@ extension Font {
     static let bigNumber = Font.system(size: 78, weight: .bold, design: .default)
     
     static let textQuestion = Font.system(size: 17, weight: .regular, design: .default)
+    static let addMediaTitle = Font.system(size: 20, weight: .bold, design: .default)
 }
