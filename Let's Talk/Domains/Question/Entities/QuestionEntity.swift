@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct QuestionEntity {
+struct QuestionEntity:Identifiable {
     var id: UUID = UUID()
     var question: String
     var warmUp: String
@@ -18,5 +18,5 @@ struct QuestionEntity {
     var updatedAt: Date = Date()
     var answer: String?
     var subQuestions: [String]?
-    var topic: Topic?
+    var topic: String?
 }

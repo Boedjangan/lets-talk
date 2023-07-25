@@ -12,8 +12,6 @@ class QuestionCoreDataAdapter: QuestionRepository {
     private let coreDataContext = CoreDataConnection.shared.managedObjectContext
     
     func createNewQuestion(newQuestion: QuestionEntity) -> QuestionEntity? {
-        let request: NSFetchRequest<Question> = Question.fetchRequest()
-        
         let question = Question(context: coreDataContext)
         
         question.id = newQuestion.id
@@ -27,7 +25,7 @@ class QuestionCoreDataAdapter: QuestionRepository {
         do {
             try coreDataContext.save()
             
-            return question
+            return convertToQuestionEntity(question: question)
         } catch {
             print("Failed creating new question")
             print("Error: \(error.localizedDescription)")
@@ -39,17 +37,17 @@ class QuestionCoreDataAdapter: QuestionRepository {
     func getAllQuestions() -> [QuestionEntity] {
         let request: NSFetchRequest<Question> = Question.fetchRequest()
         var questionEntities: [QuestionEntity] = []
-
+        
         do {
             let questions = try coreDataContext.fetch(request)
             
             for question in questions {
                 let questionEntity = convertToQuestionEntity(question: question)
                 
-                topicEntities.append(topicEntity)
+                questionEntities.append(questionEntity)
             }
             
-            return topicEntities
+            return questionEntities
         } catch {
             print("Failed getting user details")
             print("Error: \(error.localizedDescription)")
@@ -58,9 +56,9 @@ class QuestionCoreDataAdapter: QuestionRepository {
         }
     }
     
-    func getQestionById(id: UUID) -> QuestionEntity? {
-        let request: NSFetchRequest<Topic> = Topic.fetchRequest()
-        request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
+    func getQuestionById(questionID: UUID) -> QuestionEntity? {
+        let request: NSFetchRequest<Question> = Question.fetchRequest()
+        request.predicate = NSPredicate(format: "id == %@", questionID as CVarArg)
         
         do {
             let questions = try coreDataContext.fetch(request)
@@ -69,8 +67,8 @@ class QuestionCoreDataAdapter: QuestionRepository {
                 print("No question is found with the provided ID.")
                 return nil
             }
+            return convertToQuestionEntity(question: question)
             
-            return convertToTopicEntity(topic: topic)
         } catch {
             print("Failed updating topic progress")
             print("Error: \(error.localizedDescription)")
@@ -79,7 +77,113 @@ class QuestionCoreDataAdapter: QuestionRepository {
         }
     }
     
-    func convertToQuestionEntity(question: Question) {
+    func deleteQuestion(questionID:UUID) -> QuestionEntity? {
+        let request: NSFetchRequest<Question> = Question.fetchRequest()
+        request.predicate = NSPredicate(format: "id == %@", questionID as CVarArg)
+        
+        do {
+            let questions = try coreDataContext.fetch(request)
+            
+            guard let question = questions.first else {
+                print("No question is found with the provided ID.")
+                return nil
+            }
+            coreDataContext.delete(question)
+            return convertToQuestionEntity(question: question)
+            
+        } catch {
+            print("Failed updating topic progress")
+            print("Error: \(error.localizedDescription)")
+            
+            return nil
+        }
+        
+    }
+    
+    func updateQuestionCompleteStatus(questionID:UUID,newStatus: Bool) -> QuestionEntity? {
+        let request: NSFetchRequest<Question> = Question.fetchRequest()
+        request.predicate = NSPredicate(format: "id == %@", questionID as CVarArg)
+        
+        do {
+            let questions = try coreDataContext.fetch(request)
+            
+            guard let question = questions.first else {
+                print("No question is found with the provided ID.")
+                return nil
+            }
+            question.isCompleted = newStatus
+            try coreDataContext.save()
+            
+            return convertToQuestionEntity(question: question)
+        } catch {
+            print("Failed updating topic progress")
+            print("Error: \(error.localizedDescription)")
+            
+            return nil
+        }
+    }
+    
+    
+    
+    func updateQuestionImage(questionID:UUID, newImage: String) -> QuestionEntity? {
+        let request: NSFetchRequest<Question> = Question.fetchRequest()
+        request.predicate = NSPredicate(format: "id == %@", questionID as CVarArg)
+        
+        do {
+            let questions = try coreDataContext.fetch(request)
+            
+            guard let question = questions.first else {
+                print("No question is found with the provided ID.")
+                return nil
+            }
+            question.image = newImage
+            try coreDataContext.save()
+            
+            return convertToQuestionEntity(question: question)
+        } catch {
+            print("Failed updating topic progress")
+            print("Error: \(error.localizedDescription)")
+            
+            return nil
+        }
+    }
+    
+    func updateQuestionTalkDuration(questionID: UUID, newDuration: Int) -> QuestionEntity? {
+        let request: NSFetchRequest<Question> = Question.fetchRequest()
+        request.predicate = NSPredicate(format: "id == %@", questionID as CVarArg)
+        
+        do {
+            let questions = try coreDataContext.fetch(request)
+            
+            guard let question = questions.first else {
+                print("No question is found with the provided ID.")
+                return nil
+            }
+            question.talkDuration = Int64(newDuration)
+            try coreDataContext.save()
+            
+            return convertToQuestionEntity(question: question)
+        } catch {
+            print("Failed updating topic progress")
+            print("Error: \(error.localizedDescription)")
+            
+            return nil
+        }
+    }
+    
+    
+    func getQuestionsByTopicId() -> [QuestionEntity] {
+//        let request: NSFetchRequest<Topic> = Topic.fetchRequest()
+        
+        return []
+        
+        
+    }
+    
+    
+    func convertToQuestionEntity(question: Question) -> QuestionEntity {
+        let arrSubQuestions = question.subQuestionArray.map { $0.subQuestion! }
+        
         return QuestionEntity(
             id: question.id.unsafelyUnwrapped,
             question: question.question.unsafelyUnwrapped,
@@ -90,8 +194,9 @@ class QuestionCoreDataAdapter: QuestionRepository {
             createdAt: question.createdAt.unsafelyUnwrapped,
             updatedAt: question.updatedAt.unsafelyUnwrapped,
             answer: question.answer?.recordedAnswer,
-            subQuestions: question.subQuestionArray,
-            topic: question.topic?.title,
+            subQuestions: arrSubQuestions,
+            topic: question.topic?.title
         )
+        
     }
 }
