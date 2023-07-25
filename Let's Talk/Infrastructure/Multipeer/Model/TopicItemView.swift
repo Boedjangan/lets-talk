@@ -13,6 +13,7 @@ struct TopicItemView: View {
     var level: String = "Level 1"
     var progress: Double = 0
     var isActive : Bool = true
+    var isCompleted :Bool = false
     
     
     var body: some View {
@@ -25,12 +26,18 @@ struct TopicItemView: View {
                 //
                 } label: {
                     HStack{
-                        Text(isActive ? "Go to Question":"Locked 🔒")
+                        if isCompleted{
+                            Text("Completed")
+                        }else{
+                            Text(isActive ? "Go to Question":"Locked 🔒")
+                        }
+                       
                         Image(systemName: "arrow.right")
                             .foregroundColor(Color.buttonOutlineCommitment)
                             .font(.system(size: 10))
                     }
                 }
+                .disabled(!isActive ? true : false)
                 .buttonStyle(.outline(.commitment))
             }
             .opacity(isActive ? 1 : 0.4)
