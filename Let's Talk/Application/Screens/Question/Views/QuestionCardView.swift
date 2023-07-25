@@ -7,11 +7,18 @@
 
 import SwiftUI
 
+enum typeQuestion: Int {
+    case sender = 0
+    case receiver = 1
+}
+
 struct QuestionCardView: View {
     
     @Binding var timer:Int
     var isRecording:Bool = false
-    var question:String = ""
+    var question:String = "Test"
+    var typeQuestion:typeQuestion = .sender
+    
     
     var body: some View {
         ZStack{
@@ -19,9 +26,11 @@ struct QuestionCardView: View {
                 .foregroundColor(Color.questionBackground)
             VStack{
                 HStack{
-                    Image(systemName:"waveform.slash")
-                        .font(.system(size: 25))
-                        .foregroundColor(Color.recording)
+                    if(typeQuestion == .sender){
+                        Image(systemName:"waveform.slash")
+                            .font(.system(size: 25))
+                            .foregroundColor(Color.recording)
+                    }
                     Spacer()
                     RecordingTimeView(timer: $timer)
                 }
@@ -29,7 +38,7 @@ struct QuestionCardView: View {
                 .padding(.trailing,6)
                 .padding(.top,7)
                 Spacer()
-                Text("test")
+                Text(question)
                 Spacer()
             }
         }

@@ -19,7 +19,7 @@ struct SubQuestionTextView: View {
         }
         .font(Font.subQuestion)
         .foregroundColor(Color.white)
-        .frame(maxWidth: CGFloat.infinity, minHeight: 52)
+        .frame(maxWidth: CGFloat.infinity, minHeight: 30)
         .padding(Edge.Set.vertical, 8)
         .background(
             Color.subQuestionTextBackground
