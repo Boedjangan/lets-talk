@@ -67,6 +67,7 @@ class QuestionCoreDataAdapter: QuestionRepository {
                 print("No question is found with the provided ID.")
                 return nil
             }
+            
             return convertToQuestionEntity(question: question)
             
         } catch {
@@ -88,9 +89,10 @@ class QuestionCoreDataAdapter: QuestionRepository {
                 print("No question is found with the provided ID.")
                 return nil
             }
-            coreDataContext.delete(question)
-            return convertToQuestionEntity(question: question)
             
+            coreDataContext.delete(question)
+            
+            return convertToQuestionEntity(question: question)
         } catch {
             print("Failed updating topic progress")
             print("Error: \(error.localizedDescription)")
@@ -111,6 +113,7 @@ class QuestionCoreDataAdapter: QuestionRepository {
                 print("No question is found with the provided ID.")
                 return nil
             }
+            
             question.isCompleted = newStatus
             try coreDataContext.save()
             
@@ -159,7 +162,7 @@ class QuestionCoreDataAdapter: QuestionRepository {
                 print("No question is found with the provided ID.")
                 return nil
             }
-            question.talkDuration = Int64(newDuration)
+            question.talkDuration = newDuration.toInt64
             try coreDataContext.save()
             
             return convertToQuestionEntity(question: question)
