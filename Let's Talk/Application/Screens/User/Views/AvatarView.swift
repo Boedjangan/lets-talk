@@ -10,19 +10,21 @@ import SwiftUI
 struct AvatarView: View {
     var userName : String = ""
     var iconImage : String = ""
+    var radius: CGFloat = 141
+    var imageSize: CGFloat = 100
     var body: some View {
         VStack{
             ZStack{
                 Circle()
                     .foregroundColor(Color.avatarPlaceHolder)
-                    .frame(width:141,height: 141)
+                    .frame(width:radius,height: radius)
                 if(iconImage == ""){
                     Image(systemName: "person.fill")
                         .foregroundColor(Color.black)
-                        .font(.system(size: 100))
+                        .font(.system(size: imageSize))
                 }else{
                     Image(iconImage)
-                        .font(.system(size: 100))
+                        .font(.system(size: imageSize))
                 }
             }
             .padding(.bottom,18)
