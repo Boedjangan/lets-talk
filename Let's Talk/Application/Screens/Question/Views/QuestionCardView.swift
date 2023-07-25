@@ -9,11 +9,12 @@ import SwiftUI
 
 struct QuestionCardView: View {
     @State var isRecording:Bool = false
+    @Binding var timer:Int
     var question:String = ""
     var body: some View {
         ZStack{
             RoundedRectangle(cornerRadius: 10)
-                
+            
                 .foregroundColor(Color.questionBackground)
             VStack{
                 HStack{
@@ -21,7 +22,7 @@ struct QuestionCardView: View {
                         .font(.system(size: 25))
                         .foregroundColor(Color.recording)
                     Spacer()
-                    
+                    RecordingTimeView(timer: $timer)
                 }
                 .padding(.leading,6)
                 .padding(.trailing,6)
@@ -29,7 +30,6 @@ struct QuestionCardView: View {
                 Spacer()
                 Text("test")
                 Spacer()
-                
             }
         }
         .frame(maxHeight:510)
@@ -41,7 +41,9 @@ struct QuestionCardView: View {
 struct QuestionCardView_Previews: PreviewProvider {
     static var previews: some View {
         LayoutView{
-            QuestionCardView()
+            StatefulPreviewView(0) { timer in
+                QuestionCardView(timer: timer)
+            }
         }
         
     }
