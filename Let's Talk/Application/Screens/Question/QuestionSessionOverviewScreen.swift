@@ -11,6 +11,7 @@ struct QuestionSessionOverviewScreen: View {
     let image: String = "sample"
     let maleTalkTime: Int = 15
     let femaleTalkTime: Int = 29
+    
     var body: some View {
         LayoutView {
             HStack {

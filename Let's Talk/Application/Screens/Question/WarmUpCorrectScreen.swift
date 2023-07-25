@@ -16,7 +16,9 @@ struct WarmUpCorrectScreen: View {
                 Text("Sedang menunggu jawaban dari pasanganmu. setelah itu akan kami proses.")
                     .font(.paragraph)
             }
+            
             WarmUpUserAnswerView(username: "Ricky", answer: "Ricky")
+            
             WarmUpCardView {
                 Text("Langkah awal yang baik!")
                     .font(.heading)
@@ -25,7 +27,9 @@ struct WarmUpCorrectScreen: View {
                 Text("Jawaban kalian sudah sesuai selamat. Selanjutnya akan lebih mudah untuk kalian.")
                     .font(.paragraph)
             }
+            
             Spacer()
+            
             ButtonView {
                 //
             } label: {

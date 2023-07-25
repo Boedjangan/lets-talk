@@ -10,7 +10,9 @@ import SwiftUI
 struct ReceiverQuestionScreen: View {
     @State private var timer: Int = 0
     @State var isRecording: Bool = false
+    
     var question: String = "Test Dong 2"
+    
     var body: some View {
         LayoutView(spacing: Spacing.title){
             Text("Ayo mulai obrolan kalian ❤️")

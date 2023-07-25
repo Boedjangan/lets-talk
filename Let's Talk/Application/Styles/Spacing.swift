@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-struct Spacing{
+struct Spacing {
     static var card :CGFloat = 63
     static var title:CGFloat = 10
 }
