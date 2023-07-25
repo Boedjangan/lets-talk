@@ -72,6 +72,7 @@
 		9BAAA2992A6E154800671179 /* MultipeerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2982A6E154800671179 /* MultipeerHandler.swift */; };
 		9BAAA29B2A6E15AB00671179 /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BAAA29A2A6E15AB00671179 /* Property List.plist */; };
 		9BAAA29E2A6E196000671179 /* PhoneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA29D2A6E196000671179 /* PhoneModel.swift */; };
+		9BCA71572A6EC64700D37E2D /* coupleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCA71562A6EC64700D37E2D /* coupleModel.swift */; };
 		C94650862A6837F700BEAC7A /* HeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94650852A6837F700BEAC7A /* HeroView.swift */; };
 		C94650882A690BC600BEAC7A /* AppLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94650872A690BC600BEAC7A /* AppLogoView.swift */; };
 		C96355E32A6CEB2500FA260D /* WarmUpCorrectScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96355E22A6CEB2500FA260D /* WarmUpCorrectScreen.swift */; };
@@ -173,6 +174,7 @@
 		9BAAA2982A6E154800671179 /* MultipeerHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerHandler.swift; sourceTree = "<group>"; };
 		9BAAA29A2A6E15AB00671179 /* Property List.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
 		9BAAA29D2A6E196000671179 /* PhoneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneModel.swift; sourceTree = "<group>"; };
+		9BCA71562A6EC64700D37E2D /* coupleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coupleModel.swift; sourceTree = "<group>"; };
 		C94650852A6837F700BEAC7A /* HeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroView.swift; sourceTree = "<group>"; };
 		C94650872A690BC600BEAC7A /* AppLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogoView.swift; sourceTree = "<group>"; };
 		C96355E22A6CEB2500FA260D /* WarmUpCorrectScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmUpCorrectScreen.swift; sourceTree = "<group>"; };
@@ -668,6 +670,7 @@
 			isa = PBXGroup;
 			children = (
 				9BAAA29D2A6E196000671179 /* PhoneModel.swift */,
+				9BCA71562A6EC64700D37E2D /* coupleModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -852,6 +855,7 @@
 				4E7990F62A66A28C002027D1 /* DashboardRoutes.swift in Sources */,
 				4E819F5B2A6E4C5500A12485 /* AVManager.swift in Sources */,
 				9BAAA2902A6A2E0100671179 /* RecordingTimeView.swift in Sources */,
+				9BCA71572A6EC64700D37E2D /* coupleModel.swift in Sources */,
 				4E819F582A6E474D00A12485 /* AddPhotoView.swift in Sources */,
 				4EE799632A683D2800675622 /* UnitConverter.swift in Sources */,
 				4E7990C42A6644B6002027D1 /* TopicRepositoryImpl.swift in Sources */,

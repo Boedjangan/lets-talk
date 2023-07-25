@@ -12,6 +12,7 @@ struct UserEntity: Identifiable {
     var username: String = ""
     var gender: Gender = .male
     var coupleId: String?
+    var coupleName: String?
     var talkDuration: Int?
     var createdAt: Date = Date()
     var updatedAt: Date = Date()

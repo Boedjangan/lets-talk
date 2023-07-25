@@ -11,15 +11,21 @@ import SwiftUI
 // TODO: pindah screen pairing success 
 struct UserPairingScreen: View {
     @AppStorage("onboarding") var onboarding: String = OnboardingRoutes.welcome.rawValue
-    @StateObject var multipeerHandler : MultipeerHandler = MultipeerHandler()
+    
+    @ObservedObject var multipeerHandler : MultipeerHandler
     @ObservedObject var userVM:UserViewModel
-    
-//    @ObservedObject var dashboardRoutes: DashboardNavigationManager
-    
     @State var isPresent : Bool = false
     
+    init(multipeerHandler: MultipeerHandler, userVM: UserViewModel) {
+        self.multipeerHandler = multipeerHandler
+        self.userVM = userVM
+        
+        // Mulai jalanin advertising biar kelihatan di pasangan
+        multipeerHandler.advertiser.startAdvertisingPeer()
+    }
+
     var body: some View {
-        VStack(){
+        LayoutView{
             Group{
                 Text("Sambungkan dengan pasanganmu")
                     .padding(.bottom,24)
@@ -28,22 +34,24 @@ struct UserPairingScreen: View {
             }
            
             Spacer()
-            PairListView()
-                .environmentObject(multipeerHandler)
+            
+            PairListView(multipeerHandler: multipeerHandler, userVM: userVM)
+                
             Spacer()
         }.onAppear {
+            // Aktifin nyari pasangan yg nampak
             multipeerHandler.startBrowsing()
         }.onDisappear{
+            // Berhenti nyari pasangan yg nampak
             multipeerHandler.stopBrowsing()
         }
-        .onChange(of: multipeerHandler.state) { newState in
-            if newState == .connected {
-                print(multipeerHandler.coupleID as Any , "<<<ini")
-                userVM.updateCoupleID(coupleID: multipeerHandler.coupleID!)
+        .onChange(of: multipeerHandler.isReady) { newState in
+            if newState {
+                // Save couple name
+                userVM.updateCouple(coupleID: multipeerHandler.coupleID!, coupleName: multipeerHandler.coupleName!)
+                
                 onboarding = OnboardingRoutes.congrats.rawValue
-                print("ganti screeen")
             }
-            
         }
     }
 }
