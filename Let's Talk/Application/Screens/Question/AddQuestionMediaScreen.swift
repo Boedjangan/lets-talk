@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddQuestionMediaScreen: View {
     var body: some View {
-        LayoutView(spacing: 18) {
+        LayoutView(spacing: Spacing.card) {
             VStack(alignment: .leading, spacing: 10) {
                 Text("Abadikan momen mengobrol kalian")
                     .font(.addMediaTitle)

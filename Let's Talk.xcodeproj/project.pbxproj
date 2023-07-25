@@ -57,6 +57,7 @@
 		4EF769652A5D1D6800F489DF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EF769642A5D1D6800F489DF /* Preview Assets.xcassets */; };
 		4EF769672A5D1D6800F489DF /* CoreDataConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF769662A5D1D6800F489DF /* CoreDataConnection.swift */; };
 		4EF7696A2A5D1D6800F489DF /* Let_s_Talk.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4EF769682A5D1D6800F489DF /* Let_s_Talk.xcdatamodeld */; };
+		9B5BD56E2A6F7FE300FBB9C7 /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5BD56D2A6F7FE300FBB9C7 /* Spacing.swift */; };
 		9B836CD72A6E9ED70075D450 /* TopicItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B836CD62A6E9ED70075D450 /* TopicItemView.swift */; };
 		9BAAA2762A67EEF400671179 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2752A67EEF400671179 /* AvatarView.swift */; };
 		9BAAA2782A68E7DA00671179 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2772A68E7DA00671179 /* TabBarView.swift */; };
@@ -158,6 +159,7 @@
 		4EF769662A5D1D6800F489DF /* CoreDataConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataConnection.swift; sourceTree = "<group>"; };
 		4EF769692A5D1D6800F489DF /* Let_s_Talk.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Let_s_Talk.xcdatamodel; sourceTree = "<group>"; };
 		4EF769702A5D1DB100F489DF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		9B5BD56D2A6F7FE300FBB9C7 /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
 		9B836CD62A6E9ED70075D450 /* TopicItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TopicItemView.swift; path = "Let's Talk/Infrastructure/Multipeer/Model/TopicItemView.swift"; sourceTree = SOURCE_ROOT; };
 		9BAAA2752A67EEF400671179 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		9BAAA2772A68E7DA00671179 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
@@ -437,6 +439,7 @@
 				4E7990F12A66A1C0002027D1 /* Fonts.swift */,
 				4E7990F32A66A1CA002027D1 /* ButtonStyles.swift */,
 				9BAAA2892A6987E100671179 /* BarProgressStyle.swift */,
+				9B5BD56D2A6F7FE300FBB9C7 /* Spacing.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -836,6 +839,7 @@
 				9BAAA27C2A68E8CD00671179 /* LoveLogScreen.swift in Sources */,
 				4E1A55592A6ACCD30056951B /* PairItemView.swift in Sources */,
 				4E7990E02A66460D002027D1 /* TopicViewModel.swift in Sources */,
+				9B5BD56E2A6F7FE300FBB9C7 /* Spacing.swift in Sources */,
 				C97231672A6ED2CB00FD8302 /* GreetingView.swift in Sources */,
 				4E7990D32A6645C3002027D1 /* UserViewModel.swift in Sources */,
 				C9EE067B2A6B83A500AD061B /* SubQuestion+CoreDataClass.swift in Sources */,
