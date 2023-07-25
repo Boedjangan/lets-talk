@@ -20,6 +20,7 @@ struct Let_s_TalkApp: App {
     @AppStorage("onboarding") var onboarding: String = OnboardingRoutes.welcome.rawValue
     
     @StateObject var userVM: UserViewModel = UserViewModel()
+    @StateObject var questionVM: QuestionViewModel = QuestionViewModel()
     @StateObject var dashboardNavigation = DashboardNavigationManager()
     @StateObject var loveLogNavigation = LoveLogNavigationManager()
     @StateObject var multipeerHandler : MultipeerHandler = MultipeerHandler()

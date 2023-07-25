@@ -10,13 +10,23 @@ import Foundation
 @MainActor
 class QuestionViewModel: ObservableObject {
     @Published var questions: [QuestionEntity] = []
+    @Published var talkDuration: Int = 0
+    @Published var isRecordingAudio = false
+    @Published var isPlayingAudio = false
     
+    private var timer: Timer?
     private var questionService = QuestionService(questionRepository: QuestionCoreDataAdapter())
+    private var audioManager = AudioManager.shared
     
     init() {
+        audioManager.didFinishPlaying = {
+            self.isPlayingAudio = false
+        }
+        
         fetchQuestions()
     }
     
+    // MARK - Question Service
     private func fetchQuestions() {
         questions = questionService.getAllQuestions()
     }
@@ -86,5 +96,45 @@ class QuestionViewModel: ObservableObject {
         
         questions = newQuestions
         questionService.updateQuestionImage(questionID: questionId, newImage: newImage)
+    }
+    
+    // MARK - Audio Recording
+    func startRecording(key: String) {
+        isRecordingAudio = true
+        audioManager.startRecording(key: "\(key).m4a")
+        startTimer()
+    }
+    
+    func stopRecording() {
+        stopTimer()
+        audioManager.stopRecording()
+        isRecordingAudio = false
+    }
+    
+    // MARK - Audio Playback
+    func startPlayback(key: String) {
+        isPlayingAudio = true
+        audioManager.startPlayback(key: "\(key).m4a")
+    }
+    
+    func stopPlayback() {
+        audioManager.stopPlayback()
+        isPlayingAudio = false
+    }
+    
+    // MARK - Timer Logic
+    func startTimer() {
+        guard timer == nil else { return }
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
+            // TODO: learn about concurrency to set this safely
+            self.talkDuration += 1
+        })
+    }
+    
+    func stopTimer() {
+        timer?.invalidate()
+        timer = nil
+        talkDuration = 0
     }
 }

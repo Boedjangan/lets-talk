@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct SenderQuestionScreen: View {
-    @State private var timer: Int = 0
-    @State var isRecording: Bool = false
-
+    @ObservedObject var questionVM: QuestionViewModel
+    
     var question: String = "Test Dong"
     
     var body: some View {
@@ -23,19 +22,24 @@ struct SenderQuestionScreen: View {
             Spacer()
 
             VStack(spacing: Spacing.card) {
-                QuestionCardView(timer: $timer,isRecording: isRecording, question: question)
-                    .onChange(of: isRecording) { value in
-                        if value{
-                            Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {_ in
-                                timer += 1
-                            }
-                        }
-                    }
+                QuestionCardView(timer: $questionVM.talkDuration, isRecording: questionVM.isRecordingAudio, question: question)
 
+                // TODO: change to actual implementation still mocking
                 ButtonView {
-                    isRecording = true
+                    if questionVM.isRecordingAudio {
+                        questionVM.stopRecording()
+                    } else {
+                        // TODO: change key to variable that named to question or question id so can be called later to playback
+                        questionVM.startRecording(key: "test")
+                    }
+                    
+//                    if questionVM.isPlayingAudio {
+//                        questionVM.stopPlayback()
+//                    } else {
+//                        questionVM.startPlayback(key: "test")
+//                    }
                 } label: {
-                    Text("Mulai")
+                    Text(questionVM.isRecordingAudio || questionVM.isPlayingAudio ? "Berhenti" : "Mulai")
                 }
                 .buttonStyle(.fill(.primary))
             }
@@ -43,8 +47,8 @@ struct SenderQuestionScreen: View {
     }
 }
 
-struct SenderQuestionScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        SenderQuestionScreen()
-    }
-}
+//struct SenderQuestionScreen_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SenderQuestionScreen()
+//    }
+//}

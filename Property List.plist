@@ -3,6 +3,8 @@
 <plist version="1.0">
 <dict>
 	<key>Privacy - Local Network Usage Description</key>
-	<string>Lets talk needs to use your phone&apos;s data to discover devices nearby and to send data to other phone</string>
+	<string>Talk Ease needs to use your phone&apos;s data to discover devices nearby and to send data to other phone</string>
+	<key>Privacy - Microphone Usage Description</key>
+	<string>Talk Ease needs access to your microphone to record your voice that will be saved as part of a memory that you made with your partner</string>
 </dict>
 </plist>
