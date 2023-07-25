@@ -143,4 +143,36 @@ class CoreDataAdapter: UserRepository {
             return nil
         }
     }
+    
+    func updateCoupleID(coupleID:String) -> UserEntity? {
+        let request: NSFetchRequest<User> = User.fetchRequest()
+        
+        do {
+            let users = try coreDataContext.fetch(request)
+            
+            guard let user = users.first else {
+                return nil
+            }
+            
+            user.coupleId = coupleID
+            user.updatedAt = Date()
+            
+            try coreDataContext.save()
+            
+            return UserEntity(
+                id: user.id.unsafelyUnwrapped,
+                username: user.username.unsafelyUnwrapped,
+                gender: Gender(rawValue: user.gender.toInt) ?? .male,
+                coupleId: user.coupleId ?? "",
+                talkDuration: user.talkDuration.toInt,
+                createdAt: user.createdAt.unsafelyUnwrapped,
+                updatedAt: user.updatedAt.unsafelyUnwrapped
+            )
+        } catch {
+            print("Failed updating user details")
+            print("Error: \(error.localizedDescription)")
+            
+            return nil
+        }
+    }
 }

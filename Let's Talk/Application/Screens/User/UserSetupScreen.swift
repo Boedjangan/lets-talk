@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct UserSetupScreen: View {
-    @State private var userName: String = ""
-    @State private var gender: Gender = .male
+    @AppStorage("onboarding") var onboarding: String = OnboardingRoutes.welcome.rawValue
+    @ObservedObject var userVM: UserViewModel
     
     var body: some View {
         LayoutView {
@@ -20,15 +20,16 @@ struct UserSetupScreen: View {
             Text("Siapa nama panggilan kamu?")
                 .font(.heading)
                 .padding(.bottom, 50)
-            TextField("Username", text: $userName, prompt: Text("Sebutkan namamu").foregroundColor(.white))
+            TextField("Username", text: $userVM.user.username, prompt: Text("Sebutkan namamu").foregroundColor(.white))
                 .multilineTextAlignment(.center)
                 .overlay(Divider().background().offset(y: 5), alignment: .bottom)
                 .padding(.bottom, 50)
-            GenderSelectorView(gender: $gender)
+            GenderSelectorView(gender: $userVM.user.gender)
                 .padding(.bottom, 50)
             Spacer()
             ButtonView {
-                //
+                userVM.updateUserDetails()
+                onboarding = OnboardingRoutes.pairing.rawValue
             } label: {
                 Text("Selanjutnya")
             }
@@ -39,6 +40,8 @@ struct UserSetupScreen: View {
 
 struct UserSetupScreen_Previews: PreviewProvider {
     static var previews: some View {
-        UserSetupScreen()
+        StatefulObjectPreviewView(UserViewModel()) { userVM in
+            UserSetupScreen(userVM: userVM)
+        }
     }
 }
