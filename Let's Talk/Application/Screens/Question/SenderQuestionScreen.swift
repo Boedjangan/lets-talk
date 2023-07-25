@@ -10,36 +10,47 @@ import SwiftUI
 struct SenderQuestionScreen: View {
     @State private var timer: Int = 0
     @State var isRecording: Bool = false
-
+    @State var scheduler: Timer? = nil
     var question: String = "Test Dong"
     
     var body: some View {
         LayoutView(spacing:Spacing.title) {
             Spacer()
-
+            
             Text("Ayo mulai obrolan kalian ❤️")
                 .font(.heading)
-
+            
             Spacer()
-
+            
             VStack(spacing: Spacing.card) {
                 QuestionCardView(timer: $timer,isRecording: isRecording, question: question)
                     .onChange(of: isRecording) { value in
                         if value{
-                            Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {_ in
-                                timer += 1
-                            }
+                            startTimer()
+                        }else{
+                            stopTimer()
                         }
                     }
-
+                
                 ButtonView {
-                    isRecording = true
+                    isRecording = !isRecording
                 } label: {
                     Text("Mulai")
                 }
                 .buttonStyle(.fill(.primary))
             }
         }
+    }
+    
+    func startTimer(){
+        self.scheduler = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {_ in
+            timer += 1
+        }
+    }
+    
+    func stopTimer(){
+        self.scheduler?.invalidate()
+        self.scheduler = nil
     }
 }
 
