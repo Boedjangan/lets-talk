@@ -9,24 +9,35 @@ import SwiftUI
 
 struct AvatarView: View {
     var userName : String = ""
-    var iconImage : String = ""
+    var iconImage : String = "Male"
     var radius: CGFloat = 141
     var imageSize: CGFloat = 100
+    
     var body: some View {
         VStack{
             ZStack{
                 Circle()
-                    .foregroundColor(Color.avatarPlaceHolder)
+                    .fill(iconImage == "Male" ? Color.avatarBackgroundTosca : Color.avatarBackgroundPurple)
                     .frame(width:radius,height: radius)
                 if(iconImage == ""){
-                    Image(systemName: "person.fill")
+                    Image(systemName: "person")
+                        .resizable()
+                        .scaledToFit().frame(width: 141,height: 141)
                         .foregroundColor(Color.black)
-                        .font(.system(size: imageSize))
+                        .padding(.top, 10)
+                        
                 }else{
                     Image(iconImage)
-                        .font(.system(size: imageSize))
+                        .resizable()
+                        .scaledToFit().frame(width: 141,height: 141)
+                        .foregroundColor(Color.black)
+                        .padding(.top, 10)
                 }
             }
+            .frame(width: radius, height: radius)
+            .clipShape(Circle())
+            
+            
             .padding(.bottom,18)
             if(userName != ""){
                 Text(userName)

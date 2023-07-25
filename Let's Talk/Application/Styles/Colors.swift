@@ -10,8 +10,8 @@ import SwiftUI
 
 extension Color{
     static let avatarPlaceHolder = Color("Gray")
-    static let avatarBackgroundTosca = Color("Tosca")
-    static let avatarBackgroundPurple = Color("Purple")
+    static let avatarBackgroundTosca = Color("Tosca").opacity(0.7)
+    static let avatarBackgroundPurple = Color("Purple").opacity(0.7)
     static let avatarBackgroundLightPink = Color("LightPink")
     
     static let buttonPrimary = Color("Pink")
