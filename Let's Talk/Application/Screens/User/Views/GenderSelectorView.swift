@@ -38,7 +38,7 @@ struct GenderSelectorView: View {
             HStack{
                 Spacer()
                 VStack{
-                    Image(systemName: "person.fill")
+                    Image("Male")
                         .foregroundColor(Color.white)
                         .font(.system(size: 80))
                         .padding(.bottom,10)
@@ -48,7 +48,7 @@ struct GenderSelectorView: View {
                 
                 Spacer()
                 VStack{
-                    Image(systemName: "person.fill")
+                    Image("Female")
                         .foregroundColor(Color.white)
                         .font(.system(size: 80))
                         .padding(.bottom,10)

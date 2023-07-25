@@ -13,7 +13,7 @@ struct UserOnboardingScreen: View {
     var body: some View {
         LayoutView {
             Spacer()
-            HeroView(maleHero: "person.fill", femaleHero: "person")
+            HeroView()
             Spacer()
             Text("Welcome and Let’s Talk")
                 .font(.heading)

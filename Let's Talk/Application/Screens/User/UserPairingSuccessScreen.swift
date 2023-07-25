@@ -13,11 +13,17 @@ struct UserPairingSuccessScreen: View {
     
     var userName: String
     var coupleName: String
+    var gender:String
     
     init(userVM: UserViewModel) {
         self.userVM = userVM
         self.userName = userVM.user.username
         self.coupleName = userVM.user.coupleName ?? "couple"
+        if userVM.user.gender == .male {
+            self.gender = "Male"
+        }else{
+            self.gender = "Female"
+        }
     }
     
     var body: some View {
@@ -33,8 +39,8 @@ struct UserPairingSuccessScreen: View {
                 .padding(.bottom,78)
             
             HStack() {
-                AvatarView(userName: userName)
-                AvatarView(userName: coupleName)
+                AvatarView(userName: userName,iconImage: gender)
+                AvatarView(userName: coupleName,iconImage: gender)
             }
             Spacer()
             
