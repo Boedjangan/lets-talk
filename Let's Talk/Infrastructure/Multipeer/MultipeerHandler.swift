@@ -28,6 +28,8 @@ class MultipeerHandler: NSObject, ObservableObject {
     @Published var persons: [MCPeerID] = []
     @Published var pairID: MCPeerID?
     @Published var coupleID: String?
+    @Published var coupleName: String?
+    @Published var userName:String?
     private var phones: [PhoneModel] = []
     @Published var state: MCSessionState = .notConnected
     //    private let pictReceivedHandler: PictReceivedHandler?
@@ -41,7 +43,6 @@ class MultipeerHandler: NSObject, ObservableObject {
         session.delegate = self
         browser.delegate = self
         advertiser.delegate = self
-        advertiser.startAdvertisingPeer()
     }
     
     func startBrowsing() {
@@ -72,7 +73,9 @@ class MultipeerHandler: NSObject, ObservableObject {
         DispatchQueue.main.async {
             self.pairID = peerID
             self.coupleID = peerID.displayName
-            self.browser.invitePeer(peerID, to: self.session, withContext: nil, timeout: TimeInterval(0))
+            let couple = coupleModel(username: self.userName ?? "kosong")
+            let data = try? JSONEncoder().encode(couple)
+            self.browser.invitePeer(peerID, to: self.session, withContext: data, timeout: TimeInterval(0))
         }
     }
     func updateDiscoveryInfo() {
@@ -102,20 +105,36 @@ extension MultipeerHandler: MCNearbyServiceAdvertiserDelegate {
         invitationHandler: @escaping (Bool, MCSession?) -> Void
     ) {
         DispatchQueue.main.async {
+            print("nerima invitation")
             let scenes = UIApplication.shared.connectedScenes
             let windowScenes = scenes.first as? UIWindowScene
             let window = windowScenes?.windows.first
-            
             let title = "Accept \(peerID.displayName)'s invitation"
             let message = "Would you like to accept: \(peerID.displayName)"
             let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
             alertController.addAction(UIAlertAction(title: "No", style: .cancel){ _ in
+                let job = try? JSONDecoder().decode(coupleModel.self, from: context!)
+                print("\(job?.username ?? "kosong" ),<<<data")
                 invitationHandler(false, self.session)
                 
             })
             alertController.addAction(UIAlertAction(title: "Yes", style: .default) { _ in
                 self.coupleID = peerID.displayName
+                var couple = try? JSONDecoder().decode(coupleModel.self, from: context!)
+                print("\(couple?.username ?? "kosong"),<<<data")
+                self.coupleName = couple?.username
                 invitationHandler(true, self.session)
+//
+//                var dataToSend = coupleModel(username: self.userName ?? "kosong" )
+//                let encodeData = try? JSONEncoder().encode(couple)
+//
+//                do {
+//                    try self.session.send(encodeData!, toPeers: self.session.connectedPeers, with: .reliable)
+//
+//                }
+//                catch{
+//                    print(error.localizedDescription)
+//                }
             })
             window?.rootViewController?.present(alertController, animated: true)
         }
@@ -171,8 +190,17 @@ extension MultipeerHandler: MCSessionDelegate {
         switch state {
         case .connecting:
             print("\(peerID) state: connecting")
+           
         case .connected:
             print("\(peerID) state: connected")
+            do{
+                var dataToSend = coupleModel(username: self.userName ?? "kosong" )
+                let encodeData = try? JSONEncoder().encode(dataToSend)
+                try self.session.send(encodeData!, toPeers:[peerID], with: .reliable)
+
+            }catch{
+                print(error.localizedDescription)
+            }
             // nyimpan couple id baru push ke next screen
 //            DispatchQueue.main.async {
 //                self.pairID = peerID
@@ -184,8 +212,8 @@ extension MultipeerHandler: MCSessionDelegate {
             print("\(state) masuk sini")
             
             DispatchQueue.main.async {
-                guard let index = self.persons.firstIndex(of: peerID) else { return }
-                self.persons.remove(at: index)
+//                guard let index = self.persons.firstIndex(of: peerID) else { return }
+//                self.persons.remove(at: index)
                 let scenes = UIApplication.shared.connectedScenes
                 let windowScenes = scenes.first as? UIWindowScene
                 let window = windowScenes?.windows.first
@@ -208,8 +236,11 @@ extension MultipeerHandler: MCSessionDelegate {
         //        }
         //        delegate?.didReceive(data: data, from: peerID)
         print("sini masuk")
-        guard let dataTry = try? JSONDecoder().decode(String.self, from: data) else {return}
-        print(dataTry)
+        guard let dataTry = try? JSONDecoder().decode(coupleModel.self, from: data) else {return}
+        DispatchQueue.main.async {
+            self.coupleName = dataTry.username
+        }
+       
     }
     
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct PairListView: View {
-    @EnvironmentObject var multipeerHandler: MultipeerHandler
+    @ObservedObject var multipeerHandler: MultipeerHandler
+    @ObservedObject var userVM:UserViewModel
     var body: some View {
         let columns = Array(repeating: GridItem(.flexible()), count: 3)
         

@@ -38,7 +38,7 @@ class UserViewModel: ObservableObject {
         userService.updateUserTalkDuration(newTalkDuration: user.talkDuration ?? 0)
     }
     
-    func updateCoupleID(coupleID:String){
-        userService.updateCoupleID(coupleID: coupleID)
+    func updateCouple(coupleID:String,coupleName:String){
+        userService.updateCouple(coupleID: coupleID, coupleName: coupleName)
     }
 }

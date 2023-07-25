@@ -12,5 +12,5 @@ protocol UserRepository {
     func getUserDetails() -> UserEntity?
     func updateUserDetails(mutatedUser: UserEntity) -> UserEntity?
     func updateUserTalkDuration(newTalkDuration: Int) -> UserEntity?
-    func updateCoupleID(coupleID: String) -> UserEntity?
+    func updateCouple(coupleID: String, coupleName:String) -> UserEntity?
 }

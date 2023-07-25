@@ -22,6 +22,7 @@ struct Let_s_TalkApp: App {
     @StateObject var userVM: UserViewModel = UserViewModel()
     @StateObject var dashboardNavigation = DashboardNavigationManager()
     @StateObject var loveLogNavigation = LoveLogNavigationManager()
+    @StateObject var multipeerHandler : MultipeerHandler = MultipeerHandler()
     
     var body: some Scene {
         WindowGroup {
@@ -29,11 +30,11 @@ struct Let_s_TalkApp: App {
             case "welcome":
                 UserOnboardingScreen()
             case "setup":
-                UserSetupScreen(userVM: userVM)
+                UserSetupScreen(userVM: userVM,multipeerHandler: multipeerHandler)
             case "pairing":
-                UserPairingScreen(userVM: userVM)
+                UserPairingScreen(multipeerHandler: multipeerHandler,userVM: userVM)
             case "congrats":
-                UserPairingSuccessScreen()
+                UserPairingSuccessScreen(userVM: userVM)
             case "done":
                 TabBarView(dashboardNavigation: dashboardNavigation, loveLogNavigation: loveLogNavigation)
             default:

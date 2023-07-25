@@ -17,6 +17,7 @@ extension User {
     }
 
     @NSManaged public var coupleId: String?
+    @NSManaged public var coupleName: String?
     @NSManaged public var createdAt: Date?
     @NSManaged public var gender: Int16
     @NSManaged public var talkDuration: Int64

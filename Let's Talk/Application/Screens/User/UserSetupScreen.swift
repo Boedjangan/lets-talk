@@ -10,6 +10,7 @@ import SwiftUI
 struct UserSetupScreen: View {
     @AppStorage("onboarding") var onboarding: String = OnboardingRoutes.welcome.rawValue
     @ObservedObject var userVM: UserViewModel
+    @ObservedObject var multipeerHandler: MultipeerHandler
     
     var body: some View {
         LayoutView {
@@ -29,6 +30,7 @@ struct UserSetupScreen: View {
             Spacer()
             ButtonView {
                 userVM.updateUserDetails()
+                multipeerHandler.userName = userVM.user.username
                 onboarding = OnboardingRoutes.pairing.rawValue
             } label: {
                 Text("Selanjutnya")
@@ -38,10 +40,10 @@ struct UserSetupScreen: View {
     }
 }
 
-struct UserSetupScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        StatefulObjectPreviewView(UserViewModel()) { userVM in
-            UserSetupScreen(userVM: userVM)
-        }
-    }
-}
+//struct UserSetupScreen_Previews: PreviewProvider {
+//    static var previews: some View {
+//        StatefulObjectPreviewView(UserViewModel()) { userVM in
+//            UserSetupScreen(userVM: userVM)
+//        }
+//    }
+//}

@@ -9,9 +9,17 @@ import SwiftUI
 
 struct UserPairingSuccessScreen: View {
     @AppStorage("onboarding") var onboarding: String = OnboardingRoutes.welcome.rawValue
+    @ObservedObject var userVM:UserViewModel
     
-    var maleName : String = "male"
-    var femaleName : String = "female"
+    var userName : String = "male"
+    var coupleName : String = "female"
+    
+    init(userVM:UserViewModel){
+        self.userVM = userVM
+        self.userName = userVM.user.username
+        self.coupleName = userVM.user.coupleName ?? "couple"
+        
+    }
     
     var body: some View {
         LayoutView{
@@ -24,8 +32,8 @@ struct UserPairingSuccessScreen: View {
                 .foregroundColor(Color.white)
                 .padding(.bottom,78)
             HStack(){
-                AvatarView(userName: maleName)
-                AvatarView(userName: femaleName)
+                AvatarView(userName: userName)
+                AvatarView(userName: coupleName)
             }
             Spacer()
             ButtonView(){
@@ -39,8 +47,8 @@ struct UserPairingSuccessScreen: View {
     }
 }
 
-struct UserPairingSuccessScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        UserPairingSuccessScreen(maleName: "Ethan",femaleName: "Anne")
-    }
-}
+//struct UserPairingSuccessScreen_Previews: PreviewProvider {
+//    static var previews: some View {
+//        UserPairingSuccessScreen()
+//    }
+//}

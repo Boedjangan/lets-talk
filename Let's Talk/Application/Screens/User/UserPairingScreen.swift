@@ -11,15 +11,23 @@ import SwiftUI
 // TODO: pindah screen pairing success 
 struct UserPairingScreen: View {
     @AppStorage("onboarding") var onboarding: String = OnboardingRoutes.welcome.rawValue
-    @StateObject var multipeerHandler : MultipeerHandler = MultipeerHandler()
+    @ObservedObject var multipeerHandler : MultipeerHandler
     @ObservedObject var userVM:UserViewModel
+    
+    init(multipeerHandler:MultipeerHandler, userVM:UserViewModel){
+        self.multipeerHandler = multipeerHandler
+        self.userVM = userVM
+        multipeerHandler.advertiser.startAdvertisingPeer()
+//        multipeerHandler.userName = userVM.user.username
+    }
     
 //    @ObservedObject var dashboardRoutes: DashboardNavigationManager
     
     @State var isPresent : Bool = false
     
     var body: some View {
-        VStack(){
+        
+        LayoutView{
             Group{
                 Text("Sambungkan dengan pasanganmu")
                     .padding(.bottom,24)
@@ -28,8 +36,8 @@ struct UserPairingScreen: View {
             }
            
             Spacer()
-            PairListView()
-                .environmentObject(multipeerHandler)
+            PairListView(multipeerHandler: multipeerHandler, userVM: userVM)
+                
             Spacer()
         }.onAppear {
             multipeerHandler.startBrowsing()
@@ -39,7 +47,8 @@ struct UserPairingScreen: View {
         .onChange(of: multipeerHandler.state) { newState in
             if newState == .connected {
                 print(multipeerHandler.coupleID as Any , "<<<ini")
-                userVM.updateCoupleID(coupleID: multipeerHandler.coupleID!)
+                print(multipeerHandler.coupleName as Any , "<<<ini bana")
+                userVM.updateCouple(coupleID: multipeerHandler.coupleID!, coupleName: multipeerHandler.coupleName!)
                 onboarding = OnboardingRoutes.congrats.rawValue
                 print("ganti screeen")
             }
