@@ -12,7 +12,7 @@ import Foundation
 class UserViewModel: ObservableObject {
     @Published var user: UserEntity = UserEntity()
     
-    private var userService = UserService(userRepository: CoreDataAdapter())
+    private var userService = UserService(userRepository: UserCoreDataAdapter())
     
     init() {
        initializeUser()
@@ -36,5 +36,11 @@ class UserViewModel: ObservableObject {
     // TODO: Handle error on return nil
     func updateTalkDuration() {
         userService.updateUserTalkDuration(newTalkDuration: user.talkDuration ?? 0)
+    }
+    
+    func updateCouple(coupleID: String, coupleName: String){
+        if let newUserEntity = userService.updateCouple(coupleID: coupleID, coupleName: coupleName) {
+            user = newUserEntity
+        }
     }
 }

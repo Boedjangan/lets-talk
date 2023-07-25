@@ -1,5 +1,5 @@
 //
-//  CoreDataAdapter.swift
+//  UserCoreDataAdapter.swift
 //  Let's Talk
 //
 //  Created by Bisma Mahendra I Dewa Gede on 18/07/23.
@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-class CoreDataAdapter: UserRepository {
+class UserCoreDataAdapter: UserRepository {
     private let coreDataContext = CoreDataConnection.shared.managedObjectContext
     
     func createNewUser(newUser: UserEntity) -> UserEntity? {
@@ -35,6 +35,7 @@ class CoreDataAdapter: UserRepository {
         user.username = newUser.username
         user.gender = Int16(newUser.gender.rawValue)
         user.coupleId = newUser.coupleId
+        user.coupleName = newUser.coupleName
         user.talkDuration = Int64(newUser.talkDuration ?? 0)
         user.createdAt = newUser.createdAt
         user.updatedAt = newUser.updatedAt
@@ -66,6 +67,7 @@ class CoreDataAdapter: UserRepository {
                 username: user.username.unsafelyUnwrapped,
                 gender: Gender(rawValue: user.gender.toInt) ?? .male,
                 coupleId: user.coupleId ?? "",
+                coupleName: user.coupleName ?? "",
                 talkDuration: user.talkDuration.toInt,
                 createdAt: user.createdAt.unsafelyUnwrapped,
                 updatedAt: user.updatedAt.unsafelyUnwrapped
@@ -91,6 +93,7 @@ class CoreDataAdapter: UserRepository {
             user.username = mutatedUser.username
             user.gender = mutatedUser.gender.rawValue.toInt16
             user.coupleId = mutatedUser.coupleId ?? user.coupleId
+            user.coupleName = mutatedUser.coupleName ?? user.coupleName
             user.updatedAt = Date()
             
             try coreDataContext.save()
@@ -100,6 +103,7 @@ class CoreDataAdapter: UserRepository {
                 username: user.username.unsafelyUnwrapped,
                 gender: Gender(rawValue: user.gender.toInt) ?? .male,
                 coupleId: user.coupleId ?? "",
+                coupleName: user.coupleName ?? "",
                 talkDuration: user.talkDuration.toInt,
                 createdAt: user.createdAt.unsafelyUnwrapped,
                 updatedAt: user.updatedAt.unsafelyUnwrapped
@@ -132,12 +136,47 @@ class CoreDataAdapter: UserRepository {
                 username: user.username.unsafelyUnwrapped,
                 gender: Gender(rawValue: user.gender.toInt) ?? .male,
                 coupleId: user.coupleId ?? "",
+                coupleName: user.coupleName ?? "",
                 talkDuration: user.talkDuration.toInt,
                 createdAt: user.createdAt.unsafelyUnwrapped,
                 updatedAt: user.updatedAt.unsafelyUnwrapped
             )
         } catch {
             print("Failed updating user talk duration")
+            print("Error: \(error.localizedDescription)")
+            
+            return nil
+        }
+    }
+    
+    func updateCouple(coupleID: String, coupleName: String) -> UserEntity? {
+        let request: NSFetchRequest<User> = User.fetchRequest()
+        
+        do {
+            let users = try coreDataContext.fetch(request)
+            
+            guard let user = users.first else {
+                return nil
+            }
+            
+            user.coupleId = coupleID
+            user.coupleName = coupleName
+            user.updatedAt = Date()
+            
+            try coreDataContext.save()
+            
+            return UserEntity(
+                id: user.id.unsafelyUnwrapped,
+                username: user.username.unsafelyUnwrapped,
+                gender: Gender(rawValue: user.gender.toInt) ?? .male,
+                coupleId: user.coupleId ?? "",
+                coupleName: user.coupleName ?? "",
+                talkDuration: user.talkDuration.toInt,
+                createdAt: user.createdAt.unsafelyUnwrapped,
+                updatedAt: user.updatedAt.unsafelyUnwrapped
+            )
+        } catch {
+            print("Failed updating user details")
             print("Error: \(error.localizedDescription)")
             
             return nil

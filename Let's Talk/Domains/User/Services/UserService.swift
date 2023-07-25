@@ -29,4 +29,8 @@ class UserService {
     func updateUserTalkDuration(newTalkDuration: Int) -> UserEntity? {
         return userRepository.updateUserTalkDuration(newTalkDuration: newTalkDuration)
     }
+    
+    func updateCouple(coupleID: String, coupleName: String) -> UserEntity? {
+        return userRepository.updateCouple(coupleID: coupleID, coupleName: coupleName)
+    }
 }

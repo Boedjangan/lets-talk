@@ -19,6 +19,8 @@ extension Color{
     static let buttonHoverBorderPrimary = Color("GrayBorder")
     static let buttonSecondary = Color("Tosca")
     
+    static let addPhotoBackground = Color("Ash")
+    
     static let subQuestionTextBackground = Color("Tosca")
     
     static let warmUpCardBackground = Color("Ash")
@@ -41,4 +43,8 @@ extension Color{
     static let background = Color("Black")
     
     static let tabBar = Color("BlackTabBar")
+    
+    static let questionBackground = Color("AshBlue")
+    
+    static let recording = Color("Maroon")
 }

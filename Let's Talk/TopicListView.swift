@@ -14,29 +14,20 @@ struct TopicListView: View {
     var progress: Double = 0.5
     
     var body: some View {
-        LayoutView{
-            HStack(alignment: .center, spacing: 16){
-                TopIconView(foregroundColor: Color.buttonOutlineCommitment, icon: icon)
-                TopicProgressView(color: Color.buttonOutlineCommitment, level: level, label: title, progress: progress)
-                
-                ButtonView() {
-                //
-                } label: {
-                    HStack{
-                        Text( "Go to Question")
-                        Image(systemName: "arrow.right")
-                            .foregroundColor(Color.buttonOutlineCommitment)
-                            .font(.system(size: 10))
-                    }
-                }
-                .buttonStyle(.outline(.commitment))
+        ScrollView {
+            VStack(spacing: 64) {
+                TopicItemView(title:"topic 1",progress: 1,isActive: false,isCompleted: true)
+                TopicItemView(title:"topic 2",progress: 0.4)
+                TopicItemView(title:"topic 3",isActive: false)
             }
         }
     }
 }
-
-struct TopicListView_Previews: PreviewProvider {
-    static var previews: some View {
-        TopicListView()
+    
+    struct TopicListView_Previews: PreviewProvider {
+        static var previews: some View {
+            LayoutView{
+                TopicListView()
+            }
+        }
     }
-}

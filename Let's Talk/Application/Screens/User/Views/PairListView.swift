@@ -8,12 +8,18 @@
 import SwiftUI
 
 struct PairListView: View {
+    @ObservedObject var multipeerHandler: MultipeerHandler
+    @ObservedObject var userVM:UserViewModel
+    
     var body: some View {
         let columns = Array(repeating: GridItem(.flexible()), count: 3)
         
         LazyVGrid(columns: columns, alignment: .center, spacing: 32) {
-            ForEach(1...7, id: \.self) { _ in
-                PairItemView()
+            ForEach(multipeerHandler.persons, id: \.self) { phone in
+                PairItemView(name: phone.displayName)
+                    .onTapGesture {
+                        multipeerHandler.invitePeer(phone)
+                    }
             }
         }
         .scrollOnOverflow(maxHeight: 280)
@@ -23,7 +29,7 @@ struct PairListView: View {
 struct PairListView_Previews: PreviewProvider {
     static var previews: some View {
         LayoutView {
-            PairListView()
+//            PairListView()
         }
     }
 }

@@ -7,13 +7,38 @@
 
 import SwiftUI
 
+enum OnboardingRoutes: String {
+    case welcome
+    case setup
+    case pairing
+    case congrats
+    case done
+}
+
 @main
 struct Let_s_TalkApp: App {
-
+    @AppStorage("onboarding") var onboarding: String = OnboardingRoutes.welcome.rawValue
+    
+    @StateObject var userVM: UserViewModel = UserViewModel()
+    @StateObject var dashboardNavigation = DashboardNavigationManager()
+    @StateObject var loveLogNavigation = LoveLogNavigationManager()
+    @StateObject var multipeerHandler : MultipeerHandler = MultipeerHandler()
+    
     var body: some Scene {
         WindowGroup {
-            VStack {
-                Text("HEHE")
+            switch(onboarding) {
+            case "welcome":
+                UserOnboardingScreen()
+            case "setup":
+                UserSetupScreen(userVM: userVM, multipeerHandler: multipeerHandler)
+            case "pairing":
+                UserPairingScreen(multipeerHandler: multipeerHandler, userVM: userVM)
+            case "congrats":
+                UserPairingSuccessScreen(userVM: userVM)
+            case "done":
+                TabBarView(dashboardNavigation: dashboardNavigation, loveLogNavigation: loveLogNavigation)
+            default:
+                UserOnboardingScreen()
             }
         }
     }
