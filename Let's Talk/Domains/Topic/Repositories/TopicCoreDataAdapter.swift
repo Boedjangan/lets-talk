@@ -9,29 +9,17 @@ import Foundation
 import CoreData
 
 class TopicCoreDataAdapter: TopicRepository {
-<<<<<<< HEAD
-    private let coreDataContext = CoreDataConnection.shared.managedObjectContext
-    
-    func getTopics() -> [TopicEntity]  {
-        let request: NSFetchRequest<Topic> = Topic.fetchRequest()
-        var topicEntities: [TopicEntity] = []
-        
-=======
-    
     private let coreDataContext = CoreDataConnection.shared.managedObjectContext
     
     func getTopics() -> [TopicEntity] {
         let request: NSFetchRequest<Topic> = Topic.fetchRequest()
         var topicEntities: [TopicEntity] = []
-
->>>>>>> main
+        
         do {
             let topics = try coreDataContext.fetch(request)
             
             for topic in topics {
-<<<<<<< HEAD
                 let topicEntity = convertToTopicEntity(topic: topic)
-=======
                 let topicEntity = TopicEntity(
                     id: topic.id.unsafelyUnwrapped,
                     iconName: topic.iconName.unsafelyUnwrapped,
@@ -43,10 +31,8 @@ class TopicCoreDataAdapter: TopicRepository {
                     createdAt: topic.createdAt.unsafelyUnwrapped,
                     updatedAt: topic.updatedAt.unsafelyUnwrapped
                 )
->>>>>>> main
                 topicEntities.append(topicEntity)
             }
-            
             return topicEntities
         } catch {
             print("Failed getting user details")
@@ -56,7 +42,6 @@ class TopicCoreDataAdapter: TopicRepository {
         }
     }
     
-<<<<<<< HEAD
     func createTopics(topicEntities: [TopicEntity]) -> [TopicEntity] {
         var createdTopics: [TopicEntity] = []
         
@@ -112,12 +97,12 @@ class TopicCoreDataAdapter: TopicRepository {
                         print("Error: \(error.localizedDescription)")
                     }
                 }
-            }       
+            }
             
             do {
                 try coreDataContext.save()
                 print("Entity Saved")
-//                createdTopics.append(topicEntity)
+                //                createdTopics.append(topicEntity)
             } catch {
                 print("Failed to create new topic")
                 print("Error: \(error.localizedDescription)")
@@ -128,9 +113,6 @@ class TopicCoreDataAdapter: TopicRepository {
     }
     
     func updateTopicProgress(id: UUID, newProgress: Int) -> TopicEntity? {
-=======
-    func updateTopicProgress(id: UUID, newProgress: Int16) -> TopicEntity? {
->>>>>>> main
         let request: NSFetchRequest<Topic> = Topic.fetchRequest()
         request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
         
@@ -141,12 +123,8 @@ class TopicCoreDataAdapter: TopicRepository {
                 print("No topic found with the provided ID.")
                 return nil
             }
-            
-<<<<<<< HEAD
-            topic.progress = newProgress.toInt16
-=======
             topic.progress = newProgress
->>>>>>> main
+            
             try coreDataContext.save()
             
             return convertToTopicEntity(topic: topic)
@@ -157,11 +135,7 @@ class TopicCoreDataAdapter: TopicRepository {
             return nil
         }
     }
-<<<<<<< HEAD
     
-=======
-
->>>>>>> main
     func updateActiveStatus(id: UUID, activeStatus: Bool) -> TopicEntity? {
         let request: NSFetchRequest<Topic> = Topic.fetchRequest()
         request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
@@ -185,11 +159,7 @@ class TopicCoreDataAdapter: TopicRepository {
             return nil
         }
     }
-<<<<<<< HEAD
     
-=======
-
->>>>>>> main
     func updateCompletedStatus(id: UUID, completedStatus: Bool) -> TopicEntity? {
         let request: NSFetchRequest<Topic> = Topic.fetchRequest()
         request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
@@ -213,36 +183,17 @@ class TopicCoreDataAdapter: TopicRepository {
             return nil
         }
     }
-<<<<<<< HEAD
     
     func convertToTopicEntity(topic: Topic) -> TopicEntity {
-        var questions: [Any] = []
-        var subQuestions: [SubQuestionEntity] = []
-        
-        // Convert topic.questions to [Any]
-        if let topicQuestions = topic.question as? Set<Question> {
-            questions = Array(topicQuestions)
-        }
-        
-=======
-
-    func convertToTopicEntity(topic: Topic) -> TopicEntity {
->>>>>>> main
         return TopicEntity(
             id: topic.id.unsafelyUnwrapped,
             iconName: topic.iconName.unsafelyUnwrapped,
             isActive: topic.isActive,
             isCompleted: topic.isCompleted,
-<<<<<<< HEAD
             level: Int(topic.level),
             progress: Int(topic.progress),
             title: topic.title ?? "",
             questions: questions,
-=======
-            level: Int16(topic.level.toInt),
-            progress: Int16(topic.progress.toInt),
-            title: topic.title ?? "",
->>>>>>> main
             createdAt: topic.createdAt.unsafelyUnwrapped,
             updatedAt: topic.updatedAt.unsafelyUnwrapped
         )

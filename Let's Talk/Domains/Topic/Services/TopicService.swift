@@ -18,15 +18,11 @@ class TopicService {
         return topicRepository.getTopics()
     }
     
-<<<<<<< HEAD
     func createTopics(topicEntities: [TopicEntity]) -> [TopicEntity] {
         return topicRepository.createTopics(topicEntities: topicEntities)
     }
     
     func updateTopicProgress(id: UUID, newProgress: Int) -> TopicEntity? {
-=======
-    func updateTopicProgress(id: UUID, newProgress: Int16) -> TopicEntity? {
->>>>>>> main
         return topicRepository.updateTopicProgress(id: id, newProgress: newProgress)
     }
     
