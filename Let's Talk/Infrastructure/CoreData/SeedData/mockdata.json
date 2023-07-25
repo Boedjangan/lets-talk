@@ -5,131 +5,127 @@
     "level": 1,
     "progress": 0,
     "isCompleted": false,
-    "title": "nisi",
+    "title": "Kedekatan",
     "questions": [
       {
         "image": null,
-        "isCompleted": true,
-        "question": "Proin at turpis a pede posuere nonummy.",
+        "isCompleted": false,
+        "question": "Jika kamu bisa mengundang siapapun di dunia ini untuk jadi tamu di acara makan malamu, siapa yang akan kamu pilih?",
         "talkDuration": 0,
-        "warmUp": "Quisque id justo sit amet sapien dignissim vestibulum.",
+        "warmUp": "siapa artis favorit pasanganmu",
         "subQuestions": [
-          "Proin at turpis a pede posuere nonummy.",
-          "Proin at turpis a pede posuere nonummy.",
-          "Proin at turpis a pede posuere nonummy."
-        ]
-      },
-      {
-        "image": null,
-        "isCompleted": true,
-        "question": "Suspendisse potenti.",
-        "talkDuration": 0,
-        "warmUp": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est.",
-        "subQuestions": [
-          "Suspendisse potenti.",
-          "Suspendisse potenti.",
-          "Suspendisse potenti."
-        ]
-      },
-      {
-        "image": null,
-        "isCompleted": true,
-        "question": "Vivamus tortor.",
-        "talkDuration": 0,
-        "warmUp": "In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.",
-        "subQuestions": [
-          "Vivamus tortor.",
-          "Vivamus tortor.",
-          "Vivamus tortor."
+          "Kenapa kamu memilih dia?",
+          "Apa yang kamu suka dari dia?",
         ]
       },
       {
         "image": null,
         "isCompleted": false,
-        "question": "Nulla ut erat id mauris vulputate elementum.",
+        "question": "Apakah kamu ingin menjadi orang terkenal? dalam hal apa kamu ingin menjadi terkenal?",
         "talkDuration": 0,
-        "warmUp": "Donec ut dolor.",
+        "warmUp": "Apa cita cita pasanganmu.",
         "subQuestions": [
-          "Nulla ut erat id mauris vulputate elementum.",
-          "Nulla ut erat id mauris vulputate elementum.",
-          "Nulla ut erat id mauris vulputate elementum."
-        ]
-      },
-      {
-        "image": null,
-        "isCompleted": true,
-        "question": "Nulla nisl.",
-        "talkDuration": 0,
-        "warmUp": "Mauris sit amet eros.",
-        "subQuestions": ["Nulla nisl.", "Nulla nisl.", "Nulla nisl."]
-      },
-      {
-        "image": null,
-        "isCompleted": false,
-        "question": "Nullam varius.",
-        "talkDuration": 0,
-        "warmUp": "Nulla tellus.",
-        "subQuestions": ["Nullam varius.", "Nullam varius.", "Nullam varius."]
-      },
-      {
-        "image": null,
-        "isCompleted": true,
-        "question": "Nulla tempus.",
-        "talkDuration": 0,
-        "warmUp": "Aenean auctor gravida sem.",
-        "subQuestions": ["Nulla tempus.", "Nulla tempus.", "Nulla tempus."]
-      },
-      {
-        "image": null,
-        "isCompleted": false,
-        "question": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
-        "talkDuration": 0,
-        "warmUp": "Mauris ullamcorper purus sit amet nulla.",
-        "subQuestions": [
-          "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
-          "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
-          "Lorem ipsum dolor sit amet, consectetuer adipiscing elit."
+          "Kenapa kamu mau jadi terkenal dalam hal itu ?",
+          "Kenapa tidak mau terkenal? ( jika tidak mau terkenal)"
         ]
       },
       {
         "image": null,
         "isCompleted": false,
-        "question": "Mauris lacinia sapien quis libero.",
+        "question": "Sebelum melakukan telepon, apakah kamu berlatih apa yang akan kamu katakan?",
         "talkDuration": 0,
-        "warmUp": "Quisque porta volutpat erat.",
+        "warmUp": "Sebutkan 4 digit terakhir dari nomor ponselmu?",
         "subQuestions": [
-          "Mauris lacinia sapien quis libero.",
-          "Mauris lacinia sapien quis libero.",
-          "Mauris lacinia sapien quis libero."
-        ]
-      },
-      {
-        "image": null,
-        "isCompleted": true,
-        "question": "Duis ac nibh.",
-        "talkDuration": 0,
-        "warmUp": "Cras pellentesque volutpat dui.",
-        "subQuestions": ["Duis ac nibh.", "Duis ac nibh.", "Duis ac nibh."]
-      },
-      {
-        "image": null,
-        "isCompleted": false,
-        "question": "Duis aliquam convallis nunc.",
-        "talkDuration": 0,
-        "warmUp": "Morbi non lectus.",
-        "subQuestions": [
-          "Duis aliquam convallis nunc.",
-          "Duis aliquam convallis nunc.",
-          "Duis aliquam convallis nunc."
+          "Kenapa kamu berlatih terlebih dahulu? (Jika jawaban ya).",
+          "Apakah jawaban yang kamu dapatkan sesuai dengan yang kamu pikirkan ? (Jika jawaban ya)"
         ]
       },
       {
         "image": null,
         "isCompleted": false,
-        "question": "Morbi ut odio.",
+        "question": "Bagaimana kamu mendeskripsikan kalau hari itu menjadi hari yang \"sempurna\" bagimu?",
         "talkDuration": 0,
-        "warmUp": "In congue.",
-        "subQuestions": ["Morbi ut odio.", "Morbi ut odio.", "Morbi ut odio."]
+        "warmUp": "Kapan hari ulang tahun pasanganmu?",
+        "subQuestions": [
+          "Kenapa hal itu bisa membuat hari mu \"sempurna\""
+        ]
+      },
+      {
+        "image": null,
+        "isCompleted": false,
+        "question": "Kapan kamu terakhir kali bernyanyi untuk dirimu sendiri? kalau didepan umum?",
+        "talkDuration": 0,
+        "warmUp": "Siapa penyanyi/band favoritmu?",
+        "subQuestions": [
+            "Lagu apa yang kamu nyanyikan?",
+            "Apakah kamu senang dengan jenis lagu tersebut?",
+            "Bagaimana perasaanmu setelah menyanyikan lagu itu?"
+        ]
+      },
+      {
+        "image": null,
+        "isCompleted": false,
+        "question": "Jika kamu hidup sampai usia 90 tahun dan kamu bisa memilih untuk mempertahankan pikiranmu atau tubuhmu yang diumur 30 untuk 60 tahun terakhirmu yang mana yang akan kamu inginkan?",
+        "talkDuration": 0,
+        "warmUp": "Sebutkan usia pasangan kamu saat ini?",
+        "subQuestions": [
+            "Kenapa kamu ingin mempertahankan hal itu ?"
+        ]
+      },
+      {
+        "image": null,
+        "isCompleted": false,
+        "question": "Apakah kamu pernah memikirkan bagaimana kamu akan meninggal nanti?",
+        "talkDuration": 0,
+        "warmUp": "Pemakaman siapa yang terakhir kali kamu ikuti?",
+        "subQuestions": [
+          "Kenapa kamu memilih hal tersebut? (jika pernah) ",
+          "Apakah kamu pernah menceritakan ini ke orang lain? (jika pernah) "
+        ]
+      },
+      {
+        "image": null,
+        "isCompleted": false,
+        "question": "Sebutkan 3 kesamaan dirimu dengan pasanganmu? ",
+        "talkDuration": 0,
+        "warmUp": "Sebutkan 1 benda yang pernah kamu berikan kepada pasanganmu?",
+        "subQuestions": []
+      },
+      {
+        "image": null,
+        "isCompleted": false,
+        "question": "Apa hal yang kamu syukuri dalam hidupmu ?",
+        "talkDuration": 0,
+        "warmUp": " Apa hadiah terbaik yang pernah kamu terima?",
+        "subQuestions": [
+            "Kenapa kamu merasakan hal tersebut?"
+        ]
+      },
+      {
+        "image": null,
+        "isCompleted": false,
+        "question": "Jika kamu dapat mengubah bagaimana cara dirimu dibesarkan , apa yang ingin kamu ubah?",
+        "talkDuration": 0,
+        "warmUp": "Siapa teman masa kecilmu?",
+        "subQuestions": [
+          "Kenapa kamu ingin mengubah itu? (jika ada)"
+        ]
+      },
+      {
+        "image": null,
+        "isCompleted": false,
+        "question": "Luangkan waktu dirimu selama 4 menit dan ceritakan kisah hidup anda ke pasanganmu sedetail mungkin.",
+        "talkDuration": 0,
+        "warmUp": "Sebutkan satu benda yang menggambarkan kamu?",
+        "subQuestions": ["Berusahalah untuk menggali cerita pasanganmu sedalam mungkin selama 4 menit tersebut "]
+      },
+      {
+        "image": null,
+        "isCompleted": false,
+        "question": "ika kamu besok bangun mendapatkan satu kemampuan atau \ kepintaran , kemampuan apakah itu?",
+        "talkDuration": 0,
+        "warmUp": "Siapa super hero favoritmu",
+        "subQuestions": ["Kenapa kamu memilih kemampuan itu?"]
       }
     ]
   },
@@ -139,126 +135,131 @@
     "level": 2,
     "progress": 0,
     "isCompleted": false,
-    "title": "integer",
+    "title": "Eksplorasi",
     "questions": [
       {
         "image": null,
         "isCompleted": false,
-        "question": "In hac habitasse platea dictumst.",
+        "question": "Jika kamu bisa tahu kebenaran tentang dirimu, kehidupanmu, masa depanmu atau hal apapun, apa yang ingin kamu ingin tahu?",
         "talkDuration": 0,
         "warmUp": "Etiam justo.",
         "subQuestions": [
-          "In hac habitasse platea dictumst.",
-          "In hac habitasse platea dictumst.",
-          "In hac habitasse platea dictumst."
+          "Kenapa kamu ingin tahu hal tersebut? "
         ]
       },
       {
         "image": null,
-        "isCompleted": true,
-        "question": "Vivamus vestibulum sagittis sapien.",
+        "isCompleted": false,
+        "question": "Apakah ada sesuatu yang kamu sudah lama kamu impikan?",
         "talkDuration": 0,
         "warmUp": "Duis ac nibh.",
         "subQuestions": [
-          "Vivamus vestibulum sagittis sapien.",
-          "Vivamus vestibulum sagittis sapien.",
-          "Vivamus vestibulum sagittis sapien."
+          "Kenapa kamu menginginkan hal tersebut?",
+          "Kenapa kamu belum mencapainya?",
+          "Apakah kamu masih berusaha untuk mencapai mimpimu?"
         ]
       },
       {
         "image": null,
         "isCompleted": false,
-        "question": "Pellentesque ultrices mattis odio.",
+        "question": "Apa pencapaian terbesar dalam hidupmu?",
         "talkDuration": 0,
         "warmUp": "Maecenas pulvinar lobortis est.",
         "subQuestions": [
-          "Pellentesque ultrices mattis odio.",
-          "Pellentesque ultrices mattis odio.",
-          "Pellentesque ultrices mattis odio."
+          "Bagaimana kamu bisa meraih hal tersebut?.",
+          "Apa yang kamu rasakan ketika mendapatkannya?"
         ]
       },
       {
         "image": null,
-        "isCompleted": true,
-        "question": "Sed sagittis.",
+        "isCompleted": false,
+        "question": "Apa hal yang paling berharga dalam persehabatan?",
         "talkDuration": 0,
         "warmUp": "Nam nulla.",
-        "subQuestions": ["Sed sagittis.", "Sed sagittis.", "Sed sagittis."]
-      },
-      {
-        "image": null,
-        "isCompleted": true,
-        "question": "Nunc nisl.",
-        "talkDuration": 0,
-        "warmUp": "Morbi ut odio.",
-        "subQuestions": ["Nunc nisl.", "Nunc nisl.", "Nunc nisl."]
+        "subQuestions": [
+            "Kenapa kamu memilih hal tersebut.",
+            "Apakah kamu menemukan hal tersebut di temanmu atau di aku?"
+        ]
       },
       {
         "image": null,
         "isCompleted": false,
-        "question": "Vivamus in felis eu sapien cursus vestibulum.",
+        "question": "Apa kenangan paling berharga dalam hidupmu",
+        "talkDuration": 0,
+        "warmUp": "Morbi ut odio.",
+        "subQuestions": [
+            "Kenapa kenagan tersebut sangat berharga"]
+      },
+      {
+        "image": null,
+        "isCompleted": false,
+        "question": "Apa kejadian terburuk dalam hidupmu?",
         "talkDuration": 0,
         "warmUp": "Aenean sit amet justo.",
         "subQuestions": [
-          "Vivamus in felis eu sapien cursus vestibulum.",
-          "Vivamus in felis eu sapien cursus vestibulum.",
-          "Vivamus in felis eu sapien cursus vestibulum."
+          "Apakah kejadian tersebut mengubah hidupmu?"
         ]
       },
       {
         "image": null,
         "isCompleted": false,
-        "question": "Morbi ut odio.",
+        "question": "Jika kamu tahu kalau satu tahun lagi kamu akan meninggal, apakah kamu akan mengubah cara hidupmu yang sekarang",
         "talkDuration": 0,
         "warmUp": "Nam tristique tortor eu pede.",
-        "subQuestions": ["Morbi ut odio.", "Morbi ut odio.", "Morbi ut odio."]
+        "subQuestions": [
+            "Dalam hal apa yang ingin kamu ubah?",
+            "Kenapa kamu ingin mengubah cara hidupmu"
+        ]
       },
       {
         "image": null,
-        "isCompleted": true,
-        "question": "Suspendisse potenti.",
+        "isCompleted": false,
+        "question": "Apa arti pertemanan bagi dirimu?",
         "talkDuration": 0,
         "warmUp": "Nulla suscipit ligula in lacus.",
         "subQuestions": [
-          "Suspendisse potenti.",
-          "Suspendisse potenti.",
-          "Suspendisse potenti."
-        ]
-      },
-      {
-        "image": null,
-        "isCompleted": true,
-        "question": "Nulla suscipit ligula in lacus.",
-        "talkDuration": 0,
-        "warmUp": "Duis mattis egestas metus.",
-        "subQuestions": [
-          "Nulla suscipit ligula in lacus.",
-          "Nulla suscipit ligula in lacus.",
-          "Nulla suscipit ligula in lacus."
-        ]
-      },
-      {
-        "image": null,
-        "isCompleted": true,
-        "question": "Suspendisse potenti.",
-        "talkDuration": 0,
-        "warmUp": "Nulla facilisi.",
-        "subQuestions": [
-          "Suspendisse potenti.",
-          "Suspendisse potenti.",
-          "Suspendisse potenti."
+          "Apakah kamu sudah menemukan teman yang seperti itu?"
         ]
       },
       {
         "image": null,
         "isCompleted": false,
-        "question": "Aliquam non mauris.",
+        "question": "Bagaimana \"cinta\" dan \"kasih sayang\" berpengaruh di dalam hidupmu?",
+        "talkDuration": 0,
+        "warmUp": "Duis mattis egestas metus.",
+        "subQuestions": [
+          "Apakah kamu merasa sudah mendapatkan cinta dan kasih sayang yang seperti kamu inginkan?",
+          "Apakah aku sudah memberikan cinta dan kasih sayang seperti itu kepada dirimu?"
+        ]
+      },
+      {
+        "image": null,
+        "isCompleted": false,
+        "question": "Sebut 5 karakteristik yang positif dari pasangamu.",
+        "talkDuration": 0,
+        "warmUp": "Nulla facilisi.",
+        "subQuestions": []
+      },
+      {
+        "image": null,
+        "isCompleted": false,
+        "question": "Seberapa dekat dan hangat keluargamu?",
         "talkDuration": 0,
         "warmUp": "Phasellus sit amet erat.",
         "subQuestions": [
-          "Aliquam non mauris.",
-          "Aliquam non mauris.",
-          "Aliquam non mauris."
+          "Apakah kamu merasa masa kecilmu lebih bahagia daripada kebanyakan orang lain?",
+          "Kenapa kamu merasa hal tersebut?"
+        ]
+      },
+      {
+        "image": null,
+        "isCompleted": false,
+        "question": "Bagaimana hubungan dirimu dengan ibumu",
+        "talkDuration": 0,
+        "warmUp": "Phasellus sit amet erat.",
+        "subQuestions": [
+          "Mengapa kamu merasa jauh dengan ibumu? (kalau tidak dekat)",
+          "Hal apa yang membuat kamu merasa seperti itu? "
         ]
       }
     ]
@@ -269,56 +270,45 @@
     "level": 3,
     "progress": 0,
     "isCompleted": false,
-    "title": "dui maecenas",
+    "title": "Keterbukaan",
     "questions": [
       {
         "image": null,
         "isCompleted": false,
-        "question": "Curabitur at ipsum ac tellus semper interdum.",
+        "question": "Buatlah masing masing 3 pernyataan dengan menggunakan kata \"kita\" secara jujur, contoh \"kita berdua di ruangan ini merasa ...\"",
         "talkDuration": 0,
         "warmUp": "Suspendisse ornare consequat lectus.",
-        "subQuestions": [
-          "Curabitur at ipsum ac tellus semper interdum.",
-          "Curabitur at ipsum ac tellus semper interdum.",
-          "Curabitur at ipsum ac tellus semper interdum."
-        ]
-      },
-      {
-        "image": null,
-        "isCompleted": true,
-        "question": "Etiam faucibus cursus urna.",
-        "talkDuration": 0,
-        "warmUp": "Sed accumsan felis.",
-        "subQuestions": [
-          "Etiam faucibus cursus urna.",
-          "Etiam faucibus cursus urna.",
-          "Etiam faucibus cursus urna."
-        ]
-      },
-      {
-        "image": null,
-        "isCompleted": true,
-        "question": "Proin eu mi.",
-        "talkDuration": 0,
-        "warmUp": "Donec ut dolor.",
-        "subQuestions": ["Proin eu mi.", "Proin eu mi.", "Proin eu mi."]
+        "subQuestions": []
       },
       {
         "image": null,
         "isCompleted": false,
-        "question": "Aliquam quis turpis eget elit sodales scelerisque.",
+        "question": "Lengkapi kalimat ini: \"Saya berharap saya memiliki seseorang yang dapat saya ajak berbagi tentang ..... \" ",
         "talkDuration": 0,
-        "warmUp": "Morbi quis tortor id nulla ultrices aliquet.",
+        "warmUp": "Sed accumsan felis.",
         "subQuestions": [
-          "Aliquam quis turpis eget elit sodales scelerisque.",
-          "Aliquam quis turpis eget elit sodales scelerisque.",
-          "Aliquam quis turpis eget elit sodales scelerisque."
         ]
       },
       {
         "image": null,
-        "isCompleted": true,
-        "question": "Integer a nibh.",
+        "isCompleted": false,
+        "question": "Jika aku menjadi teman dekatmu, tolong beritahu apa yang perlu kuketahui agar bisa menjadi teman dekatmu.",
+        "talkDuration": 0,
+        "warmUp": "Donec ut dolor.",
+        "subQuestions": ["Apakah ada hal lain yang perlu ku ketahui"]
+      },
+      {
+        "image": null,
+        "isCompleted": false,
+        "question": "Beritahu aku apa yang kamu suka dari diriku dengan jujur.",
+        "talkDuration": 0,
+        "warmUp": "Morbi quis tortor id nulla ultrices aliquet.",
+        "subQuestions": []
+      },
+      {
+        "image": null,
+        "isCompleted": false,
+        "question": "Bagikan momen memalukan anda ke pasangan anda.",
         "talkDuration": 0,
         "warmUp": "Sed accumsan felis.",
         "subQuestions": [
@@ -329,87 +319,58 @@
       },
       {
         "image": null,
-        "isCompleted": true,
-        "question": "Maecenas ut massa quis augue luctus tincidunt.",
+        "isCompleted": false,
+        "question": "Kapan terakhir kali kamu menangis di depan orang lain ? kalau menangis sendiri ?",
         "talkDuration": 0,
         "warmUp": "Quisque id justo sit amet sapien dignissim vestibulum.",
         "subQuestions": [
-          "Maecenas ut massa quis augue luctus tincidunt.",
-          "Maecenas ut massa quis augue luctus tincidunt.",
-          "Maecenas ut massa quis augue luctus tincidunt."
-        ]
-      },
-      {
-        "image": null,
-        "isCompleted": true,
-        "question": "Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo.",
-        "talkDuration": 0,
-        "warmUp": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam.",
-        "subQuestions": [
-          "Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo.",
-          "Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo.",
-          "Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo."
+          "Kenapa kamu menangis?",
+          "Bagaimana reaksi dari orang tersebut ? (kalau dengan orang lain)"
         ]
       },
       {
         "image": null,
         "isCompleted": false,
-        "question": "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+        "question": "Bagaimana perasaanmu, jika ada hal yang terlalu serius untuk dijadikan lelucon?",
+        "talkDuration": 0,
+        "warmUp": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam.",
+        "subQuestions": []
+      },
+      {
+        "image": null,
+        "isCompleted": false,
+        "question": "Jika kamu meninggal malam ini tanpa ada kesempatan untuk berkomunikasi dengan siapapun, apa yang paling kamu sesali karenta tidak memberitahu seseorang",
         "talkDuration": 0,
         "warmUp": "Etiam pretium iaculis justo.",
         "subQuestions": [
-          "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
-          "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
-          "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+          "Kenapa kamu belum memberitahunya sampai sekarang"
         ]
       },
       {
         "image": null,
         "isCompleted": true,
-        "question": "Donec dapibus.",
+        "question": "Jika tiba tiba rumahmu kebakaran, setelah semua orang dirumahmu telah selamat, jika ada waktu untuk menyelamatkan satu benda, apa yang akan kamu selamatkan? ",
         "talkDuration": 0,
         "warmUp": "Phasellus id sapien in sapien iaculis congue.",
-        "subQuestions": ["Donec dapibus.", "Donec dapibus.", "Donec dapibus."]
+        "subQuestions": ["Kenapa kamu memilih benda tersebut?"]
       },
       {
         "image": null,
         "isCompleted": true,
-        "question": "Praesent lectus.",
+        "question": "Jika anggota keluargamu ada yang meninggal, siapa menurut kamu yang paling menyedihkan?",
         "talkDuration": 0,
         "warmUp": "Maecenas tincidunt lacus at velit.",
         "subQuestions": [
-          "Praesent lectus.",
-          "Praesent lectus.",
-          "Praesent lectus."
+          "Kenapa kamu memlih dia?"
         ]
       },
       {
         "image": null,
         "isCompleted": true,
-        "question": "Morbi a ipsum.",
+        "question": "Bagikan masalah pribadimu dan mintalah saran dari pasanganmu bagaimana cara dia menyelesaikannya. Minta juga pasanganmu untuk merefleksikan kembali bagaimana perasaanmu tentang masalah yang kamu pilih.",
         "talkDuration": 0,
         "warmUp": "Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo.",
-        "subQuestions": ["Morbi a ipsum.", "Morbi a ipsum.", "Morbi a ipsum."]
-      },
-      {
-        "image": null,
-        "isCompleted": false,
-        "question": "Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo.",
-        "talkDuration": 0,
-        "warmUp": "Etiam pretium iaculis justo.",
-        "subQuestions": [
-          "Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo.",
-          "Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo.",
-          "Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo."
-        ]
-      },
-      {
-        "image": null,
-        "isCompleted": true,
-        "question": "Sed sagittis.",
-        "talkDuration": 0,
-        "warmUp": "Maecenas ut massa quis augue luctus tincidunt.",
-        "subQuestions": ["Sed sagittis.", "Sed sagittis.", "Sed sagittis."]
+        "subQuestions": []
       }
     ]
   }
