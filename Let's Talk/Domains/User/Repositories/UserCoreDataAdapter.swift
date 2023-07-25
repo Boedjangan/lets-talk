@@ -1,5 +1,5 @@
 //
-//  CoreDataAdapter.swift
+//  UserCoreDataAdapter.swift
 //  Let's Talk
 //
 //  Created by Bisma Mahendra I Dewa Gede on 18/07/23.
@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-class CoreDataAdapter: UserRepository {
+class UserCoreDataAdapter: UserRepository {
     private let coreDataContext = CoreDataConnection.shared.managedObjectContext
     
     func createNewUser(newUser: UserEntity) -> UserEntity? {

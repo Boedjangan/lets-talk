@@ -12,7 +12,7 @@ import Foundation
 class UserViewModel: ObservableObject {
     @Published var user: UserEntity = UserEntity()
     
-    private var userService = UserService(userRepository: CoreDataAdapter())
+    private var userService = UserService(userRepository: UserCoreDataAdapter())
     
     init() {
        initializeUser()
