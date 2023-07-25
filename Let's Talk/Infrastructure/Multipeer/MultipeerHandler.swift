@@ -15,31 +15,36 @@ protocol MultipeerHandlerDelegate: AnyObject {
     func lostPeer(peerID: MCPeerID)
     func didReceive(data: Data, from peerID: MCPeerID)
 }
-// TODO: sending data belum
 
+// TODO: sending data belum
 class MultipeerHandler: NSObject, ObservableObject {
-    weak var delegate :MultipeerHandlerDelegate?
-    
+    weak var delegate: MultipeerHandlerDelegate?
     private static let serviceType = "Lets-Talk"
-    private var myPeerId = MCPeerID(displayName: UIDevice.current.name)
-    var browser: MCNearbyServiceBrowser
-    var advertiser: MCNearbyServiceAdvertiser
-    private var session : MCSession
+    
     @Published var persons: [MCPeerID] = []
     @Published var pairID: MCPeerID?
     @Published var coupleID: String?
     @Published var coupleName: String?
-    @Published var userName:String?
-    private var phones: [PhoneModel] = []
+    @Published var username: String?
     @Published var state: MCSessionState = .notConnected
+    @Published var isReady: Bool = false
+    
+    private var myPeerId = MCPeerID(displayName: UIDevice.current.name)
+    private var session : MCSession
+    private var phones: [PhoneModel] = []
+    
+    var browser: MCNearbyServiceBrowser
+    var advertiser: MCNearbyServiceAdvertiser
+    
     //    private let pictReceivedHandler: PictReceivedHandler?
     
-    override init(){
+    override init() {
         session = MCSession(peer: myPeerId, securityIdentity: nil, encryptionPreference: .none)
         browser = MCNearbyServiceBrowser(peer: myPeerId, serviceType: MultipeerHandler.serviceType)
         advertiser = MCNearbyServiceAdvertiser(peer: myPeerId, discoveryInfo: ["coupleName" : "codeID"], serviceType: MultipeerHandler.serviceType)
         //        self.pictReceivedHandler = pictReceivedHandler
         super.init()
+        
         session.delegate = self
         browser.delegate = self
         advertiser.delegate = self
@@ -73,11 +78,14 @@ class MultipeerHandler: NSObject, ObservableObject {
         DispatchQueue.main.async {
             self.pairID = peerID
             self.coupleID = peerID.displayName
-            let couple = coupleModel(username: self.userName ?? "kosong")
+            
+            let couple = coupleModel(username: self.username ?? "kosong")
             let data = try? JSONEncoder().encode(couple)
+            
             self.browser.invitePeer(peerID, to: self.session, withContext: data, timeout: TimeInterval(0))
         }
     }
+    
     func updateDiscoveryInfo() {
         advertiser.stopAdvertisingPeer()
         
@@ -93,8 +101,6 @@ class MultipeerHandler: NSObject, ObservableObject {
         // Start advertising again with the updated discovery info
         advertiser.startAdvertisingPeer()
     }
-    
-    
 }
 
 extension MultipeerHandler: MCNearbyServiceAdvertiserDelegate {
@@ -106,64 +112,57 @@ extension MultipeerHandler: MCNearbyServiceAdvertiserDelegate {
     ) {
         DispatchQueue.main.async {
             print("nerima invitation")
+            
             let scenes = UIApplication.shared.connectedScenes
             let windowScenes = scenes.first as? UIWindowScene
             let window = windowScenes?.windows.first
+            
             let title = "Accept \(peerID.displayName)'s invitation"
             let message = "Would you like to accept: \(peerID.displayName)"
             let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+            
             alertController.addAction(UIAlertAction(title: "No", style: .cancel){ _ in
                 let job = try? JSONDecoder().decode(coupleModel.self, from: context!)
                 print("\(job?.username ?? "kosong" ),<<<data")
                 invitationHandler(false, self.session)
-                
             })
+            
             alertController.addAction(UIAlertAction(title: "Yes", style: .default) { _ in
                 self.coupleID = peerID.displayName
+                
                 var couple = try? JSONDecoder().decode(coupleModel.self, from: context!)
+                
                 print("\(couple?.username ?? "kosong"),<<<data")
-                self.coupleName = couple?.username
+                self.coupleName = couple?.username ?? ""
+                self.isReady = true
+                
                 invitationHandler(true, self.session)
-//
-//                var dataToSend = coupleModel(username: self.userName ?? "kosong" )
-//                let encodeData = try? JSONEncoder().encode(couple)
-//
-//                do {
-//                    try self.session.send(encodeData!, toPeers: self.session.connectedPeers, with: .reliable)
-//
-//                }
-//                catch{
-//                    print(error.localizedDescription)
-//                }
             })
+            
             window?.rootViewController?.present(alertController, animated: true)
         }
-        
     }
 }
 
 
 extension MultipeerHandler: MCNearbyServiceBrowserDelegate {
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String: String]?) {
-        
         // disini ngecek ke core data kalau peeridnya sama atau engga dengan couple
         if !persons.contains(peerID) {
             if let info = info {
                 print(info["coupleName"] ?? "No Name")
             }
           
-            if(peerID.displayName == self.coupleID && (phones.first(where:{$0.phoneId == info!["coupleName"]}) != nil)){
+            if(peerID.displayName == self.coupleID && (phones.first(where:{$0.phoneId == info!["coupleName"]}) != nil)) {
                 self.pairID = peerID
                 self.coupleID = peerID.displayName
                 browser.invitePeer(peerID, to: session, withContext: nil, timeout: 0)
-                
-            }else{
+            } else {
                 persons.append(peerID)
                 phones.append(PhoneModel(displayName: peerID.displayName, phoneId: info?["coupleName"] ?? ""))
             }
             print("invite done")
         }
-        
     }
     
     // ini pas moton peer id
@@ -174,9 +173,7 @@ extension MultipeerHandler: MCNearbyServiceBrowserDelegate {
             print("lost peer")
             self.pairID = nil
         }
-        
     }
-    
 }
 
 
@@ -186,27 +183,20 @@ extension MultipeerHandler: MCSessionDelegate {
             self.state = state
         }
        
-        
         switch state {
         case .connecting:
             print("\(peerID) state: connecting")
            
         case .connected:
             print("\(peerID) state: connected")
+            
             do{
-                var dataToSend = coupleModel(username: self.userName ?? "kosong" )
-                let encodeData = try? JSONEncoder().encode(dataToSend)
-                try self.session.send(encodeData!, toPeers:[peerID], with: .reliable)
-
+                var dataToSend = coupleModel(username: self.username ?? "kosong" )
+                let encodedData = try? JSONEncoder().encode(dataToSend)
+                try self.session.send(encodedData!, toPeers: [peerID], with: .reliable)
             }catch{
                 print(error.localizedDescription)
             }
-            // nyimpan couple id baru push ke next screen
-//            DispatchQueue.main.async {
-//                self.pairID = peerID
-//                print("disini pairing")
-//                //                print(self.pairID as Any)
-//            }
         case .notConnected:
             print("\(peerID) state: not connected")
             print("\(state) masuk sini")
@@ -235,12 +225,15 @@ extension MultipeerHandler: MCSessionDelegate {
         //          self.pictReceivedHandler?(pict)
         //        }
         //        delegate?.didReceive(data: data, from: peerID)
-        print("sini masuk")
-        guard let dataTry = try? JSONDecoder().decode(coupleModel.self, from: data) else {return}
+        guard let dataTry = try? JSONDecoder().decode(coupleModel.self, from: data) else { return }
+        
+        print("Data received!")
+        print("\(dataTry.username)")
+        
         DispatchQueue.main.async {
             self.coupleName = dataTry.username
+            self.isReady = true
         }
-       
     }
     
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
@@ -254,8 +247,6 @@ extension MultipeerHandler: MCSessionDelegate {
     func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL?, withError error: Error?) {
         
     }
-    
-    
 }
 
 

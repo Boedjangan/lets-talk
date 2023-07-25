@@ -11,22 +11,20 @@ import SwiftUI
 // TODO: pindah screen pairing success 
 struct UserPairingScreen: View {
     @AppStorage("onboarding") var onboarding: String = OnboardingRoutes.welcome.rawValue
+    
     @ObservedObject var multipeerHandler : MultipeerHandler
     @ObservedObject var userVM:UserViewModel
-    
-    init(multipeerHandler:MultipeerHandler, userVM:UserViewModel){
-        self.multipeerHandler = multipeerHandler
-        self.userVM = userVM
-        multipeerHandler.advertiser.startAdvertisingPeer()
-//        multipeerHandler.userName = userVM.user.username
-    }
-    
-//    @ObservedObject var dashboardRoutes: DashboardNavigationManager
-    
     @State var isPresent : Bool = false
     
-    var body: some View {
+    init(multipeerHandler: MultipeerHandler, userVM: UserViewModel) {
+        self.multipeerHandler = multipeerHandler
+        self.userVM = userVM
         
+        // Mulai jalanin advertising biar kelihatan di pasangan
+        multipeerHandler.advertiser.startAdvertisingPeer()
+    }
+
+    var body: some View {
         LayoutView{
             Group{
                 Text("Sambungkan dengan pasanganmu")
@@ -36,23 +34,24 @@ struct UserPairingScreen: View {
             }
            
             Spacer()
+            
             PairListView(multipeerHandler: multipeerHandler, userVM: userVM)
                 
             Spacer()
         }.onAppear {
+            // Aktifin nyari pasangan yg nampak
             multipeerHandler.startBrowsing()
         }.onDisappear{
+            // Berhenti nyari pasangan yg nampak
             multipeerHandler.stopBrowsing()
         }
-        .onChange(of: multipeerHandler.state) { newState in
-            if newState == .connected {
-                print(multipeerHandler.coupleID as Any , "<<<ini")
-                print(multipeerHandler.coupleName as Any , "<<<ini bana")
+        .onChange(of: multipeerHandler.isReady) { newState in
+            if newState {
+                // Save couple name
                 userVM.updateCouple(coupleID: multipeerHandler.coupleID!, coupleName: multipeerHandler.coupleName!)
+                
                 onboarding = OnboardingRoutes.congrats.rawValue
-                print("ganti screeen")
             }
-            
         }
     }
 }

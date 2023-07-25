@@ -30,9 +30,9 @@ struct Let_s_TalkApp: App {
             case "welcome":
                 UserOnboardingScreen()
             case "setup":
-                UserSetupScreen(userVM: userVM,multipeerHandler: multipeerHandler)
+                UserSetupScreen(userVM: userVM, multipeerHandler: multipeerHandler)
             case "pairing":
-                UserPairingScreen(multipeerHandler: multipeerHandler,userVM: userVM)
+                UserPairingScreen(multipeerHandler: multipeerHandler, userVM: userVM)
             case "congrats":
                 UserPairingSuccessScreen(userVM: userVM)
             case "done":

@@ -149,7 +149,7 @@ class CoreDataAdapter: UserRepository {
         }
     }
     
-    func updateCouple(coupleID:String, coupleName:String) -> UserEntity? {
+    func updateCouple(coupleID: String, coupleName: String) -> UserEntity? {
         let request: NSFetchRequest<User> = User.fetchRequest()
         
         do {
