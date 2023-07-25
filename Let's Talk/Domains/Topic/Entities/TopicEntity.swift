@@ -15,6 +15,7 @@ struct TopicEntity: Identifiable {
     var level: Int = 0
     var progress: Int = 0
     var title: String = ""
+    var questions: [Any] = []
     var createdAt: Date = Date()
     var updatedAt: Date = Date()
 }

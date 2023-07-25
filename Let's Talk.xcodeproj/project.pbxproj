@@ -72,6 +72,7 @@
 		C96355E92A6D048C00FA260D /* AddQuestionMediaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96355E82A6D048C00FA260D /* AddQuestionMediaScreen.swift */; };
 		C96355EB2A6D11D600FA260D /* QuestionSessionOverviewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96355EA2A6D11D600FA260D /* QuestionSessionOverviewScreen.swift */; };
 		C97231652A6EC22600FD8302 /* TopicCoreDataAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97231642A6EC22600FD8302 /* TopicCoreDataAdapter.swift */; };
+		C9E6D77E2A6FA1F700B59575 /* SubQuestionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E6D77D2A6FA1F700B59575 /* SubQuestionEntity.swift */; };
 		C9EE06162A69283F00AD061B /* TalkTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06152A69283F00AD061B /* TalkTimeView.swift */; };
 		C9EE06182A696DB500AD061B /* WarmUpCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06172A696DB500AD061B /* WarmUpCardView.swift */; };
 		C9EE061A2A69713D00AD061B /* WarmUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06192A69713D00AD061B /* WarmUpScreen.swift */; };
@@ -164,6 +165,7 @@
 		C96355E82A6D048C00FA260D /* AddQuestionMediaScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestionMediaScreen.swift; sourceTree = "<group>"; };
 		C96355EA2A6D11D600FA260D /* QuestionSessionOverviewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionSessionOverviewScreen.swift; sourceTree = "<group>"; };
 		C97231642A6EC22600FD8302 /* TopicCoreDataAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCoreDataAdapter.swift; sourceTree = "<group>"; };
+		C9E6D77D2A6FA1F700B59575 /* SubQuestionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubQuestionEntity.swift; sourceTree = "<group>"; };
 		C9EE06152A69283F00AD061B /* TalkTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkTimeView.swift; sourceTree = "<group>"; };
 		C9EE06172A696DB500AD061B /* WarmUpCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmUpCardView.swift; sourceTree = "<group>"; };
 		C9EE06192A69713D00AD061B /* WarmUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmUpScreen.swift; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 			isa = PBXGroup;
 			children = (
 				4E7990C82A664569002027D1 /* Question.swift */,
+				C9E6D77D2A6FA1F700B59575 /* SubQuestionEntity.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -767,6 +770,7 @@
 				C9EE06182A696DB500AD061B /* WarmUpCardView.swift in Sources */,
 				C9EE06792A6B83A500AD061B /* Question+CoreDataClass.swift in Sources */,
 				C9EE067C2A6B83A500AD061B /* SubQuestion+CoreDataProperties.swift in Sources */,
+				C9E6D77E2A6FA1F700B59575 /* SubQuestionEntity.swift in Sources */,
 				9BAAA27C2A68E8CD00671179 /* LoveLogScreen.swift in Sources */,
 				4E1A55592A6ACCD30056951B /* PairItemView.swift in Sources */,
 				4E7990E02A66460D002027D1 /* TopicViewModel.swift in Sources */,

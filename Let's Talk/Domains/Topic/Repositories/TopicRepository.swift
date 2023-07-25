@@ -10,6 +10,7 @@ import Foundation
 
 protocol TopicRepository {
     func getTopics() -> [TopicEntity]
+    func createTopics(topicEntities: [TopicEntity]) -> [TopicEntity]
     func updateTopicProgress(id: UUID, newProgress: Int) -> TopicEntity?
     func updateActiveStatus(id: UUID, activeStatus: Bool) -> TopicEntity?
     func updateCompletedStatus(id: UUID, completedStatus: Bool) -> TopicEntity?
