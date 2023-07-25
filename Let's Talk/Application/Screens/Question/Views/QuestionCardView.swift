@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct QuestionCardView: View {
-    @State var isRecording:Bool = false
+    
     @Binding var timer:Int
+    var isRecording:Bool = false
     var question:String = ""
+    
     var body: some View {
         ZStack{
             RoundedRectangle(cornerRadius: 10)
@@ -31,7 +33,7 @@ struct QuestionCardView: View {
                 Spacer()
             }
         }
-        .frame(maxHeight:510)
+        .frame(maxHeight:.infinity)
         
     }
     
@@ -44,6 +46,6 @@ struct QuestionCardView_Previews: PreviewProvider {
                 QuestionCardView(timer: timer)
             }
         }
-        
+
     }
 }
