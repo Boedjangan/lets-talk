@@ -7,16 +7,16 @@
 
 import Foundation
 
-struct QuestionEntity {
+struct QuestionEntity:Identifiable {
     var id: UUID = UUID()
     var question: String
     var warmUp: String
     var isCompleted: Bool = false
     var image: String?
-    var talkDuration: Int?
+    var talkDuration: Int = 0
     var createdAt: Date = Date()
     var updatedAt: Date = Date()
     var answer: String?
-    var subQuestions: [String]
-    var topic: String
+    var subQuestions: [String]?
+    var topic: String?
 }

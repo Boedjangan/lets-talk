@@ -9,11 +9,11 @@ import Foundation
 
 protocol QuestionRepository {
     func getAllQuestions() -> [QuestionEntity]
-    func getQuestionsByTopicId(topicId: UUID) -> [QuestionEntity]
-    func getQestionById(id: UUID) -> QuestionEntity?
-    func createNewQuestion(question: QuestionEntity) -> QuestionEntity?
-    func updateQuestionCompleteStatus(newStatus: Bool) -> QuestionEntity?
-    func updateQuestionTalkDuration(newDuration: Int) -> QuestionEntity?
-    func updateQuestionImage(newImage: String) -> QuestionEntity?
-    func deleteQuestion() -> QuestionEntity?
+    func getQuestionsByTopicId() -> [QuestionEntity]
+    func getQuestionById(questionID: UUID) -> QuestionEntity?
+    func createNewQuestion(newQuestion: QuestionEntity) -> QuestionEntity?
+    func updateQuestionCompleteStatus(questionID:UUID,newStatus: Bool) -> QuestionEntity?
+    func updateQuestionTalkDuration(questionID:UUID,newDuration: Int) -> QuestionEntity?
+    func updateQuestionImage(questionID:UUID,newImage: String) -> QuestionEntity?
+    func deleteQuestion(questionID:UUID) -> QuestionEntity?
 }
