@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct UserOnboardingScreen: View {
+    @AppStorage("onboarding") var onboarding: String = OnboardingRoutes.welcome.rawValue
+    
     var body: some View {
         LayoutView {
             Spacer()
@@ -22,7 +24,7 @@ struct UserOnboardingScreen: View {
                 .padding(.horizontal)
                 .padding(.bottom, 100)
             ButtonView {
-                //
+                onboarding = OnboardingRoutes.setup.rawValue
             } label: {
                 Text("Next")
             }

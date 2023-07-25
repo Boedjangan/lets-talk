@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct PairItemView: View {
-    let name: String = "Bunga's Iphone"
-    let image: String = "person.fill"
+    var name: String = ""
+    var image: String = "person.fill"
     
     var body: some View {
         VStack(spacing: 8) {

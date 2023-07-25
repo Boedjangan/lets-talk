@@ -58,14 +58,10 @@ struct TalkTimeDetailCardView: View {
             VStack {
                 Text("+\(maleTalkTime) Menit")
                     .font(.paragraph)
-                ZStack{
-                    Circle()
-                        .foregroundColor(Color.avatarPlaceHolder)
-                        .frame(width:70,height: 70)
-                    Image(systemName: "person.fill")
-                        .foregroundColor(Color.black)
-                        .font(.system(size: 50))
-                }
+                AvatarView()
+                    .scaleEffect(0.5)
+                    .padding(.horizontal, -60)
+                    .padding(.vertical, -40)
             }
             VStack {
                 Text("\(coupleTalkTime) Menit")

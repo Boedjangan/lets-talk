@@ -18,7 +18,7 @@
 		4E7990B72A664414002027D1 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990B62A664414002027D1 /* UserRepository.swift */; };
 		4E7990B92A66443B002027D1 /* CoreDataAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990B82A66443B002027D1 /* CoreDataAdapter.swift */; };
 		4E7990BB2A66445A002027D1 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990BA2A66445A002027D1 /* UserEntity.swift */; };
-		4E7990C02A664481002027D1 /* Topic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990BF2A664481002027D1 /* Topic.swift */; };
+		4E7990C02A664481002027D1 /* TopicEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990BF2A664481002027D1 /* TopicEntity.swift */; };
 		4E7990C22A6644A8002027D1 /* TopicRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990C12A6644A8002027D1 /* TopicRepository.swift */; };
 		4E7990C42A6644B6002027D1 /* TopicRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990C32A6644B6002027D1 /* TopicRepositoryImpl.swift */; };
 		4E7990C62A6644C2002027D1 /* TopicService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990C52A6644C2002027D1 /* TopicService.swift */; };
@@ -46,6 +46,8 @@
 		4E79910F2A66A569002027D1 /* JSONHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E79910E2A66A569002027D1 /* JSONHandler.swift */; };
 		4E7991112A66A5B2002027D1 /* SwipeDetection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7991102A66A5B2002027D1 /* SwipeDetection.swift */; };
 		4E7991132A66A605002027D1 /* Collection+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7991122A66A605002027D1 /* Collection+Extensions.swift */; };
+		4E819F582A6E474D00A12485 /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E819F572A6E474D00A12485 /* AddPhotoView.swift */; };
+		4E819F5B2A6E4C5500A12485 /* AVManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E819F5A2A6E4C5500A12485 /* AVManager.swift */; };
 		4EAE9D2B2A68EEDA00A7B7E6 /* StatefulPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAE9D2A2A68EEDA00A7B7E6 /* StatefulPreviewView.swift */; };
 		4EDF2ADA2A6805C1002E0645 /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDF2AD92A6805C1002E0645 /* ButtonView.swift */; };
 		4EDF2ADC2A681933002E0645 /* LayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDF2ADB2A681933002E0645 /* LayoutView.swift */; };
@@ -56,6 +58,7 @@
 		4EF769652A5D1D6800F489DF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EF769642A5D1D6800F489DF /* Preview Assets.xcassets */; };
 		4EF769672A5D1D6800F489DF /* CoreDataConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF769662A5D1D6800F489DF /* CoreDataConnection.swift */; };
 		4EF7696A2A5D1D6800F489DF /* Let_s_Talk.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4EF769682A5D1D6800F489DF /* Let_s_Talk.xcdatamodeld */; };
+		9B836CD72A6E9ED70075D450 /* TopicItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B836CD62A6E9ED70075D450 /* TopicItemView.swift */; };
 		9BAAA2762A67EEF400671179 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2752A67EEF400671179 /* AvatarView.swift */; };
 		9BAAA2782A68E7DA00671179 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2772A68E7DA00671179 /* TabBarView.swift */; };
 		9BAAA27A2A68E8A300671179 /* DashboardScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2792A68E8A300671179 /* DashboardScreen.swift */; };
@@ -65,12 +68,21 @@
 		9BAAA28A2A6987E100671179 /* BarProgressStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2892A6987E100671179 /* BarProgressStyle.swift */; };
 		9BAAA2902A6A2E0100671179 /* RecordingTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA28F2A6A2E0100671179 /* RecordingTimeView.swift */; };
 		9BAAA28E2A6A26B200671179 /* QuestionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA28D2A6A26B200671179 /* QuestionTextView.swift */; };
+		9BAAA2922A6D0D3000671179 /* QuestionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2912A6D0D3000671179 /* QuestionCardView.swift */; };
 		9BAAA2962A6D140300671179 /* QuestionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2952A6D140300671179 /* QuestionTextView.swift */; };
+		9BAAA2992A6E154800671179 /* MultipeerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2982A6E154800671179 /* MultipeerHandler.swift */; };
+		9BAAA29B2A6E15AB00671179 /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BAAA29A2A6E15AB00671179 /* Property List.plist */; };
+		9BAAA29E2A6E196000671179 /* PhoneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA29D2A6E196000671179 /* PhoneModel.swift */; };
 		C94650862A6837F700BEAC7A /* HeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94650852A6837F700BEAC7A /* HeroView.swift */; };
 		C94650882A690BC600BEAC7A /* AppLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94650872A690BC600BEAC7A /* AppLogoView.swift */; };
+		C96355E32A6CEB2500FA260D /* WarmUpCorrectScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96355E22A6CEB2500FA260D /* WarmUpCorrectScreen.swift */; };
+		C96355E72A6CF4C500FA260D /* TurnChangeAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96355E62A6CF4C500FA260D /* TurnChangeAlertView.swift */; };
+		C96355E92A6D048C00FA260D /* AddQuestionMediaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96355E82A6D048C00FA260D /* AddQuestionMediaScreen.swift */; };
 		C96355EB2A6D11D600FA260D /* QuestionSessionOverviewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96355EA2A6D11D600FA260D /* QuestionSessionOverviewScreen.swift */; };
 		C96355E32A6CEB2500FA260D /* WarmUpCorrectScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96355E22A6CEB2500FA260D /* WarmUpCorrectScreen.swift */; };
 		C96355E72A6CF4C500FA260D /* TurnChangeAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96355E62A6CF4C500FA260D /* TurnChangeAlertView.swift */; };
+		C97231652A6EC22600FD8302 /* TopicCoreDataAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97231642A6EC22600FD8302 /* TopicCoreDataAdapter.swift */; };
+		C97231672A6ED2CB00FD8302 /* GreetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97231662A6ED2CB00FD8302 /* GreetingView.swift */; };
 		C9EE06162A69283F00AD061B /* TalkTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06152A69283F00AD061B /* TalkTimeView.swift */; };
 		C9EE06182A696DB500AD061B /* WarmUpCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06172A696DB500AD061B /* WarmUpCardView.swift */; };
 		C9EE061A2A69713D00AD061B /* WarmUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06192A69713D00AD061B /* WarmUpScreen.swift */; };
@@ -106,7 +118,7 @@
 		4E7990B62A664414002027D1 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		4E7990B82A66443B002027D1 /* CoreDataAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataAdapter.swift; sourceTree = "<group>"; };
 		4E7990BA2A66445A002027D1 /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
-		4E7990BF2A664481002027D1 /* Topic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Topic.swift; sourceTree = "<group>"; };
+		4E7990BF2A664481002027D1 /* TopicEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicEntity.swift; sourceTree = "<group>"; };
 		4E7990C12A6644A8002027D1 /* TopicRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicRepository.swift; sourceTree = "<group>"; };
 		4E7990C32A6644B6002027D1 /* TopicRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicRepositoryImpl.swift; sourceTree = "<group>"; };
 		4E7990C52A6644C2002027D1 /* TopicService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicService.swift; sourceTree = "<group>"; };
@@ -134,6 +146,9 @@
 		4E79910E2A66A569002027D1 /* JSONHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHandler.swift; sourceTree = "<group>"; };
 		4E7991102A66A5B2002027D1 /* SwipeDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeDetection.swift; sourceTree = "<group>"; };
 		4E7991122A66A605002027D1 /* Collection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
+		4E819F572A6E474D00A12485 /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
+		4E819F5A2A6E4C5500A12485 /* AVManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVManager.swift; sourceTree = "<group>"; };
+		4E819F5D2A6E8C8400A12485 /* MockData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockData.json; sourceTree = "<group>"; };
 		4EAE9D2A2A68EEDA00A7B7E6 /* StatefulPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatefulPreviewView.swift; sourceTree = "<group>"; };
 		4EDF2AD92A6805C1002E0645 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		4EDF2ADB2A681933002E0645 /* LayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutView.swift; sourceTree = "<group>"; };
@@ -146,6 +161,7 @@
 		4EF769662A5D1D6800F489DF /* CoreDataConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataConnection.swift; sourceTree = "<group>"; };
 		4EF769692A5D1D6800F489DF /* Let_s_Talk.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Let_s_Talk.xcdatamodel; sourceTree = "<group>"; };
 		4EF769702A5D1DB100F489DF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		9B836CD62A6E9ED70075D450 /* TopicItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TopicItemView.swift; path = "Let's Talk/Infrastructure/Multipeer/Model/TopicItemView.swift"; sourceTree = SOURCE_ROOT; };
 		9BAAA2752A67EEF400671179 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		9BAAA2772A68E7DA00671179 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		9BAAA2792A68E8A300671179 /* DashboardScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardScreen.swift; sourceTree = "<group>"; };
@@ -155,12 +171,22 @@
 		9BAAA2892A6987E100671179 /* BarProgressStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarProgressStyle.swift; sourceTree = "<group>"; };
 		9BAAA28F2A6A2E0100671179 /* RecordingTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingTimeView.swift; sourceTree = "<group>"; };
 		9BAAA28D2A6A26B200671179 /* QuestionTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuestionTextView.swift; path = "../../../../../../../../.Trash/lets-talk 09.28.25/Let's Talk/Application/Screens/Question/Views/QuestionTextView.swift"; sourceTree = "<group>"; };
+		9BAAA28F2A6A2E0100671179 /* RecordingTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingTimeView.swift; sourceTree = "<group>"; };
+		9BAAA2912A6D0D3000671179 /* QuestionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCardView.swift; sourceTree = "<group>"; };
 		9BAAA2952A6D140300671179 /* QuestionTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTextView.swift; sourceTree = "<group>"; };
+		9BAAA2982A6E154800671179 /* MultipeerHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerHandler.swift; sourceTree = "<group>"; };
+		9BAAA29A2A6E15AB00671179 /* Property List.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
+		9BAAA29D2A6E196000671179 /* PhoneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneModel.swift; sourceTree = "<group>"; };
 		C94650852A6837F700BEAC7A /* HeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroView.swift; sourceTree = "<group>"; };
 		C94650872A690BC600BEAC7A /* AppLogoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLogoView.swift; sourceTree = "<group>"; };
+		C96355E22A6CEB2500FA260D /* WarmUpCorrectScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmUpCorrectScreen.swift; sourceTree = "<group>"; };
+		C96355E62A6CF4C500FA260D /* TurnChangeAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnChangeAlertView.swift; sourceTree = "<group>"; };
+		C96355E82A6D048C00FA260D /* AddQuestionMediaScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestionMediaScreen.swift; sourceTree = "<group>"; };
 		C96355EA2A6D11D600FA260D /* QuestionSessionOverviewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionSessionOverviewScreen.swift; sourceTree = "<group>"; };
 		C96355E22A6CEB2500FA260D /* WarmUpCorrectScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmUpCorrectScreen.swift; sourceTree = "<group>"; };
 		C96355E62A6CF4C500FA260D /* TurnChangeAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnChangeAlertView.swift; sourceTree = "<group>"; };
+		C97231642A6EC22600FD8302 /* TopicCoreDataAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCoreDataAdapter.swift; sourceTree = "<group>"; };
+		C97231662A6ED2CB00FD8302 /* GreetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GreetingView.swift; path = "Let's Talk/Domains/Topic/Repositories/GreetingView.swift"; sourceTree = SOURCE_ROOT; };
 		C9EE06152A69283F00AD061B /* TalkTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkTimeView.swift; sourceTree = "<group>"; };
 		C9EE06172A696DB500AD061B /* WarmUpCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmUpCardView.swift; sourceTree = "<group>"; };
 		C9EE06192A69713D00AD061B /* WarmUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmUpScreen.swift; sourceTree = "<group>"; };
@@ -284,6 +310,7 @@
 			children = (
 				4E7990C12A6644A8002027D1 /* TopicRepository.swift */,
 				4E7990C32A6644B6002027D1 /* TopicRepositoryImpl.swift */,
+				C97231642A6EC22600FD8302 /* TopicCoreDataAdapter.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -291,7 +318,7 @@
 		4E7990BE2A664473002027D1 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				4E7990BF2A664481002027D1 /* Topic.swift */,
+				4E7990BF2A664481002027D1 /* TopicEntity.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -390,6 +417,7 @@
 		4E7990E92A664861002027D1 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				4E819F5C2A6E8B6200A12485 /* SeedData */,
 				C9EE06442A6B4CF900AD061B /* Model */,
 				4EF769662A5D1D6800F489DF /* CoreDataConnection.swift */,
 				4EF769682A5D1D6800F489DF /* Let_s_Talk.xcdatamodeld */,
@@ -400,6 +428,8 @@
 		4E7990EA2A664911002027D1 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				9BAAA2972A6E152B00671179 /* Multipeer */,
+				4E819F592A6E4A0D00A12485 /* AVFoundation */,
 				4E7990E92A664861002027D1 /* CoreData */,
 			);
 			path = Infrastructure;
@@ -489,7 +519,10 @@
 				C96355E22A6CEB2500FA260D /* WarmUpCorrectScreen.swift */,
 				4E79910A2A66A459002027D1 /* ViewModels */,
 				4E7991092A66A454002027D1 /* Views */,
+				C9EE06192A69713D00AD061B /* WarmUpScreen.swift */,
+				C96355E22A6CEB2500FA260D /* WarmUpCorrectScreen.swift */,
 				C96355EA2A6D11D600FA260D /* QuestionSessionOverviewScreen.swift */,
+				C96355E82A6D048C00FA260D /* AddQuestionMediaScreen.swift */,
 			);
 			path = Question;
 			sourceTree = "<group>";
@@ -518,6 +551,8 @@
 				9BAAA2812A68F9F700671179 /* TopicIconView.swift */,
 				9BAAA2852A69599900671179 /* TopicProgressView.swift */,
 				F53960E62A6D1214005211F4 /* TopicListView.swift */,
+				9B836CD62A6E9ED70075D450 /* TopicItemView.swift */,
+				C97231662A6ED2CB00FD8302 /* GreetingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -533,6 +568,8 @@
 				4E435B2B2A6C2F1D00602281 /* WarmUpUserAnswerView.swift */,
 				C96355E62A6CF4C500FA260D /* TurnChangeAlertView.swift */,
 				9BAAA2952A6D140300671179 /* QuestionTextView.swift */,
+				9BAAA2912A6D0D3000671179 /* QuestionCardView.swift */,
+				4E819F572A6E474D00A12485 /* AddPhotoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -570,9 +607,26 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		4E819F592A6E4A0D00A12485 /* AVFoundation */ = {
+			isa = PBXGroup;
+			children = (
+				4E819F5A2A6E4C5500A12485 /* AVManager.swift */,
+			);
+			path = AVFoundation;
+			sourceTree = "<group>";
+		};
+		4E819F5C2A6E8B6200A12485 /* SeedData */ = {
+			isa = PBXGroup;
+			children = (
+				4E819F5D2A6E8C8400A12485 /* MockData.json */,
+			);
+			path = SeedData;
+			sourceTree = "<group>";
+		};
 		4EF769512A5D1D6800F489DF = {
 			isa = PBXGroup;
 			children = (
+				9BAAA29A2A6E15AB00671179 /* Property List.plist */,
 				4EF769702A5D1DB100F489DF /* README.md */,
 				4EF7695C2A5D1D6800F489DF /* Let's Talk */,
 				4EF7695B2A5D1D6800F489DF /* Products */,
@@ -607,6 +661,23 @@
 				4EF769642A5D1D6800F489DF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9BAAA2972A6E152B00671179 /* Multipeer */ = {
+			isa = PBXGroup;
+			children = (
+				9BAAA29C2A6E195500671179 /* Model */,
+				9BAAA2982A6E154800671179 /* MultipeerHandler.swift */,
+			);
+			path = Multipeer;
+			sourceTree = "<group>";
+		};
+		9BAAA29C2A6E195500671179 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9BAAA29D2A6E196000671179 /* PhoneModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		C9EE06442A6B4CF900AD061B /* Model */ = {
@@ -690,6 +761,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BAAA29B2A6E15AB00671179 /* Property List.plist in Resources */,
 				4EF769652A5D1D6800F489DF /* Preview Assets.xcassets in Resources */,
 				4EF769622A5D1D6800F489DF /* Assets.xcassets in Resources */,
 			);
@@ -713,7 +785,7 @@
 				4E7990F22A66A1C0002027D1 /* Fonts.swift in Sources */,
 				4E7990FF2A66A3A0002027D1 /* UserOnboardingScreen.swift in Sources */,
 				C9EE06162A69283F00AD061B /* TalkTimeView.swift in Sources */,
-				4E7990C02A664481002027D1 /* Topic.swift in Sources */,
+				4E7990C02A664481002027D1 /* TopicEntity.swift in Sources */,
 				4E7990CE2A664593002027D1 /* QuestionRepositoryImpl.swift in Sources */,
 				4EE799652A6842EB00675622 /* TextFieldView.swift in Sources */,
 				4EDF2ADC2A681933002E0645 /* LayoutView.swift in Sources */,
@@ -734,6 +806,7 @@
 				4E7990BB2A66445A002027D1 /* UserEntity.swift in Sources */,
 				C9EE06462A6B512C00AD061B /* TopicExtension.swift in Sources */,
 				4E1A55572A6A37660056951B /* SubQuestionTextView.swift in Sources */,
+				C96355E92A6D048C00FA260D /* AddQuestionMediaScreen.swift in Sources */,
 				4E435B2C2A6C2F1D00602281 /* WarmUpUserAnswerView.swift in Sources */,
 				C9EE067A2A6B83A500AD061B /* Question+CoreDataProperties.swift in Sources */,
 				4E7991132A66A605002027D1 /* Collection+Extensions.swift in Sources */,
@@ -748,6 +821,7 @@
 				9BAAA2962A6D140300671179 /* QuestionTextView.swift in Sources */,
 				4EF7695E2A5D1D6800F489DF /* Let_s_TalkApp.swift in Sources */,
 				4E1A555D2A6ADD220056951B /* View+Extensions.swift in Sources */,
+				9B836CD72A6E9ED70075D450 /* TopicItemView.swift in Sources */,
 				4E7990C92A664569002027D1 /* Question.swift in Sources */,
 				4E7990B72A664414002027D1 /* UserRepository.swift in Sources */,
 				4E1A555B2A6AD6470056951B /* PairListView.swift in Sources */,
@@ -755,31 +829,38 @@
 				F53960E72A6D1214005211F4 /* TopicListView.swift in Sources */,
 				4E7990D62A6645D6002027D1 /* LoveLog.swift in Sources */,
 				4E7990DB2A6645F1002027D1 /* LoveLogRepositoryImpl.swift in Sources */,
+				9BAAA29E2A6E196000671179 /* PhoneModel.swift in Sources */,
 				C9EE06722A6B83A500AD061B /* Topic+CoreDataProperties.swift in Sources */,
 				4E7990DE2A664603002027D1 /* LoveLogService.swift in Sources */,
 				4E7990F42A66A1CA002027D1 /* ButtonStyles.swift in Sources */,
 				C9EE06182A696DB500AD061B /* WarmUpCardView.swift in Sources */,
 				C9EE06792A6B83A500AD061B /* Question+CoreDataClass.swift in Sources */,
+				9BAAA2922A6D0D3000671179 /* QuestionCardView.swift in Sources */,
 				C9EE067C2A6B83A500AD061B /* SubQuestion+CoreDataProperties.swift in Sources */,
 				9BAAA27C2A68E8CD00671179 /* LoveLogScreen.swift in Sources */,
 				4E1A55592A6ACCD30056951B /* PairItemView.swift in Sources */,
 				4E7990E02A66460D002027D1 /* TopicViewModel.swift in Sources */,
+				C97231672A6ED2CB00FD8302 /* GreetingView.swift in Sources */,
 				4E7990D32A6645C3002027D1 /* UserViewModel.swift in Sources */,
 				C9EE067B2A6B83A500AD061B /* SubQuestion+CoreDataClass.swift in Sources */,
 				4E7990FD2A66A37E002027D1 /* GenderSelectorView.swift in Sources */,
 				9BAAA2862A69599900671179 /* TopicProgressView.swift in Sources */,
 				4E1A55552A6A29720056951B /* LoveLogRoutes.swift in Sources */,
+				C97231652A6EC22600FD8302 /* TopicCoreDataAdapter.swift in Sources */,
 				C9EE06752A6B83A500AD061B /* User+CoreDataClass.swift in Sources */,
 				C96355E32A6CEB2500FA260D /* WarmUpCorrectScreen.swift in Sources */,
 				C94650882A690BC600BEAC7A /* AppLogoView.swift in Sources */,
 				9BAAA2782A68E7DA00671179 /* TabBarView.swift in Sources */,
 				C9EE061C2A69F94D00AD061B /* WarmUpTimerView.swift in Sources */,
 				C94650862A6837F700BEAC7A /* HeroView.swift in Sources */,
+				9BAAA2992A6E154800671179 /* MultipeerHandler.swift in Sources */,
 				4E7991032A66A404002027D1 /* UserPairingSuccessScreen.swift in Sources */,
 				4EDF2ADA2A6805C1002E0645 /* ButtonView.swift in Sources */,
 				4E7990C22A6644A8002027D1 /* TopicRepository.swift in Sources */,
 				4E7990F62A66A28C002027D1 /* DashboardRoutes.swift in Sources */,
+				4E819F5B2A6E4C5500A12485 /* AVManager.swift in Sources */,
 				9BAAA2902A6A2E0100671179 /* RecordingTimeView.swift in Sources */,
+				4E819F582A6E474D00A12485 /* AddPhotoView.swift in Sources */,
 				4EE799632A683D2800675622 /* UnitConverter.swift in Sources */,
 				4E7990C42A6644B6002027D1 /* TopicRepositoryImpl.swift in Sources */,
 				C9EE06482A6B51BD00AD061B /* QuestionExtension.swift in Sources */,

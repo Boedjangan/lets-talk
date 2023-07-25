@@ -23,7 +23,6 @@ struct TalkTimeView: View {
             RoundedRectangle(cornerRadius: 20)
                 .foregroundColor(Color.talkTimeBackground)
         )
-        .frame(maxHeight: 220)
     }
 }
 
