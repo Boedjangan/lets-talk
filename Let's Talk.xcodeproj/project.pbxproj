@@ -52,6 +52,7 @@
 		4EDF2ADC2A681933002E0645 /* LayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDF2ADB2A681933002E0645 /* LayoutView.swift */; };
 		4EE799632A683D2800675622 /* UnitConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE799622A683D2800675622 /* UnitConverter.swift */; };
 		4EE799652A6842EB00675622 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE799642A6842EB00675622 /* TextFieldView.swift */; };
+		4EF034742A6FC3E300F26E02 /* mockdata.json in Resources */ = {isa = PBXBuildFile; fileRef = 4EF034732A6FC3E300F26E02 /* mockdata.json */; };
 		4EF7695E2A5D1D6800F489DF /* Let_s_TalkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF7695D2A5D1D6800F489DF /* Let_s_TalkApp.swift */; };
 		4EF769622A5D1D6800F489DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EF769612A5D1D6800F489DF /* Assets.xcassets */; };
 		4EF769652A5D1D6800F489DF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EF769642A5D1D6800F489DF /* Preview Assets.xcassets */; };
@@ -147,12 +148,12 @@
 		4E7991122A66A605002027D1 /* Collection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
 		4E819F572A6E474D00A12485 /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
 		4E819F5A2A6E4C5500A12485 /* AVManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVManager.swift; sourceTree = "<group>"; };
-		4E819F5D2A6E8C8400A12485 /* MockData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockData.json; sourceTree = "<group>"; };
 		4EAE9D2A2A68EEDA00A7B7E6 /* StatefulPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatefulPreviewView.swift; sourceTree = "<group>"; };
 		4EDF2AD92A6805C1002E0645 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		4EDF2ADB2A681933002E0645 /* LayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutView.swift; sourceTree = "<group>"; };
 		4EE799622A683D2800675622 /* UnitConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitConverter.swift; sourceTree = "<group>"; };
 		4EE799642A6842EB00675622 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
+		4EF034732A6FC3E300F26E02 /* mockdata.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = mockdata.json; path = ../../../../../../mockdata.json; sourceTree = "<group>"; };
 		4EF7695A2A5D1D6800F489DF /* Let's Talk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Let's Talk.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EF7695D2A5D1D6800F489DF /* Let_s_TalkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Let_s_TalkApp.swift; sourceTree = "<group>"; };
 		4EF769612A5D1D6800F489DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -618,7 +619,7 @@
 		4E819F5C2A6E8B6200A12485 /* SeedData */ = {
 			isa = PBXGroup;
 			children = (
-				4E819F5D2A6E8C8400A12485 /* MockData.json */,
+				4EF034732A6FC3E300F26E02 /* mockdata.json */,
 			);
 			path = SeedData;
 			sourceTree = "<group>";
@@ -763,6 +764,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BAAA29B2A6E15AB00671179 /* Property List.plist in Resources */,
+				4EF034742A6FC3E300F26E02 /* mockdata.json in Resources */,
 				4EF769652A5D1D6800F489DF /* Preview Assets.xcassets in Resources */,
 				4EF769622A5D1D6800F489DF /* Assets.xcassets in Resources */,
 			);
