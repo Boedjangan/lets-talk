@@ -28,7 +28,7 @@ class AudioManager: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate, Ob
         
         // Set up audio session
         audioSession = AVAudioSession.sharedInstance()
-
+        
         do {
             try audioSession?.setCategory(.playAndRecord)
             
@@ -57,14 +57,12 @@ class AudioManager: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate, Ob
         
         let audioFilename = getDocumentsDirectory().appendingPathComponent("\(key)")
         
-        print(key, audioFilename)
-        
         let settings = [
             AVFormatIDKey: kAudioFormatMPEG4AAC,
             AVSampleRateKey: 44100.0,
             AVNumberOfChannelsKey: 1,
             AVEncoderAudioQualityKey: AVAudioQuality.high.rawValue
-        ] as [String : Any] 
+        ] as [String : Any]
         
         
         do {
@@ -81,7 +79,7 @@ class AudioManager: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate, Ob
     func stopRecording() {
         if !isRecording {
             print("Not recording")
-
+            
             return
         }
         
@@ -90,26 +88,27 @@ class AudioManager: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate, Ob
         isRecording = false
     }
     
-    func startPlaybackFromResources(key: String, ext: String = "m4a", rate: Float = 1) {
+    func startPlayback(key: String, rate: Float = 1) {
         guard audioSession != nil else {
             print("Audio session not set up")
+            
             return
         }
         
-        if let audioFilename = Bundle.main.url(forResource: key, withExtension: ext) {
-            do {
-                audioPlayer = try AVAudioPlayer(contentsOf: audioFilename)
-                audioPlayer?.delegate = self
-                audioPlayer?.enableRate = true
-                audioPlayer?.rate = rate
-                audioPlayer?.prepareToPlay()
-                audioPlayer?.play()
-                isPlaying = true
-                
-                print("Starting playback")
-            } catch {
-                print("Error starting playback: \(error.localizedDescription)")
-            }
+        let audioFilename = getDocumentsDirectory().appendingPathComponent("\(key)")
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: audioFilename)
+            audioPlayer?.delegate = self
+            audioPlayer?.enableRate = true
+            audioPlayer?.rate = rate
+            audioPlayer?.prepareToPlay()
+            audioPlayer?.play()
+            isPlaying = true
+            
+            print("Starting playback")
+        } catch {
+            print("Error starting playback: \(error.localizedDescription)")
         }
     }
     
@@ -138,11 +137,29 @@ class AudioManager: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate, Ob
         return documentsDirectory
     }
     
+    func getAudios() {
+        do {
+            let url = getDocumentsDirectory()
+            
+            let result = try FileManager.default.contentsOfDirectory(at: url, includingPropertiesForKeys: nil, options: .producesRelativePathURLs)
+            
+            userVoices.removeAll()
+            
+            for i in result {
+                userVoices.append(i)
+            }
+        } catch {
+            print("Error reading audio directory: \(error.localizedDescription)")
+        }
+    }
+    
     // MARK: AVAudioRecorderDelegate
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if flag {
             print("Finished recording successfully")
-            
+            if let didFinishRecording = didFinishRecording {
+                didFinishRecording()
+            }
         } else {
             print("Finished recording with error")
         }
@@ -158,6 +175,11 @@ class AudioManager: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate, Ob
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
         if flag {
             print("Finished playing audio successfully")
+            isPlaying = false
+            
+            if let didFinishPlaying = didFinishPlaying {
+                didFinishPlaying()
+            }
         } else {
             print("Finished playing audio with error")
         }

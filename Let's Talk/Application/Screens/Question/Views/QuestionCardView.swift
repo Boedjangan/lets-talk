@@ -13,11 +13,11 @@ enum typeQuestion: Int {
 }
 
 struct QuestionCardView: View {
-    
     @Binding var timer:Int
-    var isRecording:Bool = false
-    var question:String = "Test"
-    var typeQuestion:typeQuestion = .sender
+    
+    var isRecording: Bool = false
+    var question: String = "Test"
+    var typeQuestion: typeQuestion = .sender
     
     
     var body: some View {
