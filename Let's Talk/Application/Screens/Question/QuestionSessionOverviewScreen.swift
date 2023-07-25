@@ -22,7 +22,7 @@ struct QuestionSessionOverviewScreen: View {
                 }
                 Spacer()
             }
-            TalkTimeDetailCardView(maleTalkTime: maleTalkTime, femaleTalkTime: femaleTalkTime)
+            TopicAdvancementDetailsView(maleTalkTime: maleTalkTime, femaleTalkTime: femaleTalkTime)
             ImagePreview(image: image)
             Spacer()
             ButtonView {
@@ -49,21 +49,17 @@ struct ImagePreview: View {
     }
 }
 
-struct TalkTimeDetailCardView: View {
+struct TopicAdvancementDetailsView: View {
     var maleTalkTime: Int = 0
     var femaleTalkTime: Int = 0
     var coupleTalkTime: Int {maleTalkTime + femaleTalkTime}
     var body: some View {
-        HStack {
+        HStack(alignment: .center) {
             VStack {
                 Text("+\(maleTalkTime) Menit")
                     .font(.paragraph)
-                AvatarView()
-                    .scaleEffect(0.5)
-                    .padding(.horizontal, -60)
-                    .padding(.vertical, -40)
+                AvatarView(radius: 70, imageSize: 50)
             }
-            Spacer()
             VStack {
                 Text("\(coupleTalkTime) Menit")
                     .font(.headingBig)
@@ -71,19 +67,15 @@ struct TalkTimeDetailCardView: View {
                     .font(.genderPickerLabel)
                     .multilineTextAlignment(.center)
             }
-            Spacer()
-                .multilineTextAlignment(.center)
+            .multilineTextAlignment(.center)
             VStack {
                 Text("+\(femaleTalkTime) Menit")
                     .font(.paragraph)
-                AvatarView()
-                    .scaleEffect(0.5)
-                    .padding(.horizontal, -60)
-                    .padding(.vertical, -40)
+                AvatarView(radius: 70, imageSize: 50)
             }
         }
-        .padding()
-        .padding(.bottom, 10)
+        .padding(.top)
+        .padding(.horizontal)
         .background(Color("Ash"))
         .cornerRadius(10)
         .padding(.vertical, 20)

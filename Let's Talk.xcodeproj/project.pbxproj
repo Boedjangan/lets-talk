@@ -67,6 +67,7 @@
 		9BAAA2862A69599900671179 /* TopicProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2852A69599900671179 /* TopicProgressView.swift */; };
 		9BAAA28A2A6987E100671179 /* BarProgressStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2892A6987E100671179 /* BarProgressStyle.swift */; };
 		9BAAA2902A6A2E0100671179 /* RecordingTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA28F2A6A2E0100671179 /* RecordingTimeView.swift */; };
+		9BAAA28E2A6A26B200671179 /* QuestionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA28D2A6A26B200671179 /* QuestionTextView.swift */; };
 		9BAAA2922A6D0D3000671179 /* QuestionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2912A6D0D3000671179 /* QuestionCardView.swift */; };
 		9BAAA2962A6D140300671179 /* QuestionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2952A6D140300671179 /* QuestionTextView.swift */; };
 		9BAAA2992A6E154800671179 /* MultipeerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2982A6E154800671179 /* MultipeerHandler.swift */; };
@@ -79,6 +80,8 @@
 		C96355E72A6CF4C500FA260D /* TurnChangeAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96355E62A6CF4C500FA260D /* TurnChangeAlertView.swift */; };
 		C96355E92A6D048C00FA260D /* AddQuestionMediaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96355E82A6D048C00FA260D /* AddQuestionMediaScreen.swift */; };
 		C96355EB2A6D11D600FA260D /* QuestionSessionOverviewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96355EA2A6D11D600FA260D /* QuestionSessionOverviewScreen.swift */; };
+		C96355E32A6CEB2500FA260D /* WarmUpCorrectScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96355E22A6CEB2500FA260D /* WarmUpCorrectScreen.swift */; };
+		C96355E72A6CF4C500FA260D /* TurnChangeAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96355E62A6CF4C500FA260D /* TurnChangeAlertView.swift */; };
 		C97231652A6EC22600FD8302 /* TopicCoreDataAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97231642A6EC22600FD8302 /* TopicCoreDataAdapter.swift */; };
 		C97231672A6ED2CB00FD8302 /* GreetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97231662A6ED2CB00FD8302 /* GreetingView.swift */; };
 		C98F81312A6F6B2600F62000 /* SenderQuestionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98F81302A6F6B2600F62000 /* SenderQuestionScreen.swift */; };
@@ -168,6 +171,7 @@
 		9BAAA2812A68F9F700671179 /* TopicIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TopicIconView.swift; path = "Let's Talk/Application/Screens/LoveLog/TopicIconView.swift"; sourceTree = SOURCE_ROOT; };
 		9BAAA2852A69599900671179 /* TopicProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TopicProgressView.swift; path = "Let's Talk/Application/Screens/LoveLog/TopicProgressView.swift"; sourceTree = SOURCE_ROOT; };
 		9BAAA2892A6987E100671179 /* BarProgressStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarProgressStyle.swift; sourceTree = "<group>"; };
+		9BAAA28F2A6A2E0100671179 /* RecordingTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingTimeView.swift; sourceTree = "<group>"; };
 		9BAAA28D2A6A26B200671179 /* QuestionTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = QuestionTextView.swift; path = "../../../../../../../../.Trash/lets-talk 09.28.25/Let's Talk/Application/Screens/Question/Views/QuestionTextView.swift"; sourceTree = "<group>"; };
 		9BAAA28F2A6A2E0100671179 /* RecordingTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingTimeView.swift; sourceTree = "<group>"; };
 		9BAAA2912A6D0D3000671179 /* QuestionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCardView.swift; sourceTree = "<group>"; };
@@ -182,6 +186,8 @@
 		C96355E62A6CF4C500FA260D /* TurnChangeAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnChangeAlertView.swift; sourceTree = "<group>"; };
 		C96355E82A6D048C00FA260D /* AddQuestionMediaScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddQuestionMediaScreen.swift; sourceTree = "<group>"; };
 		C96355EA2A6D11D600FA260D /* QuestionSessionOverviewScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionSessionOverviewScreen.swift; sourceTree = "<group>"; };
+		C96355E22A6CEB2500FA260D /* WarmUpCorrectScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmUpCorrectScreen.swift; sourceTree = "<group>"; };
+		C96355E62A6CF4C500FA260D /* TurnChangeAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnChangeAlertView.swift; sourceTree = "<group>"; };
 		C97231642A6EC22600FD8302 /* TopicCoreDataAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCoreDataAdapter.swift; sourceTree = "<group>"; };
 		C97231662A6ED2CB00FD8302 /* GreetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GreetingView.swift; path = "Let's Talk/Domains/Topic/Repositories/GreetingView.swift"; sourceTree = SOURCE_ROOT; };
 		C98F81302A6F6B2600F62000 /* SenderQuestionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SenderQuestionScreen.swift; sourceTree = "<group>"; };
@@ -513,6 +519,8 @@
 		4E7991052A66A41D002027D1 /* Question */ = {
 			isa = PBXGroup;
 			children = (
+				C9EE06192A69713D00AD061B /* WarmUpScreen.swift */,
+				C96355E22A6CEB2500FA260D /* WarmUpCorrectScreen.swift */,
 				4E79910A2A66A459002027D1 /* ViewModels */,
 				4E7991092A66A454002027D1 /* Views */,
 				C9EE06192A69713D00AD061B /* WarmUpScreen.swift */,
