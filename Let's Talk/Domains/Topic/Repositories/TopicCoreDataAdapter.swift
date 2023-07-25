@@ -20,17 +20,6 @@ class TopicCoreDataAdapter: TopicRepository {
             
             for topic in topics {
                 let topicEntity = convertToTopicEntity(topic: topic)
-                let topicEntity = TopicEntity(
-                    id: topic.id.unsafelyUnwrapped,
-                    iconName: topic.iconName.unsafelyUnwrapped,
-                    isActive: topic.isActive,
-                    isCompleted: topic.isCompleted,
-                    level: Int16(topic.level.toInt),
-                    progress: Int16(topic.progress.toInt),
-                    title: topic.title ?? "",
-                    createdAt: topic.createdAt.unsafelyUnwrapped,
-                    updatedAt: topic.updatedAt.unsafelyUnwrapped
-                )
                 topicEntities.append(topicEntity)
             }
             return topicEntities
@@ -123,7 +112,7 @@ class TopicCoreDataAdapter: TopicRepository {
                 print("No topic found with the provided ID.")
                 return nil
             }
-            topic.progress = newProgress
+            topic.progress = newProgress.toInt16
             
             try coreDataContext.save()
             
@@ -185,17 +174,24 @@ class TopicCoreDataAdapter: TopicRepository {
     }
     
     func convertToTopicEntity(topic: Topic) -> TopicEntity {
-        return TopicEntity(
-            id: topic.id.unsafelyUnwrapped,
-            iconName: topic.iconName.unsafelyUnwrapped,
-            isActive: topic.isActive,
-            isCompleted: topic.isCompleted,
-            level: Int(topic.level),
-            progress: Int(topic.progress),
-            title: topic.title ?? "",
-            questions: questions,
-            createdAt: topic.createdAt.unsafelyUnwrapped,
-            updatedAt: topic.updatedAt.unsafelyUnwrapped
-        )
-    }
+            var questions: [Any] = []
+            
+            // Convert topic.questions to [Any]
+            if let topicQuestions = topic.question as? Set<Question> {
+                questions = Array(topicQuestions)
+            }
+            
+            return TopicEntity(
+                id: topic.id.unsafelyUnwrapped,
+                iconName: topic.iconName.unsafelyUnwrapped,
+                isActive: topic.isActive,
+                isCompleted: topic.isCompleted,
+                level: Int(topic.level),
+                progress: Int(topic.progress),
+                title: topic.title ?? "",
+                questions: questions,
+                createdAt: topic.createdAt.unsafelyUnwrapped,
+                updatedAt: topic.updatedAt.unsafelyUnwrapped
+            )
+        }
 }
