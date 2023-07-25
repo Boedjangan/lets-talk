@@ -20,8 +20,12 @@ class TopicViewModel: ObservableObject {
         topics = topicService.getTopics()
     }
     
+    func createTopics(topicEntities: [TopicEntity]) {
+        topics = topicService.createTopics(topicEntities: topicEntities)
+    }
+    
     func updateTopicProgress(id: UUID, newProgress: Int16) {
-        guard let updatedTopic = topicService.updateTopicProgress(id: id, newProgress: newProgress) else {
+        guard let updatedTopic = topicService.updateTopicProgress(id: id, newProgress: Int(newProgress)) else {
             print("Failed to update topic progress")
             return
         }

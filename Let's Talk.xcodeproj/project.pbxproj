@@ -52,6 +52,7 @@
 		4EDF2ADC2A681933002E0645 /* LayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EDF2ADB2A681933002E0645 /* LayoutView.swift */; };
 		4EE799632A683D2800675622 /* UnitConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE799622A683D2800675622 /* UnitConverter.swift */; };
 		4EE799652A6842EB00675622 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EE799642A6842EB00675622 /* TextFieldView.swift */; };
+		4EF034772A6FCBDE00F26E02 /* mockdata.json in Resources */ = {isa = PBXBuildFile; fileRef = 4EF034762A6FCBDE00F26E02 /* mockdata.json */; };
 		4EF7695E2A5D1D6800F489DF /* Let_s_TalkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF7695D2A5D1D6800F489DF /* Let_s_TalkApp.swift */; };
 		4EF769622A5D1D6800F489DF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EF769612A5D1D6800F489DF /* Assets.xcassets */; };
 		4EF769652A5D1D6800F489DF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EF769642A5D1D6800F489DF /* Preview Assets.xcassets */; };
@@ -74,15 +75,12 @@
 		9BAAA29B2A6E15AB00671179 /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BAAA29A2A6E15AB00671179 /* Property List.plist */; };
 		9BAAA29E2A6E196000671179 /* PhoneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA29D2A6E196000671179 /* PhoneModel.swift */; };
 		9BCA71572A6EC64700D37E2D /* coupleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCA71562A6EC64700D37E2D /* coupleModel.swift */; };
+		C9073CA92A6FBF2F004A9B1E /* TopicCoreDataAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97231642A6EC22600FD8302 /* TopicCoreDataAdapter.swift */; };
+		C9073CAA2A6FBF87004A9B1E /* SubQuestionEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E6D77D2A6FA1F700B59575 /* SubQuestionEntity.swift */; };
 		C94650862A6837F700BEAC7A /* HeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94650852A6837F700BEAC7A /* HeroView.swift */; };
 		C94650882A690BC600BEAC7A /* AppLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94650872A690BC600BEAC7A /* AppLogoView.swift */; };
 		C96355E32A6CEB2500FA260D /* WarmUpCorrectScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96355E22A6CEB2500FA260D /* WarmUpCorrectScreen.swift */; };
 		C96355E72A6CF4C500FA260D /* TurnChangeAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96355E62A6CF4C500FA260D /* TurnChangeAlertView.swift */; };
-		C96355E92A6D048C00FA260D /* AddQuestionMediaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96355E82A6D048C00FA260D /* AddQuestionMediaScreen.swift */; };
-		C96355EB2A6D11D600FA260D /* QuestionSessionOverviewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96355EA2A6D11D600FA260D /* QuestionSessionOverviewScreen.swift */; };
-		C97231652A6EC22600FD8302 /* TopicCoreDataAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97231642A6EC22600FD8302 /* TopicCoreDataAdapter.swift */; };
-		C97231672A6ED2CB00FD8302 /* GreetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97231662A6ED2CB00FD8302 /* GreetingView.swift */; };
-		C98F81312A6F6B2600F62000 /* SenderQuestionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98F81302A6F6B2600F62000 /* SenderQuestionScreen.swift */; };
 		C9EE06162A69283F00AD061B /* TalkTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06152A69283F00AD061B /* TalkTimeView.swift */; };
 		C9EE06182A696DB500AD061B /* WarmUpCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06172A696DB500AD061B /* WarmUpCardView.swift */; };
 		C9EE061A2A69713D00AD061B /* WarmUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06192A69713D00AD061B /* WarmUpScreen.swift */; };
@@ -147,12 +145,12 @@
 		4E7991122A66A605002027D1 /* Collection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
 		4E819F572A6E474D00A12485 /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
 		4E819F5A2A6E4C5500A12485 /* AVManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVManager.swift; sourceTree = "<group>"; };
-		4E819F5D2A6E8C8400A12485 /* MockData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockData.json; sourceTree = "<group>"; };
 		4EAE9D2A2A68EEDA00A7B7E6 /* StatefulPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatefulPreviewView.swift; sourceTree = "<group>"; };
 		4EDF2AD92A6805C1002E0645 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		4EDF2ADB2A681933002E0645 /* LayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutView.swift; sourceTree = "<group>"; };
 		4EE799622A683D2800675622 /* UnitConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitConverter.swift; sourceTree = "<group>"; };
 		4EE799642A6842EB00675622 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
+		4EF034762A6FCBDE00F26E02 /* mockdata.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mockdata.json; sourceTree = "<group>"; };
 		4EF7695A2A5D1D6800F489DF /* Let's Talk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Let's Talk.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EF7695D2A5D1D6800F489DF /* Let_s_TalkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Let_s_TalkApp.swift; sourceTree = "<group>"; };
 		4EF769612A5D1D6800F489DF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -187,6 +185,7 @@
 		C97231642A6EC22600FD8302 /* TopicCoreDataAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicCoreDataAdapter.swift; sourceTree = "<group>"; };
 		C97231662A6ED2CB00FD8302 /* GreetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GreetingView.swift; path = "Let's Talk/Domains/Topic/Repositories/GreetingView.swift"; sourceTree = SOURCE_ROOT; };
 		C98F81302A6F6B2600F62000 /* SenderQuestionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SenderQuestionScreen.swift; sourceTree = "<group>"; };
+		C9E6D77D2A6FA1F700B59575 /* SubQuestionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubQuestionEntity.swift; sourceTree = "<group>"; };
 		C9EE06152A69283F00AD061B /* TalkTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkTimeView.swift; sourceTree = "<group>"; };
 		C9EE06172A696DB500AD061B /* WarmUpCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmUpCardView.swift; sourceTree = "<group>"; };
 		C9EE06192A69713D00AD061B /* WarmUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmUpScreen.swift; sourceTree = "<group>"; };
@@ -325,6 +324,7 @@
 		4E7990C72A664560002027D1 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				C9E6D77D2A6FA1F700B59575 /* SubQuestionEntity.swift */,
 				4E7990C82A664569002027D1 /* QuestionEntity.swift */,
 			);
 			path = Entities;
@@ -416,7 +416,7 @@
 		4E7990E92A664861002027D1 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				4E819F5C2A6E8B6200A12485 /* SeedData */,
+				4EF034752A6FCBD100F26E02 /* SeedData */,
 				C9EE06442A6B4CF900AD061B /* Model */,
 				4EF769662A5D1D6800F489DF /* CoreDataConnection.swift */,
 				4EF769682A5D1D6800F489DF /* Let_s_Talk.xcdatamodeld */,
@@ -615,10 +615,10 @@
 			path = AVFoundation;
 			sourceTree = "<group>";
 		};
-		4E819F5C2A6E8B6200A12485 /* SeedData */ = {
+		4EF034752A6FCBD100F26E02 /* SeedData */ = {
 			isa = PBXGroup;
 			children = (
-				4E819F5D2A6E8C8400A12485 /* MockData.json */,
+				4EF034762A6FCBDE00F26E02 /* mockdata.json */,
 			);
 			path = SeedData;
 			sourceTree = "<group>";
@@ -763,6 +763,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BAAA29B2A6E15AB00671179 /* Property List.plist in Resources */,
+				4EF034772A6FCBDE00F26E02 /* mockdata.json in Resources */,
 				4EF769652A5D1D6800F489DF /* Preview Assets.xcassets in Resources */,
 				4EF769622A5D1D6800F489DF /* Assets.xcassets in Resources */,
 			);
@@ -788,6 +789,8 @@
 				C9EE06162A69283F00AD061B /* TalkTimeView.swift in Sources */,
 				4E7990C02A664481002027D1 /* TopicEntity.swift in Sources */,
 				4E7990CE2A664593002027D1 /* QuestionCoreDataAdapter.swift in Sources */,
+				4E7990CE2A664593002027D1 /* QuestionRepositoryImpl.swift in Sources */,
+				C9073CAA2A6FBF87004A9B1E /* SubQuestionEntity.swift in Sources */,
 				4EE799652A6842EB00675622 /* TextFieldView.swift in Sources */,
 				4EDF2ADC2A681933002E0645 /* LayoutView.swift in Sources */,
 				4E7990B52A6643FF002027D1 /* UserService.swift in Sources */,
@@ -806,13 +809,10 @@
 				4EF7696A2A5D1D6800F489DF /* Let_s_Talk.xcdatamodeld in Sources */,
 				4E7990BB2A66445A002027D1 /* UserEntity.swift in Sources */,
 				C9EE06462A6B512C00AD061B /* TopicExtension.swift in Sources */,
-				C98F81312A6F6B2600F62000 /* SenderQuestionScreen.swift in Sources */,
 				4E1A55572A6A37660056951B /* SubQuestionTextView.swift in Sources */,
-				C96355E92A6D048C00FA260D /* AddQuestionMediaScreen.swift in Sources */,
 				4E435B2C2A6C2F1D00602281 /* WarmUpUserAnswerView.swift in Sources */,
 				C9EE067A2A6B83A500AD061B /* Question+CoreDataProperties.swift in Sources */,
 				4E7991132A66A605002027D1 /* Collection+Extensions.swift in Sources */,
-				C96355EB2A6D11D600FA260D /* QuestionSessionOverviewScreen.swift in Sources */,
 				C9EE06622A6B57BD00AD061B /* LoveLogExtension.swift in Sources */,
 				C9EE06712A6B83A500AD061B /* Topic+CoreDataClass.swift in Sources */,
 				4E435B2A2A6C2C8400602281 /* SignedInteger+Extensions.swift in Sources */,
@@ -828,6 +828,7 @@
 				4E7990B72A664414002027D1 /* UserRepository.swift in Sources */,
 				4E1A555B2A6AD6470056951B /* PairListView.swift in Sources */,
 				4E7990C62A6644C2002027D1 /* TopicService.swift in Sources */,
+				C9073CA92A6FBF2F004A9B1E /* TopicCoreDataAdapter.swift in Sources */,
 				F53960E72A6D1214005211F4 /* TopicListView.swift in Sources */,
 				4E7990D62A6645D6002027D1 /* LoveLog.swift in Sources */,
 				4E7990DB2A6645F1002027D1 /* LoveLogRepositoryImpl.swift in Sources */,
@@ -844,13 +845,11 @@
 				9B5F9A652A6F9A9E0047574F /* ReceiverQuestionScreen.swift in Sources */,
 				4E7990E02A66460D002027D1 /* TopicViewModel.swift in Sources */,
 				9B5BD56E2A6F7FE300FBB9C7 /* Spacing.swift in Sources */,
-				C97231672A6ED2CB00FD8302 /* GreetingView.swift in Sources */,
 				4E7990D32A6645C3002027D1 /* UserViewModel.swift in Sources */,
 				C9EE067B2A6B83A500AD061B /* SubQuestion+CoreDataClass.swift in Sources */,
 				4E7990FD2A66A37E002027D1 /* GenderSelectorView.swift in Sources */,
 				9BAAA2862A69599900671179 /* TopicProgressView.swift in Sources */,
 				4E1A55552A6A29720056951B /* LoveLogRoutes.swift in Sources */,
-				C97231652A6EC22600FD8302 /* TopicCoreDataAdapter.swift in Sources */,
 				C9EE06752A6B83A500AD061B /* User+CoreDataClass.swift in Sources */,
 				C96355E32A6CEB2500FA260D /* WarmUpCorrectScreen.swift in Sources */,
 				C94650882A690BC600BEAC7A /* AppLogoView.swift in Sources */,
