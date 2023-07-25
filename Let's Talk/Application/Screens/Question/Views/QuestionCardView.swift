@@ -14,7 +14,6 @@ struct QuestionCardView: View {
     var body: some View {
         ZStack{
             RoundedRectangle(cornerRadius: 10)
-            
                 .foregroundColor(Color.questionBackground)
             VStack{
                 HStack{
