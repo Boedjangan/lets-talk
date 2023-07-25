@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct QuestionEntity:Identifiable {
+struct QuestionEntity: Identifiable {
     var id: UUID = UUID()
     var question: String
     var warmUp: String
