@@ -28,6 +28,7 @@ extension Question {
     @NSManaged public var loveLog: LoveLog?
     @NSManaged public var subQuestion: NSSet?
     @NSManaged public var topic: Topic?
+    @NSManaged public var order: Int64
 
 }
 
