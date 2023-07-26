@@ -19,9 +19,11 @@ enum OnboardingRoutes: String {
 struct Let_s_TalkApp: App {
     @AppStorage("onboarding") var onboarding: String = OnboardingRoutes.welcome.rawValue
     
+    // MARK - View Model Initialization
     @StateObject var userVM: UserViewModel = UserViewModel()
     @StateObject var questionVM: QuestionViewModel = QuestionViewModel()
     
+    // MARK - APP Routes
     @StateObject var dashboardNavigation = DashboardNavigationManager()
     @StateObject var loveLogNavigation = LoveLogNavigationManager()
     @StateObject var multipeerHandler : MultipeerHandler = MultipeerHandler()

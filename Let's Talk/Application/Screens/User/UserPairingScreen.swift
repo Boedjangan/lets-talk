@@ -35,7 +35,11 @@ struct UserPairingScreen: View {
            
             Spacer()
             
-            PairListView(multipeerHandler: multipeerHandler, userVM: userVM)
+            ZStack {
+                CircularBackgroundView()
+                
+                PairListView(multipeerHandler: multipeerHandler, userVM: userVM)
+            }
                 
             Spacer()
         }.onAppear {
