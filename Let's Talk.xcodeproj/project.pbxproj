@@ -105,6 +105,7 @@
 		C9EE067B2A6B83A500AD061B /* SubQuestion+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE066F2A6B83A500AD061B /* SubQuestion+CoreDataClass.swift */; };
 		C9EE067C2A6B83A500AD061B /* SubQuestion+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06702A6B83A500AD061B /* SubQuestion+CoreDataProperties.swift */; };
 		F53960E72A6D1214005211F4 /* TopicListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53960E62A6D1214005211F4 /* TopicListView.swift */; };
+		F59A2B522A70C9C6000F85DB /* UserDisconectedScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59A2B512A70C9C6000F85DB /* UserDisconectedScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -210,6 +211,7 @@
 		C9EE066F2A6B83A500AD061B /* SubQuestion+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SubQuestion+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C9EE06702A6B83A500AD061B /* SubQuestion+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SubQuestion+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F53960E62A6D1214005211F4 /* TopicListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TopicListView.swift; path = "Let's Talk/TopicListView.swift"; sourceTree = SOURCE_ROOT; };
+		F59A2B512A70C9C6000F85DB /* UserDisconectedScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDisconectedScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -477,6 +479,7 @@
 				4E7990F82A66A319002027D1 /* Views */,
 				4E7990FA2A66A333002027D1 /* UserPairingScreen.swift */,
 				4E7990FE2A66A3A0002027D1 /* UserOnboardingScreen.swift */,
+				F59A2B512A70C9C6000F85DB /* UserDisconectedScreen.swift */,
 				4E7991002A66A3E9002027D1 /* UserSetupScreen.swift */,
 				4E7991022A66A404002027D1 /* UserPairingSuccessScreen.swift */,
 			);
@@ -869,6 +872,7 @@
 				4E7990F62A66A28C002027D1 /* DashboardRoutes.swift in Sources */,
 				4E819F5B2A6E4C5500A12485 /* AVManager.swift in Sources */,
 				9BAAA2902A6A2E0100671179 /* RecordingTimeView.swift in Sources */,
+				F59A2B522A70C9C6000F85DB /* UserDisconectedScreen.swift in Sources */,
 				9BCA71572A6EC64700D37E2D /* coupleModel.swift in Sources */,
 				4E819F582A6E474D00A12485 /* AddPhotoView.swift in Sources */,
 				4EE799632A683D2800675622 /* UnitConverter.swift in Sources */,
