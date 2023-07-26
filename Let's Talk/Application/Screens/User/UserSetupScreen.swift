@@ -14,8 +14,8 @@ struct UserSetupScreen: View {
     
     var body: some View {
         LayoutView {
-            Spacer()
             
+            Spacer()
             AppLogoView()
             
             Spacer()
@@ -52,10 +52,12 @@ struct UserSetupScreen: View {
     }
 }
 
-//struct UserSetupScreen_Previews: PreviewProvider {
-//    static var previews: some View {
-//        StatefulObjectPreviewView(UserViewModel()) { userVM in
-//            UserSetupScreen(userVM: userVM)
-//        }
-//    }
-//}
+struct UserSetupScreen_Previews: PreviewProvider {
+    static var previews: some View {
+        StatefulObjectPreviewView(UserViewModel()) { userVM in
+            StatefulObjectPreviewView(MultipeerHandler()) { multipeer in
+                UserSetupScreen(userVM: userVM,multipeerHandler: multipeer)
+            }
+        }
+    }
+}
