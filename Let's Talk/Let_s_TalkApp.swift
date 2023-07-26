@@ -25,7 +25,7 @@ struct Let_s_TalkApp: App {
     // MARK - APP Routes
     @StateObject var dashboardNavigation = DashboardNavigationManager()
     @StateObject var loveLogNavigation = LoveLogNavigationManager()
-    @StateObject var multipeerHandler : MultipeerHandler = MultipeerHandler()
+    @StateObject var multipeerHandler: MultipeerHandler = MultipeerHandler()
     
     var body: some Scene {
         WindowGroup {
@@ -39,7 +39,7 @@ struct Let_s_TalkApp: App {
             case "congrats":
                 UserPairingSuccessScreen(userVM: userVM)
             case "done":
-                TabBarView(dashboardNavigation: dashboardNavigation, loveLogNavigation: loveLogNavigation, userVM: userVM)
+                TabBarView(dashboardNavigation: dashboardNavigation, loveLogNavigation: loveLogNavigation, userVM: userVM, multipeerHandler: multipeerHandler)
             default:
                 UserOnboardingScreen()
             }

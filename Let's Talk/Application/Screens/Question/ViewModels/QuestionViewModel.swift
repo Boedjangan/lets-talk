@@ -10,11 +10,14 @@ import Foundation
 @MainActor
 class QuestionViewModel: ObservableObject {
     @Published var questions: [QuestionEntity] = []
+    
+    // MARK - Sending Answer
     @Published var talkDuration: Int = 0
     @Published var isRecordingAudio = false
     @Published var isPlayingAudio = false
+    
+    // MARK - Warm Up
     @Published var myWarmUpAnswer = ""
-    @Published var coupleWarmUpAnswer = ""
     
     private var timer: Timer?
     private var questionService = QuestionService(questionRepository: QuestionCoreDataAdapter())
@@ -34,15 +37,14 @@ class QuestionViewModel: ObservableObject {
     }
     
     func getQuestionByTopicId(topicId: UUID) -> QuestionEntity? {
-        let filteredQuestion = questions.filter { question in
+        let filteredQuestions = questions.filter { question in
             
-            print(question.topicId, topicId)
             return question.topicId == topicId
         }
         
-        print(filteredQuestion)
+        let sortedQuestions = filteredQuestions.sorted { $0.order < $1.order }
         
-        let incompleteQuestion = filteredQuestion.first { !$0.isCompleted }
+        let incompleteQuestion = sortedQuestions.first { !$0.isCompleted }
         
         return incompleteQuestion
     }

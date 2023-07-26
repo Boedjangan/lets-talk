@@ -47,8 +47,6 @@ class QuestionCoreDataAdapter: QuestionRepository {
                 questionEntities.append(questionEntity)
             }
             
-            questionEntities = questionEntities.sorted { $0.order < $1.order }
-            
             return questionEntities
         } catch {
             print("Failed getting user details")
@@ -198,6 +196,7 @@ class QuestionCoreDataAdapter: QuestionRepository {
             warmUp: question.warmUp.unsafelyUnwrapped,
             isCompleted: question.isCompleted,
             image: question.image,
+            order: question.order.toInt,
             talkDuration: question.talkDuration.toInt,
             createdAt: question.createdAt.unsafelyUnwrapped,
             updatedAt: question.updatedAt.unsafelyUnwrapped,

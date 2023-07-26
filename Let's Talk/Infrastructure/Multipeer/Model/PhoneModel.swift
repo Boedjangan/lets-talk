@@ -16,6 +16,4 @@ class PhoneModel: Codable, Identifiable {
         self.displayName = displayName
         self.phoneId = phoneId
     }
-    
-    
 }

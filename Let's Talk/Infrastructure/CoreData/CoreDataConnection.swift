@@ -81,6 +81,10 @@ struct CoreDataConnection {
                         question.warmUp = warmUp
                     }
                     
+                    if let order = topicQuestion["order"] as? Int64 {
+                        question.order = order
+                    }
+                    
                     // MARK - Sub Questions Seeding
                     if let subQuestions = topicQuestion["subQuestions"] as? [String] {
                         for subQuestionText in subQuestions {
@@ -103,7 +107,7 @@ struct CoreDataConnection {
         // Save changes of seeding data
         do {
             print("SUCCESS - Seeding core data")
-            try? context.save()
+            try context.save()
         } catch {
             print("Error Seeding: \(error.localizedDescription)")
         }

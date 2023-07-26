@@ -11,6 +11,7 @@ struct TabBarView: View {
     @ObservedObject var dashboardNavigation: DashboardNavigationManager
     @ObservedObject var loveLogNavigation: LoveLogNavigationManager
     @ObservedObject var userVM: UserViewModel
+    @ObservedObject var multipeerHandler: MultipeerHandler
     
     @StateObject var topicVM: TopicViewModel = TopicViewModel()
     @StateObject var questionVM: QuestionViewModel = QuestionViewModel()
@@ -45,6 +46,7 @@ struct TabBarView: View {
             .environmentObject(userVM)
             .environmentObject(questionVM)
             .environmentObject(dashboardNavigation)
+            .environmentObject(multipeerHandler)
             
             NavigationStack(path: $loveLogNavigation.navigationPaths) {
                 LoveLogScreen()
@@ -72,7 +74,9 @@ struct TabBarView_Previews: PreviewProvider {
         StatefulObjectPreviewView(DashboardNavigationManager()) { dash in
             StatefulObjectPreviewView(LoveLogNavigationManager()) { love in
                 StatefulObjectPreviewView(UserViewModel()) { user in
-                    TabBarView(dashboardNavigation: dash, loveLogNavigation: love, userVM: user)
+                    StatefulObjectPreviewView(MultipeerHandler()) { multi in
+                        TabBarView(dashboardNavigation: dash, loveLogNavigation: love, userVM: user, multipeerHandler: multi)
+                    }
                 }
             }
         }

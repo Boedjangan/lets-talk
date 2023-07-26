@@ -40,7 +40,7 @@ struct UserPairingSuccessScreen: View {
             
             HStack() {
                 AvatarView(userName: userName,iconImage: gender)
-                AvatarView(userName: coupleName,iconImage: gender)
+                AvatarView(userName: coupleName,iconImage: gender == "Male" ? "Female" : "Male")
             }
             Spacer()
             

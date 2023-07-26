@@ -24,10 +24,16 @@ class MultipeerHandler: NSObject, ObservableObject {
     @Published var persons: [MCPeerID] = []
     @Published var pairID: MCPeerID?
     @Published var coupleID: String?
+    @Published var state: MCSessionState = .notConnected
+    
+    // MARK - User & Couple Status
+    @Published var isReady: Bool = false
+    @Published var isCoupleReady: Bool = false
     @Published var coupleName: String?
     @Published var username: String?
-    @Published var state: MCSessionState = .notConnected
-    @Published var isReady: Bool = false
+    
+    // MARK - Warm Up Answer
+    @Published var coupleWarmUpAnswer = ""
     
     private var myPeerId = MCPeerID(displayName: UIDevice.current.name)
     private var session : MCSession
@@ -85,6 +91,15 @@ class MultipeerHandler: NSObject, ObservableObject {
             self.browser.invitePeer(peerID, to: self.session, withContext: data, timeout: TimeInterval(0))
         }
     }
+    
+    // Ini untuk send data ke peer
+    func sendData(_ data: Data) {
+           do {
+               try session.send(data, toPeers: session.connectedPeers, with: .reliable)
+           } catch {
+               print("Error sending data: \(error.localizedDescription)")
+           }
+       }
     
     func updateDiscoveryInfo() {
         advertiser.stopAdvertisingPeer()
@@ -219,12 +234,30 @@ extension MultipeerHandler: MCSessionDelegate {
     
     //  disini datanya mau diapain ketika diterima
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
-        //        guard let pict = try? JSONDecoder().decode(PictModel.self, from: data) else { return }
-        //        print(pict.name,"test")
-        //        DispatchQueue.main.async {
-        //          self.pictReceivedHandler?(pict)
-        //        }
-        //        delegate?.didReceive(data: data, from: peerID)
+        if let customData = try? JSONDecoder().decode(MultipeerData.self, from: data) {
+            switch customData.dataType {
+            case .isReady:
+                if let receivedBoolValue = customData.isBoolValue {
+                    DispatchQueue.main.async {
+                        self.isCoupleReady = receivedBoolValue
+                    }
+                }
+            case .isNotReady:
+                if let receivedBoolValue = customData.isBoolValue {
+                    DispatchQueue.main.async {
+                        self.isCoupleReady = receivedBoolValue
+                    }
+                }
+                
+            case .warmUpAnswer:
+                if let receivedValue = customData.data {
+                    DispatchQueue.main.async {
+                        self.coupleWarmUpAnswer = String(data: receivedValue, encoding: .utf8)!
+                    }
+                }
+            }
+        }
+        
         guard let dataTry = try? JSONDecoder().decode(coupleModel.self, from: data) else { return }
         
         print("Data received!")
