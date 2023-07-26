@@ -27,7 +27,6 @@ struct Let_s_TalkApp: App {
     @StateObject var dashboardNavigation = DashboardNavigationManager()
     @StateObject var loveLogNavigation = LoveLogNavigationManager()
     @StateObject var multipeerHandler : MultipeerHandler = MultipeerHandler()
-    
     var body: some Scene {
         WindowGroup {
             switch(onboarding) {
