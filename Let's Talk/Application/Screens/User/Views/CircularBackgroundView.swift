@@ -8,29 +8,21 @@
 import SwiftUI
 
 struct CircularBackgroundView: View {
+    let waveCount: Int
+    let radius: CGFloat
+    
+    init(gender: Gender = .male, waveCount: Int = 8, radius: CGFloat = 50) {
+        self.waveCount = waveCount
+        self.radius = radius
+    }
+    
     var body: some View {
-        ZStack {
-            Circle()
-                .stroke(Color.white, lineWidth: 0.5)
-                .frame(width: 50)
-            Circle()
-                .stroke(Color.white, lineWidth: 0.5)
-                .frame(width: 100)
-            Circle()
-                .stroke(Color.white, lineWidth: 0.5)
-                .frame(width: 150)
-            Circle()
-                .stroke(Color.white, lineWidth: 0.5)
-                .frame(width: 200)
-            Circle()
-                .stroke(Color.white, lineWidth: 0.5)
-                .frame(width: 250)
-            Circle()
-                .stroke(Color.white, lineWidth: 0.5)
-                .frame(width: 300)
-            Circle()
-                .stroke(Color.white, lineWidth: 0.5)
-                .frame(width: 350)
+        ZStack() {
+            ForEach(1...waveCount, id: \.self) { val in
+                Circle()
+                    .stroke(Color.white, lineWidth: 0.5)
+                    .frame(width: radius * CGFloat(val))
+            }
         }
     }
 }

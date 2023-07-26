@@ -36,28 +36,7 @@ struct UserPairingScreen: View {
             Spacer()
             
             ZStack {
-                Circle()
-                    .stroke(Color.white, lineWidth: 0.5)
-                    .frame(width: 50)
-                Circle()
-                    .stroke(Color.white, lineWidth: 0.5)
-                    .frame(width: 100)
-                Circle()
-                    .stroke(Color.white, lineWidth: 0.5)
-                    .frame(width: 150)
-                Circle()
-                    .stroke(Color.white, lineWidth: 0.5)
-                    .frame(width: 200)
-                Circle()
-                    .stroke(Color.white, lineWidth: 0.5)
-                    .frame(width: 250)
-                Circle()
-                    .stroke(Color.white, lineWidth: 0.5)
-                    .frame(width: 300)
-                Circle()
-                    .stroke(Color.white, lineWidth: 0.5)
-                    .frame(width: 350)
-                    
+                CircularBackgroundView()
                 
                 PairListView(multipeerHandler: multipeerHandler, userVM: userVM)
             }
