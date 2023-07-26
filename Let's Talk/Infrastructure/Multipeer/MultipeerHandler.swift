@@ -35,6 +35,10 @@ class MultipeerHandler: NSObject, ObservableObject {
     // MARK - Warm Up Answer
     @Published var coupleWarmUpAnswer = ""
     
+    // MARK: - Timer properties
+    private var retryTimer: Timer?
+    private let retryDelayInSeconds: TimeInterval = 5.0
+    
     private var myPeerId = MCPeerID(displayName: UIDevice.current.name)
     private var session : MCSession
     private var phones: [PhoneModel] = []
@@ -125,37 +129,42 @@ extension MultipeerHandler: MCNearbyServiceAdvertiserDelegate {
         withContext context: Data?,
         invitationHandler: @escaping (Bool, MCSession?) -> Void
     ) {
-        DispatchQueue.main.async {
-            print("nerima invitation")
-            
-            let scenes = UIApplication.shared.connectedScenes
-            let windowScenes = scenes.first as? UIWindowScene
-            let window = windowScenes?.windows.first
-            
-            let title = "Accept \(peerID.displayName)'s invitation"
-            let message = "Would you like to accept: \(peerID.displayName)"
-            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            
-            alertController.addAction(UIAlertAction(title: "No", style: .cancel){ _ in
-                let job = try? JSONDecoder().decode(coupleModel.self, from: context!)
-                print("\(job?.username ?? "kosong" ),<<<data")
-                invitationHandler(false, self.session)
-            })
-            
-            alertController.addAction(UIAlertAction(title: "Yes", style: .default) { _ in
-                self.coupleID = peerID.displayName
+        if context == nil{
+            invitationHandler(true, self.session)
+        }else{
+            DispatchQueue.main.async {
+                print("nerima invitation")
                 
-                var couple = try? JSONDecoder().decode(coupleModel.self, from: context!)
+                let scenes = UIApplication.shared.connectedScenes
+                let windowScenes = scenes.first as? UIWindowScene
+                let window = windowScenes?.windows.first
                 
-                print("\(couple?.username ?? "kosong"),<<<data")
-                self.coupleName = couple?.username ?? ""
-                self.isReady = true
+                let title = "Accept \(peerID.displayName)'s invitation"
+                let message = "Would you like to accept: \(peerID.displayName)"
+                let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
                 
-                invitationHandler(true, self.session)
-            })
-            
-            window?.rootViewController?.present(alertController, animated: true)
+                alertController.addAction(UIAlertAction(title: "No", style: .cancel){ _ in
+                    let job = try? JSONDecoder().decode(coupleModel.self, from: context!)
+                    print("\(job?.username ?? "kosong" ),<<<data")
+                    invitationHandler(false, self.session)
+                })
+                
+                alertController.addAction(UIAlertAction(title: "Yes", style: .default) { _ in
+                    self.coupleID = peerID.displayName
+                    
+                    var couple = try? JSONDecoder().decode(coupleModel.self, from: context!)
+                    
+                    print("\(couple?.username ?? "kosong"),<<<data")
+                    self.coupleName = couple?.username ?? ""
+                    self.isReady = true
+                    
+                    invitationHandler(true, self.session)
+                })
+                
+                window?.rootViewController?.present(alertController, animated: true)
+            }
         }
+        
     }
 }
 
@@ -163,19 +172,24 @@ extension MultipeerHandler: MCNearbyServiceAdvertiserDelegate {
 extension MultipeerHandler: MCNearbyServiceBrowserDelegate {
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String: String]?) {
         // disini ngecek ke core data kalau peeridnya sama atau engga dengan couple
+        print("\(self.coupleID) ini couple")
         if !persons.contains(peerID) {
             if let info = info {
                 print(info["coupleName"] ?? "No Name")
             }
           
-            if(peerID.displayName == self.coupleID && (phones.first(where:{$0.phoneId == info!["coupleName"]}) != nil)) {
+            if(peerID.displayName == self.coupleID) {
                 self.pairID = peerID
                 self.coupleID = peerID.displayName
+                
+                print("KEPANGGIL!!!")
+                
                 browser.invitePeer(peerID, to: session, withContext: nil, timeout: 0)
             } else {
                 persons.append(peerID)
                 phones.append(PhoneModel(displayName: peerID.displayName, phoneId: info?["coupleName"] ?? ""))
             }
+            
             print("invite done")
         }
     }
@@ -189,6 +203,35 @@ extension MultipeerHandler: MCNearbyServiceBrowserDelegate {
             self.pairID = nil
         }
     }
+    
+    private func scheduleRetryAlert(peerID: MCPeerID) {
+        // Invalidate the previous timer, if any
+        invalidateRetryTimer()
+        
+        // Schedule a new timer to trigger the alert after the specified delay
+        retryTimer = Timer.scheduledTimer(withTimeInterval: retryDelayInSeconds, repeats: false) { [weak self] timer in
+            self?.showDisconnectedAlert(peerID: peerID)
+        }
+    }
+    
+    private func showDisconnectedAlert(peerID: MCPeerID) {
+        // Display the alert indicating the disconnection after the specified delay
+        // Implement your alert logic here, such as showing an alert view or updating the UI
+        DispatchQueue.main.async {
+            let scenes = UIApplication.shared.connectedScenes
+            let windowScenes = scenes.first as? UIWindowScene
+            let window = windowScenes?.windows.first
+            
+            let alert = UIAlertController(title: "Invitation Rejected", message: "\(peerID.displayName) rejected your invitation.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            window?.rootViewController?.present(alert, animated: true)
+        }
+    }
+    
+    private func invalidateRetryTimer() {
+        retryTimer?.invalidate()
+        retryTimer = nil
+    }
 }
 
 
@@ -201,41 +244,45 @@ extension MultipeerHandler: MCSessionDelegate {
         switch state {
         case .connecting:
             print("\(peerID) state: connecting")
-           
+            
+            invalidateRetryTimer()
         case .connected:
             print("\(peerID) state: connected")
             
-            do{
-                var dataToSend = coupleModel(username: self.username ?? "kosong" )
-                let encodedData = try? JSONEncoder().encode(dataToSend)
-                try self.session.send(encodedData!, toPeers: [peerID], with: .reliable)
-            }catch{
+            do {
+                var dataToSend = MultipeerData(dataType: .username, data: self.username?.data(using: .utf8) ?? "Kosong".data(using: .utf8))
+                let encodedData = try JSONEncoder().encode(dataToSend)
+                
+                try self.session.send(encodedData, toPeers: [peerID], with: .reliable)
+            } catch {
                 print(error.localizedDescription)
             }
+            
+            invalidateRetryTimer()
         case .notConnected:
             print("\(peerID) state: not connected")
             print("\(state) masuk sini")
             
-            DispatchQueue.main.async {
-//                guard let index = self.persons.firstIndex(of: peerID) else { return }
-//                self.persons.remove(at: index)
-                let scenes = UIApplication.shared.connectedScenes
-                let windowScenes = scenes.first as? UIWindowScene
-                let window = windowScenes?.windows.first
-                
-                let alert = UIAlertController(title: "Invitation Rejected", message: "\(peerID.displayName) rejected your invitation.", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                window?.rootViewController?.present(alert, animated: true)
-            }
+            scheduleRetryAlert(peerID: peerID)
         default:
             print("\(peerID) state: unknown")
         }
     }
     
-    //  disini datanya mau diapain ketika diterima
+    // MARK - RECEIVED DATA FROM COUPLE
+    // Semua yg di sini diterima dari couple jadi setiap
+    // pesannya adalah kondisi atau milik couple
+    // disini datanya mau diapain ketika diterima
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
         if let customData = try? JSONDecoder().decode(MultipeerData.self, from: data) {
             switch customData.dataType {
+            case .username:
+                if  let receivedValue = customData.data {
+                    DispatchQueue.main.async {
+                        self.coupleName = String(data:receivedValue, encoding: .utf8)
+                        self.isReady = true
+                    }
+                }
             case .isReady:
                 if let receivedBoolValue = customData.isBoolValue {
                     DispatchQueue.main.async {
@@ -248,7 +295,6 @@ extension MultipeerHandler: MCSessionDelegate {
                         self.isCoupleReady = receivedBoolValue
                     }
                 }
-                
             case .warmUpAnswer:
                 if let receivedValue = customData.data {
                     DispatchQueue.main.async {
@@ -256,16 +302,6 @@ extension MultipeerHandler: MCSessionDelegate {
                     }
                 }
             }
-        }
-        
-        guard let dataTry = try? JSONDecoder().decode(coupleModel.self, from: data) else { return }
-        
-        print("Data received!")
-        print("\(dataTry.username)")
-        
-        DispatchQueue.main.async {
-            self.coupleName = dataTry.username
-            self.isReady = true
         }
     }
     

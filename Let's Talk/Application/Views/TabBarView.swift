@@ -13,8 +13,21 @@ struct TabBarView: View {
     @ObservedObject var userVM: UserViewModel
     @ObservedObject var multipeerHandler: MultipeerHandler
     
-    @StateObject var topicVM: TopicViewModel = TopicViewModel()
-    @StateObject var questionVM: QuestionViewModel = QuestionViewModel()
+    @StateObject var topicVM: TopicViewModel
+    @StateObject var questionVM: QuestionViewModel
+    
+    init(dashboardNavigation: DashboardNavigationManager, loveLogNavigation: LoveLogNavigationManager, userVM: UserViewModel, multipeerHandler: MultipeerHandler) {
+        self.dashboardNavigation = dashboardNavigation
+        self.loveLogNavigation = loveLogNavigation
+        self.userVM = userVM
+        self.multipeerHandler = multipeerHandler
+        
+        _topicVM =  StateObject(wrappedValue: TopicViewModel())
+        _questionVM = StateObject(wrappedValue: QuestionViewModel())
+    
+       
+       
+    }
     
     var body: some View {
         TabView{
@@ -65,7 +78,14 @@ struct TabBarView: View {
         .onAppear() {
             UITabBar.appearance().barTintColor = UIColor(Color.tabBar)
             UITabBar.appearance().backgroundColor = UIColor(Color.tabBar)
+            multipeerHandler.startBrowsing()
+            multipeerHandler.advertiser.startAdvertisingPeer()
+            multipeerHandler.coupleID = userVM.user.coupleId
            }
+        .onDisappear(){
+            multipeerHandler.stopBrowsing()
+            multipeerHandler.advertiser.stopAdvertisingPeer()
+        }
     }
 }
 

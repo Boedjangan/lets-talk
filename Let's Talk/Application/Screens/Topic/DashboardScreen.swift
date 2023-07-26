@@ -26,15 +26,19 @@ struct DashboardScreen: View {
                 TopicListView(topics: topicVM.topics)
             }
         }
-        .onAppear {
-            let customData = MultipeerData.isReadyData
+        .onChange(of: multipeerHandler.state) { newState in
+            print("Connected")
             
-            do {
-                let encodedData = try JSONEncoder().encode(customData)
+            if newState == .connected {
+                let customData = MultipeerData.isReadyData
                 
-                multipeerHandler.sendData(encodedData)
-            } catch {
-                print("ERROR: \(error.localizedDescription)")
+                do {
+                    let encodedData = try JSONEncoder().encode(customData)
+                    
+                    multipeerHandler.sendData(encodedData)
+                } catch {
+                    print("ERROR: \(error.localizedDescription)")
+                }
             }
         }
     }

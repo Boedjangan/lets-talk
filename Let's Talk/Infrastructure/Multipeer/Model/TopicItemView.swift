@@ -24,7 +24,7 @@ struct TopicItemView: View {
                     HStack{
                         if topic.isCompleted{
                             Text("Completed")
-                        }else{
+                        } else {
                             Text(topic.isActive ? "Go to Question":"Locked 🔒")
                         }
                        

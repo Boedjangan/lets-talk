@@ -14,6 +14,4 @@ class coupleModel: Codable, Identifiable {
     init (username:String){
         self.username = username
     }
-    
-    
 }
