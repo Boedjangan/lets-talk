@@ -15,7 +15,7 @@
         "warmUp": "siapa artis favorit pasanganmu",
         "subQuestions": [
           "Kenapa kamu memilih dia?",
-          "Apa yang kamu suka dari dia?",
+          "Apa yang kamu suka dari dia?"
         ]
       },
       {
@@ -46,9 +46,7 @@
         "question": "Bagaimana kamu mendeskripsikan kalau hari itu menjadi hari yang \"sempurna\" bagimu?",
         "talkDuration": 0,
         "warmUp": "Kapan hari ulang tahun pasanganmu?",
-        "subQuestions": [
-          "Kenapa hal itu bisa membuat hari mu \"sempurna\""
-        ]
+        "subQuestions": ["Kenapa hal itu bisa membuat hari mu \"sempurna\""]
       },
       {
         "image": null,
@@ -57,9 +55,9 @@
         "talkDuration": 0,
         "warmUp": "Siapa penyanyi/band favoritmu?",
         "subQuestions": [
-            "Lagu apa yang kamu nyanyikan?",
-            "Apakah kamu senang dengan jenis lagu tersebut?",
-            "Bagaimana perasaanmu setelah menyanyikan lagu itu?"
+          "Lagu apa yang kamu nyanyikan?",
+          "Apakah kamu senang dengan jenis lagu tersebut?",
+          "Bagaimana perasaanmu setelah menyanyikan lagu itu?"
         ]
       },
       {
@@ -68,9 +66,7 @@
         "question": "Jika kamu hidup sampai usia 90 tahun dan kamu bisa memilih untuk mempertahankan pikiranmu atau tubuhmu yang diumur 30 untuk 60 tahun terakhirmu yang mana yang akan kamu inginkan?",
         "talkDuration": 0,
         "warmUp": "Sebutkan usia pasangan kamu saat ini?",
-        "subQuestions": [
-            "Kenapa kamu ingin mempertahankan hal itu ?"
-        ]
+        "subQuestions": ["Kenapa kamu ingin mempertahankan hal itu ?"]
       },
       {
         "image": null,
@@ -97,9 +93,7 @@
         "question": "Apa hal yang kamu syukuri dalam hidupmu ?",
         "talkDuration": 0,
         "warmUp": " Apa hadiah terbaik yang pernah kamu terima?",
-        "subQuestions": [
-            "Kenapa kamu merasakan hal tersebut?"
-        ]
+        "subQuestions": ["Kenapa kamu merasakan hal tersebut?"]
       },
       {
         "image": null,
@@ -107,9 +101,7 @@
         "question": "Jika kamu dapat mengubah bagaimana cara dirimu dibesarkan , apa yang ingin kamu ubah?",
         "talkDuration": 0,
         "warmUp": "Siapa teman masa kecilmu?",
-        "subQuestions": [
-          "Kenapa kamu ingin mengubah itu? (jika ada)"
-        ]
+        "subQuestions": ["Kenapa kamu ingin mengubah itu? (jika ada)"]
       },
       {
         "image": null,
@@ -117,12 +109,14 @@
         "question": "Luangkan waktu dirimu selama 4 menit dan ceritakan kisah hidup anda ke pasanganmu sedetail mungkin.",
         "talkDuration": 0,
         "warmUp": "Sebutkan satu benda yang menggambarkan kamu?",
-        "subQuestions": ["Berusahalah untuk menggali cerita pasanganmu sedalam mungkin selama 4 menit tersebut "]
+        "subQuestions": [
+          "Berusahalah untuk menggali cerita pasanganmu sedalam mungkin selama 4 menit tersebut "
+        ]
       },
       {
         "image": null,
         "isCompleted": false,
-        "question": "ika kamu besok bangun mendapatkan satu kemampuan atau \ kepintaran , kemampuan apakah itu?",
+        "question": "ika kamu besok bangun mendapatkan satu kemampuan atau  kepintaran , kemampuan apakah itu?",
         "talkDuration": 0,
         "warmUp": "Siapa super hero favoritmu",
         "subQuestions": ["Kenapa kamu memilih kemampuan itu?"]
@@ -143,9 +137,7 @@
         "question": "Jika kamu bisa tahu kebenaran tentang dirimu, kehidupanmu, masa depanmu atau hal apapun, apa yang ingin kamu ingin tahu?",
         "talkDuration": 0,
         "warmUp": "Etiam justo.",
-        "subQuestions": [
-          "Kenapa kamu ingin tahu hal tersebut? "
-        ]
+        "subQuestions": ["Kenapa kamu ingin tahu hal tersebut? "]
       },
       {
         "image": null,
@@ -177,8 +169,8 @@
         "talkDuration": 0,
         "warmUp": "Nam nulla.",
         "subQuestions": [
-            "Kenapa kamu memilih hal tersebut.",
-            "Apakah kamu menemukan hal tersebut di temanmu atau di aku?"
+          "Kenapa kamu memilih hal tersebut.",
+          "Apakah kamu menemukan hal tersebut di temanmu atau di aku?"
         ]
       },
       {
@@ -187,8 +179,7 @@
         "question": "Apa kenangan paling berharga dalam hidupmu",
         "talkDuration": 0,
         "warmUp": "Morbi ut odio.",
-        "subQuestions": [
-            "Kenapa kenagan tersebut sangat berharga"]
+        "subQuestions": ["Kenapa kenagan tersebut sangat berharga"]
       },
       {
         "image": null,
@@ -196,9 +187,7 @@
         "question": "Apa kejadian terburuk dalam hidupmu?",
         "talkDuration": 0,
         "warmUp": "Aenean sit amet justo.",
-        "subQuestions": [
-          "Apakah kejadian tersebut mengubah hidupmu?"
-        ]
+        "subQuestions": ["Apakah kejadian tersebut mengubah hidupmu?"]
       },
       {
         "image": null,
@@ -207,8 +196,8 @@
         "talkDuration": 0,
         "warmUp": "Nam tristique tortor eu pede.",
         "subQuestions": [
-            "Dalam hal apa yang ingin kamu ubah?",
-            "Kenapa kamu ingin mengubah cara hidupmu"
+          "Dalam hal apa yang ingin kamu ubah?",
+          "Kenapa kamu ingin mengubah cara hidupmu"
         ]
       },
       {
@@ -217,9 +206,7 @@
         "question": "Apa arti pertemanan bagi dirimu?",
         "talkDuration": 0,
         "warmUp": "Nulla suscipit ligula in lacus.",
-        "subQuestions": [
-          "Apakah kamu sudah menemukan teman yang seperti itu?"
-        ]
+        "subQuestions": ["Apakah kamu sudah menemukan teman yang seperti itu?"]
       },
       {
         "image": null,
@@ -286,8 +273,7 @@
         "question": "Lengkapi kalimat ini: \"Saya berharap saya memiliki seseorang yang dapat saya ajak berbagi tentang ..... \" ",
         "talkDuration": 0,
         "warmUp": "Sed accumsan felis.",
-        "subQuestions": [
-        ]
+        "subQuestions": []
       },
       {
         "image": null,
@@ -342,9 +328,7 @@
         "question": "Jika kamu meninggal malam ini tanpa ada kesempatan untuk berkomunikasi dengan siapapun, apa yang paling kamu sesali karenta tidak memberitahu seseorang",
         "talkDuration": 0,
         "warmUp": "Etiam pretium iaculis justo.",
-        "subQuestions": [
-          "Kenapa kamu belum memberitahunya sampai sekarang"
-        ]
+        "subQuestions": ["Kenapa kamu belum memberitahunya sampai sekarang"]
       },
       {
         "image": null,
@@ -360,9 +344,7 @@
         "question": "Jika anggota keluargamu ada yang meninggal, siapa menurut kamu yang paling menyedihkan?",
         "talkDuration": 0,
         "warmUp": "Maecenas tincidunt lacus at velit.",
-        "subQuestions": [
-          "Kenapa kamu memlih dia?"
-        ]
+        "subQuestions": ["Kenapa kamu memlih dia?"]
       },
       {
         "image": null,
