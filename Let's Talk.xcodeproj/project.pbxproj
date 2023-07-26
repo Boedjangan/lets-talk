@@ -108,6 +108,9 @@
 		C9EE067A2A6B83A500AD061B /* Question+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE066E2A6B83A500AD061B /* Question+CoreDataProperties.swift */; };
 		C9EE067B2A6B83A500AD061B /* SubQuestion+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE066F2A6B83A500AD061B /* SubQuestion+CoreDataClass.swift */; };
 		C9EE067C2A6B83A500AD061B /* SubQuestion+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06702A6B83A500AD061B /* SubQuestion+CoreDataProperties.swift */; };
+		C9EFFAFB2A70C44100D06775 /* CameraViewfinderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EFFAFA2A70C44100D06775 /* CameraViewfinderView.swift */; };
+		C9EFFAFD2A70C50800D06775 /* CameraScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EFFAFC2A70C50800D06775 /* CameraScreen.swift */; };
+		C9EFFB012A70C63A00D06775 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EFFB002A70C63A00D06775 /* Camera.swift */; };
 		F53960E72A6D1214005211F4 /* TopicListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53960E62A6D1214005211F4 /* TopicListView.swift */; };
 		F59A2B522A70C9C6000F85DB /* UserDisconectedScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59A2B512A70C9C6000F85DB /* UserDisconectedScreen.swift */; };
 /* End PBXBuildFile section */
@@ -217,6 +220,9 @@
 		C9EE066E2A6B83A500AD061B /* Question+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Question+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C9EE066F2A6B83A500AD061B /* SubQuestion+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SubQuestion+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C9EE06702A6B83A500AD061B /* SubQuestion+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SubQuestion+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C9EFFAFA2A70C44100D06775 /* CameraViewfinderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraViewfinderView.swift; sourceTree = "<group>"; };
+		C9EFFAFC2A70C50800D06775 /* CameraScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraScreen.swift; sourceTree = "<group>"; };
+		C9EFFB002A70C63A00D06775 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		F53960E62A6D1214005211F4 /* TopicListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TopicListView.swift; path = "Let's Talk/TopicListView.swift"; sourceTree = SOURCE_ROOT; };
 		F59A2B512A70C9C6000F85DB /* UserDisconectedScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDisconectedScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -440,6 +446,7 @@
 		4E7990EA2A664911002027D1 /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				C9EFFAF92A70B9DE00D06775 /* Camera */,
 				9BAAA2972A6E152B00671179 /* Multipeer */,
 				4E819F592A6E4A0D00A12485 /* AVFoundation */,
 				4E7990E92A664861002027D1 /* CoreData */,
@@ -538,6 +545,7 @@
 				C96355E82A6D048C00FA260D /* AddQuestionMediaScreen.swift */,
 				9B5F9A642A6F9A9E0047574F /* ReceiverQuestionScreen.swift */,
 				C98F81302A6F6B2600F62000 /* SenderQuestionScreen.swift */,
+				C9EFFAFC2A70C50800D06775 /* CameraScreen.swift */,
 			);
 			path = Question;
 			sourceTree = "<group>";
@@ -575,6 +583,7 @@
 		4E7991092A66A454002027D1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				C9EFFAFA2A70C44100D06775 /* CameraViewfinderView.swift */,
 				C9EE061B2A69F94D00AD061B /* WarmUpTimerView.swift */,
 				C9EE06172A696DB500AD061B /* WarmUpCardView.swift */,
 				9BAAA28F2A6A2E0100671179 /* RecordingTimeView.swift */,
@@ -712,6 +721,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		C9EFFAF92A70B9DE00D06775 /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				C9EFFB002A70C63A00D06775 /* Camera.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -826,10 +843,12 @@
 				4E435B2C2A6C2F1D00602281 /* WarmUpUserAnswerView.swift in Sources */,
 				C9EE067A2A6B83A500AD061B /* Question+CoreDataProperties.swift in Sources */,
 				4E7991132A66A605002027D1 /* Collection+Extensions.swift in Sources */,
+				C9EFFAFD2A70C50800D06775 /* CameraScreen.swift in Sources */,
 				C9EE06622A6B57BD00AD061B /* LoveLogExtension.swift in Sources */,
 				C9EE06712A6B83A500AD061B /* Topic+CoreDataClass.swift in Sources */,
 				4E435B2A2A6C2C8400602281 /* SignedInteger+Extensions.swift in Sources */,
 				4E7990E22A664617002027D1 /* QuestionViewModel.swift in Sources */,
+				C9EFFB012A70C63A00D06775 /* Camera.swift in Sources */,
 				4E7991112A66A5B2002027D1 /* SwipeDetection.swift in Sources */,
 				4E7990D12A6645A6002027D1 /* QuestionService.swift in Sources */,
 				C9EE06732A6B83A500AD061B /* Answer+CoreDataClass.swift in Sources */,
@@ -848,6 +867,7 @@
 				9BAAA29E2A6E196000671179 /* PhoneModel.swift in Sources */,
 				C9EE06722A6B83A500AD061B /* Topic+CoreDataProperties.swift in Sources */,
 				4E7990DE2A664603002027D1 /* LoveLogService.swift in Sources */,
+				C9EFFAFB2A70C44100D06775 /* CameraViewfinderView.swift in Sources */,
 				4E7990F42A66A1CA002027D1 /* ButtonStyles.swift in Sources */,
 				C9EE06182A696DB500AD061B /* WarmUpCardView.swift in Sources */,
 				C9EE06792A6B83A500AD061B /* Question+CoreDataClass.swift in Sources */,
@@ -1012,10 +1032,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Let's Talk/Preview Content\"";
-				DEVELOPMENT_TEAM = 578BJN6MM7;
+				DEVELOPMENT_TEAM = 42BZUPKLGZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Talk Ease needs access to your camera to capture your voice that will be saved as part of a memory that you made with your partner";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Talk Ease needs access to your microphone to record your voice that will be saved as part of a memory that you made with your partner";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1043,10 +1064,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Let's Talk/Preview Content\"";
-				DEVELOPMENT_TEAM = 578BJN6MM7;
+				DEVELOPMENT_TEAM = 42BZUPKLGZ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Talk Ease needs access to your camera to capture your voice that will be saved as part of a memory that you made with your partner";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Talk Ease needs access to your microphone to record your voice that will be saved as part of a memory that you made with your partner";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
