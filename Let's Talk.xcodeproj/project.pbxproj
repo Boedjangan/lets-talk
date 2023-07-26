@@ -50,6 +50,9 @@
 		4E8048A32A6FEA5E005CF350 /* QuestionSessionOverviewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96355EA2A6D11D600FA260D /* QuestionSessionOverviewScreen.swift */; };
 		4E80D4272A70CB7C00383159 /* CircularBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E80D4262A70CB7C00383159 /* CircularBackgroundView.swift */; };
 		4E80D4292A70CDAD00383159 /* InitialData.json in Resources */ = {isa = PBXBuildFile; fileRef = 4E80D4282A70CDAD00383159 /* InitialData.json */; };
+		4E80D42C2A70F0EB00383159 /* GreetingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97231662A6ED2CB00FD8302 /* GreetingView.swift */; };
+		4E80D42E2A710FA000383159 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E80D42D2A710FA000383159 /* LoadingView.swift */; };
+		4E80D4302A71136000383159 /* MultipeerData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E80D42F2A71136000383159 /* MultipeerData.swift */; };
 		4E819F582A6E474D00A12485 /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E819F572A6E474D00A12485 /* AddPhotoView.swift */; };
 		4E819F5B2A6E4C5500A12485 /* AVManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E819F5A2A6E4C5500A12485 /* AVManager.swift */; };
 		4EAE9D2B2A68EEDA00A7B7E6 /* StatefulPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAE9D2A2A68EEDA00A7B7E6 /* StatefulPreviewView.swift */; };
@@ -153,6 +156,8 @@
 		4E7991122A66A605002027D1 /* Collection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
 		4E80D4262A70CB7C00383159 /* CircularBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularBackgroundView.swift; sourceTree = "<group>"; };
 		4E80D4282A70CDAD00383159 /* InitialData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = InitialData.json; sourceTree = "<group>"; };
+		4E80D42D2A710FA000383159 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		4E80D42F2A71136000383159 /* MultipeerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerData.swift; sourceTree = "<group>"; };
 		4E819F572A6E474D00A12485 /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
 		4E819F5A2A6E4C5500A12485 /* AVManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVManager.swift; sourceTree = "<group>"; };
 		4EAE9D2A2A68EEDA00A7B7E6 /* StatefulPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatefulPreviewView.swift; sourceTree = "<group>"; };
@@ -405,6 +410,7 @@
 				4EE799642A6842EB00675622 /* TextFieldView.swift */,
 				9BAAA2772A68E7DA00671179 /* TabBarView.swift */,
 				4EAE9D2A2A68EEDA00A7B7E6 /* StatefulPreviewView.swift */,
+				4E80D42D2A710FA000383159 /* LoadingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -687,6 +693,7 @@
 			children = (
 				9BAAA29D2A6E196000671179 /* PhoneModel.swift */,
 				9BCA71562A6EC64700D37E2D /* coupleModel.swift */,
+				4E80D42F2A71136000383159 /* MultipeerData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -795,7 +802,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4E7991012A66A3E9002027D1 /* UserSetupScreen.swift in Sources */,
+				4E80D42C2A70F0EB00383159 /* GreetingView.swift in Sources */,
 				4EF769672A5D1D6800F489DF /* CoreDataConnection.swift in Sources */,
+				4E80D4302A71136000383159 /* MultipeerData.swift in Sources */,
 				4E8048A32A6FEA5E005CF350 /* QuestionSessionOverviewScreen.swift in Sources */,
 				4E7990FB2A66A333002027D1 /* UserPairingScreen.swift in Sources */,
 				4EAE9D2B2A68EEDA00A7B7E6 /* StatefulPreviewView.swift in Sources */,
@@ -876,6 +885,7 @@
 				9BAAA2862A69599900671179 /* TopicProgressView.swift in Sources */,
 				4E1A55552A6A29720056951B /* LoveLogRoutes.swift in Sources */,
 				C9EE06752A6B83A500AD061B /* User+CoreDataClass.swift in Sources */,
+				4E80D42E2A710FA000383159 /* LoadingView.swift in Sources */,
 				C96355E32A6CEB2500FA260D /* WarmUpCorrectScreen.swift in Sources */,
 				C94650882A690BC600BEAC7A /* AppLogoView.swift in Sources */,
 				9BAAA2782A68E7DA00671179 /* TabBarView.swift in Sources */,

@@ -11,7 +11,7 @@ struct CircularBackgroundView: View {
     let waveCount: Int
     let radius: CGFloat
     
-    init(gender: Gender = .male, waveCount: Int = 8, radius: CGFloat = 50) {
+    init(gender: Gender = .male, waveCount: Int = 7, radius: CGFloat = 50) {
         self.waveCount = waveCount
         self.radius = radius
     }

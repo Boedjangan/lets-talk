@@ -190,20 +190,19 @@ class QuestionCoreDataAdapter: QuestionRepository {
     func convertToQuestionEntity(question: Question) -> QuestionEntity {
         let arrSubQuestions = question.subQuestionArray.map { $0.subQuestion! }
         
-        print(question)
-        
         return QuestionEntity(
             id: question.id.unsafelyUnwrapped,
             question: question.question.unsafelyUnwrapped,
             warmUp: question.warmUp.unsafelyUnwrapped,
             isCompleted: question.isCompleted,
             image: question.image,
+            order: question.order.toInt,
             talkDuration: question.talkDuration.toInt,
             createdAt: question.createdAt.unsafelyUnwrapped,
             updatedAt: question.updatedAt.unsafelyUnwrapped,
             answer: question.answer?.recordedAnswer,
             subQuestions: arrSubQuestions,
-            topic: question.topic?.title
+            topicId: question.topic?.id.unsafelyUnwrapped
         )
     }
 }

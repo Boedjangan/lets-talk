@@ -9,10 +9,12 @@ import SwiftUI
 
 enum DashboardRoutes: Hashable {
     case dashboard
-    case warmup
+    case warmup(UUID)
     case warmup_result
     case question_sender
     case question_receiver
+    case add_media
+    case overview
 }
 
 class DashboardNavigationManager: ObservableObject {

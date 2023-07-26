@@ -8,23 +8,25 @@
 import SwiftUI
 
 struct TopicItemView: View {
-    var topic:TopicEntity
+    @EnvironmentObject var navigation: DashboardNavigationManager
+    @EnvironmentObject var multipeerHandler: MultipeerHandler
     
+    let topic: TopicEntity
     
     var body: some View {
             HStack(alignment: .center, spacing: 16){
                 TopIconView(foregroundColor: Color.buttonOutlineCommitment, icon: topic.iconName)
                  
-                TopicProgressView(color: Color.buttonOutlineCommitment, level: String(topic.level), label: topic.title, progress: Double(topic.progress),isActive: topic.isActive)
+                TopicProgressView(color: Color.buttonOutlineCommitment, level: "Level \(topic.level)", label: topic.title, progress: Double(topic.progress), isActive: topic.isActive)
                 
                 ButtonView() {
-                //
+                    navigation.push(to: .warmup(topic.id))
                 } label: {
                     HStack{
                         if topic.isCompleted{
                             Text("Completed")
-                        }else{
-                            Text(topic.isActive ? "Go to Question":"Locked 🔒")
+                        } else {
+                            Text(topic.isActive ? "Go to Question" : "Locked 🔒")
                         }
                        
                         Image(systemName: "arrow.right")

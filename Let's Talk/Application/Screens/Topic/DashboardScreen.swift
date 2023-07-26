@@ -8,25 +8,78 @@
 import SwiftUI
 
 struct DashboardScreen: View {
-    @EnvironmentObject var topicVM : TopicViewModel
+    @EnvironmentObject var userVM: UserViewModel
+    @EnvironmentObject var topicVM: TopicViewModel
+    @EnvironmentObject var multipeerHandler: MultipeerHandler
+    
+    @State var isReady = false
+    
     var body: some View {
         LayoutView(spacing: 40) {
-            TalkTimeView(talkTime: 0)
-            
-            // GreetingView here
-            
-            TopicListView(topics: topicVM.topics)
+            if !isReady {
+                LoadingView()
+            }
+           
+            if isReady {
+                TalkTimeView(talkTime: userVM.user.talkDuration ?? 0)
+                
+                GreetingView(userName: userVM.user.username)
+                
+                TopicListView(topics: topicVM.topics)
+            }
+        }
+        .onChange(of: multipeerHandler.coupleReadyAt, perform: { newValue in
+            if newValue == "dashboard" {
+                isReady = true
+            }
+        })
+        .onChange(of: multipeerHandler.state) { newState in
+            if newState == .connected {
+                let customData = MultipeerData(dataType: .isReadyAt, data: "dashboard".data(using: .utf8))
+                
+                do {
+                    let encodedData = try JSONEncoder().encode(customData)
+                    
+                    multipeerHandler.sendData(encodedData)
+                } catch {
+                    print("ERROR: \(error.localizedDescription)")
+                }
+            }
+        }
+        .onAppear {
+            if multipeerHandler.state == .connected {
+                if multipeerHandler.coupleReadyAt == "dashboard" {
+                    isReady = true
+                }
+                
+                let customData = MultipeerData(dataType: .isReadyAt, data: "dashboard".data(using: .utf8))
+                
+                do {
+                    let encodedData = try JSONEncoder().encode(customData)
+                    
+                    multipeerHandler.sendData(encodedData)
+                } catch {
+                    print("ERROR: \(error.localizedDescription)")
+                }
+            }
+        }
+        .onDisappear {
+            isReady = false
         }
     }
 }
 
 struct DashboardScreen_Previews: PreviewProvider {
     static var previews: some View {
-        StatefulObjectPreviewView(TopicViewModel()) { dash in
-            DashboardScreen()
-                .environmentObject(dash)
+        StatefulObjectPreviewView(TopicViewModel()) { topic in
+            StatefulObjectPreviewView(UserViewModel()) { user in
+                StatefulObjectPreviewView(MultipeerHandler()) { multi in
+                    DashboardScreen()
+                        .environmentObject(topic)
+                        .environmentObject(user)
+                        .environmentObject(multi)
+                }
+            }
         }
-        
-        
     }
 }

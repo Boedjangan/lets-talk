@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SenderQuestionScreen: View {
-    @ObservedObject var questionVM: QuestionViewModel
+    @EnvironmentObject var questionVM: QuestionViewModel
     
     var question: String = "Test Dong"
     

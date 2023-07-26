@@ -9,8 +9,8 @@ import SwiftUI
 
 struct UserDisconectedScreen: View {
     @AppStorage("onboarding") var onboarding: String = OnboardingRoutes.welcome.rawValue
-    var isDisconnected: Bool = false
     
+    var isDisconnected: Bool = false
     var captionDisconnected: String = "Opps, koneksi perangkat kalian terputus. Silahkan sambungkan ulang dan mulai kembali ya."
     var captionNotConnected: String = "Opps, kamu belum tersambung dengan pasangan kamu. Ayo hubungkan dengan pasangan kamu untuk mulai"
     

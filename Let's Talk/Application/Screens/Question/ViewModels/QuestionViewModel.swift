@@ -13,10 +13,14 @@ import os.log
 @MainActor
 class QuestionViewModel: ObservableObject {
     @Published var questions: [QuestionEntity] = []
+    
+    // MARK - Sending Answer
     @Published var talkDuration: Int = 0
     @Published var isRecordingAudio = false
     @Published var isPlayingAudio = false
     
+    // MARK - Warm Up
+    @Published var myWarmUpAnswer = ""
     @Published var viewfinderImage: Image?
     @Published var thumbnailImage: Image?
     
@@ -47,14 +51,17 @@ class QuestionViewModel: ObservableObject {
         questions = questionService.getAllQuestions()
     }
     
-    func getQuestionById(questionId: UUID) -> QuestionEntity? {
-        return questions.first { $0.id == questionId }
-    }
-    
-    func getQuestionsByTopicId(topicId: UUID) -> [QuestionEntity] {
-        let filteredQuestion = questions.filter { $0.id == topicId }
+    func getQuestionByTopicId(topicId: UUID) -> QuestionEntity? {
+        let filteredQuestions = questions.filter { question in
+            
+            return question.topicId == topicId
+        }
         
-        return filteredQuestion
+        let sortedQuestions = filteredQuestions.sorted { $0.order < $1.order }
+        
+        let incompleteQuestion = sortedQuestions.first { !$0.isCompleted }
+        
+        return incompleteQuestion
     }
     
     // TODO: Handle error handling on nil return
