@@ -10,6 +10,6 @@ import Foundation
 extension Topic {
     public var questionArray: [Question] {
         let set = question as? Set<Question> ?? []
-        return set.sorted { $0.createdAt! > $1.createdAt! }
+        return set.sorted { $0.order < $1.order }
     }
 }

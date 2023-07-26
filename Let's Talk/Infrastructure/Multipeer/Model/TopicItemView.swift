@@ -8,28 +8,23 @@
 import SwiftUI
 
 struct TopicItemView: View {
-    var title: String = "Commitment"
-    var icon: String = "moon"
-    var level: String = "Level 1"
-    var progress: Double = 0
-    var isActive : Bool = true
-    var isCompleted :Bool = false
+    var topic:TopicEntity
     
     
     var body: some View {
             HStack(alignment: .center, spacing: 16){
-                TopIconView(foregroundColor: Color.buttonOutlineCommitment, icon: icon)
+                TopIconView(foregroundColor: Color.buttonOutlineCommitment, icon: topic.iconName)
                  
-                TopicProgressView(color: Color.buttonOutlineCommitment, level: level, label: title, progress: progress,isActive: isActive)
+                TopicProgressView(color: Color.buttonOutlineCommitment, level: String(topic.level), label: topic.title, progress: Double(topic.progress),isActive: topic.isActive)
                 
                 ButtonView() {
                 //
                 } label: {
                     HStack{
-                        if isCompleted{
+                        if topic.isCompleted{
                             Text("Completed")
                         }else{
-                            Text(isActive ? "Go to Question":"Locked 🔒")
+                            Text(topic.isActive ? "Go to Question":"Locked 🔒")
                         }
                        
                         Image(systemName: "arrow.right")
@@ -37,10 +32,10 @@ struct TopicItemView: View {
                             .font(.system(size: 10))
                     }
                 }
-                .disabled(!isActive ? true : false)
+                .disabled(!topic.isActive ? true : false)
                 .buttonStyle(.outline(.commitment))
             }
-            .opacity(isActive ? 1 : 0.4)
+            .opacity(topic.isActive ? 1 : 0.4)
            
         }
 }
@@ -48,7 +43,7 @@ struct TopicItemView: View {
 struct TopicItemView_Previews: PreviewProvider {
     static var previews: some View {
         LayoutView{
-            TopicItemView()
+            TopicItemView(topic: TopicEntity())
         }
     }
 }

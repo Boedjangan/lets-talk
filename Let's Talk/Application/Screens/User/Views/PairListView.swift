@@ -20,6 +20,7 @@ struct PairListView: View {
                     .onTapGesture {
                         multipeerHandler.invitePeer(phone)
                     }
+                
             }
         }
         .scrollOnOverflow(maxHeight: 280)

@@ -24,7 +24,7 @@ struct CoreDataConnection {
             return
         }
         
-        guard let data = loadJSONAsDict("mockdata") else {
+        guard let data = loadJSONAsDict("InitialData") else {
             print("Seed data not found!")
             return
         }
@@ -73,16 +73,16 @@ struct CoreDataConnection {
                     question.createdAt = Date()
                     question.updatedAt = Date()
                     
-                    if let questionText = topicMock["question"] as? String {
+                    if let questionText = topicQuestion["question"] as? String {
                         question.question = questionText
                     }
                         
-                    if let warmUp = topicMock["warmUp"] as? String {
+                    if let warmUp = topicQuestion["warmUp"] as? String {
                         question.warmUp = warmUp
                     }
                     
                     // MARK - Sub Questions Seeding
-                    if let subQuestions = topicMock["subQuestions"] as? [String] {
+                    if let subQuestions = topicQuestion["subQuestions"] as? [String] {
                         for subQuestionText in subQuestions {
                             let subQuestion = SubQuestion(context: context)
                             
@@ -102,7 +102,7 @@ struct CoreDataConnection {
         
         // Save changes of seeding data
         do {
-            print("SUCCESS - seeding core data")
+            print("SUCCESS - Seeding core data")
             try? context.save()
         } catch {
             print("Error Seeding: \(error.localizedDescription)")

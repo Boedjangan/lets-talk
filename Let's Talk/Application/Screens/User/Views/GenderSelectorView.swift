@@ -62,10 +62,10 @@ struct GenderSelectorView: View {
             withAnimation {
                 if genderIsMale{
                     gender = .female
-                    rectanglePosition = CGPoint(x: -86, y: 0)
+                    rectanglePosition = CGPoint(x: 86, y: 0)
                 } else {
                     gender = .male
-                    rectanglePosition = CGPoint(x: 86, y: 0)
+                    rectanglePosition = CGPoint(x: -86, y: 0)
                 }
             }
         }
