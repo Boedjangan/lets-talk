@@ -12,6 +12,9 @@ struct UserSetupScreen: View {
     @ObservedObject var userVM: UserViewModel
     @ObservedObject var multipeerHandler: MultipeerHandler
     
+    @State private var isError: Bool = false
+    var errorMessage: String = "Silahkan isi ini terlebih dahulu"
+    
     var body: some View {
         LayoutView {
             
@@ -25,10 +28,21 @@ struct UserSetupScreen: View {
                 .font(.heading)
                 .padding(.bottom, 50)
             
-            TextField("Username", text: $userVM.user.username, prompt: Text("Sebutkan namamu").foregroundColor(.white))
-                .multilineTextAlignment(.center)
-                .overlay(Divider().background().offset(y: 5), alignment: .bottom)
-                .padding(.bottom, 50)
+            VStack(alignment: .leading){
+                TextField("Username",text: $userVM.user.username, prompt: Text("Sebutkan namamu")
+                    .foregroundColor(.white))
+                    .multilineTextAlignment(.center)
+                    .overlay(Divider().background(isError ? .red : .white).offset(y: 5), alignment: .bottom)
+                    
+                if(isError){
+                    Text(errorMessage)
+                        .foregroundColor(.red)
+                        .font(.subQuestion)
+                        .padding(.top, 5)
+                }
+            }
+            .padding(.bottom, 50)
+            
             
             GenderSelectorView(gender: $userVM.user.gender)
                 .padding(.bottom, 50)
@@ -36,14 +50,18 @@ struct UserSetupScreen: View {
             Spacer()
             
             ButtonView {
-                // User simpan username dan gender
-                userVM.updateUserDetails()
-                
-                // User simpan username dia di multipeer buat disend ke pasangan
-                multipeerHandler.username = userVM.user.username
-                
-                // Pindah screen ke pairing
-                onboarding = OnboardingRoutes.pairing.rawValue
+                if(userVM.user.username.count == 0){
+                    isError=true
+                }else{
+                    // User simpan username dan gender
+                    userVM.updateUserDetails()
+                    
+                    // User simpan username dia di multipeer buat disend ke pasangan
+                    multipeerHandler.username = userVM.user.username
+                    
+                    // Pindah screen ke pairing
+                    onboarding = OnboardingRoutes.pairing.rawValue
+                }
             } label: {
                 Text("Selanjutnya")
             }
