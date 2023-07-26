@@ -1,6 +1,6 @@
 [
   {
-    "iconName": "praesent",
+    "iconName": "Topic1",
     "isActive": true,
     "level": 1,
     "progress": 0,
@@ -130,7 +130,7 @@
     ]
   },
   {
-    "iconName": "vel",
+    "iconName": "Topic2",
     "isActive": false,
     "level": 2,
     "progress": 0,
@@ -265,7 +265,7 @@
     ]
   },
   {
-    "iconName": "lacinia",
+    "iconName": "Topic3",
     "isActive": false,
     "level": 3,
     "progress": 0,
