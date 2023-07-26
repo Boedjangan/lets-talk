@@ -8,19 +8,25 @@
 import SwiftUI
 
 struct DashboardScreen: View {
+    @EnvironmentObject var topicVM : TopicViewModel
     var body: some View {
         LayoutView(spacing: 40) {
             TalkTimeView(talkTime: 0)
             
             // GreetingView here
             
-           TopicListView()
+            TopicListView(topics: topicVM.topics)
         }
     }
 }
 
 struct DashboardScreen_Previews: PreviewProvider {
     static var previews: some View {
-        DashboardScreen()
+        StatefulObjectPreviewView(TopicViewModel()) { dash in
+            DashboardScreen()
+                .environmentObject(dash)
+        }
+        
+        
     }
 }

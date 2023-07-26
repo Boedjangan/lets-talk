@@ -16,7 +16,7 @@ struct TopIconView: View {
             Circle()
                 .foregroundColor(foregroundColor)
                 .frame(maxWidth: 65,maxHeight: 65)
-            Image(systemName: icon)
+            Image(icon)
                 .foregroundColor(Color.white)
                 .font(.system(size: 32))
         }

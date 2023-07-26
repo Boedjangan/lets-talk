@@ -21,6 +21,7 @@ struct Let_s_TalkApp: App {
     
     @StateObject var userVM: UserViewModel = UserViewModel()
     @StateObject var questionVM: QuestionViewModel = QuestionViewModel()
+    
     @StateObject var dashboardNavigation = DashboardNavigationManager()
     @StateObject var loveLogNavigation = LoveLogNavigationManager()
     @StateObject var multipeerHandler : MultipeerHandler = MultipeerHandler()

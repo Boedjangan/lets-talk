@@ -61,6 +61,7 @@
 		4EF769652A5D1D6800F489DF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4EF769642A5D1D6800F489DF /* Preview Assets.xcassets */; };
 		4EF769672A5D1D6800F489DF /* CoreDataConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EF769662A5D1D6800F489DF /* CoreDataConnection.swift */; };
 		4EF7696A2A5D1D6800F489DF /* Let_s_Talk.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4EF769682A5D1D6800F489DF /* Let_s_Talk.xcdatamodeld */; };
+		9B2C0EBE2A70CAAD00929C0C /* mockdatanew.json in Resources */ = {isa = PBXBuildFile; fileRef = 9B2C0EBD2A70CAAD00929C0C /* mockdatanew.json */; };
 		9B5BD56E2A6F7FE300FBB9C7 /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5BD56D2A6F7FE300FBB9C7 /* Spacing.swift */; };
 		9B5F9A652A6F9A9E0047574F /* ReceiverQuestionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5F9A642A6F9A9E0047574F /* ReceiverQuestionScreen.swift */; };
 		9B836CD72A6E9ED70075D450 /* TopicItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B836CD62A6E9ED70075D450 /* TopicItemView.swift */; };
@@ -161,6 +162,7 @@
 		4EF769662A5D1D6800F489DF /* CoreDataConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataConnection.swift; sourceTree = "<group>"; };
 		4EF769692A5D1D6800F489DF /* Let_s_Talk.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Let_s_Talk.xcdatamodel; sourceTree = "<group>"; };
 		4EF769702A5D1DB100F489DF /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		9B2C0EBD2A70CAAD00929C0C /* mockdatanew.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = mockdatanew.json; path = ../../../../../../../Desktop/mockdatanew.json; sourceTree = "<group>"; };
 		9B5BD56D2A6F7FE300FBB9C7 /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
 		9B5F9A642A6F9A9E0047574F /* ReceiverQuestionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiverQuestionScreen.swift; sourceTree = "<group>"; };
 		9B836CD62A6E9ED70075D450 /* TopicItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TopicItemView.swift; path = "Let's Talk/Infrastructure/Multipeer/Model/TopicItemView.swift"; sourceTree = SOURCE_ROOT; };
@@ -621,6 +623,7 @@
 		4EF034752A6FCBD100F26E02 /* SeedData */ = {
 			isa = PBXGroup;
 			children = (
+				9B2C0EBD2A70CAAD00929C0C /* mockdatanew.json */,
 				4EF034762A6FCBDE00F26E02 /* mockdata.json */,
 			);
 			path = SeedData;
@@ -767,6 +770,7 @@
 			files = (
 				9BAAA29B2A6E15AB00671179 /* Property List.plist in Resources */,
 				4EF034772A6FCBDE00F26E02 /* mockdata.json in Resources */,
+				9B2C0EBE2A70CAAD00929C0C /* mockdatanew.json in Resources */,
 				4EF769652A5D1D6800F489DF /* Preview Assets.xcassets in Resources */,
 				4EF769622A5D1D6800F489DF /* Assets.xcassets in Resources */,
 			);

@@ -24,7 +24,7 @@ struct CoreDataConnection {
             return
         }
         
-        guard let data = loadJSONAsDict("mockdata") else {
+        guard let data = loadJSONAsDict("mockdatanew") else {
             print("Seed data not found!")
             return
         }
