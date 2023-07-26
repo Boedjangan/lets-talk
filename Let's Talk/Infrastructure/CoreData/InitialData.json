@@ -16,7 +16,8 @@
         "subQuestions": [
           "Kenapa kamu memilih dia?",
           "Apa yang kamu suka dari dia?"
-        ]
+        ],
+        "order":1
       },
       {
         "image": null,
@@ -27,7 +28,8 @@
         "subQuestions": [
           "Kenapa kamu mau jadi terkenal dalam hal itu ?",
           "Kenapa tidak mau terkenal? ( jika tidak mau terkenal)"
-        ]
+        ],
+        "order":2
       },
       {
         "image": null,
@@ -38,7 +40,8 @@
         "subQuestions": [
           "Kenapa kamu berlatih terlebih dahulu? (Jika jawaban ya).",
           "Apakah jawaban yang kamu dapatkan sesuai dengan yang kamu pikirkan ? (Jika jawaban ya)"
-        ]
+        ],
+        "order":3
       },
       {
         "image": null,
@@ -58,7 +61,8 @@
           "Lagu apa yang kamu nyanyikan?",
           "Apakah kamu senang dengan jenis lagu tersebut?",
           "Bagaimana perasaanmu setelah menyanyikan lagu itu?"
-        ]
+        ],
+        "order":4
       },
       {
         "image": null,
@@ -66,7 +70,8 @@
         "question": "Jika kamu hidup sampai usia 90 tahun dan kamu bisa memilih untuk mempertahankan pikiranmu atau tubuhmu yang diumur 30 untuk 60 tahun terakhirmu yang mana yang akan kamu inginkan?",
         "talkDuration": 0,
         "warmUp": "Sebutkan usia pasangan kamu saat ini?",
-        "subQuestions": ["Kenapa kamu ingin mempertahankan hal itu ?"]
+        "subQuestions": ["Kenapa kamu ingin mempertahankan hal itu ?"],
+        "order":5
       },
       {
         "image": null,
@@ -77,7 +82,8 @@
         "subQuestions": [
           "Kenapa kamu memilih hal tersebut? (jika pernah) ",
           "Apakah kamu pernah menceritakan ini ke orang lain? (jika pernah) "
-        ]
+        ],
+        "order":6
       },
       {
         "image": null,
@@ -85,7 +91,8 @@
         "question": "Sebutkan 3 kesamaan dirimu dengan pasanganmu? ",
         "talkDuration": 0,
         "warmUp": "Sebutkan 1 benda yang pernah kamu berikan kepada pasanganmu?",
-        "subQuestions": []
+        "subQuestions": [],
+        "order":7
       },
       {
         "image": null,
@@ -93,7 +100,8 @@
         "question": "Apa hal yang kamu syukuri dalam hidupmu ?",
         "talkDuration": 0,
         "warmUp": " Apa hadiah terbaik yang pernah kamu terima?",
-        "subQuestions": ["Kenapa kamu merasakan hal tersebut?"]
+        "subQuestions": ["Kenapa kamu merasakan hal tersebut?"],
+        "order":8
       },
       {
         "image": null,
@@ -101,7 +109,8 @@
         "question": "Jika kamu dapat mengubah bagaimana cara dirimu dibesarkan , apa yang ingin kamu ubah?",
         "talkDuration": 0,
         "warmUp": "Siapa teman masa kecilmu?",
-        "subQuestions": ["Kenapa kamu ingin mengubah itu? (jika ada)"]
+        "subQuestions": ["Kenapa kamu ingin mengubah itu? (jika ada)"],
+        "order":9
       },
       {
         "image": null,
@@ -111,7 +120,8 @@
         "warmUp": "Sebutkan satu benda yang menggambarkan kamu?",
         "subQuestions": [
           "Berusahalah untuk menggali cerita pasanganmu sedalam mungkin selama 4 menit tersebut "
-        ]
+        ],
+        "order":10
       },
       {
         "image": null,
@@ -119,7 +129,8 @@
         "question": "ika kamu besok bangun mendapatkan satu kemampuan atau  kepintaran , kemampuan apakah itu?",
         "talkDuration": 0,
         "warmUp": "Siapa super hero favoritmu",
-        "subQuestions": ["Kenapa kamu memilih kemampuan itu?"]
+        "subQuestions": ["Kenapa kamu memilih kemampuan itu?"],
+        "order":11
       }
     ]
   },
@@ -137,7 +148,8 @@
         "question": "Jika kamu bisa tahu kebenaran tentang dirimu, kehidupanmu, masa depanmu atau hal apapun, apa yang ingin kamu ingin tahu?",
         "talkDuration": 0,
         "warmUp": "Etiam justo.",
-        "subQuestions": ["Kenapa kamu ingin tahu hal tersebut? "]
+        "subQuestions": ["Kenapa kamu ingin tahu hal tersebut? "],
+        "order":1
       },
       {
         "image": null,
@@ -149,7 +161,8 @@
           "Kenapa kamu menginginkan hal tersebut?",
           "Kenapa kamu belum mencapainya?",
           "Apakah kamu masih berusaha untuk mencapai mimpimu?"
-        ]
+        ],
+        "order":2
       },
       {
         "image": null,
@@ -160,7 +173,8 @@
         "subQuestions": [
           "Bagaimana kamu bisa meraih hal tersebut?.",
           "Apa yang kamu rasakan ketika mendapatkannya?"
-        ]
+        ],
+        "order":3
       },
       {
         "image": null,
@@ -171,7 +185,8 @@
         "subQuestions": [
           "Kenapa kamu memilih hal tersebut.",
           "Apakah kamu menemukan hal tersebut di temanmu atau di aku?"
-        ]
+        ],
+        "order":4
       },
       {
         "image": null,
@@ -187,7 +202,8 @@
         "question": "Apa kejadian terburuk dalam hidupmu?",
         "talkDuration": 0,
         "warmUp": "Aenean sit amet justo.",
-        "subQuestions": ["Apakah kejadian tersebut mengubah hidupmu?"]
+        "subQuestions": ["Apakah kejadian tersebut mengubah hidupmu?"],
+        "order":5
       },
       {
         "image": null,
@@ -198,7 +214,8 @@
         "subQuestions": [
           "Dalam hal apa yang ingin kamu ubah?",
           "Kenapa kamu ingin mengubah cara hidupmu"
-        ]
+        ],
+        "order":6
       },
       {
         "image": null,
@@ -206,7 +223,8 @@
         "question": "Apa arti pertemanan bagi dirimu?",
         "talkDuration": 0,
         "warmUp": "Nulla suscipit ligula in lacus.",
-        "subQuestions": ["Apakah kamu sudah menemukan teman yang seperti itu?"]
+        "subQuestions": ["Apakah kamu sudah menemukan teman yang seperti itu?"],
+        "order":7
       },
       {
         "image": null,
@@ -217,7 +235,8 @@
         "subQuestions": [
           "Apakah kamu merasa sudah mendapatkan cinta dan kasih sayang yang seperti kamu inginkan?",
           "Apakah aku sudah memberikan cinta dan kasih sayang seperti itu kepada dirimu?"
-        ]
+        ],
+        "order":8
       },
       {
         "image": null,
@@ -225,7 +244,8 @@
         "question": "Sebut 5 karakteristik yang positif dari pasangamu.",
         "talkDuration": 0,
         "warmUp": "Nulla facilisi.",
-        "subQuestions": []
+        "subQuestions": [],
+        "order":9
       },
       {
         "image": null,
@@ -236,7 +256,8 @@
         "subQuestions": [
           "Apakah kamu merasa masa kecilmu lebih bahagia daripada kebanyakan orang lain?",
           "Kenapa kamu merasa hal tersebut?"
-        ]
+        ],
+        "order":10
       },
       {
         "image": null,
@@ -247,7 +268,8 @@
         "subQuestions": [
           "Mengapa kamu merasa jauh dengan ibumu? (kalau tidak dekat)",
           "Hal apa yang membuat kamu merasa seperti itu? "
-        ]
+        ],
+        "order":11
       }
     ]
   },
@@ -265,7 +287,8 @@
         "question": "Buatlah masing masing 3 pernyataan dengan menggunakan kata \"kita\" secara jujur, contoh \"kita berdua di ruangan ini merasa ...\"",
         "talkDuration": 0,
         "warmUp": "Suspendisse ornare consequat lectus.",
-        "subQuestions": []
+        "subQuestions": [],
+        "order":1
       },
       {
         "image": null,
@@ -273,7 +296,8 @@
         "question": "Lengkapi kalimat ini: \"Saya berharap saya memiliki seseorang yang dapat saya ajak berbagi tentang ..... \" ",
         "talkDuration": 0,
         "warmUp": "Sed accumsan felis.",
-        "subQuestions": []
+        "subQuestions": [],
+        "order":2
       },
       {
         "image": null,
@@ -281,7 +305,8 @@
         "question": "Jika aku menjadi teman dekatmu, tolong beritahu apa yang perlu kuketahui agar bisa menjadi teman dekatmu.",
         "talkDuration": 0,
         "warmUp": "Donec ut dolor.",
-        "subQuestions": ["Apakah ada hal lain yang perlu ku ketahui"]
+        "subQuestions": ["Apakah ada hal lain yang perlu ku ketahui"],
+        "order":3
       },
       {
         "image": null,
@@ -289,7 +314,8 @@
         "question": "Beritahu aku apa yang kamu suka dari diriku dengan jujur.",
         "talkDuration": 0,
         "warmUp": "Morbi quis tortor id nulla ultrices aliquet.",
-        "subQuestions": []
+        "subQuestions": [],
+        "order":4
       },
       {
         "image": null,
@@ -301,7 +327,8 @@
           "Integer a nibh.",
           "Integer a nibh.",
           "Integer a nibh."
-        ]
+        ],
+        "order":5
       },
       {
         "image": null,
@@ -312,7 +339,8 @@
         "subQuestions": [
           "Kenapa kamu menangis?",
           "Bagaimana reaksi dari orang tersebut ? (kalau dengan orang lain)"
-        ]
+        ],
+        "order":6
       },
       {
         "image": null,
@@ -320,7 +348,8 @@
         "question": "Bagaimana perasaanmu, jika ada hal yang terlalu serius untuk dijadikan lelucon?",
         "talkDuration": 0,
         "warmUp": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam.",
-        "subQuestions": []
+        "subQuestions": [],
+        "order":7
       },
       {
         "image": null,
@@ -328,7 +357,8 @@
         "question": "Jika kamu meninggal malam ini tanpa ada kesempatan untuk berkomunikasi dengan siapapun, apa yang paling kamu sesali karenta tidak memberitahu seseorang",
         "talkDuration": 0,
         "warmUp": "Etiam pretium iaculis justo.",
-        "subQuestions": ["Kenapa kamu belum memberitahunya sampai sekarang"]
+        "subQuestions": ["Kenapa kamu belum memberitahunya sampai sekarang"],
+        "order":8
       },
       {
         "image": null,
@@ -336,7 +366,8 @@
         "question": "Jika tiba tiba rumahmu kebakaran, setelah semua orang dirumahmu telah selamat, jika ada waktu untuk menyelamatkan satu benda, apa yang akan kamu selamatkan? ",
         "talkDuration": 0,
         "warmUp": "Phasellus id sapien in sapien iaculis congue.",
-        "subQuestions": ["Kenapa kamu memilih benda tersebut?"]
+        "subQuestions": ["Kenapa kamu memilih benda tersebut?"],
+        "order":9
       },
       {
         "image": null,
@@ -344,7 +375,8 @@
         "question": "Jika anggota keluargamu ada yang meninggal, siapa menurut kamu yang paling menyedihkan?",
         "talkDuration": 0,
         "warmUp": "Maecenas tincidunt lacus at velit.",
-        "subQuestions": ["Kenapa kamu memlih dia?"]
+        "subQuestions": ["Kenapa kamu memlih dia?"],
+        "order":10
       },
       {
         "image": null,
@@ -352,7 +384,8 @@
         "question": "Bagikan masalah pribadimu dan mintalah saran dari pasanganmu bagaimana cara dia menyelesaikannya. Minta juga pasanganmu untuk merefleksikan kembali bagaimana perasaanmu tentang masalah yang kamu pilih.",
         "talkDuration": 0,
         "warmUp": "Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo.",
-        "subQuestions": []
+        "subQuestions": [],
+        "order":11
       }
     ]
   }

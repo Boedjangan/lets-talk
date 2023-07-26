@@ -9,9 +9,9 @@ import SwiftUI
 
 struct AppLogoView: View {
     var body: some View {
-        Image(systemName: "apple.logo")
-            .font(.system(size: 100))
-            .frame(maxHeight: 300)
+        Image("Couple")
+            .resizable()
+            .frame(maxWidth: 250,maxHeight: 250)
     }
 }
 
