@@ -9,8 +9,7 @@ import Foundation
 
 enum MultipeerDataType: Codable {
     case username
-    case isReady
-    case isNotReady
+    case isReadyAt
     case warmUpAnswer
 }
 
@@ -24,7 +23,4 @@ class MultipeerData: Codable {
         self.isBoolValue = isBoolValue
         self.data = data
     }
-    
-    static let isReadyData = MultipeerData(dataType: .isReady, isBoolValue: true)
-    static let isNotReadyData = MultipeerData(dataType: .isNotReady, isBoolValue: false)
 }

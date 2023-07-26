@@ -12,13 +12,15 @@ struct DashboardScreen: View {
     @EnvironmentObject var topicVM: TopicViewModel
     @EnvironmentObject var multipeerHandler: MultipeerHandler
     
+    @State var isReady = false
+    
     var body: some View {
         LayoutView(spacing: 40) {
-            if !multipeerHandler.isCoupleReady {
+            if !isReady {
                 LoadingView()
             }
            
-            if multipeerHandler.isCoupleReady {
+            if isReady {
                 TalkTimeView(talkTime: userVM.user.talkDuration ?? 0)
                 
                 GreetingView(userName: userVM.user.username)
@@ -26,11 +28,14 @@ struct DashboardScreen: View {
                 TopicListView(topics: topicVM.topics)
             }
         }
+        .onChange(of: multipeerHandler.coupleReadyAt, perform: { newValue in
+            if newValue == "dashboard" {
+                isReady = true
+            }
+        })
         .onChange(of: multipeerHandler.state) { newState in
-            print("Connected")
-            
             if newState == .connected {
-                let customData = MultipeerData.isReadyData
+                let customData = MultipeerData(dataType: .isReadyAt, data: "dashboard".data(using: .utf8))
                 
                 do {
                     let encodedData = try JSONEncoder().encode(customData)
@@ -40,6 +45,26 @@ struct DashboardScreen: View {
                     print("ERROR: \(error.localizedDescription)")
                 }
             }
+        }
+        .onAppear {
+            if multipeerHandler.state == .connected {
+                if multipeerHandler.coupleReadyAt == "dashboard" {
+                    isReady = true
+                }
+                
+                let customData = MultipeerData(dataType: .isReadyAt, data: "dashboard".data(using: .utf8))
+                
+                do {
+                    let encodedData = try JSONEncoder().encode(customData)
+                    
+                    multipeerHandler.sendData(encodedData)
+                } catch {
+                    print("ERROR: \(error.localizedDescription)")
+                }
+            }
+        }
+        .onDisappear {
+            isReady = false
         }
     }
 }

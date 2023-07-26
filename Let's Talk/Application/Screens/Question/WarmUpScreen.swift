@@ -16,6 +16,8 @@ struct WarmUpScreen: View {
     @State var timeRemaining: Double = 10
     @State var timer: Timer?
     
+    @State var isReady = false
+    
     let question: QuestionEntity?
     
     init(topicId: UUID, questionVM: QuestionViewModel) {
@@ -30,11 +32,11 @@ struct WarmUpScreen: View {
     
     var body: some View {
         LayoutView {
-            if !multipeerHandler.isCoupleReady {
+            if !isReady {
                 LoadingView()
             }
             
-            if multipeerHandler.isCoupleReady {
+            if isReady {
                 Text("Warming Up!")
                     .font(.headingBig)
                     .padding(.vertical)
@@ -46,6 +48,18 @@ struct WarmUpScreen: View {
                     .onChange(of: timeRemaining) { val in
                         if val <= 0 {
                             stopTimer()
+                            
+                            let customData = MultipeerData(dataType: .warmUpAnswer, data: questionVM.myWarmUpAnswer.data(using: .utf8))
+                            
+                            do {
+                                let encodedData = try JSONEncoder().encode(customData)
+                                
+                                multipeerHandler.sendData(encodedData)
+                            } catch {
+                                print("ERROR: \(error.localizedDescription)")
+                            }
+                            
+                            navigation.push(to: .warmup_result)
                         }
                     }
                 
@@ -65,6 +79,16 @@ struct WarmUpScreen: View {
                 
                 ButtonView {
                     if questionVM.myWarmUpAnswer.isNotEmpty {
+                        let customData = MultipeerData(dataType: .warmUpAnswer, data: questionVM.myWarmUpAnswer.data(using: .utf8))
+                        
+                        do {
+                            let encodedData = try JSONEncoder().encode(customData)
+                            
+                            multipeerHandler.sendData(encodedData)
+                        } catch {
+                            print("ERROR: \(error.localizedDescription)")
+                        }
+                        
                         navigation.push(to: .warmup_result)
                     }
                 } label: {
@@ -73,8 +97,28 @@ struct WarmUpScreen: View {
                 .buttonStyle(.fill(.primary))
             }
         }
+        .onChange(of: multipeerHandler.coupleReadyAt, perform: { newValue in
+            if newValue == "warmup" {
+                isReady = true
+            }
+        })
         .onAppear {
-            multipeerHandler.isCoupleReady = true
+            if multipeerHandler.coupleReadyAt == "warmup" {
+                isReady = true
+            }
+            
+            let customData = MultipeerData(dataType: .isReadyAt, data: "warmup".data(using: .utf8))
+            
+            do {
+                let encodedData = try JSONEncoder().encode(customData)
+                
+                multipeerHandler.sendData(encodedData)
+            } catch {
+                print("ERROR: \(error.localizedDescription)")
+            }
+        }
+        .onDisappear {
+            isReady = false
         }
         .toolbar(.hidden, for: .tabBar)
     }

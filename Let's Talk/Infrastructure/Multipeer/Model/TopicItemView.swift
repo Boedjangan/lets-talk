@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TopicItemView: View {
     @EnvironmentObject var navigation: DashboardNavigationManager
+    @EnvironmentObject var multipeerHandler: MultipeerHandler
     
     let topic: TopicEntity
     
@@ -25,7 +26,7 @@ struct TopicItemView: View {
                         if topic.isCompleted{
                             Text("Completed")
                         } else {
-                            Text(topic.isActive ? "Go to Question":"Locked 🔒")
+                            Text(topic.isActive ? "Go to Question" : "Locked 🔒")
                         }
                        
                         Image(systemName: "arrow.right")

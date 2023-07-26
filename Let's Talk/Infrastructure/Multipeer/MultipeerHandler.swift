@@ -28,7 +28,7 @@ class MultipeerHandler: NSObject, ObservableObject {
     
     // MARK - User & Couple Status
     @Published var isReady: Bool = false
-    @Published var isCoupleReady: Bool = false
+    @Published var coupleReadyAt: String = ""
     @Published var coupleName: String?
     @Published var username: String?
     
@@ -284,16 +284,10 @@ extension MultipeerHandler: MCSessionDelegate {
                         self.isReady = true
                     }
                 }
-            case .isReady:
-                if let receivedBoolValue = customData.isBoolValue {
+            case .isReadyAt:
+                if let receivedValue = customData.data{
                     DispatchQueue.main.async {
-                        self.isCoupleReady = receivedBoolValue
-                    }
-                }
-            case .isNotReady:
-                if let receivedBoolValue = customData.isBoolValue {
-                    DispatchQueue.main.async {
-                        self.isCoupleReady = receivedBoolValue
+                        self.coupleReadyAt = String(data: receivedValue, encoding: .utf8)!
                     }
                 }
             case .warmUpAnswer:
