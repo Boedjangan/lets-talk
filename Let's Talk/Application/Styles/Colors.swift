@@ -47,4 +47,8 @@ extension Color{
     static let questionBackground = Color("AshBlue")
     
     static let recording = Color("Maroon")
+    
+    static let topic1 = Color("Tosca")
+    static let topic2 = Color("Blue")
+    static let topic3 = Color("Pink")
 }
