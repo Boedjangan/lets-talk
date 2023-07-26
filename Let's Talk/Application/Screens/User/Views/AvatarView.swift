@@ -12,6 +12,7 @@ struct AvatarView: View {
     var iconImage : String = "Male"
     var radius: CGFloat = 141
     var imageSize: CGFloat = 100
+    var isDisabled: Bool = false
     
     var body: some View {
         VStack{
@@ -36,8 +37,7 @@ struct AvatarView: View {
             }
             .frame(width: radius, height: radius)
             .clipShape(Circle())
-            
-            
+            .opacity(isDisabled ? 0.3 : 1)
             .padding(.bottom,18)
             if(userName != ""){
                 Text(userName)
