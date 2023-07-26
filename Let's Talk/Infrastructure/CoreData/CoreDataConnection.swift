@@ -102,7 +102,7 @@ struct CoreDataConnection {
         
         // Save changes of seeding data
         do {
-            print("SUCCESS - seeding core data")
+            print("SUCCESS - Seeding core data")
             try? context.save()
         } catch {
             print("Error Seeding: \(error.localizedDescription)")

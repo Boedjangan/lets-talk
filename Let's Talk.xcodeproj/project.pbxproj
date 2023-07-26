@@ -48,6 +48,7 @@
 		4E8048A12A6FEA30005CF350 /* SenderQuestionScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98F81302A6F6B2600F62000 /* SenderQuestionScreen.swift */; };
 		4E8048A22A6FEA51005CF350 /* AddQuestionMediaScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96355E82A6D048C00FA260D /* AddQuestionMediaScreen.swift */; };
 		4E8048A32A6FEA5E005CF350 /* QuestionSessionOverviewScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96355EA2A6D11D600FA260D /* QuestionSessionOverviewScreen.swift */; };
+		4E80D4272A70CB7C00383159 /* CircularBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E80D4262A70CB7C00383159 /* CircularBackgroundView.swift */; };
 		4E819F582A6E474D00A12485 /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E819F572A6E474D00A12485 /* AddPhotoView.swift */; };
 		4E819F5B2A6E4C5500A12485 /* AVManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E819F5A2A6E4C5500A12485 /* AVManager.swift */; };
 		4EAE9D2B2A68EEDA00A7B7E6 /* StatefulPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EAE9D2A2A68EEDA00A7B7E6 /* StatefulPreviewView.swift */; };
@@ -146,6 +147,7 @@
 		4E79910E2A66A569002027D1 /* JSONHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHandler.swift; sourceTree = "<group>"; };
 		4E7991102A66A5B2002027D1 /* SwipeDetection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeDetection.swift; sourceTree = "<group>"; };
 		4E7991122A66A605002027D1 /* Collection+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+Extensions.swift"; sourceTree = "<group>"; };
+		4E80D4262A70CB7C00383159 /* CircularBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularBackgroundView.swift; sourceTree = "<group>"; };
 		4E819F572A6E474D00A12485 /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
 		4E819F5A2A6E4C5500A12485 /* AVManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVManager.swift; sourceTree = "<group>"; };
 		4EAE9D2A2A68EEDA00A7B7E6 /* StatefulPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatefulPreviewView.swift; sourceTree = "<group>"; };
@@ -493,6 +495,7 @@
 				C9EE06152A69283F00AD061B /* TalkTimeView.swift */,
 				4E1A55582A6ACCD30056951B /* PairItemView.swift */,
 				4E1A555A2A6AD6460056951B /* PairListView.swift */,
+				4E80D4262A70CB7C00383159 /* CircularBackgroundView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -786,6 +789,7 @@
 				4EAE9D2B2A68EEDA00A7B7E6 /* StatefulPreviewView.swift in Sources */,
 				4E8048A12A6FEA30005CF350 /* SenderQuestionScreen.swift in Sources */,
 				9BAAA28A2A6987E100671179 /* BarProgressStyle.swift in Sources */,
+				4E80D4272A70CB7C00383159 /* CircularBackgroundView.swift in Sources */,
 				4E7990D92A6645E6002027D1 /* LoveLogRepository.swift in Sources */,
 				9BAAA27A2A68E8A300671179 /* DashboardScreen.swift in Sources */,
 				C9EE061A2A69713D00AD061B /* WarmUpScreen.swift in Sources */,
