@@ -53,57 +53,75 @@ struct AnswerText: View {
 }
 
 struct WarmUpAvatar: View {
-    let image: String
-    
+    let gender: String
+    let radius:CGFloat = 84
     var body: some View {
-        ZStack {
-            Circle()
-                .foregroundColor(Color.avatarPlaceHolder)
-                .frame(width: 84, height: 84)
-            
-            Image(systemName: image)
-                .foregroundColor(Color.black)
-                .font(.system(size: 60))
+//        ZStack {
+            //            Circle()
+            //                .foregroundColor(Color.avatarPlaceHolder)
+            //                .frame(width: 84, height: 84)
+            //
+            //            Image(systemName: image)
+            //                .foregroundColor(Color.black)
+            //                .font(.system(size: 60))
+            //        }
+            ZStack{
+                Circle()
+                    .fill(gender == "Male" ? Color.avatarBackgroundTosca : Color.avatarBackgroundPurple)
+                    .frame(width:radius,height: radius)
+                Image(gender)
+                    .resizable()
+                    .scaledToFit().frame(width: radius,height: radius)
+                    .foregroundColor(Color.black)
+                    .padding(.top, 10)
+            }
+            .frame(width: radius, height: radius)
+            .clipShape(Circle())
+            .padding(.bottom,18)
         }
-    }
-}
-
-struct WarmUpUserAnswerView: View {
-    let username: String
-    let answer: String
-    let state: AnswerState
-    let image: String
-    let inverted: Bool
-    
-    init(username: String, answer: String, answerState: AnswerState = .isWaiting, image: String = "person.fill", inverted: Bool = false) {
-        self.username = username
-        self.answer = answer
-        self.state = answerState
-        self.image = image
-        self.inverted = inverted
     }
     
-    var body: some View {
-        HStack(alignment: .center, spacing: 12) {
-            if !inverted {
-                WarmUpAvatar(image: image)
-                AnswerText(username: username, answer: answer, state: state, alignment: .leading)
+    struct WarmUpUserAnswerView: View {
+        let username: String
+        let answer: String
+        let state: AnswerState
+        let image: String
+        let inverted: Bool
+        var gender = "Male"
+        
+        init(username: String, answer: String, answerState: AnswerState = .isWaiting, image: String = "person.fill", inverted: Bool = false,gender: String) {
+            self.username = username
+            self.answer = answer
+            self.state = answerState
+            self.image = image
+            self.inverted = inverted
+            self.gender = gender
+        }
+        
+        var body: some View {
+            HStack(alignment: .center, spacing: 12) {
+                if !inverted {
+                    WarmUpAvatar(gender: gender)
+                    AnswerText(username: username, answer: answer, state: state, alignment: .leading)
+                    Spacer()
+                }
+                
+                if inverted {
+                    Spacer()
+                    AnswerText(username: username, answer: answer, state: state, alignment: .trailing)
+                    WarmUpAvatar(gender: gender)
+                }
             }
-            
-            if inverted {
-                AnswerText(username: username, answer: answer, state: state, alignment: .trailing)
-                WarmUpAvatar(image: image)
+            .frame(maxWidth: .infinity)
+        }
+    }
+    
+    struct WarmUpUserAnswerView_Previews: PreviewProvider {
+        static var previews: some View {
+            LayoutView {
+                WarmUpUserAnswerView(username: "Ethan", answer: "panjang kali", answerState: .isAnswered, inverted: false,gender:"Male")
+                
+                WarmUpUserAnswerView(username: "Anne", answer: "panjang kali", answerState: .isAnswered, inverted: true,gender: "Female")
             }
         }
     }
-}
-
-struct WarmUpUserAnswerView_Previews: PreviewProvider {
-    static var previews: some View {
-        LayoutView {
-            WarmUpUserAnswerView(username: "Ethan", answer: "Rizky", answerState: .isCorrect, inverted: false)
-            
-            WarmUpUserAnswerView(username: "Anne", answer: "Rizky", answerState: .isCorrect, inverted: true)
-        }
-    }
-}
