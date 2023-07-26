@@ -17,7 +17,9 @@ class TopicViewModel: ObservableObject {
     }
     
     private func fetchTopics() {
-        topics = topicService.getTopics()
+        topics = topicService.getTopics().sorted{
+            $0.level < $1.level
+        }
     }
     
     func createTopics(topicEntities: [TopicEntity]) {

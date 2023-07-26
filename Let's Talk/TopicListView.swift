@@ -19,7 +19,7 @@ struct TopicListView: View {
         ScrollView {
             VStack(spacing: 64) {
                 ForEach(topics) { topic in
-                    TopicItemView(title: topic.title, progress: 1,isActive: false,isCompleted: true)
+                    TopicItemView(topic: topic)
 //                    TopicItemView()
                 }
                 
