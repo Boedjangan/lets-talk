@@ -8,31 +8,39 @@
 import SwiftUI
 
 struct AddQuestionMediaScreen: View {
+    @ObservedObject var questionVM: QuestionViewModel
+    @State private var savedImage: UIImage? = nil
+    var questionId: UUID
     var body: some View {
-        LayoutView(spacing: Spacing.card) {
-            VStack(alignment: .leading, spacing: 10) {
-                Text("Abadikan momen mengobrol kalian")
-                    .font(.addMediaTitle)
-                Text("Foto ini akan ditampilkan pada LoveLog untuk mengingat momen mengobrol kalian.")
-                    .font(.paragraph)
-            }
-            
-            VStack(spacing: 63) {
-                AddPhotoView()
-                
-                ButtonView {
-                    //
-                } label: {
-                    Text("Lanjut")
+        NavigationStack {
+            LayoutView(spacing: Spacing.card) {
+                VStack(alignment: .leading, spacing: 10) {
+                    Text("Abadikan momen mengobrol kalian")
+                        .font(.addMediaTitle)
+                    Text("Foto ini akan ditampilkan pada LoveLog untuk mengingat momen mengobrol kalian.")
+                        .font(.paragraph)
                 }
-                .buttonStyle(.fill(.primary))
+                
+                VStack(spacing: 63) {
+                    AddPhotoView(questionVM: questionVM, savedImage: $savedImage, questionId: questionId)
+                    
+                    ButtonView {
+                        //
+                    } label: {
+                        Text("Lanjut")
+                    }
+                    .buttonStyle(.fill(.primary))
+                }
+            }
+            .onAppear {
+                savedImage = questionVM.displaySavedImage(for: questionId.uuidString)
             }
         }
     }
 }
 
-struct AddQuestionMediaScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        AddQuestionMediaScreen()
-    }
-}
+//struct AddQuestionMediaScreen_Previews: PreviewProvider {
+//    static var previews: some View {
+//        AddQuestionMediaScreen()
+//    }
+//}

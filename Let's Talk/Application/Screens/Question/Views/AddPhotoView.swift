@@ -8,24 +8,35 @@
 import SwiftUI
 
 struct AddPhotoView: View {
+    @ObservedObject var questionVM: QuestionViewModel
+    @Binding var savedImage: UIImage?
+    var questionId: UUID
     var body: some View {
-        ButtonView {
-            //
+        
+        NavigationLink {
+            CameraScreen(questionVM: questionVM, questionId: questionId)
         } label: {
-            Image(systemName: "camera.fill")
-                .font(.headingBig)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(Color.addPhotoBackground)
-                .cornerRadius(10)
+            if let image = savedImage {
+                Image(uiImage: image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            } else {
+                Image(systemName: "camera.fill")
+                    .font(.headingBig)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(Color.addPhotoBackground)
+                    .cornerRadius(10)
+            }
         }
     }
 }
 
 
-struct AddPhotoView_Previews: PreviewProvider {
-    static var previews: some View {
-        LayoutView {
-            AddPhotoView()
-        }
-    }
-}
+//struct AddPhotoView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        LayoutView {
+//            AddPhotoView()
+//        }
+//    }
+//}
