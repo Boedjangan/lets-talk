@@ -197,6 +197,7 @@ extension MultipeerHandler: MCNearbyServiceBrowserDelegate {
     // ini pas moton peer id
     func browser(_ browser: MCNearbyServiceBrowser, lostPeer peerID: MCPeerID) {
         guard let index = persons.firstIndex(of: peerID) else { return }
+        
         persons.remove(at: index)
         DispatchQueue.main.async {
             print("lost peer")
