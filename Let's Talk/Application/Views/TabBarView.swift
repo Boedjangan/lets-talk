@@ -10,6 +10,7 @@ import SwiftUI
 struct TabBarView: View {
     @ObservedObject var dashboardNavigation: DashboardNavigationManager
     @ObservedObject var loveLogNavigation: LoveLogNavigationManager
+    @StateObject var topicVM: TopicViewModel = TopicViewModel()
     
     
     var body: some View {
@@ -34,6 +35,7 @@ struct TabBarView: View {
             .tabItem{
                 Label("Test",systemImage: "heart.circle.fill")
             }
+            .environmentObject(topicVM)
             
             NavigationStack(path: $loveLogNavigation.navigationPaths) {
                 LoveLogScreen()
