@@ -21,7 +21,6 @@ struct Let_s_TalkApp: App {
     
     // MARK - View Model Initialization
     @StateObject var userVM: UserViewModel = UserViewModel()
-    @StateObject var questionVM: QuestionViewModel = QuestionViewModel()
     
     // MARK - APP Routes
     @StateObject var dashboardNavigation = DashboardNavigationManager()
@@ -40,7 +39,7 @@ struct Let_s_TalkApp: App {
             case "congrats":
                 UserPairingSuccessScreen(userVM: userVM)
             case "done":
-                TabBarView(dashboardNavigation: dashboardNavigation, loveLogNavigation: loveLogNavigation)
+                TabBarView(dashboardNavigation: dashboardNavigation, loveLogNavigation: loveLogNavigation, userVM: userVM)
             default:
                 UserOnboardingScreen()
             }

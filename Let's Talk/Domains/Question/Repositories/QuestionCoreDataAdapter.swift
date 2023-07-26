@@ -47,6 +47,8 @@ class QuestionCoreDataAdapter: QuestionRepository {
                 questionEntities.append(questionEntity)
             }
             
+            questionEntities = questionEntities.sorted { $0.order < $1.order }
+            
             return questionEntities
         } catch {
             print("Failed getting user details")
@@ -190,8 +192,6 @@ class QuestionCoreDataAdapter: QuestionRepository {
     func convertToQuestionEntity(question: Question) -> QuestionEntity {
         let arrSubQuestions = question.subQuestionArray.map { $0.subQuestion! }
         
-        print(question)
-        
         return QuestionEntity(
             id: question.id.unsafelyUnwrapped,
             question: question.question.unsafelyUnwrapped,
@@ -203,7 +203,7 @@ class QuestionCoreDataAdapter: QuestionRepository {
             updatedAt: question.updatedAt.unsafelyUnwrapped,
             answer: question.answer?.recordedAnswer,
             subQuestions: arrSubQuestions,
-            topic: question.topic?.title
+            topicId: question.topic?.id.unsafelyUnwrapped
         )
     }
 }

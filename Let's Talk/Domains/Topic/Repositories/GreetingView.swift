@@ -9,6 +9,7 @@ import SwiftUI
 
 struct GreetingView: View {
     var userName: String = "Ethan"
+    
     let date: Date = Date()
     let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -16,6 +17,7 @@ struct GreetingView: View {
         formatter.locale = Locale(identifier: "id_ID")
         return formatter
     }()
+    
     var body: some View {
         let dateString = dateFormatter.string(from: date)
         Text("✋ Halo, \(userName). \(dateString)")

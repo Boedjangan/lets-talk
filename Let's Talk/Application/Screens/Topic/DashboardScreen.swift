@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct DashboardScreen: View {
-    @EnvironmentObject var topicVM : TopicViewModel
+    @EnvironmentObject var userVM: UserViewModel
+    @EnvironmentObject var topicVM: TopicViewModel
+    
     var body: some View {
         LayoutView(spacing: 40) {
-            TalkTimeView(talkTime: 0)
+            TalkTimeView(talkTime: userVM.user.talkDuration ?? 0)
             
-            // GreetingView here
+            GreetingView(userName: userVM.user.username)
             
             TopicListView(topics: topicVM.topics)
         }
@@ -22,11 +24,12 @@ struct DashboardScreen: View {
 
 struct DashboardScreen_Previews: PreviewProvider {
     static var previews: some View {
-        StatefulObjectPreviewView(TopicViewModel()) { dash in
-            DashboardScreen()
-                .environmentObject(dash)
+        StatefulObjectPreviewView(TopicViewModel()) { topic in
+            StatefulObjectPreviewView(UserViewModel()) { user in
+                DashboardScreen()
+                    .environmentObject(topic)
+                    .environmentObject(user)
+            }
         }
-        
-        
     }
 }

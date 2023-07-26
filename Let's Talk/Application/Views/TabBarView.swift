@@ -10,8 +10,10 @@ import SwiftUI
 struct TabBarView: View {
     @ObservedObject var dashboardNavigation: DashboardNavigationManager
     @ObservedObject var loveLogNavigation: LoveLogNavigationManager
-    @StateObject var topicVM: TopicViewModel = TopicViewModel()
+    @ObservedObject var userVM: UserViewModel
     
+    @StateObject var topicVM: TopicViewModel = TopicViewModel()
+    @StateObject var questionVM: QuestionViewModel = QuestionViewModel()
     
     var body: some View {
         TabView{
@@ -21,21 +23,28 @@ struct TabBarView: View {
                         switch(routes) {
                         case .dashboard:
                             DashboardScreen()
-                        case .warmup:
-                            DashboardScreen()
+                        case let .warmup(topicId):
+                            WarmUpScreen(topicId: topicId, questionVM: questionVM)
                         case .warmup_result:
-                            DashboardScreen()
+                            WarmUpCorrectScreen()
                         case .question_sender:
-                            DashboardScreen()
+                            SenderQuestionScreen()
                         case .question_receiver:
-                            DashboardScreen()
+                            ReceiverQuestionScreen()
+                        case .add_media:
+                            AddQuestionMediaScreen()
+                        case .overview:
+                            QuestionSessionOverviewScreen()
                         }
                     }
             }
             .tabItem{
-                Label("Test",systemImage: "heart.circle.fill")
+                Label("Dashboard",systemImage: "heart.circle.fill")
             }
             .environmentObject(topicVM)
+            .environmentObject(userVM)
+            .environmentObject(questionVM)
+            .environmentObject(dashboardNavigation)
             
             NavigationStack(path: $loveLogNavigation.navigationPaths) {
                 LoveLogScreen()
@@ -62,7 +71,9 @@ struct TabBarView_Previews: PreviewProvider {
     static var previews: some View {
         StatefulObjectPreviewView(DashboardNavigationManager()) { dash in
             StatefulObjectPreviewView(LoveLogNavigationManager()) { love in
-                TabBarView(dashboardNavigation: dash, loveLogNavigation: love)
+                StatefulObjectPreviewView(UserViewModel()) { user in
+                    TabBarView(dashboardNavigation: dash, loveLogNavigation: love, userVM: user)
+                }
             }
         }
     }

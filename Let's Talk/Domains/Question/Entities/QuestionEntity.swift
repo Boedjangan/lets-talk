@@ -13,10 +13,11 @@ struct QuestionEntity: Identifiable {
     var warmUp: String
     var isCompleted: Bool = false
     var image: String?
+    var order: Int
     var talkDuration: Int = 0
     var createdAt: Date = Date()
     var updatedAt: Date = Date()
     var answer: String?
     var subQuestions: [String]?
-    var topic: String?
+    var topicId: UUID?
 }

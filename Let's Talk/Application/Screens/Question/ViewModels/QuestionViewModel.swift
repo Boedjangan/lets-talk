@@ -13,6 +13,8 @@ class QuestionViewModel: ObservableObject {
     @Published var talkDuration: Int = 0
     @Published var isRecordingAudio = false
     @Published var isPlayingAudio = false
+    @Published var myWarmUpAnswer = ""
+    @Published var coupleWarmUpAnswer = ""
     
     private var timer: Timer?
     private var questionService = QuestionService(questionRepository: QuestionCoreDataAdapter())
@@ -31,14 +33,18 @@ class QuestionViewModel: ObservableObject {
         questions = questionService.getAllQuestions()
     }
     
-    func getQuestionById(questionId: UUID) -> QuestionEntity? {
-        return questions.first { $0.id == questionId }
-    }
-    
-    func getQuestionsByTopicId(topicId: UUID) -> [QuestionEntity] {
-        let filteredQuestion = questions.filter { $0.id == topicId }
+    func getQuestionByTopicId(topicId: UUID) -> QuestionEntity? {
+        let filteredQuestion = questions.filter { question in
+            
+            print(question.topicId, topicId)
+            return question.topicId == topicId
+        }
         
-        return filteredQuestion
+        print(filteredQuestion)
+        
+        let incompleteQuestion = filteredQuestion.first { !$0.isCompleted }
+        
+        return incompleteQuestion
     }
     
     // TODO: Handle error handling on nil return

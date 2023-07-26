@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct TopicItemView: View {
-    var topic:TopicEntity
+    @EnvironmentObject var navigation: DashboardNavigationManager
     
+    let topic: TopicEntity
     
     var body: some View {
             HStack(alignment: .center, spacing: 16){
@@ -18,7 +19,7 @@ struct TopicItemView: View {
                 TopicProgressView(color: Color.buttonOutlineCommitment, level: String(topic.level), label: topic.title, progress: Double(topic.progress),isActive: topic.isActive)
                 
                 ButtonView() {
-                //
+                    navigation.push(to: .warmup(topic.id))
                 } label: {
                     HStack{
                         if topic.isCompleted{
