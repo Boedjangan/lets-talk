@@ -344,8 +344,8 @@
 		4E7990C72A664560002027D1 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				C9E6D77D2A6FA1F700B59575 /* SubQuestionEntity.swift */,
 				4E7990C82A664569002027D1 /* QuestionEntity.swift */,
+				C9E6D77D2A6FA1F700B59575 /* SubQuestionEntity.swift */,
 				C9EA52B52A718BB400B67C45 /* AnswerEntity.swift */,
 			);
 			path = Entities;

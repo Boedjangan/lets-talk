@@ -17,7 +17,7 @@ struct QuestionEntity: Identifiable {
     var talkDuration: Int = 0
     var createdAt: Date = Date()
     var updatedAt: Date = Date()
-    var answer: String?
-    var subQuestions: [String]?
+    var answer: AnswerEntity?
+    var subQuestions: [SubQuestion]?
     var topicId: UUID?
 }
