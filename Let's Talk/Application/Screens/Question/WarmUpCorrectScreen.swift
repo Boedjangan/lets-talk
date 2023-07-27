@@ -9,10 +9,10 @@ import SwiftUI
 
 struct WarmUpCorrectScreen: View {
     @EnvironmentObject var navigation: DashboardNavigationManager
+    @EnvironmentObject var questionVM: QuestionViewModel
+    @EnvironmentObject var multipeerHandler: MultipeerHandler
     
     @ObservedObject var userVM: UserViewModel
-    @ObservedObject var questionVM: QuestionViewModel
-    @ObservedObject var multipeerHandler: MultipeerHandler
     
     @State var userState: AnswerState = .isAnswered
     @State var coupleState: AnswerState = .isWaiting
@@ -24,11 +24,8 @@ struct WarmUpCorrectScreen: View {
     
     var gender: String
     
-    
-    init(userVM: UserViewModel, questionVM: QuestionViewModel, multipeerHandler:MultipeerHandler) {
+    init(userVM: UserViewModel) {
         self.userVM = userVM
-        self.questionVM = questionVM
-        self.multipeerHandler = multipeerHandler
         
         if userVM.user.gender == .male {
             self.gender = "Male"
@@ -71,7 +68,7 @@ struct WarmUpCorrectScreen: View {
             .buttonStyle(.fill(.primary))
         }
         .onChange(of: multipeerHandler.coupleReadyAt, perform: { newValue in
-            if newValue == "warmup_correct" {
+            if newValue == "warmup_result" {
                 isReady = true
                 
                 let isCorrect = checkWarmupAnswer(myAnswer: questionVM.myWarmUpAnswer, coupleAnswer: multipeerHandler.coupleWarmUpAnswer)
@@ -109,7 +106,7 @@ struct WarmUpCorrectScreen: View {
         })
         .onAppear(perform: {
             // Update status if both are in this page
-            if multipeerHandler.coupleReadyAt == "warmup_correct" {
+            if multipeerHandler.coupleReadyAt == "warmup_result" {
                 isReady = true
                 
                 coupleState = .isAnswered
@@ -132,7 +129,7 @@ struct WarmUpCorrectScreen: View {
             
             
             // MARK - Send location
-            let customData = MultipeerData(dataType: .isReadyAt, data: "warmup_correct".data(using: .utf8))
+            let customData = MultipeerData(dataType: .isReadyAt, data: "warmup_result".data(using: .utf8))
             
             do {
                 let encodedData = try JSONEncoder().encode(customData)
@@ -172,11 +169,7 @@ struct WarmUpCorrectScreen: View {
 struct WarmUpCorrectScreen_Previews: PreviewProvider {
     static var previews: some View {
         StatefulObjectPreviewView(UserViewModel()) { userVM in
-            StatefulObjectPreviewView(MultipeerHandler()) { multipeer in
-                StatefulObjectPreviewView(QuestionViewModel()) { quest in
-                    WarmUpCorrectScreen(userVM: userVM, questionVM: quest, multipeerHandler: multipeer)
-                }
-            }
+            WarmUpCorrectScreen(userVM: userVM)
         }
     }
 }

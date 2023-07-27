@@ -20,4 +20,5 @@ struct QuestionEntity: Identifiable {
     var answer: String?
     var subQuestions: [String]?
     var topicId: UUID?
+    var topicLevel: Int?
 }

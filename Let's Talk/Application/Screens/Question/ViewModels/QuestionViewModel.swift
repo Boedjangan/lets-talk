@@ -13,10 +13,16 @@ import os.log
 @MainActor
 class QuestionViewModel: ObservableObject {
     @Published var questions: [QuestionEntity] = []
+    @Published var currentQuestion: QuestionEntity?
     
-    // MARK - Sending Answer
+    // MARK - User & Couple
     @Published var talkDuration: Int = 0
+    @Published var coupleTalkDuration: Int = 0
     @Published var isRecordingAudio = false
+    @Published var isCoupleRecordingAudio = false
+    @Published var hasSwitchedRole = false
+    
+    // MARK - Playback State
     @Published var isPlayingAudio = false
     
     // MARK - Warm Up
@@ -131,11 +137,11 @@ class QuestionViewModel: ObservableObject {
     func startRecording(key: String) {
         isRecordingAudio = true
         audioManager.startRecording(key: "\(key).m4a")
-        startTimer()
+        startTimerSender()
     }
     
     func stopRecording() {
-        stopTimer()
+        stopTimerSender()
         audioManager.stopRecording()
         isRecordingAudio = false
     }
@@ -151,20 +157,56 @@ class QuestionViewModel: ObservableObject {
         isPlayingAudio = false
     }
     
-    // MARK - Timer Logic
-    func startTimer() {
+    // MARK - Timer Logic Sender
+    func incrementTalkDuration() {
+        self.talkDuration += 1
+    }
+    
+    func startTimerSender() {
         guard timer == nil else { return }
         
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
-            // TODO: learn about concurrency to set this safely
-            self.talkDuration += 1
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] timer in
+            guard let self = self else {
+                timer.invalidate()
+                
+                return
+            }
+            
+            Task {
+                await self.incrementTalkDuration()
+            }
         })
     }
     
-    func stopTimer() {
+    func stopTimerSender() {
         timer?.invalidate()
         timer = nil
-        talkDuration = 0
+    }
+    
+    // MARK - Timer Logic Receiver
+    func incrementCoupleTalkDuration() {
+        self.coupleTalkDuration += 1
+    }
+    
+    func startTimerReceiver() {
+        guard timer == nil else { return }
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] timer in
+            guard let self = self else {
+                timer.invalidate()
+                
+                return
+            }
+            
+            Task {
+                await self.incrementCoupleTalkDuration()
+            }
+        })
+    }
+    
+    func stopTimerReceiver() {
+        timer?.invalidate()
+        timer = nil
     }
     
     // MARK - Camera Logic

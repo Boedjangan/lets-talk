@@ -9,7 +9,7 @@ import SwiftUI
 
 enum DashboardRoutes: Hashable {
     case dashboard
-    case warmup(UUID)
+    case warmup
     case warmup_result
     case question_sender
     case question_receiver

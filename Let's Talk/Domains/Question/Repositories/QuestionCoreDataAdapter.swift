@@ -201,7 +201,8 @@ class QuestionCoreDataAdapter: QuestionRepository {
             updatedAt: question.updatedAt.unsafelyUnwrapped,
             answer: question.answer?.recordedAnswer,
             subQuestions: arrSubQuestions,
-            topicId: question.topic?.id.unsafelyUnwrapped
+            topicId: question.topic?.id.unsafelyUnwrapped,
+            topicLevel: question.topic?.level.toInt
         )
     }
 }
