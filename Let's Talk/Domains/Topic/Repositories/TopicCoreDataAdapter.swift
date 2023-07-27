@@ -46,22 +46,21 @@ class TopicCoreDataAdapter: TopicRepository {
             newTopic.createdAt = Date()
             newTopic.updatedAt = Date()
             
-            //core data entity (Question) need to change to Domain Entity (QuestionEntity)
-            if let questions = topicEntity.questions as? [Question] {
+            if let questions = topicEntity.questions {
                 for question in questions {
                     let newQuestion =  Question(context: coreDataContext)
                     newQuestion.id = UUID()
                     newQuestion.image = question.image
                     newQuestion.isCompleted = question.isCompleted
                     newQuestion.question = question.question
-                    newQuestion.talkDuration = question.talkDuration
+                    newQuestion.talkDuration = Int64(question.talkDuration)
                     newQuestion.warmUp = question.warmUp
                     newQuestion.createdAt = Date()
                     newQuestion.updatedAt = Date()
                     
                     newTopic.addToQuestion(newQuestion)
                     
-                    if let subQuestions = question.subQuestion as? [SubQuestionEntity] {
+                    if let subQuestions = question.subQuestions {
                         for subQuestion in subQuestions {
                             let newSubQuestion = SubQuestion(context: coreDataContext)
                             newSubQuestion.id = UUID()
@@ -174,24 +173,57 @@ class TopicCoreDataAdapter: TopicRepository {
     }
     
     func convertToTopicEntity(topic: Topic) -> TopicEntity {
-            var questions: [Any] = []
-            
-            // Convert topic.questions to [Any]
-            if let topicQuestions = topic.question as? Set<Question> {
-                questions = Array(topicQuestions)
-            }
-            
-            return TopicEntity(
-                id: topic.id.unsafelyUnwrapped,
-                iconName: topic.iconName.unsafelyUnwrapped,
-                isActive: topic.isActive,
-                isCompleted: topic.isCompleted,
-                level: Int(topic.level),
-                progress: Int(topic.progress),
-                title: topic.title ?? "",
-                questions: questions,
-                createdAt: topic.createdAt.unsafelyUnwrapped,
-                updatedAt: topic.updatedAt.unsafelyUnwrapped
-            )
+        var questionsEntity: [QuestionEntity] = []
+        
+        if let questions = topic.question as? Set<Question> {
+            questionsEntity = questions.map { convertToQuestionEntity(question: $0)}
         }
+        
+        return TopicEntity(
+            id: topic.id.unsafelyUnwrapped,
+            iconName: topic.iconName.unsafelyUnwrapped,
+            isActive: topic.isActive,
+            isCompleted: topic.isCompleted,
+            level: Int(topic.level),
+            progress: Int(topic.progress),
+            title: topic.title ?? "",
+            questions: questionsEntity,
+            createdAt: topic.createdAt.unsafelyUnwrapped,
+            updatedAt: topic.updatedAt.unsafelyUnwrapped
+        )
+    }
+    
+    func convertToQuestionEntity(question: Question) -> QuestionEntity {
+        var subQuestionsEntity: [SubQuestionEntity] = []
+        if let subQuestions = question.subQuestion as? Set<SubQuestion> {
+            subQuestionsEntity = subQuestions.map { convertToSubQuestionEntity(subQuestion: $0)}
+        }
+        var answerEntity: AnswerEntity?
+        if let answer = question.answer {
+            answerEntity = AnswerEntity(name: answer.name!, recordedAnswer: answer.recordedAnswer!)
+        }
+        
+        return QuestionEntity(
+            id: question.id.unsafelyUnwrapped,
+            question: question.question.unsafelyUnwrapped,
+            warmUp: question.warmUp.unsafelyUnwrapped,
+            isCompleted: question.isCompleted,
+            image: question.image,
+            order: question.order.toInt,
+            talkDuration: question.talkDuration.toInt,
+            createdAt: question.createdAt.unsafelyUnwrapped,
+            updatedAt: question.updatedAt.unsafelyUnwrapped,
+            answer: answerEntity,
+            subQuestions: subQuestionsEntity,
+            topicId: question.topic?.id.unsafelyUnwrapped
+        )
+    }
+    
+    func convertToSubQuestionEntity(subQuestion: SubQuestion) -> SubQuestionEntity {
+        return SubQuestionEntity(
+            id: subQuestion.id!,
+            subQuestion: subQuestion.subQuestion!,
+            createdAt: subQuestion.createdAt!,
+            updatedAt: subQuestion.updatedAt!)
+    }
 }
