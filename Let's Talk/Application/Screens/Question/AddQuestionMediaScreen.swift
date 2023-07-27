@@ -8,12 +8,17 @@
 import SwiftUI
 
 struct AddQuestionMediaScreen: View {
-    @ObservedObject var questionVM: QuestionViewModel
+    @EnvironmentObject var questionVM: QuestionViewModel
+    @EnvironmentObject var userVM: UserViewModel
+    @EnvironmentObject var multipeerHandler: MultipeerHandler
+    @EnvironmentObject var navigation: DashboardNavigationManager
     @State private var savedImage: UIImage? = nil
-    var questionId: UUID
+    
+    @State var isReady = false
+//    var questionId: UUID
     
     var body: some View {
-        NavigationStack {
+//        NavigationStack {
             LayoutView(spacing: Spacing.card) {
                 VStack(alignment: .leading, spacing: 10) {
                     Text("Abadikan momen mengobrol kalian")
@@ -23,10 +28,13 @@ struct AddQuestionMediaScreen: View {
                 }
                 
                 VStack(spacing: 63) {
-                    AddPhotoView(questionVM: questionVM, savedImage: $savedImage, questionId: questionId)
+                    AddPhotoView(questionVM: questionVM, savedImage: $savedImage, questionId: questionVM.currentQuestion!.id,imageName: getKeyString() ?? "gambar")
                     
                     ButtonView {
-                        //
+                        // multipeer
+                        
+                        navigation.push(to: .overview)
+                       
                     } label: {
                         Text("Lanjut")
                     }
@@ -34,9 +42,16 @@ struct AddQuestionMediaScreen: View {
                 }
             }
             .onAppear {
-                savedImage = questionVM.displaySavedImage(for: questionId.uuidString)
+                savedImage = questionVM.displaySavedImage(for: getKeyString() ?? "gambar")
             }
-        }
+//        }
+    }
+    
+    func getKeyString() -> String? {
+        guard let topicLevel =  questionVM.currentQuestion?.topicLevel else { return nil }
+        guard let questionOrder = questionVM.currentQuestion?.order else { return nil }
+        
+        return "T\(topicLevel)-Q\(questionOrder)"
     }
 }
 

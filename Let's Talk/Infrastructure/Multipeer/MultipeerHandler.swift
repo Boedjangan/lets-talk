@@ -71,6 +71,7 @@ class MultipeerHandler: NSObject, ObservableObject {
         session.delegate = self
         browser.delegate = self
         advertiser.delegate = self
+        
     }
     
     func startBrowsing() {
@@ -116,7 +117,19 @@ class MultipeerHandler: NSObject, ObservableObject {
            } catch {
                print("Error sending data: \(error.localizedDescription)")
            }
-       }
+   }
+    
+    func sendPhoto(url:URL, to peer:MCPeerID, fileName:String) -> Progress? {
+       let progress = session.sendResource(at: url, withName: fileName, toPeer: peer) { error in
+            if let error = error {
+                print("Error sending file: \(error.localizedDescription)")
+            } else {
+                print("File sent successfully.")
+            }
+        }
+        
+        return progress
+    }
     
     func updateDiscoveryInfo() {
         advertiser.stopAdvertisingPeer()
@@ -347,8 +360,11 @@ extension MultipeerHandler: MCSessionDelegate {
         
     }
     
+    
     func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL?, withError error: Error?) {
-        
+        if let localURL = localURL{
+            print(localURL,"<<<<local")
+        }
     }
 }
 

@@ -43,7 +43,7 @@ struct TabBarView: View {
                         case .question_receiver:
                             ReceiverQuestionScreen()
                         case .add_media:
-                            AddQuestionMediaScreen(questionVM: questionVM, questionId: UUID())
+                            AddQuestionMediaScreen()
                         case .overview:
                             QuestionSessionOverviewScreen()
                         }

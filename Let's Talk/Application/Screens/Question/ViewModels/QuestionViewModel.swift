@@ -221,7 +221,7 @@ class QuestionViewModel: ObservableObject {
         }
     }
     
-    func handleCameraPhotos(questionId: UUID) async {
+    func handleCameraPhotos(questionId: UUID,imageName:String = "image") async {
         let unpackedPhotoStream = camera.photoStream
             .compactMap { await self.unpackPhoto($0) }
         
@@ -229,8 +229,8 @@ class QuestionViewModel: ObservableObject {
             await MainActor.run {
                 thumbnailImage = photoData.thumbnailImage
             }
-            updateQuestionImage(questionId: questionId, newImage: questionId.uuidString)
-            savePhoto(filename: questionId.uuidString, imageData: photoData.imageData)
+            updateQuestionImage(questionId: questionId, newImage: imageName)
+            savePhoto(filename: imageName, imageData: photoData.imageData)
         }
     }
     

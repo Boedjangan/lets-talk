@@ -8,30 +8,66 @@
 import SwiftUI
 
 struct QuestionSessionOverviewScreen: View {
+    @EnvironmentObject var questionVM: QuestionViewModel
+    @EnvironmentObject var userVM: UserViewModel
+    @EnvironmentObject var navigation: DashboardNavigationManager
+    @EnvironmentObject var multipeerHandler: MultipeerHandler
+    
+    @State var isReady = false
     let image: String = "sample"
     let maleTalkTime: Int = 15
     let femaleTalkTime: Int = 29
     
     var body: some View {
         LayoutView {
-            HStack {
-                VStack(alignment: .leading, spacing: 20) {
-                    Text("Hore. Obrolan kalian sudah selesai 🎉")
-                        .font(.warmUpAnswerHeading)
-                    Text("Berikut pencapaian obrolan kalian :")
-                        .font(.paragraph)
+            if !isReady {
+                LoadingView()
+            }
+            if isReady{
+                HStack {
+                    VStack(alignment: .leading, spacing: 20) {
+                        Text("Hore. Obrolan kalian sudah selesai 🎉")
+                            .font(.warmUpAnswerHeading)
+                        Text("Berikut pencapaian obrolan kalian :")
+                            .font(.paragraph)
+                    }
+                    Spacer()
                 }
+                TopicAdvancementDetailsView(maleTalkTime: maleTalkTime, femaleTalkTime: femaleTalkTime)
+                ImagePreview(image: image)
                 Spacer()
+                ButtonView {
+                    //
+                } label: {
+                    Text("Kembali ke Dashboard")
+                }
+                .buttonStyle(.fill(.primary))
             }
-            TopicAdvancementDetailsView(maleTalkTime: maleTalkTime, femaleTalkTime: femaleTalkTime)
-            ImagePreview(image: image)
-            Spacer()
-            ButtonView {
-                //
-            } label: {
-                Text("Kembali ke Dashboard")
+            
+        }
+        .onChange(of: multipeerHandler.coupleReadyAt, perform: {
+            newValue in
+            if newValue == "question_overview"{
+                isReady = true
             }
-            .buttonStyle(.fill(.primary))
+        })
+        .onAppear{
+            if multipeerHandler.coupleReadyAt == "question_overview" {
+                isReady = true
+            }
+            
+            let customData = MultipeerData(dataType: .isReadyAt, data: "question_overview".data(using: .utf8))
+            
+            do {
+                let encodedData = try JSONEncoder().encode(customData)
+                
+                multipeerHandler.sendData(encodedData)
+            } catch {
+                print("ERROR: \(error.localizedDescription)")
+            }
+        }
+        .onDisappear{
+            isReady = false
         }
     }
 }
@@ -83,8 +119,8 @@ struct TopicAdvancementDetailsView: View {
     }
 }
 
-struct QuestionSessionOverviewScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        QuestionSessionOverviewScreen()
-    }
-}
+//struct QuestionSessionOverviewScreen_Previews: PreviewProvider {
+//    static var previews: some View {
+//        QuestionSessionOverviewScreen()
+//    }
+//}
