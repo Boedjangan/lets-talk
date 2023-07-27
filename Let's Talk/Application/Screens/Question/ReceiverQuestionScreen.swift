@@ -32,8 +32,8 @@ struct ReceiverQuestionScreen: View {
                 VStack(spacing: 40) {
                     QuestionCardView(timer: $questionVM.coupleTalkDuration, isRecording: questionVM.isCoupleRecordingAudio, question: questionVM.currentQuestion?.question ?? "kosong")
                     
-                    ForEach(questionVM.currentQuestion?.subQuestions ?? [], id: \.self) { subQuestion in
-                        SubQuestionTextView(text: subQuestion)
+                    ForEach(questionVM.currentQuestion?.subQuestions ?? []) { subQuestion in
+                        SubQuestionTextView(text: subQuestion.subQuestion)
                     }
                 }
             }

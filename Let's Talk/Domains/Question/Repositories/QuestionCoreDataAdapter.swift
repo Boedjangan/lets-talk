@@ -239,8 +239,8 @@ class QuestionCoreDataAdapter: QuestionRepository {
             talkDuration: question.talkDuration.toInt,
             createdAt: question.createdAt.unsafelyUnwrapped,
             updatedAt: question.updatedAt.unsafelyUnwrapped,
-            answer: question.answer?.recordedAnswer,
-            subQuestions: arrSubQuestions,
+            answer: answerEntity,
+            subQuestions: subQuestionsEntity,
             topicId: question.topic?.id.unsafelyUnwrapped,
             topicLevel: question.topic?.level.toInt
         )
