@@ -42,6 +42,10 @@ class QuestionService {
         return questionRepository.updateQuestionImage(questionID: questionID, newImage: newImage)
     }
     
+    func updateAnswer(questionId: UUID, newAnswer: AnswerEntity) -> QuestionEntity? {
+        return questionRepository.updateAnswer(questionID: questionId, newAnswer: newAnswer)
+    }
+    
     func deleteQuestion(questionID:UUID) -> QuestionEntity?{
         return questionRepository.deleteQuestion(questionID: questionID)
     }

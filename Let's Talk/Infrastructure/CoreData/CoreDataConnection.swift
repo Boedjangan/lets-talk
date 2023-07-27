@@ -21,6 +21,7 @@ struct CoreDataConnection {
         
         guard topicCount == 0 else {
             print("COUNT: \(topicCount)")
+            print("NOT SEEDING! Because already has data!")
             return
         }
         

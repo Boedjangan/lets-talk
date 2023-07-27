@@ -19,9 +19,6 @@ struct UserPairingScreen: View {
     init(multipeerHandler: MultipeerHandler, userVM: UserViewModel) {
         self.multipeerHandler = multipeerHandler
         self.userVM = userVM
-        
-        // Mulai jalanin advertising biar kelihatan di pasangan
-        multipeerHandler.advertiser.startAdvertisingPeer()
     }
 
     var body: some View {
@@ -45,9 +42,15 @@ struct UserPairingScreen: View {
         }.onAppear {
             // Aktifin nyari pasangan yg nampak
             multipeerHandler.startBrowsing()
+            
+            // Mulai jalanin advertising biar kelihatan di pasangan
+            multipeerHandler.advertiser.startAdvertisingPeer()
         }.onDisappear{
             // Berhenti nyari pasangan yg nampak
             multipeerHandler.stopBrowsing()
+            
+            // Berhenti jalanin advertising biar gak kelihatan di pasangan
+            multipeerHandler.advertiser.startAdvertisingPeer()
         }
         .onChange(of: multipeerHandler.isReady) { newState in
             if newState {
