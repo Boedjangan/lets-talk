@@ -73,6 +73,18 @@ struct WarmUpCorrectScreen: View {
         .onChange(of: multipeerHandler.coupleReadyAt, perform: { newValue in
             if newValue == "warmup_correct" {
                 isReady = true
+                
+                let isCorrect = checkWarmupAnswer(myAnswer: questionVM.myWarmUpAnswer, coupleAnswer: multipeerHandler.coupleWarmUpAnswer)
+                
+                if isCorrect {
+                    userState = .isCorrect
+                    coupleState = .isCorrect
+                } else {
+                    userState = .isWrong
+                    coupleState = .isWrong
+                }
+                
+                isChecked = true
             }
         })
         .onChange(of: multipeerHandler.coupleWarmUpAnswer, perform: { coupleAnswer in
@@ -99,10 +111,7 @@ struct WarmUpCorrectScreen: View {
             // Update status if both are in this page
             if multipeerHandler.coupleReadyAt == "warmup_correct" {
                 isReady = true
-            }
-            
-            // Update state if already exist
-            if multipeerHandler.coupleWarmUpAnswer.isNotEmpty {
+                
                 coupleState = .isAnswered
                 
                 let isCorrect = checkWarmupAnswer(myAnswer: questionVM.myWarmUpAnswer, coupleAnswer: multipeerHandler.coupleWarmUpAnswer)
