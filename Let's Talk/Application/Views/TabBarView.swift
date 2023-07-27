@@ -24,9 +24,6 @@ struct TabBarView: View {
         
         _topicVM =  StateObject(wrappedValue: TopicViewModel())
         _questionVM = StateObject(wrappedValue: QuestionViewModel())
-    
-       
-       
     }
     
     var body: some View {
@@ -40,13 +37,13 @@ struct TabBarView: View {
                         case let .warmup(topicId):
                             WarmUpScreen(topicId: topicId, questionVM: questionVM)
                         case .warmup_result:
-                            WarmUpCorrectScreen()
+                            WarmUpCorrectScreen(userVM: userVM, questionVM: questionVM, multipeerHandler: multipeerHandler)
                         case .question_sender:
                             SenderQuestionScreen()
                         case .question_receiver:
                             ReceiverQuestionScreen()
                         case .add_media:
-                            AddQuestionMediaScreen()
+                            AddQuestionMediaScreen(questionVM: questionVM, questionId: UUID())
                         case .overview:
                             QuestionSessionOverviewScreen()
                         }

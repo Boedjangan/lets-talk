@@ -8,6 +8,11 @@
 import Foundation
 import MultipeerConnectivity
 
+enum CoupleRole: String, CaseIterable {
+    case sender = "sender"
+    case receiver = "receiver"
+}
+
 protocol MultipeerHandlerDelegate: AnyObject {
     func assignPlayer(peerID: MCPeerID)
     func removePlayer(peerID: MCPeerID)
@@ -29,6 +34,7 @@ class MultipeerHandler: NSObject, ObservableObject {
     // MARK - User & Couple Status
     @Published var isReady: Bool = false
     @Published var coupleReadyAt: String = ""
+    @Published var coupleRole: CoupleRole?
     @Published var coupleName: String?
     @Published var username: String?
     
@@ -282,6 +288,13 @@ extension MultipeerHandler: MCSessionDelegate {
                     DispatchQueue.main.async {
                         self.coupleName = String(data:receivedValue, encoding: .utf8)
                         self.isReady = true
+                    }
+                }
+            case .role:
+                if  let receivedValue = customData.data {
+                    DispatchQueue.main.async {
+                        guard let value = String(data: receivedValue, encoding: .utf8) else { return }
+                        self.coupleRole = CoupleRole(rawValue: value)
                     }
                 }
             case .isReadyAt:

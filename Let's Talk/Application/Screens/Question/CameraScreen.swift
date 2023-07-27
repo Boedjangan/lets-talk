@@ -10,8 +10,10 @@ import SwiftUI
 struct CameraScreen: View {
     @Environment(\.dismiss) var dismiss
     @ObservedObject var questionVM: QuestionViewModel
+    
     var questionId: UUID
     private static let barHeightFactor = 0.15
+    
     var body: some View {
         NavigationStack {
             GeometryReader { geometry in

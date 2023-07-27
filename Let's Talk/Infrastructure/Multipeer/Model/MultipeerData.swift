@@ -9,6 +9,7 @@ import Foundation
 
 enum MultipeerDataType: Codable {
     case username
+    case role
     case isReadyAt
     case warmUpAnswer
 }

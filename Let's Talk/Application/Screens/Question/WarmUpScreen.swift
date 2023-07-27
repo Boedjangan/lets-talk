@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct WarmUpScreen: View {
+    @EnvironmentObject var userVM: UserViewModel
     @EnvironmentObject var navigation: DashboardNavigationManager
     @EnvironmentObject var multipeerHandler: MultipeerHandler
     
@@ -58,8 +59,8 @@ struct WarmUpScreen: View {
                             } catch {
                                 print("ERROR: \(error.localizedDescription)")
                             }
-                            
-                            navigation.push(to: .warmup_result)
+
+                                navigation.push(to: .warmup_result)
                         }
                     }
                 
@@ -68,7 +69,7 @@ struct WarmUpScreen: View {
                     .padding(.vertical, 20)
                 
                 WarmUpCardView {
-                    Text(question?.warmUp ?? "")
+                    Text(question?.warmUp.replacingOccurrences(of: "user", with: getName()) ?? "")
                         .font(.paragraph)
                 }
                 
@@ -89,7 +90,7 @@ struct WarmUpScreen: View {
                             print("ERROR: \(error.localizedDescription)")
                         }
                         
-                        navigation.push(to: .warmup_result)
+                            navigation.push(to: .warmup_result)
                     }
                 } label: {
                     Text("Jawab")
@@ -136,6 +137,17 @@ struct WarmUpScreen: View {
         timer?.invalidate()
         timer = nil
         timeRemaining = 0
+    }
+    
+    func getName() -> String {
+        guard let myRole = userVM.myRole else { return "Error" }
+        
+        switch(myRole) {
+        case .receiver:
+            return userVM.user.coupleName ?? "Error"
+        case .sender:
+            return userVM.user.username
+        }
     }
 }
 

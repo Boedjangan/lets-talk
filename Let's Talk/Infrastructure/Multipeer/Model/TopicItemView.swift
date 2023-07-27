@@ -10,6 +10,7 @@ import SwiftUI
 struct TopicItemView: View {
     @EnvironmentObject var navigation: DashboardNavigationManager
     @EnvironmentObject var multipeerHandler: MultipeerHandler
+    @EnvironmentObject var userVM: UserViewModel
     
     let topic: TopicEntity
     
@@ -20,6 +21,28 @@ struct TopicItemView: View {
                 TopicProgressView(color: Color.buttonOutlineCommitment, level: "Level \(topic.level)", label: topic.title, progress: Double(topic.progress), isActive: topic.isActive)
                 
                 ButtonView() {
+                    if let coupleRole = multipeerHandler.coupleRole {
+                        switch(coupleRole) {
+                        case .receiver:
+                            userVM.myRole = .sender
+                        case .sender:
+                            userVM.myRole = .receiver
+                        }
+                    } else {
+                        let randomRole = randomRole()
+                        userVM.myRole = randomRole
+                    }
+                    
+                    let customData = MultipeerData(dataType: .role, data: userVM.myRole?.rawValue.data(using: .utf8))
+                    
+                    do {
+                        let encodedData = try JSONEncoder().encode(customData)
+                        
+                        multipeerHandler.sendData(encodedData)
+                    } catch {
+                        print("ERROR: \(error.localizedDescription)")
+                    }
+                    
                     navigation.push(to: .warmup(topic.id))
                 } label: {
                     HStack{
@@ -38,8 +61,11 @@ struct TopicItemView: View {
                 .buttonStyle(.outline(.commitment))
             }
             .opacity(topic.isActive ? 1 : 0.4)
-           
         }
+    
+    func randomRole() -> CoupleRole {
+        return CoupleRole.allCases.randomElement()!
+    }
 }
 
 struct TopicItemView_Previews: PreviewProvider {

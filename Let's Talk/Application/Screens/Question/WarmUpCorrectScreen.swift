@@ -8,28 +8,31 @@
 import SwiftUI
 
 struct WarmUpCorrectScreen: View {
+    @EnvironmentObject var navigation: DashboardNavigationManager
     
-    @ObservedObject var userVM:UserViewModel
+    @ObservedObject var userVM: UserViewModel
+    @ObservedObject var questionVM: QuestionViewModel
     @ObservedObject var multipeerHandler: MultipeerHandler
-    @State var userState : AnswerState = .isCorrect
-    @State var coupleState : AnswerState = .isCorrect
-    @State var titleAnswer:String = " ini title"
-    @State var resultAnswer:String = "ini answer"
-    var userName: String
-    var coupleName: String
-    var gender:String
-    var userAnswer: String = "test"
-    var coupleAnswer: String = "test"
+    
+    @State var userState: AnswerState = .isAnswered
+    @State var coupleState: AnswerState = .isWaiting
+    @State var titleAnswer: String = "ini title"
+    @State var resultAnswer: String = "ini answer"
+    
+    @State var isReady = false
+    @State var isChecked = false
+    
+    var gender: String
     
     
-    init(userVM: UserViewModel,multipeerHandler:MultipeerHandler) {
+    init(userVM: UserViewModel, questionVM: QuestionViewModel, multipeerHandler:MultipeerHandler) {
         self.userVM = userVM
+        self.questionVM = questionVM
         self.multipeerHandler = multipeerHandler
-        self.userName = userVM.user.username
-        self.coupleName = userVM.user.coupleName ?? "couple"
+        
         if userVM.user.gender == .male {
             self.gender = "Male"
-        }else{
+        } else {
             self.gender = "Female"
         }
     }
@@ -43,8 +46,9 @@ struct WarmUpCorrectScreen: View {
                     .font(.paragraph)
             }
             
-            WarmUpUserAnswerView(username: userName, answer: userAnswer,answerState: userState ,gender: gender)
-            WarmUpUserAnswerView(username: coupleName, answer: coupleAnswer,answerState:coupleState, inverted: true, gender: gender == "Male" ? "Female" : "Male")
+            WarmUpUserAnswerView(username: userVM.user.username ?? "", answer: questionVM.myWarmUpAnswer, answerState: userState, gender: gender)
+            
+            WarmUpUserAnswerView(username: userVM.user.coupleName ?? "", answer: multipeerHandler.coupleWarmUpAnswer, answerState: coupleState, inverted: true, gender: gender == "Male" ? "Female" : "Male")
             
             WarmUpCardView {
                 Text(titleAnswer)
@@ -58,22 +62,84 @@ struct WarmUpCorrectScreen: View {
             Spacer()
             
             ButtonView {
-                //
+                if isChecked {
+                    navigation.push(to: userVM.myRole == .sender ? .question_sender : .question_receiver)
+                }
             } label: {
                 Text("Mulai")
             }
             .buttonStyle(.fill(.primary))
-
-        }.onChange(of: userState, perform: { newValue in
+        }
+        .onChange(of: multipeerHandler.coupleReadyAt, perform: { newValue in
+            if newValue == "warmup_correct" {
+                isReady = true
+            }
+        })
+        .onChange(of: multipeerHandler.coupleWarmUpAnswer, perform: { coupleAnswer in
+            if coupleAnswer.isNotEmpty {
+                coupleState = .isAnswered
+                
+                let isCorrect = checkWarmupAnswer(myAnswer: questionVM.myWarmUpAnswer, coupleAnswer: multipeerHandler.coupleWarmUpAnswer)
+                
+                if isCorrect {
+                    userState = .isCorrect
+                    coupleState = .isCorrect
+                } else {
+                    userState = .isWrong
+                    coupleState = .isWrong
+                }
+                
+                isChecked = true
+            }
+        })
+        .onChange(of: userState, perform: { newValue in
             getAnswerTitle()
         })
         .onAppear(perform: {
+            // Update status if both are in this page
+            if multipeerHandler.coupleReadyAt == "warmup_correct" {
+                isReady = true
+            }
+            
+            // Update state if already exist
+            if multipeerHandler.coupleWarmUpAnswer.isNotEmpty {
+                coupleState = .isAnswered
+                
+                let isCorrect = checkWarmupAnswer(myAnswer: questionVM.myWarmUpAnswer, coupleAnswer: multipeerHandler.coupleWarmUpAnswer)
+                
+                if isCorrect {
+                    userState = .isCorrect
+                    coupleState = .isCorrect
+                } else {
+                    userState = .isWrong
+                    coupleState = .isWrong
+                }
+                
+                isChecked = true
+            }
+            
+            // Update Title
             getAnswerTitle()
+            
+            
+            // MARK - Send location
+            let customData = MultipeerData(dataType: .isReadyAt, data: "warmup_correct".data(using: .utf8))
+            
+            do {
+                let encodedData = try JSONEncoder().encode(customData)
+                
+                multipeerHandler.sendData(encodedData)
+            } catch {
+                print("ERROR: \(error.localizedDescription)")
+            }
         })
+        .onDisappear {
+            isReady = false
+            isChecked = false
+        }
     }
     
     func getAnswerTitle() {
-        
         if userState == .isCorrect{
             titleAnswer = "Langkah awal yang baik"
             resultAnswer = "Jawaban kalian sudah sesuai selamat. Selanjutnya akan lebih mudah untuk kalian."
@@ -85,15 +151,23 @@ struct WarmUpCorrectScreen: View {
             resultAnswer = "Menganailisa jawaban kalian"
         }
     }
+    
+    func checkWarmupAnswer(myAnswer: String, coupleAnswer: String) -> Bool {
+        let A = myAnswer.lowercased()
+        let B = coupleAnswer.lowercased()
+        
+        return A == B
+    }
 }
 
 struct WarmUpCorrectScreen_Previews: PreviewProvider {
     static var previews: some View {
         StatefulObjectPreviewView(UserViewModel()) { userVM in
             StatefulObjectPreviewView(MultipeerHandler()) { multipeer in
-                WarmUpCorrectScreen(userVM: userVM,multipeerHandler: multipeer)
+                StatefulObjectPreviewView(QuestionViewModel()) { quest in
+                    WarmUpCorrectScreen(userVM: userVM, questionVM: quest, multipeerHandler: multipeer)
+                }
             }
         }
-      
     }
 }
