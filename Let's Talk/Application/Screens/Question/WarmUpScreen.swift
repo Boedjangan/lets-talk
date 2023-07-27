@@ -49,7 +49,9 @@ struct WarmUpScreen: View {
                     .onChange(of: timeRemaining) { val in
                         if val <= 0 {
                             stopTimer()
-                            
+                        }
+                        
+                        if val == 0 {
                             let customData = MultipeerData(dataType: .warmUpAnswer, data: questionVM.myWarmUpAnswer.data(using: .utf8))
                             
                             do {
