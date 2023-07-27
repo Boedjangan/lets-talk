@@ -51,6 +51,12 @@ class QuestionViewModel: ObservableObject {
         questions = questionService.getAllQuestions()
     }
     
+    func getQuestionById(id: UUID) -> QuestionEntity? {
+        let incompleteQuestion = questions.first { $0.id == id }
+        
+        return incompleteQuestion
+    }
+    
     func getQuestionByTopicId(topicId: UUID) -> QuestionEntity? {
         let filteredQuestions = questions.filter { question in
             

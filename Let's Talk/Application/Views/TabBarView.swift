@@ -37,7 +37,7 @@ struct TabBarView: View {
                         case let .warmup(topicId):
                             WarmUpScreen(topicId: topicId, questionVM: questionVM)
                         case .warmup_result:
-                            WarmUpCorrectScreen(userVM: userVM, multipeerHandler: multipeerHandler)
+                            WarmUpCorrectScreen(userVM: userVM, questionVM: questionVM, multipeerHandler: multipeerHandler)
                         case .question_sender:
                             SenderQuestionScreen()
                         case .question_receiver:

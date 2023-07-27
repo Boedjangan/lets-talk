@@ -69,7 +69,6 @@ class QuestionCoreDataAdapter: QuestionRepository {
             }
             
             return convertToQuestionEntity(question: question)
-            
         } catch {
             print("Failed updating topic progress")
             print("Error: \(error.localizedDescription)")
