@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+protocol LoveLogRepository {
+    func getLoveLog() -> [LoveLogEntity]
+    func deleteLoveLog(id: UUID) -> LoveLogEntity?
+}

@@ -26,9 +26,9 @@
 		4E7990CE2A664593002027D1 /* QuestionCoreDataAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990CD2A664593002027D1 /* QuestionCoreDataAdapter.swift */; };
 		4E7990D12A6645A6002027D1 /* QuestionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990D02A6645A6002027D1 /* QuestionService.swift */; };
 		4E7990D32A6645C3002027D1 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990D22A6645C3002027D1 /* UserViewModel.swift */; };
-		4E7990D62A6645D6002027D1 /* LoveLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990D52A6645D6002027D1 /* LoveLog.swift */; };
+		4E7990D62A6645D6002027D1 /* LoveLogEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990D52A6645D6002027D1 /* LoveLogEntity.swift */; };
 		4E7990D92A6645E6002027D1 /* LoveLogRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990D82A6645E6002027D1 /* LoveLogRepository.swift */; };
-		4E7990DB2A6645F1002027D1 /* LoveLogRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990DA2A6645F1002027D1 /* LoveLogRepositoryImpl.swift */; };
+		4E7990DB2A6645F1002027D1 /* LoveLogCoreDataAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990DA2A6645F1002027D1 /* LoveLogCoreDataAdapter.swift */; };
 		4E7990DE2A664603002027D1 /* LoveLogService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990DD2A664603002027D1 /* LoveLogService.swift */; };
 		4E7990E02A66460D002027D1 /* TopicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990DF2A66460D002027D1 /* TopicViewModel.swift */; };
 		4E7990E22A664617002027D1 /* QuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990E12A664617002027D1 /* QuestionViewModel.swift */; };
@@ -135,9 +135,9 @@
 		4E7990CD2A664593002027D1 /* QuestionCoreDataAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCoreDataAdapter.swift; sourceTree = "<group>"; };
 		4E7990D02A6645A6002027D1 /* QuestionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionService.swift; sourceTree = "<group>"; };
 		4E7990D22A6645C3002027D1 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
-		4E7990D52A6645D6002027D1 /* LoveLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLog.swift; sourceTree = "<group>"; };
+		4E7990D52A6645D6002027D1 /* LoveLogEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLogEntity.swift; sourceTree = "<group>"; };
 		4E7990D82A6645E6002027D1 /* LoveLogRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLogRepository.swift; sourceTree = "<group>"; };
-		4E7990DA2A6645F1002027D1 /* LoveLogRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLogRepositoryImpl.swift; sourceTree = "<group>"; };
+		4E7990DA2A6645F1002027D1 /* LoveLogCoreDataAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLogCoreDataAdapter.swift; sourceTree = "<group>"; };
 		4E7990DD2A664603002027D1 /* LoveLogService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLogService.swift; sourceTree = "<group>"; };
 		4E7990DF2A66460D002027D1 /* TopicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicViewModel.swift; sourceTree = "<group>"; };
 		4E7990E12A664617002027D1 /* QuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewModel.swift; sourceTree = "<group>"; };
@@ -368,7 +368,7 @@
 		4E7990D42A6645CB002027D1 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				4E7990D52A6645D6002027D1 /* LoveLog.swift */,
+				4E7990D52A6645D6002027D1 /* LoveLogEntity.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -377,7 +377,7 @@
 			isa = PBXGroup;
 			children = (
 				4E7990D82A6645E6002027D1 /* LoveLogRepository.swift */,
-				4E7990DA2A6645F1002027D1 /* LoveLogRepositoryImpl.swift */,
+				4E7990DA2A6645F1002027D1 /* LoveLogCoreDataAdapter.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -862,8 +862,8 @@
 				4E7990C62A6644C2002027D1 /* TopicService.swift in Sources */,
 				C9073CA92A6FBF2F004A9B1E /* TopicCoreDataAdapter.swift in Sources */,
 				F53960E72A6D1214005211F4 /* TopicListView.swift in Sources */,
-				4E7990D62A6645D6002027D1 /* LoveLog.swift in Sources */,
-				4E7990DB2A6645F1002027D1 /* LoveLogRepositoryImpl.swift in Sources */,
+				4E7990D62A6645D6002027D1 /* LoveLogEntity.swift in Sources */,
+				4E7990DB2A6645F1002027D1 /* LoveLogCoreDataAdapter.swift in Sources */,
 				9BAAA29E2A6E196000671179 /* PhoneModel.swift in Sources */,
 				C9EE06722A6B83A500AD061B /* Topic+CoreDataProperties.swift in Sources */,
 				4E7990DE2A664603002027D1 /* LoveLogService.swift in Sources */,
