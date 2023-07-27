@@ -20,4 +20,5 @@ struct QuestionEntity: Identifiable {
     var answer: AnswerEntity?
     var subQuestions: [SubQuestionEntity]?
     var topicId: UUID?
+    var topicLevel: Int?
 }

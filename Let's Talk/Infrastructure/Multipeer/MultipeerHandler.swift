@@ -13,6 +13,12 @@ enum CoupleRole: String, CaseIterable {
     case receiver = "receiver"
 }
 
+enum RecordingStatus: String {
+    case idle = "idle"
+    case start = "start"
+    case stop = "stop"
+}
+
 protocol MultipeerHandlerDelegate: AnyObject {
     func assignPlayer(peerID: MCPeerID)
     func removePlayer(peerID: MCPeerID)
@@ -32,10 +38,11 @@ class MultipeerHandler: NSObject, ObservableObject {
     @Published var state: MCSessionState = .notConnected
     
     // MARK - User & Couple Status
-    @Published var isReady: Bool = false
-    @Published var coupleReadyAt: String = ""
+    @Published var isReady = false
+    @Published var coupleReadyAt = ""
     @Published var coupleRole: CoupleRole?
     @Published var coupleName: String?
+    @Published var coupleRecordStatus: RecordingStatus = .idle
     @Published var username: String?
     
     // MARK - Warm Up Answer
@@ -307,6 +314,25 @@ extension MultipeerHandler: MCSessionDelegate {
                 if let receivedValue = customData.data {
                     DispatchQueue.main.async {
                         self.coupleWarmUpAnswer = String(data: receivedValue, encoding: .utf8)!
+                    }
+                }
+            case .startRecording:
+                DispatchQueue.main.async {
+                    self.coupleRecordStatus = .start
+                }
+            case .stopRecording:
+                DispatchQueue.main.async {
+                    self.coupleRecordStatus = .stop
+                }
+            case .switchRole:
+                DispatchQueue.main.async {
+                    switch(self.coupleRole) {
+                    case .receiver:
+                        self.coupleRole = .sender
+                    case .sender:
+                        self.coupleRole = .receiver
+                    default:
+                        print("Not found")
                     }
                 }
             }

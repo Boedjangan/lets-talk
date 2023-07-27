@@ -9,27 +9,14 @@ import SwiftUI
 
 struct WarmUpScreen: View {
     @EnvironmentObject var userVM: UserViewModel
+    @EnvironmentObject var questionVM: QuestionViewModel
     @EnvironmentObject var navigation: DashboardNavigationManager
     @EnvironmentObject var multipeerHandler: MultipeerHandler
-    
-    @ObservedObject var questionVM: QuestionViewModel
     
     @State var timeRemaining: Double = 10
     @State var timer: Timer?
     
     @State var isReady = false
-    
-    let question: QuestionEntity?
-    
-    init(topicId: UUID, questionVM: QuestionViewModel) {
-        self.questionVM = questionVM
-        
-        if let incompleteQuestion = questionVM.getQuestionByTopicId(topicId: topicId) {
-            self.question = incompleteQuestion
-        } else {
-            self.question = nil
-        }
-    }
     
     var body: some View {
         LayoutView {
@@ -71,7 +58,7 @@ struct WarmUpScreen: View {
                     .padding(.vertical, 20)
                 
                 WarmUpCardView {
-                    Text(question?.warmUp.replacingOccurrences(of: "user", with: getName()) ?? "")
+                    Text(questionVM.currentQuestion?.warmUp.replacingOccurrences(of: "user", with: getName()) ?? "")
                         .font(.paragraph)
                 }
                 
@@ -158,7 +145,8 @@ struct WarmUpScreen_Previews: PreviewProvider {
         StatefulObjectPreviewView(QuestionViewModel()) { question in
             StatefulObjectPreviewView(DashboardNavigationManager()) { nav in
                 StatefulObjectPreviewView(MultipeerHandler()) { multi in
-                    WarmUpScreen(topicId: UUID(), questionVM: question)
+                    WarmUpScreen()
+                        .environmentObject(question)
                         .environmentObject(nav)
                         .environmentObject(multi)
                 }

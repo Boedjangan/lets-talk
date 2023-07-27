@@ -34,10 +34,10 @@ struct TabBarView: View {
                         switch(routes) {
                         case .dashboard:
                             DashboardScreen()
-                        case let .warmup(topicId):
-                            WarmUpScreen(topicId: topicId, questionVM: questionVM)
+                        case .warmup:
+                            WarmUpScreen()
                         case .warmup_result:
-                            WarmUpCorrectScreen(userVM: userVM, questionVM: questionVM, multipeerHandler: multipeerHandler)
+                            WarmUpCorrectScreen(userVM: userVM)
                         case .question_sender:
                             SenderQuestionScreen()
                         case .question_receiver:

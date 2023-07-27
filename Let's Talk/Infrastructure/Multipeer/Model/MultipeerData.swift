@@ -12,6 +12,9 @@ enum MultipeerDataType: Codable {
     case role
     case isReadyAt
     case warmUpAnswer
+    case startRecording
+    case stopRecording
+    case switchRole
 }
 
 class MultipeerData: Codable {
