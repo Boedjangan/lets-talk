@@ -15,7 +15,7 @@ class QuestionViewModel: ObservableObject {
     @Published var questions: [QuestionEntity] = []
     @Published var currentQuestion: QuestionEntity?
     
-    // MARK - User & Couple
+    // MARK: - User & Couple
     @Published var talkDuration: Int = 0
     @Published var coupleTalkDuration: Int = 0
     @Published var isRecordingAudio = false
@@ -23,13 +23,13 @@ class QuestionViewModel: ObservableObject {
     @Published var hasSwitchedRole = false
     @Published var isImageSaved: Bool = false
     
-    // MARK - Playback State
+    // MARK: - Playback State
     @Published var isPlayingAudio = false
     
-    // MARK - Warm Up
+    // MARK: - Warm Up
     @Published var myWarmUpAnswer = ""
     
-    // MARK - Image
+    // MARK: - Image
     @Published var viewfinderImage: Image?
     @Published var thumbnailImage: Image?
     
@@ -58,7 +58,7 @@ class QuestionViewModel: ObservableObject {
         fetchQuestions()
     }
     
-    // MARK - Question Service
+    // MARK: - Question Service
     private func fetchQuestions() {
         questions = questionService.getAllQuestions()
     }
@@ -101,6 +101,24 @@ class QuestionViewModel: ObservableObject {
         questionService.updateQuestionTalkDuration(questionID: questionId, newDuration: newDuration)
     }
     
+    func updateQuestionAnswer(questionId: UUID, newAnswer: AnswerEntity) {
+        let newQuestions = questions.map {
+            if $0.id == questionId {
+                var newQ = $0
+                
+                newQ.answer = newAnswer
+                newQ.updatedAt = Date()
+                
+                return newQ
+            }
+            
+            return $0
+        }
+        
+        questions = newQuestions
+        questionService.updateAnswer(questionId: questionId, newAnswer: newAnswer)
+    }
+    
     // TODO: Handle error handling on nil return
     func updateQuestionCompleteStatus(questionId: UUID, newStatus: Bool) {
         let newQuestions = questions.map {
@@ -139,7 +157,7 @@ class QuestionViewModel: ObservableObject {
         questionService.updateQuestionImage(questionID: questionId, newImage: newImage)
     }
     
-    // MARK - Audio Recording
+    // MARK: - Audio Recording
     func startRecording(key: String) {
         isRecordingAudio = true
         audioManager.startRecording(key: "\(key).m4a")
@@ -152,7 +170,7 @@ class QuestionViewModel: ObservableObject {
         isRecordingAudio = false
     }
     
-    // MARK - Audio Playback
+    // MARK: - Audio Playback
     func startPlayback(key: String) {
         isPlayingAudio = true
         audioManager.startPlayback(key: "\(key)")
@@ -170,7 +188,7 @@ class QuestionViewModel: ObservableObject {
         isPlayingAudio = false
     }
     
-    // MARK - Timer Logic Sender
+    // MARK: - Timer Logic Sender
     func incrementTalkDuration() {
         self.talkDuration += 1
     }
@@ -196,7 +214,7 @@ class QuestionViewModel: ObservableObject {
         timer = nil
     }
     
-    // MARK - Timer Logic Receiver
+    // MARK: - Timer Logic Receiver
     func incrementCoupleTalkDuration() {
         self.coupleTalkDuration += 1
     }
@@ -222,7 +240,7 @@ class QuestionViewModel: ObservableObject {
         timer = nil
     }
     
-    // MARK - Camera Logic
+    // MARK: - Camera Logic
     func handleCameraPreviews() async {
         let imageStream = camera.previewStream
             .map { $0.image }
@@ -262,6 +280,9 @@ class QuestionViewModel: ObservableObject {
     func displaySavedImage(for filename: String) -> UIImage? {
         let filename = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(filename)
         
+        print("ACCESSING FILE >>>> ", filename)
+        
+        // TODO: figure out best way to call
         if let imageData = try? Data(contentsOf: filename), let uiImage = UIImage(data: imageData) {
             return uiImage
         } else {

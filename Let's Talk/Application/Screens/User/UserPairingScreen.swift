@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-// TODO: multipeer dipindahin ke root
-// TODO: pindah screen pairing success 
 struct UserPairingScreen: View {
     @AppStorage("onboarding") var onboarding: String = OnboardingRoutes.welcome.rawValue
     
