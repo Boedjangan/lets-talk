@@ -56,18 +56,17 @@ struct AddQuestionMediaScreen: View {
                             // MARK - Sending Photo
                             guard let filenamePhoto = getKeyString() else { return }
                             
-                            let url = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(filenamePhoto)
-                            guard let progressPhoto = multipeerHandler.sendFile(url: url, fileName: filenamePhoto) else { return }
+                            let urlPhoto = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(filenamePhoto)
                             
                             photoSendingStatus = .sending
-                            
-                            progressPhoto.observe(\.fractionCompleted) { progress, _ in
-                                print("Photo sending progress: \(progress.fractionCompleted)")
+                            multipeerHandler.sendFile(url: urlPhoto, fileName: filenamePhoto) {
+                                print("Success sending photo")
                                 
-                                // Check if the file sending is complete (100% progress)
-                                if progress.fractionCompleted == 1.0 {
-                                    photoSendingStatus = .finished // Update the @State variable when the file sending is complete
-                                }
+                                photoSendingStatus = .finished
+                            } onFailed: { error in
+                                print("Failed sending photo: \(error)")
+                                
+                                photoSendingStatus = .failed
                             }
                             
                             // MARK - Sending Audio
@@ -75,19 +74,15 @@ struct AddQuestionMediaScreen: View {
                             
                             let urlAudio = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(filenameAudio)
                             
-                            guard let progressAudio = multipeerHandler.sendFile(url: urlAudio, fileName: filenameAudio) else { return }
-                            
                             audioSendingStatus = .sending
-                            
-                            progressAudio.observe(\.fractionCompleted) { progress, _ in
-                                print("Audio sending progress: \(progress.fractionCompleted)")
+                            multipeerHandler.sendFile(url: urlAudio, fileName: filenameAudio) {
+                                print("Success sending audio")
+                                audioSendingStatus = .finished
+                            } onFailed: { error in
+                                print("Failed sending audio: \(error)")
                                 
-                                // Check if the file sending is complete (100% progress)
-                                if progress.fractionCompleted == 1.0 {
-                                    audioSendingStatus = .finished // Update the @State variable when the file sending is complete
-                                }
+                                audioSendingStatus = .failed
                             }
-                           
                         } label: {
                             Text("Lanjut")
                         }
@@ -99,6 +94,8 @@ struct AddQuestionMediaScreen: View {
                 savedImage = questionVM.displaySavedImage(for: getKeyString() ?? "gambar")
             }
             .onChange(of: isFinishedSending) { isFinished in
+                print("\(isFinished)", "<<<<< SENDING STATUS")
+                
                 if isFinished {
                     navigation.push(to: .overview)
                 }

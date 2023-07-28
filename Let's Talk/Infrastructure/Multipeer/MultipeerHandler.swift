@@ -27,7 +27,6 @@ protocol MultipeerHandlerDelegate: AnyObject {
     func didReceive(data: Data, from peerID: MCPeerID)
 }
 
-// TODO: sending data belum
 class MultipeerHandler: NSObject, ObservableObject {
     weak var delegate: MultipeerHandlerDelegate?
     private static let serviceType = "Lets-Talk"
@@ -37,7 +36,7 @@ class MultipeerHandler: NSObject, ObservableObject {
     @Published var coupleID: String?
     @Published var state: MCSessionState = .notConnected
     
-    // MARK - User & Couple Status
+    // MARK: - User & Couple Status
     @Published var isReady = false
     @Published var coupleReadyAt = ""
     @Published var coupleRole: CoupleRole?
@@ -45,7 +44,11 @@ class MultipeerHandler: NSObject, ObservableObject {
     @Published var coupleRecordStatus: RecordingStatus = .idle
     @Published var username: String?
     
-    // MARK - Warm Up Answer
+    // MARK: - Received File
+    @Published var receivedPhotoName: String?
+    @Published var receivedAudioName: String?
+    
+    // MARK: - Warm Up Answer
     @Published var coupleWarmUpAnswer = ""
     
     // MARK: - Timer properties
@@ -59,19 +62,17 @@ class MultipeerHandler: NSObject, ObservableObject {
     var browser: MCNearbyServiceBrowser
     var advertiser: MCNearbyServiceAdvertiser
     
-    //    private let pictReceivedHandler: PictReceivedHandler?
     
     override init() {
         session = MCSession(peer: myPeerId, securityIdentity: nil, encryptionPreference: .none)
         browser = MCNearbyServiceBrowser(peer: myPeerId, serviceType: MultipeerHandler.serviceType)
         advertiser = MCNearbyServiceAdvertiser(peer: myPeerId, discoveryInfo: ["coupleName" : "codeID"], serviceType: MultipeerHandler.serviceType)
-        //        self.pictReceivedHandler = pictReceivedHandler
+        
         super.init()
         
         session.delegate = self
         browser.delegate = self
         advertiser.delegate = self
-        
     }
     
     func startBrowsing() {
@@ -119,17 +120,34 @@ class MultipeerHandler: NSObject, ObservableObject {
            }
    }
     
-    func sendFile(url: URL, fileName: String) -> Progress? {
+    func sendFile(url: URL, fileName: String, onSuccess: @escaping () -> Void, onFailed: @escaping (_ error: Error) -> Void) {
         let progress = session.sendResource(at: url, withName: fileName, toPeer: session.connectedPeers.first!) { error in
             if let error = error {
                 print("Error sending file: \(error.localizedDescription)")
+                onFailed(error)
             } else {
                 print("File sent successfully.")
+                onSuccess()
             }
         }
+    }
+    
+    private func saveReceivedFile(at sourceURL: URL, withName fileName: String) {
+        let fileManager = FileManager.default
         
-        
-        return progress
+        do {
+            let documentsURL = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+            let destinationURL = documentsURL.appendingPathComponent(fileName)
+
+            // Move or copy the file to the app's document directory
+            try fileManager.moveItem(at: sourceURL, to: destinationURL)
+
+            // You can perform any additional actions with the saved file here
+            print("File saved successfully at: \(destinationURL)")
+        } catch {
+            // Handle error in saving the file (if needed)
+            print("Error saving received file: \(error.localizedDescription)")
+        }
     }
     
     func updateDiscoveryInfo() {
@@ -179,7 +197,7 @@ extension MultipeerHandler: MCNearbyServiceAdvertiserDelegate {
                 alertController.addAction(UIAlertAction(title: "Yes", style: .default) { _ in
                     self.coupleID = peerID.displayName
                     
-                    var couple = try? JSONDecoder().decode(coupleModel.self, from: context!)
+                    let couple = try? JSONDecoder().decode(coupleModel.self, from: context!)
                     
                     print("\(couple?.username ?? "kosong"),<<<data")
                     self.coupleName = couple?.username ?? ""
@@ -199,7 +217,7 @@ extension MultipeerHandler: MCNearbyServiceAdvertiserDelegate {
 extension MultipeerHandler: MCNearbyServiceBrowserDelegate {
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String: String]?) {
         // disini ngecek ke core data kalau peeridnya sama atau engga dengan couple
-        print("\(self.coupleID) ini couple")
+        print("\(self.coupleID!) ini couple")
         if !persons.contains(peerID) {
             if let info = info {
                 print(info["coupleName"] ?? "No Name")
@@ -278,7 +296,7 @@ extension MultipeerHandler: MCSessionDelegate {
             print("\(peerID) state: connected")
             
             do {
-                var dataToSend = MultipeerData(dataType: .username, data: self.username?.data(using: .utf8) ?? "Kosong".data(using: .utf8))
+                let dataToSend = MultipeerData(dataType: .username, data: self.username?.data(using: .utf8) ?? "Kosong".data(using: .utf8))
                 let encodedData = try JSONEncoder().encode(dataToSend)
                 
                 try self.session.send(encodedData, toPeers: [peerID], with: .reliable)
@@ -361,10 +379,28 @@ extension MultipeerHandler: MCSessionDelegate {
         
     }
     
-    
     func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL?, withError error: Error?) {
-        if let localURL = localURL{
-            print(localURL, "<<<<local")
+        if let localURL = localURL {
+            print("RECEIVING FILE >>> ", resourceName)
+            print("RECEIVING FILE URL >>> ", localURL)
+            
+            let isAudioFile = resourceName.contains(".m4a")
+            
+            if isAudioFile {
+                DispatchQueue.main.async {
+                    self.receivedAudioName = resourceName
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.receivedPhotoName = resourceName
+                }
+            }
+            
+            saveReceivedFile(at: localURL, withName: resourceName)
+        }
+        
+        if let error = error {
+            print("Error receiving file: \(error.localizedDescription)")
         }
     }
 }

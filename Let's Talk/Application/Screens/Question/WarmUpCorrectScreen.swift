@@ -43,7 +43,7 @@ struct WarmUpCorrectScreen: View {
                     .font(.paragraph)
             }
             
-            WarmUpUserAnswerView(username: userVM.user.username ?? "", answer: questionVM.myWarmUpAnswer, answerState: userState, gender: gender)
+            WarmUpUserAnswerView(username: userVM.user.username, answer: questionVM.myWarmUpAnswer, answerState: userState, gender: gender)
             
             WarmUpUserAnswerView(username: userVM.user.coupleName ?? "", answer: multipeerHandler.coupleWarmUpAnswer, answerState: coupleState, inverted: true, gender: gender == "Male" ? "Female" : "Male")
             
