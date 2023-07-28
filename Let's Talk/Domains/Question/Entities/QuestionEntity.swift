@@ -9,11 +9,11 @@ import Foundation
 
 struct QuestionEntity: Identifiable {
     var id: UUID = UUID()
-    var question: String
-    var warmUp: String
+    var question: String = ""
+    var warmUp: String = ""
     var isCompleted: Bool = false
     var image: String?
-    var order: Int
+    var order: Int = 0
     var talkDuration: Int = 0
     var createdAt: Date = Date()
     var updatedAt: Date = Date()

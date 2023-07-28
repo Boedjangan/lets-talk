@@ -38,6 +38,13 @@ class QuestionViewModel: ObservableObject {
     private var timer: Timer?
     private var questionService = QuestionService(questionRepository: QuestionCoreDataAdapter())
     private var audioManager = AudioManager.shared
+//    @Published var audioDuration: Double {
+//        return audioManager.audioPlayer?.duration ?? 0
+//    }
+//    var currentTime: Double {
+//        get { return audioManager.audioPlayer?.currentTime ?? 0 }
+//        set { audioManager.audioPlayer?.currentTime = newValue }
+//    }
     
     init() {
         audioManager.didFinishPlaying = {
@@ -47,10 +54,6 @@ class QuestionViewModel: ObservableObject {
         Task {
             await handleCameraPreviews()
         }
-        
-//        Task {
-//            await handleCameraPhotos()
-//        }
         
         fetchQuestions()
     }
@@ -152,9 +155,16 @@ class QuestionViewModel: ObservableObject {
     // MARK - Audio Playback
     func startPlayback(key: String) {
         isPlayingAudio = true
-        audioManager.startPlayback(key: "\(key).m4a")
+        audioManager.startPlayback(key: "\(key)")
     }
     
+    func forwardPlayback(seconds: Double) {
+        audioManager.forwardPlayback(seconds: seconds)
+    }
+    
+    func backwardPlayback(seconds: Double) {
+        audioManager.backwardPlayback(seconds: seconds)
+    }
     func stopPlayback() {
         audioManager.stopPlayback()
         isPlayingAudio = false
