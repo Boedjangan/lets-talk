@@ -27,6 +27,8 @@ class QuestionViewModel: ObservableObject {
     
     // MARK - Warm Up
     @Published var myWarmUpAnswer = ""
+    
+    // MARK - Image
     @Published var viewfinderImage: Image?
     @Published var thumbnailImage: Image?
     
@@ -247,8 +249,8 @@ class QuestionViewModel: ObservableObject {
         }
     }
     
-    func displaySavedImage(for questionId: String) -> UIImage? {
-        let filename = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(questionId)
+    func displaySavedImage(for filename: String) -> UIImage? {
+        let filename = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(filename)
         
         if let imageData = try? Data(contentsOf: filename), let uiImage = UIImage(data: imageData) {
             return uiImage
@@ -275,7 +277,6 @@ class QuestionViewModel: ObservableObject {
         
         return PhotoData(thumbnailImage: thumbnailImage, thumbnailSize: thumbnailSize, imageData: imageData, imageSize: imageSize)
     }
-
 }
 
 

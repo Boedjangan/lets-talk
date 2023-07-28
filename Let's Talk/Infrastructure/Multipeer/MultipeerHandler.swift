@@ -113,20 +113,21 @@ class MultipeerHandler: NSObject, ObservableObject {
     // Ini untuk send data ke peer
     func sendData(_ data: Data) {
            do {
-               try session.send(data, toPeers: session.connectedPeers, with: .reliable)
+               try session.send(data, toPeers: [session.connectedPeers.first!], with: .reliable)
            } catch {
                print("Error sending data: \(error.localizedDescription)")
            }
    }
     
-    func sendPhoto(url:URL, to peer:MCPeerID, fileName:String) -> Progress? {
-       let progress = session.sendResource(at: url, withName: fileName, toPeer: peer) { error in
+    func sendFile(url: URL, fileName: String) -> Progress? {
+        let progress = session.sendResource(at: url, withName: fileName, toPeer: session.connectedPeers.first!) { error in
             if let error = error {
                 print("Error sending file: \(error.localizedDescription)")
             } else {
                 print("File sent successfully.")
             }
         }
+        
         
         return progress
     }
@@ -363,7 +364,7 @@ extension MultipeerHandler: MCSessionDelegate {
     
     func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL?, withError error: Error?) {
         if let localURL = localURL{
-            print(localURL,"<<<<local")
+            print(localURL, "<<<<local")
         }
     }
 }

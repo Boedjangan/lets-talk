@@ -13,13 +13,14 @@ struct TalkTimeView: View {
     let captionCard2: String = "menit yang telah kalian habiskan bersama"
     
     var body: some View {
-        HStack (alignment:.center){
+        HStack (alignment:.center) {
             Text("\(talkTime)")
                 .font(.bigNumber)
                 .padding(.horizontal)
                 .lineLimit(1)
                 .minimumScaleFactor(0.05)
-            VStack(alignment: .leading){
+            
+            VStack(alignment: .leading) {
                 switch(talkTime){
                 case 1...45:
                     renderLove(total: 1)
@@ -30,6 +31,7 @@ struct TalkTimeView: View {
                 default:
                     renderLove(total: 0)
                 }
+                
                 Text(talkTime > 0 ? captionCard2 : captionCard)
                     .font(.paragraph)
             }
