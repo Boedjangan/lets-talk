@@ -35,19 +35,33 @@ struct QuestionSessionOverviewScreen: View {
                 
                 TopicAdvancementDetailsView(talkDuration: questionVM.talkDuration, coupleTalkDuration: questionVM.coupleTalkDuration)
                 
+                //TODO: still lag behind when displaying image, maybe wait until finished loading and saving
                 ImagePreview(image: questionVM.displaySavedImage(for: getKeyString() ?? "gambar"))
                 
                 Spacer()
                 
+                //TODO: handle creating lovelog if there is none for today date or add to today lovelog if there is any
                 ButtonView {
+                    
                     navigation.push(to: .dashboard)
                 } label: {
                     Text("Kembali ke Dashboard")
                 }
                 .buttonStyle(.fill(.primary))
             }
-            
         }
+        .onChange(of: multipeerHandler.receivedPhotoName, perform: { filename in
+            guard let filename = filename, let currentQuestion = questionVM.currentQuestion else { return }
+            
+            questionVM.updateQuestionImage(questionId: currentQuestion.id, newImage: filename)
+        })
+        .onChange(of: multipeerHandler.receivedAudioName, perform: { filename in
+            guard let filename = filename, let currentQuestion = questionVM.currentQuestion, let coupleName = multipeerHandler.coupleName else { return }
+            
+            let newAnswer = AnswerEntity(name: coupleName, recordedAnswer: filename)
+            
+            questionVM.updateQuestionAnswer(questionId: currentQuestion.id, newAnswer: newAnswer)
+        })
         .onChange(of: multipeerHandler.coupleReadyAt, perform: {
             newValue in
             if newValue == "question_overview" {
@@ -137,7 +151,7 @@ struct TopicAdvancementDetailsView: View {
                 Text("+\(coupleTalkDuration) Menit")
                     .font(.paragraph)
                 
-                AvatarView(iconImage: userVM.user.gender == .male ? "Male" : "Female", radius: 70, imageSize: 50)
+                AvatarView(iconImage: userVM.user.gender == .male ? "Female" : "Male", radius: 70, imageSize: 50)
             }
         }
         .padding(.top)
