@@ -21,6 +21,7 @@ class QuestionViewModel: ObservableObject {
     @Published var isRecordingAudio = false
     @Published var isCoupleRecordingAudio = false
     @Published var hasSwitchedRole = false
+    @Published var isImageSaved: Bool = false
     
     // MARK - Playback State
     @Published var isPlayingAudio = false
@@ -227,11 +228,11 @@ class QuestionViewModel: ObservableObject {
         
         for await photoData in unpackedPhotoStream {
             await MainActor.run {
-                thumbnailImage = photoData.thumbnailImage
+                updateQuestionImage(questionId: questionId, newImage: imageName)
+                savePhoto(filename: imageName, imageData: photoData.imageData)
             }
             
-            updateQuestionImage(questionId: questionId, newImage: imageName)
-            savePhoto(filename: imageName, imageData: photoData.imageData)
+            isImageSaved = true
         }
     }
     
@@ -240,8 +241,7 @@ class QuestionViewModel: ObservableObject {
         
         do {
             try imageData.write(to: filename, options: [.atomicWrite, .completeFileProtection])
-            
-            logger.debug("Added image data to .")
+            logger.debug("Added image data to File Manager")
         } catch let error {
             logger.error("Failed to add image to photo collection: \(error.localizedDescription)")
         }

@@ -22,8 +22,12 @@ struct AddPhotoView: View {
             if let image = savedImage {
                 Image(uiImage: image)
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
+                    .scaledToFill()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .cornerRadius(10)
+                    .shadow(color: .gray.opacity(0.6), radius: 10)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .clipped()
             } else {
                 Image(systemName: "camera.fill")
                     .font(.headingBig)
