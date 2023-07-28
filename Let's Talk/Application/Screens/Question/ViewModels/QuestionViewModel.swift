@@ -21,12 +21,15 @@ class QuestionViewModel: ObservableObject {
     @Published var isRecordingAudio = false
     @Published var isCoupleRecordingAudio = false
     @Published var hasSwitchedRole = false
+    @Published var isImageSaved: Bool = false
     
     // MARK - Playback State
     @Published var isPlayingAudio = false
     
     // MARK - Warm Up
     @Published var myWarmUpAnswer = ""
+    
+    // MARK - Image
     @Published var viewfinderImage: Image?
     @Published var thumbnailImage: Image?
     
@@ -221,31 +224,33 @@ class QuestionViewModel: ObservableObject {
         }
     }
     
-    func handleCameraPhotos(questionId: UUID) async {
+    func handleCameraPhotos(questionId: UUID, imageName: String = "image") async {
         let unpackedPhotoStream = camera.photoStream
             .compactMap { await self.unpackPhoto($0) }
         
         for await photoData in unpackedPhotoStream {
             await MainActor.run {
-                thumbnailImage = photoData.thumbnailImage
+                updateQuestionImage(questionId: questionId, newImage: imageName)
+                savePhoto(filename: imageName, imageData: photoData.imageData)
             }
-            updateQuestionImage(questionId: questionId, newImage: questionId.uuidString)
-            savePhoto(filename: questionId.uuidString, imageData: photoData.imageData)
+            
+            isImageSaved = true
         }
     }
     
     func savePhoto(filename: String, imageData: Data) {
         let filename = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(filename)
+        
         do {
             try imageData.write(to: filename, options: [.atomicWrite, .completeFileProtection])
-            logger.debug("Added image data to .")
+            logger.debug("Added image data to File Manager")
         } catch let error {
             logger.error("Failed to add image to photo collection: \(error.localizedDescription)")
         }
     }
     
-    func displaySavedImage(for questionId: String) -> UIImage? {
-        let filename = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(questionId)
+    func displaySavedImage(for filename: String) -> UIImage? {
+        let filename = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(filename)
         
         if let imageData = try? Data(contentsOf: filename), let uiImage = UIImage(data: imageData) {
             return uiImage
@@ -261,6 +266,7 @@ class QuestionViewModel: ObservableObject {
         guard let previewCGImage = photo.previewCGImageRepresentation(),
               let metadataOrientation = photo.metadata[String(kCGImagePropertyOrientation)] as? UInt32,
               let cgImageOrientation = CGImagePropertyOrientation(rawValue: metadataOrientation) else { return nil }
+        
         let imageOrientation = Image.Orientation(cgImageOrientation)
         let thumbnailImage = Image(decorative: previewCGImage, scale: 1, orientation: imageOrientation)
         
@@ -271,7 +277,6 @@ class QuestionViewModel: ObservableObject {
         
         return PhotoData(thumbnailImage: thumbnailImage, thumbnailSize: thumbnailSize, imageData: imageData, imageSize: imageSize)
     }
-
 }
 
 
