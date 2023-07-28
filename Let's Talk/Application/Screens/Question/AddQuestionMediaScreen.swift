@@ -32,7 +32,7 @@ struct AddQuestionMediaScreen: View {
     }
     
     var isFinishedSending: Bool {
-        photoSendingStatus == .finished || audioSendingStatus == .finished
+        photoSendingStatus == .finished && audioSendingStatus == .finished
     }
     
     var body: some View {
@@ -50,7 +50,9 @@ struct AddQuestionMediaScreen: View {
                     }
                     
                     VStack(spacing: 63) {
-                        AddPhotoView(questionVM: questionVM, savedImage: $savedImage, questionId: questionVM.currentQuestion!.id, imageName: getKeyString() ?? "gambar")
+                        if  let currectQuestion = questionVM.currentQuestion {
+                            AddPhotoView(questionVM: questionVM, savedImage: $savedImage, questionId: currectQuestion.id, imageName: getKeyString() ?? "gambar")
+                        }
                         
                         ButtonView {
                             // MARK - Sending Photo

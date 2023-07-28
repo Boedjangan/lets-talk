@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 class TopicViewModel: ObservableObject {
     @Published var topics: [TopicEntity] = []
     
@@ -56,6 +57,31 @@ class TopicViewModel: ObservableObject {
         
         if let index = topics.firstIndex(where: { $0.id == id }) {
             topics[index] = updatedTopic
+        }
+    }
+    
+    func updateTopicMeta(id: UUID, questionOrder: Int) {
+        if let topic = topics.first(where: { $0.id == id }) {
+            guard let topicQuestions = topic.questions else { return }
+            
+            let questionsCount = topicQuestions.count
+            
+            // MARK: Update the progress of how many question has been completed
+            let newProgress = questionOrder
+            topicService.updateTopicProgress(id: id, newProgress: newProgress)
+            topics[topic.level - 1].progress = newProgress
+            
+            // MARK: When topic is finished all question
+            if questionsCount == newProgress {
+                topicService.updateCompletedStatus(id: id, completedStatus: true)
+                topics[topic.level - 1].isCompleted = true
+                
+                // MARK: Update next topic status if exist
+                if let nextTopic = topics.first(where: { $0.level == topic.level + 1}) {
+                    topicService.updateActiveStatus(id: nextTopic.id, activeStatus: true)
+                    topics[topic.level].isActive = true
+                }
+            }
         }
     }
 }
