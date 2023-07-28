@@ -13,14 +13,23 @@ import os.log
 @MainActor
 class QuestionViewModel: ObservableObject {
     @Published var questions: [QuestionEntity] = []
+    @Published var currentQuestion: QuestionEntity?
     
-    // MARK - Sending Answer
+    // MARK: - User & Couple
     @Published var talkDuration: Int = 0
+    @Published var coupleTalkDuration: Int = 0
     @Published var isRecordingAudio = false
+    @Published var isCoupleRecordingAudio = false
+    @Published var hasSwitchedRole = false
+    @Published var isImageSaved: Bool = false
+    
+    // MARK: - Playback State
     @Published var isPlayingAudio = false
     
-    // MARK - Warm Up
+    // MARK: - Warm Up
     @Published var myWarmUpAnswer = ""
+    
+    // MARK: - Image
     @Published var viewfinderImage: Image?
     @Published var thumbnailImage: Image?
     
@@ -39,16 +48,18 @@ class QuestionViewModel: ObservableObject {
             await handleCameraPreviews()
         }
         
-//        Task {
-//            await handleCameraPhotos()
-//        }
-        
         fetchQuestions()
     }
     
-    // MARK - Question Service
+    // MARK: - Question Service
     private func fetchQuestions() {
         questions = questionService.getAllQuestions()
+    }
+    
+    func getQuestionById(id: UUID) -> QuestionEntity? {
+        let incompleteQuestion = questions.first { $0.id == id }
+        
+        return incompleteQuestion
     }
     
     func getQuestionByTopicId(topicId: UUID) -> QuestionEntity? {
@@ -81,6 +92,24 @@ class QuestionViewModel: ObservableObject {
         
         questions = newQuestions
         questionService.updateQuestionTalkDuration(questionID: questionId, newDuration: newDuration)
+    }
+    
+    func updateQuestionAnswer(questionId: UUID, newAnswer: AnswerEntity) {
+        let newQuestions = questions.map {
+            if $0.id == questionId {
+                var newQ = $0
+                
+                newQ.answer = newAnswer
+                newQ.updatedAt = Date()
+                
+                return newQ
+            }
+            
+            return $0
+        }
+        
+        questions = newQuestions
+        questionService.updateAnswer(questionId: questionId, newAnswer: newAnswer)
     }
     
     // TODO: Handle error handling on nil return
@@ -121,20 +150,20 @@ class QuestionViewModel: ObservableObject {
         questionService.updateQuestionImage(questionID: questionId, newImage: newImage)
     }
     
-    // MARK - Audio Recording
+    // MARK: - Audio Recording
     func startRecording(key: String) {
         isRecordingAudio = true
         audioManager.startRecording(key: "\(key).m4a")
-        startTimer()
+        startTimerSender()
     }
     
     func stopRecording() {
-        stopTimer()
+        stopTimerSender()
         audioManager.stopRecording()
         isRecordingAudio = false
     }
     
-    // MARK - Audio Playback
+    // MARK: - Audio Playback
     func startPlayback(key: String) {
         isPlayingAudio = true
         audioManager.startPlayback(key: "\(key).m4a")
@@ -145,23 +174,59 @@ class QuestionViewModel: ObservableObject {
         isPlayingAudio = false
     }
     
-    // MARK - Timer Logic
-    func startTimer() {
+    // MARK: - Timer Logic Sender
+    func incrementTalkDuration() {
+        self.talkDuration += 1
+    }
+    
+    func startTimerSender() {
         guard timer == nil else { return }
         
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { _ in
-            // TODO: learn about concurrency to set this safely
-            self.talkDuration += 1
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] timer in
+            guard let self = self else {
+                timer.invalidate()
+                
+                return
+            }
+            
+            Task {
+                await self.incrementTalkDuration()
+            }
         })
     }
     
-    func stopTimer() {
+    func stopTimerSender() {
         timer?.invalidate()
         timer = nil
-        talkDuration = 0
     }
     
-    // MARK - Camera Logic
+    // MARK: - Timer Logic Receiver
+    func incrementCoupleTalkDuration() {
+        self.coupleTalkDuration += 1
+    }
+    
+    func startTimerReceiver() {
+        guard timer == nil else { return }
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { [weak self] timer in
+            guard let self = self else {
+                timer.invalidate()
+                
+                return
+            }
+            
+            Task {
+                await self.incrementCoupleTalkDuration()
+            }
+        })
+    }
+    
+    func stopTimerReceiver() {
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    // MARK: - Camera Logic
     func handleCameraPreviews() async {
         let imageStream = camera.previewStream
             .map { $0.image }
@@ -173,32 +238,37 @@ class QuestionViewModel: ObservableObject {
         }
     }
     
-    func handleCameraPhotos(questionId: UUID) async {
+    func handleCameraPhotos(questionId: UUID, imageName: String = "image") async {
         let unpackedPhotoStream = camera.photoStream
             .compactMap { await self.unpackPhoto($0) }
         
         for await photoData in unpackedPhotoStream {
             await MainActor.run {
-                thumbnailImage = photoData.thumbnailImage
+                updateQuestionImage(questionId: questionId, newImage: imageName)
+                savePhoto(filename: imageName, imageData: photoData.imageData)
             }
-            updateQuestionImage(questionId: questionId, newImage: questionId.uuidString)
-            savePhoto(filename: questionId.uuidString, imageData: photoData.imageData)
+            
+            isImageSaved = true
         }
     }
     
     func savePhoto(filename: String, imageData: Data) {
         let filename = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(filename)
+        
         do {
             try imageData.write(to: filename, options: [.atomicWrite, .completeFileProtection])
-            logger.debug("Added image data to .")
+            logger.debug("Added image data to File Manager")
         } catch let error {
             logger.error("Failed to add image to photo collection: \(error.localizedDescription)")
         }
     }
     
-    func displaySavedImage(for questionId: String) -> UIImage? {
-        let filename = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(questionId)
+    func displaySavedImage(for filename: String) -> UIImage? {
+        let filename = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(filename)
         
+        print("ACCESSING FILE >>>> ", filename)
+        
+        // TODO: figure out best way to call
         if let imageData = try? Data(contentsOf: filename), let uiImage = UIImage(data: imageData) {
             return uiImage
         } else {
@@ -213,6 +283,7 @@ class QuestionViewModel: ObservableObject {
         guard let previewCGImage = photo.previewCGImageRepresentation(),
               let metadataOrientation = photo.metadata[String(kCGImagePropertyOrientation)] as? UInt32,
               let cgImageOrientation = CGImagePropertyOrientation(rawValue: metadataOrientation) else { return nil }
+        
         let imageOrientation = Image.Orientation(cgImageOrientation)
         let thumbnailImage = Image(decorative: previewCGImage, scale: 1, orientation: imageOrientation)
         
@@ -223,7 +294,6 @@ class QuestionViewModel: ObservableObject {
         
         return PhotoData(thumbnailImage: thumbnailImage, thumbnailSize: thumbnailSize, imageData: imageData, imageSize: imageSize)
     }
-
 }
 
 

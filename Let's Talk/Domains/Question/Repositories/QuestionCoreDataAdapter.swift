@@ -69,7 +69,6 @@ class QuestionCoreDataAdapter: QuestionRepository {
             }
             
             return convertToQuestionEntity(question: question)
-            
         } catch {
             print("Failed updating topic progress")
             print("Error: \(error.localizedDescription)")
@@ -179,16 +178,56 @@ class QuestionCoreDataAdapter: QuestionRepository {
         }
     }
     
+    func updateAnswer(questionID: UUID, newAnswer: AnswerEntity) -> QuestionEntity? {
+        let request: NSFetchRequest<Question> = Question.fetchRequest()
+        request.predicate = NSPredicate(format: "id == %@", questionID as CVarArg)
+        
+        do {
+            let questions = try coreDataContext.fetch(request)
+            
+            guard let question = questions.first else {
+                print("No question is found with the provided ID.")
+                return nil
+            }
+            
+            let answer = Answer(context: coreDataContext)
+            answer.id = UUID()
+            answer.name = newAnswer.name
+            answer.recordedAnswer = newAnswer.recordedAnswer
+            answer.createdAt = Date()
+            answer.updatedAt = Date()
+            
+            question.answer = answer
+            
+            try coreDataContext.save()
+            
+            return convertToQuestionEntity(question: question)
+        } catch {
+            print("Failed updating topic progress")
+            print("Error: \(error.localizedDescription)")
+            
+            return nil
+        }
+    }
+    
     
     func getQuestionsByTopicId() -> [QuestionEntity] {
-//        let request: NSFetchRequest<Topic> = Topic.fetchRequest()
+        //        let request: NSFetchRequest<Topic> = Topic.fetchRequest()
         
         return []
     }
     
     
     func convertToQuestionEntity(question: Question) -> QuestionEntity {
-        let arrSubQuestions = question.subQuestionArray.map { $0.subQuestion! }
+        var subQuestionsEntity: [SubQuestionEntity]?
+        if let subQuestions = question.subQuestion as? Set<SubQuestion> {
+            subQuestionsEntity = subQuestions.map { convertToSubQuestionEntity(subQuestion: $0)}
+        }
+        
+        var answerEntity: AnswerEntity?
+        if let answer = question.answer {
+            answerEntity = AnswerEntity(name: answer.name!, recordedAnswer: answer.recordedAnswer!)
+        }
         
         return QuestionEntity(
             id: question.id.unsafelyUnwrapped,
@@ -200,9 +239,18 @@ class QuestionCoreDataAdapter: QuestionRepository {
             talkDuration: question.talkDuration.toInt,
             createdAt: question.createdAt.unsafelyUnwrapped,
             updatedAt: question.updatedAt.unsafelyUnwrapped,
-            answer: question.answer?.recordedAnswer,
-            subQuestions: arrSubQuestions,
-            topicId: question.topic?.id.unsafelyUnwrapped
+            answer: answerEntity,
+            subQuestions: subQuestionsEntity,
+            topicId: question.topic?.id.unsafelyUnwrapped,
+            topicLevel: question.topic?.level.toInt
         )
+    }
+    
+    func convertToSubQuestionEntity(subQuestion: SubQuestion) -> SubQuestionEntity {
+        return SubQuestionEntity(
+            id: subQuestion.id!,
+            subQuestion: subQuestion.subQuestion!,
+            createdAt: subQuestion.createdAt!,
+            updatedAt: subQuestion.updatedAt!)
     }
 }

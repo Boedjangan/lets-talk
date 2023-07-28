@@ -11,6 +11,7 @@ import Foundation
 @MainActor
 class UserViewModel: ObservableObject {
     @Published var user: UserEntity = UserEntity()
+    @Published var myRole: CoupleRole?
     
     private var userService = UserService(userRepository: UserCoreDataAdapter())
     

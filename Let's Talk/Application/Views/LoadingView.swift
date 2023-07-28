@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct LoadingView: View {
+    var text: String = "Menunggu pasangan..."
+    
     var body: some View {
-        Text("Menunggu pasangan...")
+        Text(text)
     }
 }
 

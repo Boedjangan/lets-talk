@@ -27,11 +27,11 @@ struct GenderSelectorView: View {
     var body: some View {
         ZStack{
             RoundedRectangle(cornerRadius: 20)
-                .fill(Color.genderSelectorWrapper)
+                .fill(Color.warmUpCardBackground)
                 .frame (width: 344, height: 150)
             
             RoundedRectangle(cornerRadius: 20)
-                .fill(Color.blue)
+                .fill(Color.white)
                 .frame (width: 172, height: 150)
                 .offset(x: rectanglePosition.x, y: rectanglePosition.y)
             
@@ -42,8 +42,8 @@ struct GenderSelectorView: View {
                         .foregroundColor(Color.white)
                         .font(.system(size: 80))
                         .padding(.bottom,10)
-                    Text("Male")
-                        .foregroundColor(genderIsMale ? Color.white: Color.black)
+                    Text("Pria")
+                        .foregroundColor(genderIsMale ? Color.black : Color.white)
                 }
                 
                 Spacer()
@@ -52,8 +52,8 @@ struct GenderSelectorView: View {
                         .foregroundColor(Color.white)
                         .font(.system(size: 80))
                         .padding(.bottom,10)
-                    Text("Female")
-                        .foregroundColor(genderIsFemale ? Color.white: Color.black)
+                    Text("Wanita")
+                        .foregroundColor(genderIsFemale ? Color.black: Color.white)
                 }
                 Spacer()
             }

@@ -15,5 +15,6 @@ protocol QuestionRepository {
     func updateQuestionCompleteStatus(questionID:UUID,newStatus: Bool) -> QuestionEntity?
     func updateQuestionTalkDuration(questionID:UUID,newDuration: Int) -> QuestionEntity?
     func updateQuestionImage(questionID:UUID,newImage: String) -> QuestionEntity?
+    func updateAnswer(questionID:UUID, newAnswer: AnswerEntity) -> QuestionEntity?
     func deleteQuestion(questionID:UUID) -> QuestionEntity?
 }

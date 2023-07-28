@@ -26,9 +26,9 @@
 		4E7990CE2A664593002027D1 /* QuestionCoreDataAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990CD2A664593002027D1 /* QuestionCoreDataAdapter.swift */; };
 		4E7990D12A6645A6002027D1 /* QuestionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990D02A6645A6002027D1 /* QuestionService.swift */; };
 		4E7990D32A6645C3002027D1 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990D22A6645C3002027D1 /* UserViewModel.swift */; };
-		4E7990D62A6645D6002027D1 /* LoveLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990D52A6645D6002027D1 /* LoveLog.swift */; };
+		4E7990D62A6645D6002027D1 /* LoveLogEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990D52A6645D6002027D1 /* LoveLogEntity.swift */; };
 		4E7990D92A6645E6002027D1 /* LoveLogRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990D82A6645E6002027D1 /* LoveLogRepository.swift */; };
-		4E7990DB2A6645F1002027D1 /* LoveLogRepositoryImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990DA2A6645F1002027D1 /* LoveLogRepositoryImpl.swift */; };
+		4E7990DB2A6645F1002027D1 /* LoveLogCoreDataAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990DA2A6645F1002027D1 /* LoveLogCoreDataAdapter.swift */; };
 		4E7990DE2A664603002027D1 /* LoveLogService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990DD2A664603002027D1 /* LoveLogService.swift */; };
 		4E7990E02A66460D002027D1 /* TopicViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990DF2A66460D002027D1 /* TopicViewModel.swift */; };
 		4E7990E22A664617002027D1 /* QuestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E7990E12A664617002027D1 /* QuestionViewModel.swift */; };
@@ -79,7 +79,6 @@
 		9BAAA2922A6D0D3000671179 /* QuestionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2912A6D0D3000671179 /* QuestionCardView.swift */; };
 		9BAAA2962A6D140300671179 /* QuestionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2952A6D140300671179 /* QuestionTextView.swift */; };
 		9BAAA2992A6E154800671179 /* MultipeerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2982A6E154800671179 /* MultipeerHandler.swift */; };
-		9BAAA29B2A6E15AB00671179 /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BAAA29A2A6E15AB00671179 /* Property List.plist */; };
 		9BAAA29E2A6E196000671179 /* PhoneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA29D2A6E196000671179 /* PhoneModel.swift */; };
 		9BCA71572A6EC64700D37E2D /* coupleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCA71562A6EC64700D37E2D /* coupleModel.swift */; };
 		C9073CA92A6FBF2F004A9B1E /* TopicCoreDataAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97231642A6EC22600FD8302 /* TopicCoreDataAdapter.swift */; };
@@ -88,6 +87,7 @@
 		C94650882A690BC600BEAC7A /* AppLogoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94650872A690BC600BEAC7A /* AppLogoView.swift */; };
 		C96355E32A6CEB2500FA260D /* WarmUpCorrectScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96355E22A6CEB2500FA260D /* WarmUpCorrectScreen.swift */; };
 		C96355E72A6CF4C500FA260D /* TurnChangeAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C96355E62A6CF4C500FA260D /* TurnChangeAlertView.swift */; };
+		C9EA52B62A718BB400B67C45 /* AnswerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EA52B52A718BB400B67C45 /* AnswerEntity.swift */; };
 		C9EE06162A69283F00AD061B /* TalkTimeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06152A69283F00AD061B /* TalkTimeView.swift */; };
 		C9EE06182A696DB500AD061B /* WarmUpCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06172A696DB500AD061B /* WarmUpCardView.swift */; };
 		C9EE061A2A69713D00AD061B /* WarmUpScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EE06192A69713D00AD061B /* WarmUpScreen.swift */; };
@@ -137,9 +137,9 @@
 		4E7990CD2A664593002027D1 /* QuestionCoreDataAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCoreDataAdapter.swift; sourceTree = "<group>"; };
 		4E7990D02A6645A6002027D1 /* QuestionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionService.swift; sourceTree = "<group>"; };
 		4E7990D22A6645C3002027D1 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
-		4E7990D52A6645D6002027D1 /* LoveLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLog.swift; sourceTree = "<group>"; };
+		4E7990D52A6645D6002027D1 /* LoveLogEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLogEntity.swift; sourceTree = "<group>"; };
 		4E7990D82A6645E6002027D1 /* LoveLogRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLogRepository.swift; sourceTree = "<group>"; };
-		4E7990DA2A6645F1002027D1 /* LoveLogRepositoryImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLogRepositoryImpl.swift; sourceTree = "<group>"; };
+		4E7990DA2A6645F1002027D1 /* LoveLogCoreDataAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLogCoreDataAdapter.swift; sourceTree = "<group>"; };
 		4E7990DD2A664603002027D1 /* LoveLogService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoveLogService.swift; sourceTree = "<group>"; };
 		4E7990DF2A66460D002027D1 /* TopicViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopicViewModel.swift; sourceTree = "<group>"; };
 		4E7990E12A664617002027D1 /* QuestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionViewModel.swift; sourceTree = "<group>"; };
@@ -162,6 +162,7 @@
 		4E80D42F2A71136000383159 /* MultipeerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerData.swift; sourceTree = "<group>"; };
 		4E819F572A6E474D00A12485 /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
 		4E819F5A2A6E4C5500A12485 /* AVManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVManager.swift; sourceTree = "<group>"; };
+		4E9C886A2A72BE100057109D /* Let-s-Talk-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Let-s-Talk-Info.plist"; sourceTree = SOURCE_ROOT; };
 		4EAE9D2A2A68EEDA00A7B7E6 /* StatefulPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatefulPreviewView.swift; sourceTree = "<group>"; };
 		4EDF2AD92A6805C1002E0645 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		4EDF2ADB2A681933002E0645 /* LayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutView.swift; sourceTree = "<group>"; };
@@ -189,7 +190,6 @@
 		9BAAA2912A6D0D3000671179 /* QuestionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCardView.swift; sourceTree = "<group>"; };
 		9BAAA2952A6D140300671179 /* QuestionTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTextView.swift; sourceTree = "<group>"; };
 		9BAAA2982A6E154800671179 /* MultipeerHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerHandler.swift; sourceTree = "<group>"; };
-		9BAAA29A2A6E15AB00671179 /* Property List.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
 		9BAAA29D2A6E196000671179 /* PhoneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneModel.swift; sourceTree = "<group>"; };
 		9BCA71562A6EC64700D37E2D /* coupleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coupleModel.swift; sourceTree = "<group>"; };
 		C94650852A6837F700BEAC7A /* HeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroView.swift; sourceTree = "<group>"; };
@@ -202,6 +202,7 @@
 		C97231662A6ED2CB00FD8302 /* GreetingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GreetingView.swift; path = "Let's Talk/Domains/Topic/Repositories/GreetingView.swift"; sourceTree = SOURCE_ROOT; };
 		C98F81302A6F6B2600F62000 /* SenderQuestionScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SenderQuestionScreen.swift; sourceTree = "<group>"; };
 		C9E6D77D2A6FA1F700B59575 /* SubQuestionEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubQuestionEntity.swift; sourceTree = "<group>"; };
+		C9EA52B52A718BB400B67C45 /* AnswerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerEntity.swift; sourceTree = "<group>"; };
 		C9EE06152A69283F00AD061B /* TalkTimeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkTimeView.swift; sourceTree = "<group>"; };
 		C9EE06172A696DB500AD061B /* WarmUpCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmUpCardView.swift; sourceTree = "<group>"; };
 		C9EE06192A69713D00AD061B /* WarmUpScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WarmUpScreen.swift; sourceTree = "<group>"; };
@@ -346,8 +347,9 @@
 		4E7990C72A664560002027D1 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				C9E6D77D2A6FA1F700B59575 /* SubQuestionEntity.swift */,
 				4E7990C82A664569002027D1 /* QuestionEntity.swift */,
+				C9E6D77D2A6FA1F700B59575 /* SubQuestionEntity.swift */,
+				C9EA52B52A718BB400B67C45 /* AnswerEntity.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -372,7 +374,7 @@
 		4E7990D42A6645CB002027D1 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				4E7990D52A6645D6002027D1 /* LoveLog.swift */,
+				4E7990D52A6645D6002027D1 /* LoveLogEntity.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -381,7 +383,7 @@
 			isa = PBXGroup;
 			children = (
 				4E7990D82A6645E6002027D1 /* LoveLogRepository.swift */,
-				4E7990DA2A6645F1002027D1 /* LoveLogRepositoryImpl.swift */,
+				4E7990DA2A6645F1002027D1 /* LoveLogCoreDataAdapter.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -648,7 +650,6 @@
 		4EF769512A5D1D6800F489DF = {
 			isa = PBXGroup;
 			children = (
-				9BAAA29A2A6E15AB00671179 /* Property List.plist */,
 				4EF769702A5D1DB100F489DF /* README.md */,
 				4EF7695C2A5D1D6800F489DF /* Let's Talk */,
 				4EF7695B2A5D1D6800F489DF /* Products */,
@@ -666,6 +667,7 @@
 		4EF7695C2A5D1D6800F489DF /* Let's Talk */ = {
 			isa = PBXGroup;
 			children = (
+				4E9C886A2A72BE100057109D /* Let-s-Talk-Info.plist */,
 				4E79910D2A66A4E2002027D1 /* Utils */,
 				4E7990AA2A6641E0002027D1 /* Domains */,
 				4E7990E52A664724002027D1 /* Application */,
@@ -793,7 +795,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BAAA29B2A6E15AB00671179 /* Property List.plist in Resources */,
 				4E80D4292A70CDAD00383159 /* InitialData.json in Resources */,
 				4EF769652A5D1D6800F489DF /* Preview Assets.xcassets in Resources */,
 				4EF769622A5D1D6800F489DF /* Assets.xcassets in Resources */,
@@ -869,8 +870,8 @@
 				4E7990C62A6644C2002027D1 /* TopicService.swift in Sources */,
 				C9073CA92A6FBF2F004A9B1E /* TopicCoreDataAdapter.swift in Sources */,
 				F53960E72A6D1214005211F4 /* TopicListView.swift in Sources */,
-				4E7990D62A6645D6002027D1 /* LoveLog.swift in Sources */,
-				4E7990DB2A6645F1002027D1 /* LoveLogRepositoryImpl.swift in Sources */,
+				4E7990D62A6645D6002027D1 /* LoveLogEntity.swift in Sources */,
+				4E7990DB2A6645F1002027D1 /* LoveLogCoreDataAdapter.swift in Sources */,
 				9BAAA29E2A6E196000671179 /* PhoneModel.swift in Sources */,
 				C9EE06722A6B83A500AD061B /* Topic+CoreDataProperties.swift in Sources */,
 				4E7990DE2A664603002027D1 /* LoveLogService.swift in Sources */,
@@ -907,6 +908,7 @@
 				4E819F5B2A6E4C5500A12485 /* AVManager.swift in Sources */,
 				9BAAA2902A6A2E0100671179 /* RecordingTimeView.swift in Sources */,
 				F59A2B522A70C9C6000F85DB /* UserDisconectedScreen.swift in Sources */,
+				C9EA52B62A718BB400B67C45 /* AnswerEntity.swift in Sources */,
 				9BCA71572A6EC64700D37E2D /* coupleModel.swift in Sources */,
 				4E819F582A6E474D00A12485 /* AddPhotoView.swift in Sources */,
 				4EE799632A683D2800675622 /* UnitConverter.swift in Sources */,
@@ -1040,11 +1042,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Let's Talk/Preview Content\"";
-				DEVELOPMENT_TEAM = 42BZUPKLGZ;
+				DEVELOPMENT_TEAM = 578BJN6MM7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Let-s-Talk-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Talk Ease needs access to your camera to capture your voice that will be saved as part of a memory that you made with your partner";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Talk Ease needs to use your phone's data to discover devices nearby and to send data to other phone";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Talk Ease needs access to your microphone to record your voice that will be saved as part of a memory that you made with your partner";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1072,11 +1076,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Let's Talk/Preview Content\"";
-				DEVELOPMENT_TEAM = 42BZUPKLGZ;
+				DEVELOPMENT_TEAM = 578BJN6MM7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Let-s-Talk-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Talk Ease needs access to your camera to capture your voice that will be saved as part of a memory that you made with your partner";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Talk Ease needs to use your phone's data to discover devices nearby and to send data to other phone";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Talk Ease needs access to your microphone to record your voice that will be saved as part of a memory that you made with your partner";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

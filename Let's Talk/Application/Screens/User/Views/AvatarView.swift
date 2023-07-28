@@ -20,6 +20,7 @@ struct AvatarView: View {
                 Circle()
                     .fill(iconImage == "Male" ? Color.avatarBackgroundTosca : Color.avatarBackgroundPurple)
                     .frame(width:radius,height: radius)
+                
                 if(iconImage == ""){
                     Image(systemName: "person")
                         .resizable()
@@ -39,6 +40,7 @@ struct AvatarView: View {
             .clipShape(Circle())
             .opacity(isDisabled ? 0.3 : 1)
             .padding(.bottom,18)
+            
             if(userName != ""){
                 Text(userName)
                     .font(Font.avatarIcon)
