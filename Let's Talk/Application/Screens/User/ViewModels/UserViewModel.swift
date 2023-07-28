@@ -35,8 +35,10 @@ class UserViewModel: ObservableObject {
     }
     
     // TODO: Handle error on return nil
-    func updateTalkDuration() {
-        userService.updateUserTalkDuration(newTalkDuration: user.talkDuration ?? 0)
+    func updateTalkDuration(newTalkDuration: Int) {
+        if let newUserEntity = userService.updateUserTalkDuration(newTalkDuration: newTalkDuration) {
+            user = newUserEntity
+        }
     }
     
     func updateCouple(coupleID: String, coupleName: String){

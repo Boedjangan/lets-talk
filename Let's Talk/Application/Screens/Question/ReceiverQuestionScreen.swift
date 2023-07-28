@@ -14,6 +14,7 @@ struct ReceiverQuestionScreen: View {
     @EnvironmentObject var multipeerHandler: MultipeerHandler
     
     @State var showChangeAlert: Bool = false
+    @State var showFinishAlert: Bool = false
     
     @State var isReady = false
     
@@ -38,52 +39,51 @@ struct ReceiverQuestionScreen: View {
                 }
             }
         }
-        .alert(isPresented: $showChangeAlert) {
-            if questionVM.hasSwitchedRole {
-               return Alert(
-                    title: Text("Tukar Giliran"),
-                    message: Text("Sekarang giliran kamu untuk sharing dengan pasanganmu."),
-                    dismissButton: .default(Text("Okay")) {
-                        // MARK - Navigate to Add Media
-                        navigation.push(to: .overview)
-                    }
-                )
-            } else {
-               return Alert(
-                    title: Text("Tukar Giliran"),
-                    message: Text("Sekarang giliran kamu untuk sharing dengan pasanganmu."),
-                    dismissButton: .default(Text("Okay")) {
-                        
-                        // MARK - Switching Role
-                        switch(userVM.myRole) {
-                        case .receiver:
-                            userVM.myRole = .sender
-                        case .sender:
-                            userVM.myRole = .receiver
-                        default:
-                            print("Not found")
-                        }
-                        
-                        questionVM.hasSwitchedRole = true
-                        
-                        // MARK - Send that you are switching role
-                        let customData = MultipeerData(dataType: .switchRole)
-                        
-                        do {
-                            let encodedData = try JSONEncoder().encode(customData)
-                            
-                            multipeerHandler.sendData(encodedData)
-                        } catch {
-                            print("ERROR: \(error.localizedDescription)")
-                        }
-                        
-                        // MARK - Navigate to Receiver, switching role
-                        showChangeAlert = false
-                        navigation.push(to: .question_sender)
-                    }
-                )
+        .alert("Selamat", isPresented: $showFinishAlert, actions: {
+            Button {
+                // MARK - Navigate to Add Media
+                showFinishAlert = false
+                navigation.push(to: .overview)
+            } label: {
+                Text("Okay")
             }
-        }
+        }, message: {
+            Text("Silahkan abadikan momen ini bersama pasanganmu.")
+        })
+        .alert("Tukar Giliran", isPresented: $showChangeAlert, actions: {
+            Button {
+                // MARK - Switching Role
+                switch(userVM.myRole) {
+                case .receiver:
+                    userVM.myRole = .sender
+                case .sender:
+                    userVM.myRole = .receiver
+                default:
+                    print("Not found")
+                }
+                
+                questionVM.hasSwitchedRole = true
+                
+                // MARK - Send that you are switching role
+                let customData = MultipeerData(dataType: .switchRole)
+                
+                do {
+                    let encodedData = try JSONEncoder().encode(customData)
+                    
+                    multipeerHandler.sendData(encodedData)
+                } catch {
+                    print("ERROR: \(error.localizedDescription)")
+                }
+                
+                // MARK - Navigate to Receiver, switching role
+                showChangeAlert = false
+                navigation.push(to: .question_sender)
+            } label: {
+                Text("Okay")
+            }
+        }, message: {
+            Text("Sekarang giliran pasangan kamu untuk sharing denganmu.")
+        })
         .onChange(of: multipeerHandler.coupleRecordStatus, perform: { recordStatus in
             switch(recordStatus) {
             case .start:
@@ -92,7 +92,11 @@ struct ReceiverQuestionScreen: View {
             case .stop:
                 questionVM.stopTimerReceiver()
                 questionVM.isCoupleRecordingAudio = false
-                showChangeAlert = true
+                if questionVM.hasSwitchedRole {
+                    showFinishAlert = true
+                } else {
+                    showChangeAlert = true
+                }
             case .idle:
                 questionVM.stopTimerReceiver()
                 questionVM.isCoupleRecordingAudio = false

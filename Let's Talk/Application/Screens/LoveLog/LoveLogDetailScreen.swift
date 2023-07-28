@@ -11,9 +11,12 @@ import AVFoundation
 struct LoveLogDetailScreen: View {
     @EnvironmentObject var loveLogVM: LoveLogViewModel
     @EnvironmentObject var questionVM: QuestionViewModel
+    
     @State private var audioPlayer: AVAudioPlayer!
     @State private var sliderVal: Double = 3
+    
     var questions: [QuestionEntity]
+    
     var body: some View {
         LayoutView(children: {
             TabView {

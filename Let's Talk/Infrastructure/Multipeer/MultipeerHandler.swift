@@ -75,6 +75,21 @@ class MultipeerHandler: NSObject, ObservableObject {
         advertiser.delegate = self
     }
     
+    func resetState() {
+        DispatchQueue.main.async {
+            // MARK: - User & Couple Status
+            self.coupleRole = nil
+            self.coupleRecordStatus = .idle
+            
+            // MARK: - Received File
+            self.receivedPhotoName = nil
+            self.receivedAudioName = nil
+            
+            // MARK: - Warm Up Answer
+            self.coupleWarmUpAnswer = ""
+        }
+    }
+    
     func startBrowsing() {
         browser.startBrowsingForPeers()
     }
@@ -217,7 +232,6 @@ extension MultipeerHandler: MCNearbyServiceAdvertiserDelegate {
 extension MultipeerHandler: MCNearbyServiceBrowserDelegate {
     func browser(_ browser: MCNearbyServiceBrowser, foundPeer peerID: MCPeerID, withDiscoveryInfo info: [String: String]?) {
         // disini ngecek ke core data kalau peeridnya sama atau engga dengan couple
-        print("\(self.coupleID!) ini couple")
         if !persons.contains(peerID) {
             if let info = info {
                 print(info["coupleName"] ?? "No Name")

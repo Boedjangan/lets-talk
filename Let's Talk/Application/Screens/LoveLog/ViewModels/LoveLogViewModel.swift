@@ -14,6 +14,7 @@ struct DateValue: Identifiable {
     var date: Date
 }
 
+@MainActor
 class LoveLogViewModel: ObservableObject {
     @Published var loveLogs: [LoveLogEntity] = []
     
@@ -27,10 +28,6 @@ class LoveLogViewModel: ObservableObject {
         loveLogs = loveLogService.getLoveLog().sorted {
             $0.createdAt < $1.createdAt
         }
-    }
-    
-    func getTodayLoveLog() -> LoveLogEntity? {
-        return loveLogService.getTodayLoveLog()
     }
     
     func createLoveLog(questionId: UUID) {
@@ -52,6 +49,14 @@ class LoveLogViewModel: ObservableObject {
         
         if let index = loveLogs.firstIndex(where: { $0.id == id }) {
             loveLogs[index] = lovelog
+        }
+    }
+    
+    func handleFinishSession(questionId: UUID) {
+        if let lovelog = loveLogService.getTodayLoveLog() {
+            addQuestionToLoveLog(id: lovelog.id, questionId: questionId)
+        } else {
+           createLoveLog(questionId: questionId)
         }
     }
 }

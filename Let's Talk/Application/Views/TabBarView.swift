@@ -13,22 +13,11 @@ struct TabBarView: View {
     @ObservedObject var userVM: UserViewModel
     @ObservedObject var multipeerHandler: MultipeerHandler
     
-    @StateObject var topicVM: TopicViewModel
-    @StateObject var questionVM: QuestionViewModel
-    @StateObject var loveLogVM: LoveLogViewModel
+    @StateObject var topicVM: TopicViewModel = TopicViewModel()
+    @StateObject var questionVM: QuestionViewModel = QuestionViewModel()
+    @StateObject var loveLogVM: LoveLogViewModel = LoveLogViewModel()
     
     @State private var questions: [QuestionEntity] = []
-    
-    init(dashboardNavigation: DashboardNavigationManager, loveLogNavigation: LoveLogNavigationManager, userVM: UserViewModel, multipeerHandler: MultipeerHandler) {
-        self.dashboardNavigation = dashboardNavigation
-        self.loveLogNavigation = loveLogNavigation
-        self.userVM = userVM
-        self.multipeerHandler = multipeerHandler
-        
-        _topicVM =  StateObject(wrappedValue: TopicViewModel())
-        _questionVM = StateObject(wrappedValue: QuestionViewModel())
-        _loveLogVM = StateObject(wrappedValue: LoveLogViewModel())
-    }
     
     var body: some View {
         TabView{
@@ -59,9 +48,10 @@ struct TabBarView: View {
             .environmentObject(topicVM)
             .environmentObject(userVM)
             .environmentObject(questionVM)
+            .environmentObject(loveLogVM)
             .environmentObject(dashboardNavigation)
             .environmentObject(multipeerHandler)
-            
+           
             NavigationStack(path: $loveLogNavigation.navigationPaths) {
                 LoveLogScreen()
                     .navigationDestination(for: LoveLogRoutes.self) { routes in
@@ -81,6 +71,7 @@ struct TabBarView: View {
         .onAppear() {
             UITabBar.appearance().barTintColor = UIColor(Color.tabBar)
             UITabBar.appearance().backgroundColor = UIColor(Color.tabBar)
+            
             multipeerHandler.startBrowsing()
             multipeerHandler.advertiser.startAdvertisingPeer()
             multipeerHandler.coupleID = userVM.user.coupleId
