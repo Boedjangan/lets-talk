@@ -15,7 +15,7 @@ class LoveLogService {
     }
     
     func getLoveLog() -> [LoveLogEntity] {
-        loveLogRepository.getLoveLog()
+        return loveLogRepository.getLoveLog()
     }
     
     func getTodayLoveLog() -> LoveLogEntity? {
