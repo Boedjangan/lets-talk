@@ -40,7 +40,9 @@ struct QuestionSessionOverviewScreen: View {
                 
                 Spacer()
                 
+                //TODO: handle creating lovelog if there is none for today date or add to today lovelog if there is any
                 ButtonView {
+                    
                     navigation.push(to: .dashboard)
                 } label: {
                     Text("Kembali ke Dashboard")

@@ -9,7 +9,6 @@ import Foundation
 import CoreData
 
 class LoveLogCoreDataAdapter: LoveLogRepository {
-    
     private let coreDataContext = CoreDataConnection.shared.managedObjectContext
     
     func getLoveLog() -> [LoveLogEntity] {
@@ -18,6 +17,7 @@ class LoveLogCoreDataAdapter: LoveLogRepository {
         
         do {
             let loveLogs = try coreDataContext.fetch(request)
+            
             for loveLog in loveLogs {
                 let loveLogEntity = convertToLoveLogEntity(loveLog: loveLog)
                 loveLogEntities.append(loveLogEntity)
@@ -26,28 +26,107 @@ class LoveLogCoreDataAdapter: LoveLogRepository {
             return loveLogEntities
             
         } catch {
-            print("Failed to create new topic")
+            print("Failed to fetching love logs")
             print("Error: \(error.localizedDescription)")
             
             return []
         }
     }
     
-    func createLoveLog() {
+    func getTodayLoveLog() -> LoveLogEntity? {
+        let theDate = Date.now
+        let startDate = Calendar.current.startOfDay(for: theDate)
+        let endDate = Calendar.current.date(bySettingHour: 23, minute: 59, second: 59, of: theDate) ?? theDate
+        
+        let request: NSFetchRequest<LoveLog> = LoveLog.fetchRequest()
+        
+        request.predicate = NSPredicate(format: "(createdAt >= %@) AND (createdAt <= %@)", startDate as CVarArg, endDate as CVarArg)
+        
+        do {
+            let loveLogs = try coreDataContext.fetch(request)
+            
+            guard let loveLog = loveLogs.first else {
+                return nil
+            }
+            
+            return convertToLoveLogEntity(loveLog: loveLog)
+        } catch {
+            print("Failed to fetching love log")
+            print("Error: \(error.localizedDescription)")
+            
+            return nil
+        }
+    }
+    
+    func createLoveLog(questionId: UUID) -> LoveLogEntity? {
+        let request: NSFetchRequest<Question> = Question.fetchRequest()
+        request.predicate = NSPredicate(format: "id == %@", questionId as CVarArg)
+        
         let newLoveLog = LoveLog(context: coreDataContext)
+        
+        do {
+            let questions = try coreDataContext.fetch(request)
+            
+            guard let question = questions.first else {
+                print("No question is found with the provided ID.")
+                
+                return nil
+            }
+            
+            newLoveLog.addToQuestion(question)
+        } catch {
+            print("Failed getting question")
+            print("Error: \(error.localizedDescription)")
+            
+            return nil
+        }
+        
         newLoveLog.id = UUID()
         newLoveLog.createdAt = Date()
         newLoveLog.updatedAt = Date()
         
         do {
             try coreDataContext.save()
+            
             print("Love Log Saved")
+            return convertToLoveLogEntity(loveLog: newLoveLog)
         } catch {
             print("Failed to create new topic")
             print("Error: \(error.localizedDescription)")
+            
+            return nil
         }
+    }
+    
+    func addQuestionToLoveLog(id: UUID, questionId: UUID) -> LoveLogEntity? {
+        let requestQuestion: NSFetchRequest<Question> = Question.fetchRequest()
+        requestQuestion.predicate = NSPredicate(format: "id == %@", questionId as CVarArg)
         
+        let requestLoveLog: NSFetchRequest<LoveLog> = LoveLog.fetchRequest()
+        requestLoveLog.predicate = NSPredicate(format: "id == %@", id as CVarArg)
         
+        do {
+            let questions = try coreDataContext.fetch(requestQuestion)
+            let loveLogs = try coreDataContext.fetch(requestLoveLog)
+            
+            guard let loveLog = loveLogs.first, let question = questions.first else {
+                print("No question / No love log is found with the provided ID.")
+                
+                return nil
+            }
+            
+            loveLog.addToQuestion(question)
+            loveLog.updatedAt = Date()
+            
+            try coreDataContext.save()
+            
+            return convertToLoveLogEntity(loveLog: loveLog)
+        } catch {
+            print("Failed getting question")
+            print("Error: \(error.localizedDescription)")
+            
+            return nil
+        }
     }
     
     func deleteLoveLog(id: UUID) {
@@ -117,6 +196,4 @@ class LoveLogCoreDataAdapter: LoveLogRepository {
             createdAt: subQuestion.createdAt!,
             updatedAt: subQuestion.updatedAt!)
     }
-    
-    
 }

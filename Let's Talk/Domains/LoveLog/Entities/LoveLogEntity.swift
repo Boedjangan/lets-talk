@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 struct LoveLogEntity: Identifiable {
     var id: UUID = UUID()
     var createdAt: Date = Date()

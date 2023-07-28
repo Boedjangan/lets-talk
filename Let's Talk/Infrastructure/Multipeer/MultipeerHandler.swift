@@ -121,7 +121,7 @@ class MultipeerHandler: NSObject, ObservableObject {
    }
     
     func sendFile(url: URL, fileName: String, onSuccess: @escaping () -> Void, onFailed: @escaping (_ error: Error) -> Void) {
-        let progress = session.sendResource(at: url, withName: fileName, toPeer: session.connectedPeers.first!) { error in
+        session.sendResource(at: url, withName: fileName, toPeer: session.connectedPeers.first!) { error in
             if let error = error {
                 print("Error sending file: \(error.localizedDescription)")
                 onFailed(error)

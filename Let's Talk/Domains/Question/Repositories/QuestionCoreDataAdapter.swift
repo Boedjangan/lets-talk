@@ -223,12 +223,12 @@ class QuestionCoreDataAdapter: QuestionRepository {
         if let subQuestions = question.subQuestion as? Set<SubQuestion> {
             subQuestionsEntity = subQuestions.map { convertToSubQuestionEntity(subQuestion: $0)}
         }
+        
         var answerEntity: AnswerEntity?
         if let answer = question.answer {
             answerEntity = AnswerEntity(name: answer.name!, recordedAnswer: answer.recordedAnswer!)
         }
         
-        //        let arrSubQuestions = question.subQuestionArray.map { $0.subQuestion! }
         return QuestionEntity(
             id: question.id.unsafelyUnwrapped,
             question: question.question.unsafelyUnwrapped,
