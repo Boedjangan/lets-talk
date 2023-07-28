@@ -34,4 +34,6 @@ extension Font {
     
     static let textQuestion = Font.system(size: 17, weight: .regular, design: .default)
     static let addMediaTitle = Font.system(size: 20, weight: .bold, design: .default)
+    
+    static let dateCalendar = Font.system(size: 20, weight: .regular, design: .default)
 }
