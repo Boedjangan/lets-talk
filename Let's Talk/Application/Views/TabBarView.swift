@@ -15,6 +15,9 @@ struct TabBarView: View {
     
     @StateObject var topicVM: TopicViewModel
     @StateObject var questionVM: QuestionViewModel
+    @StateObject var loveLogVM: LoveLogViewModel
+    
+    @State private var questions: [QuestionEntity] = []
     
     init(dashboardNavigation: DashboardNavigationManager, loveLogNavigation: LoveLogNavigationManager, userVM: UserViewModel, multipeerHandler: MultipeerHandler) {
         self.dashboardNavigation = dashboardNavigation
@@ -24,6 +27,7 @@ struct TabBarView: View {
         
         _topicVM =  StateObject(wrappedValue: TopicViewModel())
         _questionVM = StateObject(wrappedValue: QuestionViewModel())
+        _loveLogVM = StateObject(wrappedValue: LoveLogViewModel())
     }
     
     var body: some View {
@@ -70,6 +74,8 @@ struct TabBarView: View {
             .tabItem{
                 Label("Love Log",systemImage: "calendar.circle")
             }
+            .environmentObject(loveLogVM)
+            .environmentObject(questionVM)
         }
         .accentColor(Color.buttonPrimary)
         .onAppear() {

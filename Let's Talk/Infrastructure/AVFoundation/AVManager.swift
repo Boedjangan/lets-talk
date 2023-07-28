@@ -112,6 +112,36 @@ class AudioManager: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate, Ob
         }
     }
     
+    func forwardPlayback(seconds: Double) {
+        guard let player = audioPlayer else {
+            print("Audio player not set up")
+            return
+        }
+
+        let newTime = player.currentTime + seconds
+        if newTime < player.duration {
+            player.currentTime = newTime
+        } else {
+            stopPlayback()
+        }
+    }
+    
+    func backwardPlayback(seconds: Double) {
+        guard let player = audioPlayer else {
+            print("Audio player not set up")
+            return
+        }
+
+        let newTime = player.currentTime - seconds
+        if newTime > 0 {
+            player.currentTime = newTime
+        } else {
+            player.currentTime = 0
+        }
+    }
+
+
+    
     func stopPlayback() {
         audioPlayer?.stop()
         isPlaying = false
