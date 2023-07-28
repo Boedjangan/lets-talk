@@ -44,6 +44,10 @@ class AudioManager: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate, Ob
         }
     }
     
+    func getCurrentTime() -> Double {
+        return audioPlayer?.currentTime ?? 0
+    }
+    
     func startRecording(key: String) {
         guard let _ = audioSession else {
             print("Audio session not set up")
@@ -112,12 +116,19 @@ class AudioManager: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate, Ob
         }
     }
     
+    func stopPlayback() {
+        audioPlayer?.stop()
+        isPlaying = false
+        
+        print("Stopping playback")
+    }
+    
     func forwardPlayback(seconds: Double) {
         guard let player = audioPlayer else {
             print("Audio player not set up")
             return
         }
-
+        
         let newTime = player.currentTime + seconds
         if newTime < player.duration {
             player.currentTime = newTime
@@ -131,7 +142,7 @@ class AudioManager: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate, Ob
             print("Audio player not set up")
             return
         }
-
+        
         let newTime = player.currentTime - seconds
         if newTime > 0 {
             player.currentTime = newTime
@@ -139,14 +150,18 @@ class AudioManager: NSObject, AVAudioRecorderDelegate, AVAudioPlayerDelegate, Ob
             player.currentTime = 0
         }
     }
-
-
     
-    func stopPlayback() {
-        audioPlayer?.stop()
-        isPlaying = false
-        
-        print("Stopping playback")
+    func changeCurrentTime(to time: Double) {
+        guard let player = audioPlayer else {
+            print("Audio player not set up")
+            return
+        }
+
+        if time >= 0 && time <= player.duration {
+            player.currentTime = time
+        } else {
+            print("Invalid time")
+        }
     }
     
     func deleteAudio(key: String) {

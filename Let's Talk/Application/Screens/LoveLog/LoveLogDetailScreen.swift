@@ -78,13 +78,29 @@ struct ImageView: View {
 }
 
 struct AudioPlayerSlider: View {
+    @EnvironmentObject var questionVM: QuestionViewModel
     @Binding var sliderVal: Double
     var body: some View {
         VStack {
             //time slider
-            Slider(value: $sliderVal, in: 1...10) {
-                Text("lkjads")
+            Slider(value: $questionVM.currentTime, in: 0...questionVM.audioDuration, onEditingChanged: { _ in
+                questionVM.changeCurrentTime(to: questionVM.currentTime)
+            }) {
+                Text("Audio Slider")
             }
+            .onChange(of: questionVM.currentTime) { newValue in
+                questionVM.changeCurrentTime(to: newValue)
+            }
+            
+            HStack {
+                Text("\(Int(questionVM.audioDuration) / 60):\(Int(questionVM.audioDuration) % 60)")
+                    .padding(.horizontal)
+                Spacer()
+                Text("\(Int(questionVM.currentTime) / 60):\(Int(questionVM.currentTime) % 60)")
+                    .padding(.horizontal)
+            }
+            .font(.topicButton)
+            
             HStack {
                 //total duration
                 Text("00.00")

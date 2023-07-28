@@ -25,6 +25,8 @@ class QuestionViewModel: ObservableObject {
     
     // MARK - Playback State
     @Published var isPlayingAudio = false
+    @Published var audioDuration: Double = 0
+    @Published var currentTime: Double = 0
     
     // MARK - Warm Up
     @Published var myWarmUpAnswer = ""
@@ -38,13 +40,7 @@ class QuestionViewModel: ObservableObject {
     private var timer: Timer?
     private var questionService = QuestionService(questionRepository: QuestionCoreDataAdapter())
     private var audioManager = AudioManager.shared
-//    @Published var audioDuration: Double {
-//        return audioManager.audioPlayer?.duration ?? 0
-//    }
-//    var currentTime: Double {
-//        get { return audioManager.audioPlayer?.currentTime ?? 0 }
-//        set { audioManager.audioPlayer?.currentTime = newValue }
-//    }
+    private var displayLink: CADisplayLink?
     
     init() {
         audioManager.didFinishPlaying = {
@@ -156,6 +152,7 @@ class QuestionViewModel: ObservableObject {
     func startPlayback(key: String) {
         isPlayingAudio = true
         audioManager.startPlayback(key: "\(key)")
+        audioDuration = audioManager.audioPlayer?.duration ?? 0
     }
     
     func forwardPlayback(seconds: Double) {
@@ -168,6 +165,10 @@ class QuestionViewModel: ObservableObject {
     func stopPlayback() {
         audioManager.stopPlayback()
         isPlayingAudio = false
+    }
+    
+    func changeCurrentTime(to time: Double) {
+        audioManager.changeCurrentTime(to: time)
     }
     
     // MARK - Timer Logic Sender
@@ -286,6 +287,29 @@ class QuestionViewModel: ObservableObject {
         let thumbnailSize = (width: Int(previewDimensions.width), height: Int(previewDimensions.height))
         
         return PhotoData(thumbnailImage: thumbnailImage, thumbnailSize: thumbnailSize, imageData: imageData, imageSize: imageSize)
+    }
+    
+    //Mark --CurrentTime Logic--
+    func startDisplayLink() {
+        displayLink = CADisplayLink(target: self, selector: #selector(updateCurrentTime))
+        displayLink?.add(to: .current, forMode: .common)
+    }
+    
+    @objc func updateCurrentTime() {
+        if isPlayingAudio {
+            currentTime = audioManager.getCurrentTime()
+        }
+    }
+    
+    func stopDisplayLink() {
+        displayLink?.invalidate()
+        displayLink = nil
+    }
+    
+    deinit {
+        Task { @MainActor in
+            stopDisplayLink()
+        }
     }
 }
 
