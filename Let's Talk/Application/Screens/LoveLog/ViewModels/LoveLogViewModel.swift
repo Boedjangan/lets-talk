@@ -12,8 +12,9 @@ struct DateValue: Identifiable {
     var id = UUID().uuidString
     var day: Int
     var date: Date
+}
 
-class LoveLogViewModel {
+class LoveLogViewModel: ObservableObject {
     @Published var loveLogs: [LoveLogEntity] = []
     
     private var loveLogService = LoveLogService(loveLogRepository: LoveLogCoreDataAdapter())
