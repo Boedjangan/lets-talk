@@ -13,6 +13,7 @@ struct CameraScreen: View {
     
     var questionId: UUID
     var imageName : String
+    
     private static let barHeightFactor = 0.15
     
     var body: some View {
