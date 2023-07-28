@@ -45,7 +45,7 @@ struct ReceiverQuestionScreen: View {
                     message: Text("Sekarang giliran kamu untuk sharing dengan pasanganmu."),
                     dismissButton: .default(Text("Okay")) {
                         // MARK - Navigate to Add Media
-                        navigation.push(to: .add_media)
+                        navigation.push(to: .overview)
                     }
                 )
             } else {

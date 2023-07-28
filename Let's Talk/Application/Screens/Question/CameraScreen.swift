@@ -12,10 +12,10 @@ struct CameraScreen: View {
     @ObservedObject var questionVM: QuestionViewModel
     
     var questionId: UUID
+    var imageName : String
     private static let barHeightFactor = 0.15
     
     var body: some View {
-        NavigationStack {
             GeometryReader { geometry in
                 CameraViewfinderView(image: $questionVM.viewfinderImage)
                     .overlay(alignment: .top) {
@@ -47,7 +47,6 @@ struct CameraScreen: View {
             .navigationBarHidden(true)
             .ignoresSafeArea()
             .statusBar(hidden: true)
-        }
     }
     
     private func CameraButtonsView() -> some View {
@@ -65,7 +64,7 @@ struct CameraScreen: View {
             Button {
                 questionVM.camera.takePhoto()
                 Task {
-                        await questionVM.handleCameraPhotos(questionId: questionId)
+                        await questionVM.handleCameraPhotos(questionId: questionId, imageName: imageName)
                     }
                 dismiss()
             } label: {

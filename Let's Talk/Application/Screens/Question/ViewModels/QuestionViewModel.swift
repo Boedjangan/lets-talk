@@ -221,7 +221,7 @@ class QuestionViewModel: ObservableObject {
         }
     }
     
-    func handleCameraPhotos(questionId: UUID) async {
+    func handleCameraPhotos(questionId: UUID, imageName: String = "image") async {
         let unpackedPhotoStream = camera.photoStream
             .compactMap { await self.unpackPhoto($0) }
         
@@ -229,15 +229,18 @@ class QuestionViewModel: ObservableObject {
             await MainActor.run {
                 thumbnailImage = photoData.thumbnailImage
             }
-            updateQuestionImage(questionId: questionId, newImage: questionId.uuidString)
-            savePhoto(filename: questionId.uuidString, imageData: photoData.imageData)
+            
+            updateQuestionImage(questionId: questionId, newImage: imageName)
+            savePhoto(filename: imageName, imageData: photoData.imageData)
         }
     }
     
     func savePhoto(filename: String, imageData: Data) {
         let filename = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(filename)
+        
         do {
             try imageData.write(to: filename, options: [.atomicWrite, .completeFileProtection])
+            
             logger.debug("Added image data to .")
         } catch let error {
             logger.error("Failed to add image to photo collection: \(error.localizedDescription)")
@@ -261,6 +264,7 @@ class QuestionViewModel: ObservableObject {
         guard let previewCGImage = photo.previewCGImageRepresentation(),
               let metadataOrientation = photo.metadata[String(kCGImagePropertyOrientation)] as? UInt32,
               let cgImageOrientation = CGImagePropertyOrientation(rawValue: metadataOrientation) else { return nil }
+        
         let imageOrientation = Image.Orientation(cgImageOrientation)
         let thumbnailImage = Image(decorative: previewCGImage, scale: 1, orientation: imageOrientation)
         

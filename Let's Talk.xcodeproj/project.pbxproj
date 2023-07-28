@@ -79,7 +79,6 @@
 		9BAAA2922A6D0D3000671179 /* QuestionCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2912A6D0D3000671179 /* QuestionCardView.swift */; };
 		9BAAA2962A6D140300671179 /* QuestionTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2952A6D140300671179 /* QuestionTextView.swift */; };
 		9BAAA2992A6E154800671179 /* MultipeerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA2982A6E154800671179 /* MultipeerHandler.swift */; };
-		9BAAA29B2A6E15AB00671179 /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9BAAA29A2A6E15AB00671179 /* Property List.plist */; };
 		9BAAA29E2A6E196000671179 /* PhoneModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BAAA29D2A6E196000671179 /* PhoneModel.swift */; };
 		9BCA71572A6EC64700D37E2D /* coupleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BCA71562A6EC64700D37E2D /* coupleModel.swift */; };
 		C9073CA92A6FBF2F004A9B1E /* TopicCoreDataAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97231642A6EC22600FD8302 /* TopicCoreDataAdapter.swift */; };
@@ -161,6 +160,7 @@
 		4E80D42F2A71136000383159 /* MultipeerData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerData.swift; sourceTree = "<group>"; };
 		4E819F572A6E474D00A12485 /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
 		4E819F5A2A6E4C5500A12485 /* AVManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVManager.swift; sourceTree = "<group>"; };
+		4E9C886A2A72BE100057109D /* Let-s-Talk-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Let-s-Talk-Info.plist"; sourceTree = SOURCE_ROOT; };
 		4EAE9D2A2A68EEDA00A7B7E6 /* StatefulPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatefulPreviewView.swift; sourceTree = "<group>"; };
 		4EDF2AD92A6805C1002E0645 /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		4EDF2ADB2A681933002E0645 /* LayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutView.swift; sourceTree = "<group>"; };
@@ -188,7 +188,6 @@
 		9BAAA2912A6D0D3000671179 /* QuestionCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionCardView.swift; sourceTree = "<group>"; };
 		9BAAA2952A6D140300671179 /* QuestionTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionTextView.swift; sourceTree = "<group>"; };
 		9BAAA2982A6E154800671179 /* MultipeerHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipeerHandler.swift; sourceTree = "<group>"; };
-		9BAAA29A2A6E15AB00671179 /* Property List.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
 		9BAAA29D2A6E196000671179 /* PhoneModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneModel.swift; sourceTree = "<group>"; };
 		9BCA71562A6EC64700D37E2D /* coupleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coupleModel.swift; sourceTree = "<group>"; };
 		C94650852A6837F700BEAC7A /* HeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroView.swift; sourceTree = "<group>"; };
@@ -645,7 +644,6 @@
 		4EF769512A5D1D6800F489DF = {
 			isa = PBXGroup;
 			children = (
-				9BAAA29A2A6E15AB00671179 /* Property List.plist */,
 				4EF769702A5D1DB100F489DF /* README.md */,
 				4EF7695C2A5D1D6800F489DF /* Let's Talk */,
 				4EF7695B2A5D1D6800F489DF /* Products */,
@@ -663,6 +661,7 @@
 		4EF7695C2A5D1D6800F489DF /* Let's Talk */ = {
 			isa = PBXGroup;
 			children = (
+				4E9C886A2A72BE100057109D /* Let-s-Talk-Info.plist */,
 				4E79910D2A66A4E2002027D1 /* Utils */,
 				4E7990AA2A6641E0002027D1 /* Domains */,
 				4E7990E52A664724002027D1 /* Application */,
@@ -790,7 +789,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9BAAA29B2A6E15AB00671179 /* Property List.plist in Resources */,
 				4E80D4292A70CDAD00383159 /* InitialData.json in Resources */,
 				4EF769652A5D1D6800F489DF /* Preview Assets.xcassets in Resources */,
 				4EF769622A5D1D6800F489DF /* Assets.xcassets in Resources */,
@@ -1036,9 +1034,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Let's Talk/Preview Content\"";
-				DEVELOPMENT_TEAM = 42BZUPKLGZ;
+				DEVELOPMENT_TEAM = 578BJN6MM7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Let-s-Talk-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Talk Ease needs access to your camera to capture your voice that will be saved as part of a memory that you made with your partner";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Talk Ease needs to use your phone's data to discover devices nearby and to send data to other phone";
@@ -1069,9 +1068,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Let's Talk/Preview Content\"";
-				DEVELOPMENT_TEAM = 42BZUPKLGZ;
+				DEVELOPMENT_TEAM = 578BJN6MM7;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Let-s-Talk-Info.plist";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Talk Ease needs access to your camera to capture your voice that will be saved as part of a memory that you made with your partner";
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Talk Ease needs to use your phone's data to discover devices nearby and to send data to other phone";

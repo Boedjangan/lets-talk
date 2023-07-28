@@ -10,11 +10,14 @@ import SwiftUI
 struct AddPhotoView: View {
     @ObservedObject var questionVM: QuestionViewModel
     @Binding var savedImage: UIImage?
+    
     var questionId: UUID
+    var imageName:String
+    
     var body: some View {
         
         NavigationLink {
-            CameraScreen(questionVM: questionVM, questionId: questionId)
+            CameraScreen(questionVM: questionVM, questionId: questionId, imageName: imageName)
         } label: {
             if let image = savedImage {
                 Image(uiImage: image)
