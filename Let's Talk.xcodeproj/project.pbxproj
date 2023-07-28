@@ -112,6 +112,8 @@
 		C9EFFAFD2A70C50800D06775 /* CameraScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EFFAFC2A70C50800D06775 /* CameraScreen.swift */; };
 		C9EFFB012A70C63A00D06775 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EFFB002A70C63A00D06775 /* Camera.swift */; };
 		F53960E72A6D1214005211F4 /* TopicListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53960E62A6D1214005211F4 /* TopicListView.swift */; };
+		F555A5782A72C9CC009F6269 /* MonthViewCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F555A5772A72C9CC009F6269 /* MonthViewCalendar.swift */; };
+		F555A57A2A736C86009F6269 /* YearViewCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F555A5792A736C86009F6269 /* YearViewCalendar.swift */; };
 		F59A2B522A70C9C6000F85DB /* UserDisconectedScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59A2B512A70C9C6000F85DB /* UserDisconectedScreen.swift */; };
 /* End PBXBuildFile section */
 
@@ -225,6 +227,8 @@
 		C9EFFAFC2A70C50800D06775 /* CameraScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraScreen.swift; sourceTree = "<group>"; };
 		C9EFFB002A70C63A00D06775 /* Camera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		F53960E62A6D1214005211F4 /* TopicListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TopicListView.swift; path = "Let's Talk/TopicListView.swift"; sourceTree = SOURCE_ROOT; };
+		F555A5772A72C9CC009F6269 /* MonthViewCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MonthViewCalendar.swift; path = "Let's Talk/Application/Screens/User/MonthViewCalendar.swift"; sourceTree = SOURCE_ROOT; };
+		F555A5792A736C86009F6269 /* YearViewCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = YearViewCalendar.swift; path = "Let's Talk/Application/Screens/User/YearViewCalendar.swift"; sourceTree = SOURCE_ROOT; };
 		F59A2B512A70C9C6000F85DB /* UserDisconectedScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDisconectedScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -611,6 +615,8 @@
 		4E79910B2A66A466002027D1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F555A5772A72C9CC009F6269 /* MonthViewCalendar.swift */,
+				F555A5792A736C86009F6269 /* YearViewCalendar.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -815,6 +821,7 @@
 				4E7990D92A6645E6002027D1 /* LoveLogRepository.swift in Sources */,
 				9BAAA27A2A68E8A300671179 /* DashboardScreen.swift in Sources */,
 				C9EE061A2A69713D00AD061B /* WarmUpScreen.swift in Sources */,
+				F555A5782A72C9CC009F6269 /* MonthViewCalendar.swift in Sources */,
 				4E7990F22A66A1C0002027D1 /* Fonts.swift in Sources */,
 				4E7990FF2A66A3A0002027D1 /* UserOnboardingScreen.swift in Sources */,
 				C9EE06162A69283F00AD061B /* TalkTimeView.swift in Sources */,
@@ -886,6 +893,7 @@
 				9BAAA2862A69599900671179 /* TopicProgressView.swift in Sources */,
 				4E1A55552A6A29720056951B /* LoveLogRoutes.swift in Sources */,
 				C9EE06752A6B83A500AD061B /* User+CoreDataClass.swift in Sources */,
+				F555A57A2A736C86009F6269 /* YearViewCalendar.swift in Sources */,
 				4E80D42E2A710FA000383159 /* LoadingView.swift in Sources */,
 				C96355E32A6CEB2500FA260D /* WarmUpCorrectScreen.swift in Sources */,
 				C94650882A690BC600BEAC7A /* AppLogoView.swift in Sources */,
