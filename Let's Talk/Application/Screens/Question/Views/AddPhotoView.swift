@@ -10,8 +10,10 @@ import SwiftUI
 struct AddPhotoView: View {
     @ObservedObject var questionVM: QuestionViewModel
     @Binding var savedImage: UIImage?
+    
     var questionId: UUID
     var imageName:String
+    
     var body: some View {
         
         NavigationLink {

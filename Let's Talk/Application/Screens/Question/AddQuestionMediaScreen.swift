@@ -18,7 +18,6 @@ struct AddQuestionMediaScreen: View {
 //    var questionId: UUID
     
     var body: some View {
-//        NavigationStack {
             LayoutView(spacing: Spacing.card) {
                 VStack(alignment: .leading, spacing: 10) {
                     Text("Abadikan momen mengobrol kalian")
@@ -28,7 +27,7 @@ struct AddQuestionMediaScreen: View {
                 }
                 
                 VStack(spacing: 63) {
-                    AddPhotoView(questionVM: questionVM, savedImage: $savedImage, questionId: questionVM.currentQuestion!.id,imageName: getKeyString() ?? "gambar")
+                    AddPhotoView(questionVM: questionVM, savedImage: $savedImage, questionId: questionVM.currentQuestion!.id, imageName: getKeyString() ?? "gambar")
                     
                     ButtonView {
                         // multipeer
@@ -44,7 +43,6 @@ struct AddQuestionMediaScreen: View {
             .onAppear {
                 savedImage = questionVM.displaySavedImage(for: getKeyString() ?? "gambar")
             }
-//        }
     }
     
     func getKeyString() -> String? {
