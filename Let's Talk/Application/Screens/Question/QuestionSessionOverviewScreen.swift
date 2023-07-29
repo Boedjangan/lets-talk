@@ -157,7 +157,7 @@ struct TopicAdvancementDetailsView: View {
     var body: some View {
         HStack(alignment: .center) {
             VStack {
-                Text("+\(talkDuration) Menit")
+                Text(convertSecondToMinute(time: totalTalkDuration))
                     .font(.paragraph)
                 
                 AvatarView(iconImage: userVM.user.gender == .male ? "Male" : "Female", radius: 70, imageSize: 50)

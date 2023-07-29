@@ -34,13 +34,14 @@ struct QuestionCardView: View {
                     Spacer()
                     RecordingTimeView(timer: $timer)
                 }
-                .padding(.leading,6)
-                .padding(.trailing,6)
-                .padding(.top,7)
+                
+                .padding(.top,10)
                 Spacer()
                 Text(question)
+                
                 Spacer()
-            }
+            }.padding(.leading,15)
+                .padding(.trailing,15)
         }
         .frame(maxHeight:.infinity)
         
