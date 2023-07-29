@@ -7,8 +7,45 @@
 
 import SwiftUI
 
+struct ImageBgPreview: View {
+    var image: UIImage?
+    
+    var body: some View {
+        if let image = image {
+            Image(uiImage: image)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 40, height: 40)
+                .clipped()
+                .cornerRadius(100)
+        } else {
+            Image(systemName: "heart.fill")
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: 40, height: 40)
+                .clipped()
+                .cornerRadius(100)
+                .foregroundColor(.red)
+        }
+    }
+}
+
+func displaySavedImage(for filename: String) -> UIImage? {
+    let filename = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(filename)
+    
+    print("ACCESSING FILE >>>> ", filename)
+    
+    // TODO: figure out best way to call
+    if let imageData = try? Data(contentsOf: filename), let uiImage = UIImage(data: imageData) {
+        return uiImage
+    } else {
+        // logger.error("Failed to load image from photo collection.")
+        return nil
+    }
+}
 
 struct MonthViewCalendar: View {
+    @EnvironmentObject var navigation: LoveLogNavigationManager
     @EnvironmentObject var loveLogVM: LoveLogViewModel
     let days: [String] = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
     @State var currentMonth: Int = 6
@@ -42,16 +79,13 @@ struct MonthViewCalendar: View {
                 if let loveLogData = loveLogVM.loveLogs.first(where: {val in
                     return isSameDay(date1: val.createdAt, date2: value.date)
                 }){
-                    Text("\(value.day)")
-                        .font(.dateCalendar)
-                        .background(Image(loveLogData.questions[0].image ?? "coba")
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 40, height: 40)
-                            .clipped()
-                            .cornerRadius(100)
-                        )
-                    
+                    ButtonView(){
+                        navigation.push(to: .loveLogDetail(loveLogData.id))
+                    } label: {
+                        Text("\(value.day)")
+                            .font(.dateCalendar)
+                            .background(ImageBgPreview(image: displaySavedImage(for:loveLogData.questions[0].image ?? "gambar") ))
+                    }
                 }
                 else{
                     Text("\(value.day )")

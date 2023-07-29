@@ -56,7 +56,9 @@ struct TabBarView: View {
                 LoveLogScreen()
                     .navigationDestination(for: LoveLogRoutes.self) { routes in
                         switch(routes) {
-                        case .lovelog:
+                        case .calendarLoveLog:
+                            LoveLogScreen()
+                        case let .loveLogDetail(_):
                             LoveLogScreen()
                         }
                     }
@@ -66,6 +68,7 @@ struct TabBarView: View {
             }
             .environmentObject(loveLogVM)
             .environmentObject(questionVM)
+            .environmentObject(loveLogNavigation)
         }
         .accentColor(Color.buttonPrimary)
         .onAppear() {
