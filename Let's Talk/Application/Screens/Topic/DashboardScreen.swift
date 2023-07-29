@@ -18,7 +18,7 @@ struct DashboardScreen: View {
         LayoutView(spacing: 40) {
             if !isReady {
                 Text("\(multipeerHandler.coupleReadyAt) << COUPLE AT")
-                LoadingView()
+                UserDisconectedScreen()
             }
            
             if isReady {

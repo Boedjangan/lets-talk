@@ -92,6 +92,7 @@ struct AddQuestionMediaScreen: View {
                     }
                 }
             }
+            .toolbar(.hidden, for: .navigationBar)
             .onAppear {
                 // Disable the idle timer again when the view disappears
                 UIApplication.shared.isIdleTimerDisabled = true

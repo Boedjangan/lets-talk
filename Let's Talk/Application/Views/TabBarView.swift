@@ -41,7 +41,9 @@ struct TabBarView: View {
                             QuestionSessionOverviewScreen()
                         }
                     }
+                    .toolbar(.hidden, for: .navigationBar)
             }
+            .toolbar(.hidden)
             .tabItem{
                 Label("Dashboard",systemImage: "heart.circle.fill")
             }

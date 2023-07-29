@@ -39,6 +39,7 @@ struct ReceiverQuestionScreen: View {
                 }
             }
         }
+        .toolbar(.hidden, for: .navigationBar)
         .alert("Selamat", isPresented: $showFinishAlert, actions: {
             Button {
                 // MARK - Navigate to Add Media

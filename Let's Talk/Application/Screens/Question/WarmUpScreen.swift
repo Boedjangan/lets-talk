@@ -92,6 +92,7 @@ struct WarmUpScreen: View {
                 }
             }
         }
+        .toolbar(.hidden, for: .navigationBar)
         .onChange(of: multipeerHandler.coupleReadyAt, perform: { newValue in
             if newValue == "warmup" {
                 isReady = true
