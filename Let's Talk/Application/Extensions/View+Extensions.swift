@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct OverflowContentViewModifier: ViewModifier {
     @State private var contentOverflow: Bool
@@ -45,5 +46,11 @@ extension View {
     
     func scrollOnOverflow(maxHeight: CGFloat) -> some View {
         modifier(OverflowContentViewModifier(maxHeight: maxHeight))
+    }
+}
+
+extension View {
+    func onAppearAndOnChange<V>(of value: V, perform action: @escaping (_ newValue: V) -> Void) -> some View where V: Equatable {
+        onReceive(Just(value), perform: action)
     }
 }

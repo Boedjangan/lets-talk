@@ -12,6 +12,7 @@ struct UserPairingScreen: View {
     
     @ObservedObject var multipeerHandler : MultipeerHandler
     @ObservedObject var userVM: UserViewModel
+    
     @State var isPresent : Bool = false
     
     init(multipeerHandler: MultipeerHandler, userVM: UserViewModel) {

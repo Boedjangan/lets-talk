@@ -31,9 +31,8 @@ struct TopicItemView: View {
                             userVM.myRole = .receiver
                         }
                     } else {
-                        // TODO: Revert back to random
                         let randomRole = randomRole()
-                        userVM.myRole = .receiver
+                        userVM.myRole = randomRole
                     }
                     
                     // MARK - Send Role

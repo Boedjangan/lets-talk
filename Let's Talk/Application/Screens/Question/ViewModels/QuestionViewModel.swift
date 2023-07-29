@@ -39,6 +39,13 @@ class QuestionViewModel: ObservableObject {
     @Published var viewfinderImage: Image?
     @Published var thumbnailImage: Image?
     
+    var filename: String {
+        guard let topicLevel = currentQuestion?.topicLevel else { return "T0-Q0" }
+        guard let questionOrder = currentQuestion?.order else { return "T0-Q0" }
+        
+        return "T\(topicLevel)-Q\(questionOrder)"
+    }
+    
     let camera = Camera()
     
     private var timer: Timer?
@@ -274,14 +281,14 @@ class QuestionViewModel: ObservableObject {
         }
     }
     
-    func handleCameraPhotos(questionId: UUID, imageName: String = "image") async {
+    func handleCameraPhotos(questionId: UUID) async {
         let unpackedPhotoStream = camera.photoStream
             .compactMap { await self.unpackPhoto($0) }
         
         for await photoData in unpackedPhotoStream {
             await MainActor.run {
-                updateQuestionImage(questionId: questionId, newImage: imageName)
-                savePhoto(filename: imageName, imageData: photoData.imageData)
+                updateQuestionImage(questionId: questionId, newImage: filename)
+                savePhoto(filename: filename, imageData: photoData.imageData)
             }
             
             isImageSaved = true
@@ -290,6 +297,7 @@ class QuestionViewModel: ObservableObject {
     
     func savePhoto(filename: String, imageData: Data) {
         let filename = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(filename)
+        print("SAVING IMAGE TO >>>>> ", filename)
         
         do {
             try imageData.write(to: filename, options: [.atomicWrite, .completeFileProtection])
@@ -306,9 +314,11 @@ class QuestionViewModel: ObservableObject {
         
         // TODO: figure out best way to call
         if let imageData = try? Data(contentsOf: filename), let uiImage = UIImage(data: imageData) {
+            print("PHOTO CONTENT FOUND >>>> ", filename)
+            
             return uiImage
         } else {
-            // logger.error("Failed to load image from photo collection.")
+             print("Failed to load image from photo collection.")
             return nil
         }
     }

@@ -16,7 +16,10 @@ struct WarmUpScreen: View {
     @State var timeRemaining: Double = 10
     @State var timer: Timer?
     
-    @State var isReady = true
+    @State private var isError: Bool = false
+    var errorMessage: String = "Silahkan isi ini terlebih dahulu"
+    
+    @State var isReady = false
     
     var body: some View {
         LayoutView {
@@ -65,8 +68,23 @@ struct WarmUpScreen: View {
                                 .font(.paragraph)
                         }
                         
-                        TextFieldView(text: $questionVM.myWarmUpAnswer, placeholder: "Tulis jawabanmu disini")
-                            .padding(.vertical, 20)
+                        VStack(alignment: .leading){
+                            TextField("",text: $questionVM.myWarmUpAnswer, prompt: Text("Tulis Jawabanmu di sini")
+                                .foregroundColor(.white))
+                                .multilineTextAlignment(.center)
+                                .overlay(Divider().background(isError ? .red : .white).offset(y: 5), alignment: .bottom)
+
+                            if(isError){
+                                Text(errorMessage)
+                                    .foregroundColor(.red)
+                                    .font(.subQuestion)
+                                    .padding(.top, 5)
+                            }
+                        }
+                        .padding(.vertical, 20)
+//
+//                        TextFieldView(text: $questionVM.myWarmUpAnswer, placeholder: "Tulis jawabanmu disini")
+//                            .padding(.vertical, 20)
                         
                         Spacer()
                         
@@ -83,6 +101,8 @@ struct WarmUpScreen: View {
                                 }
                                 
                                 navigation.push(to: .warmup_result)
+                            } else {
+                                isError = true
                             }
                         } label: {
                             Text("Jawab")
@@ -93,6 +113,7 @@ struct WarmUpScreen: View {
             }
         }
         .toolbar(.hidden, for: .navigationBar)
+        .toolbar(.hidden, for: .tabBar)
         .onChange(of: multipeerHandler.coupleReadyAt, perform: { newValue in
             if newValue == "warmup" {
                 isReady = true

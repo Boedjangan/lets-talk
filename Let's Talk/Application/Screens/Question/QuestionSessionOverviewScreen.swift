@@ -20,7 +20,6 @@ struct QuestionSessionOverviewScreen: View {
     var body: some View {
         LayoutView {
             if !isReady {
-                Text("\(multipeerHandler.coupleReadyAt) << COUPLE AT")  
                 LoadingView()
             }
             
@@ -61,7 +60,7 @@ struct QuestionSessionOverviewScreen: View {
                         multipeerHandler.resetState()
                         
                         // MARK: Navigate back to dashboard
-                        navigation.reset()
+                        navigation.push(to: .dashboard)
                     }
                 } label: {
                     Text("Kembali ke Dashboard")
@@ -70,6 +69,7 @@ struct QuestionSessionOverviewScreen: View {
             }
         }
         .toolbar(.hidden, for: .navigationBar)
+        .toolbar(.hidden, for: .tabBar)
         .onChange(of: multipeerHandler.receivedPhotoName, perform: { filename in
             guard let filename = filename, let currentQuestion = questionVM.currentQuestion else { return }
             
