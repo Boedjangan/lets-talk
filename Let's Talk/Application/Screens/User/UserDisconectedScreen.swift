@@ -23,7 +23,7 @@ struct UserDisconectedScreen: View {
             
             HStack(spacing: -15){
                 AvatarView(iconImage: "Male", isDisabled: true)
-                AvatarView(iconImage: "Female", isDisabled: isDisconnected)
+                AvatarView(iconImage: "Female", isDisabled: true)
             }
             .padding(.bottom, 50)
             
@@ -33,17 +33,22 @@ struct UserDisconectedScreen: View {
                     .padding(.bottom,78)
                     .multilineTextAlignment(.center)
                     .font(.subQuestion)
+                Spacer()
+                
+                ButtonView() {
+                    onboarding = OnboardingRoutes.setup.rawValue
+                } label: {
+                    Text("Hubungkan")
+                }
+                .buttonStyle(.fill())
+                .padding(.bottom,36)
+                
+            }else{
+                Text("Mohon menunggu \n Sedang mencari perangkat pasanganmu. . .")
+                    .font(.genderPickerLabel)
+                    .multilineTextAlignment(.center)
+                Spacer()
             }
-            
-            Spacer()
-            
-            ButtonView() {
-                onboarding = OnboardingRoutes.setup.rawValue
-            } label: {
-                Text("Hubungkan")
-            }
-            .buttonStyle(.fill())
-            .padding(.bottom,36)
         }
     }
 }

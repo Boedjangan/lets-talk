@@ -69,6 +69,7 @@ struct QuestionSessionOverviewScreen: View {
                 .buttonStyle(.fill(.primary))
             }
         }
+        .toolbar(.hidden, for: .navigationBar)
         .onChange(of: multipeerHandler.receivedPhotoName, perform: { filename in
             guard let filename = filename, let currentQuestion = questionVM.currentQuestion else { return }
             

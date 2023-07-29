@@ -92,6 +92,7 @@ struct AddQuestionMediaScreen: View {
                     }
                 }
             }
+            .toolbar(.hidden, for: .navigationBar)
             .onAppear {
                 savedImage = questionVM.displaySavedImage(for: getKeyString() ?? "gambar")
             }
