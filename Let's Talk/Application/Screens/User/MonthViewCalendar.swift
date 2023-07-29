@@ -7,11 +7,11 @@
 
 import SwiftUI
 
+
 struct MonthViewCalendar: View {
+    @EnvironmentObject var loveLogVM: LoveLogViewModel
     let days: [String] = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
     @State var currentMonth: Int = 6
-    
-    let arrDate: [Date] = [Date()]
     
     var body: some View {
         LayoutView{
@@ -39,10 +39,32 @@ struct MonthViewCalendar: View {
     func CardView(value: DateValue)->some View{
         VStack{
             if value.day != -1{
-                Text("\(value.day )")
-                    .font(.dateCalendar)
+                if let loveLogData = loveLogVM.loveLogs.first(where: {val in
+                    return isSameDay(date1: val.createdAt, date2: value.date)
+                }){
+                    Text("\(value.day)")
+                        .font(.dateCalendar)
+                        .background(Image(loveLogData.questions[0].image ?? "coba")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 40, height: 40)
+                            .clipped()
+                            .cornerRadius(100)
+                        )
+                    
+                }
+                else{
+                    Text("\(value.day )")
+                        .font(.dateCalendar)
+                }
             }
         }
+    }
+    
+    func isSameDay(date1: Date, date2: Date)->Bool{
+        let calendar = Calendar.current
+        
+        return calendar.isDate(date1, inSameDayAs: date2 )
     }
     
     func extraData() -> [String] {
@@ -101,6 +123,9 @@ extension Date{
 
 struct MonthViewCalendar_Previews: PreviewProvider {
     static var previews: some View {
-        MonthViewCalendar()
+        StatefulObjectPreviewView(LoveLogViewModel()) { vm in
+            MonthViewCalendar()
+                .environmentObject(vm)
+        }
     }
 }

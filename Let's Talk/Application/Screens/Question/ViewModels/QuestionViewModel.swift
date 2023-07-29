@@ -23,6 +23,10 @@ class QuestionViewModel: ObservableObject {
     @Published var hasSwitchedRole = false
     @Published var isImageSaved: Bool = false
     
+    var totalTalkDuration: Int {
+        talkDuration + coupleTalkDuration
+    }
+    
     // MARK: - Playback State
     @Published var isPlayingAudio = false
     @Published var audioDuration: Double = 0
@@ -52,6 +56,23 @@ class QuestionViewModel: ObservableObject {
         }
         
         fetchQuestions()
+    }
+    
+    func resetState() {
+        currentQuestion = nil
+        
+        // MARK: - User & Couple
+        talkDuration = 0
+        coupleTalkDuration = 0
+        hasSwitchedRole = false
+        isImageSaved = false
+        
+        // MARK: - Warm Up
+        myWarmUpAnswer = ""
+        
+        // MARK: - Image
+//        viewfinderImage = nil
+//        thumbnailImage = nil
     }
     
     // MARK: - Question Service

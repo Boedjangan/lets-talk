@@ -32,7 +32,7 @@ class TopicCoreDataAdapter: TopicRepository {
     }
     
     func createTopics(topicEntities: [TopicEntity]) -> [TopicEntity] {
-        var createdTopics: [TopicEntity] = []
+        let createdTopics: [TopicEntity] = []
         
         for topicEntity in topicEntities {
             let newTopic = Topic(context: coreDataContext)
@@ -78,6 +78,7 @@ class TopicCoreDataAdapter: TopicRepository {
                             }
                         }
                     }
+                    
                     do {
                         try coreDataContext.save()
                     } catch {
@@ -111,7 +112,9 @@ class TopicCoreDataAdapter: TopicRepository {
                 print("No topic found with the provided ID.")
                 return nil
             }
+            
             topic.progress = newProgress.toInt16
+            topic.updatedAt = Date()
             
             try coreDataContext.save()
             
@@ -137,6 +140,8 @@ class TopicCoreDataAdapter: TopicRepository {
             }
             
             topic.isActive = activeStatus
+            topic.updatedAt = Date()
+            
             try coreDataContext.save()
             
             return convertToTopicEntity(topic: topic)
@@ -161,6 +166,8 @@ class TopicCoreDataAdapter: TopicRepository {
             }
             
             topic.isCompleted = completedStatus
+            topic.updatedAt = Date()
+            
             try coreDataContext.save()
             
             return convertToTopicEntity(topic: topic)

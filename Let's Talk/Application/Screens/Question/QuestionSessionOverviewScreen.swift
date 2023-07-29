@@ -9,7 +9,9 @@ import SwiftUI
 
 struct QuestionSessionOverviewScreen: View {
     @EnvironmentObject var questionVM: QuestionViewModel
+    @EnvironmentObject var loveLogVM: LoveLogViewModel
     @EnvironmentObject var userVM: UserViewModel
+    @EnvironmentObject var topicVM: TopicViewModel
     @EnvironmentObject var navigation: DashboardNavigationManager
     @EnvironmentObject var multipeerHandler: MultipeerHandler
     
@@ -18,10 +20,11 @@ struct QuestionSessionOverviewScreen: View {
     var body: some View {
         LayoutView {
             if !isReady {
+                Text("\(multipeerHandler.coupleReadyAt) << COUPLE AT")  
                 LoadingView()
             }
             
-            if isReady{
+            if isReady {
                 HStack {
                     VStack(alignment: .leading, spacing: 20) {
                         Text("Hore. Obrolan kalian sudah selesai 🎉")
@@ -40,10 +43,26 @@ struct QuestionSessionOverviewScreen: View {
                 
                 Spacer()
                 
-                //TODO: handle creating lovelog if there is none for today date or add to today lovelog if there is any
                 ButtonView {
-                    
-                    navigation.push(to: .dashboard)
+                    if let currentQuestion = questionVM.currentQuestion {
+                        let questionTotalTalkDuration = questionVM.totalTalkDuration
+                        let userCurrentTalkDuration = userVM.user.talkDuration ?? 0
+                        let newUserTotalTalkDuration = userCurrentTalkDuration + questionTotalTalkDuration
+                        
+                        // MARK: Save update before resetting
+                        userVM.updateTalkDuration(newTalkDuration: newUserTotalTalkDuration)
+                        questionVM.updateQuestionTalkDuration(questionId: currentQuestion.id, newDuration: questionTotalTalkDuration)
+                        questionVM.updateQuestionCompleteStatus(questionId: currentQuestion.id, newStatus: true)
+                        topicVM.updateTopicMeta(id: currentQuestion.topicId!, questionOrder: currentQuestion.order)
+                        loveLogVM.handleFinishSession(questionId: currentQuestion.id)
+                        
+                        // MARK: Reset state to proceed with next question
+                        questionVM.resetState()
+                        multipeerHandler.resetState()
+                        
+                        // MARK: Navigate back to dashboard
+                        navigation.reset()
+                    }
                 } label: {
                     Text("Kembali ke Dashboard")
                 }
