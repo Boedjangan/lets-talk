@@ -16,7 +16,7 @@ struct WarmUpScreen: View {
     @State var timeRemaining: Double = 10
     @State var timer: Timer?
     
-    @State var isReady = false
+    @State var isReady = true
     
     var body: some View {
         LayoutView {
@@ -25,66 +25,71 @@ struct WarmUpScreen: View {
             }
             
             if isReady {
-                Text("Warming Up!")
-                    .font(.headingBig)
-                    .padding(.vertical)
-                
-                WarmUpTimerView(timeRemaining: timeRemaining, timer: timer)
-                    .onAppear {
-                        startTimer()
-                    }
-                    .onChange(of: timeRemaining) { val in
-                        if val <= 0 {
-                            stopTimer()
-                        }
+                ScrollView {
+                    VStack(spacing: 16) {
+                        Text("Warming Up!")
+                            .font(.headingBig)
+                            .padding(.vertical)
                         
-                        if val == 0 {
-                            let customData = MultipeerData(dataType: .warmUpAnswer, data: questionVM.myWarmUpAnswer.data(using: .utf8))
-                            
-                            do {
-                                let encodedData = try JSONEncoder().encode(customData)
-                                
-                                multipeerHandler.sendData(encodedData)
-                            } catch {
-                                print("ERROR: \(error.localizedDescription)")
+                        WarmUpTimerView(timeRemaining: timeRemaining, timer: timer)
+                            .onAppear {
+                                startTimer()
                             }
-
+                            .onChange(of: timeRemaining) { val in
+                                if val <= 0 {
+                                    stopTimer()
+                                }
+                                
+                                if val == 0 {
+                                    let customData = MultipeerData(dataType: .warmUpAnswer, data: questionVM.myWarmUpAnswer.data(using: .utf8))
+                                    
+                                    do {
+                                        let encodedData = try JSONEncoder().encode(customData)
+                                        
+                                        multipeerHandler.sendData(encodedData)
+                                    } catch {
+                                        print("ERROR: \(error.localizedDescription)")
+                                    }
+                                    
+                                    navigation.push(to: .warmup_result)
+                                }
+                            }
+                        
+                        Text("Jawab pertanyaan ini dengan pasanganmu")
+                            .font(.paragraph)
+                            .padding(.vertical, 20)
+                        
+                        
+                        WarmUpCardView {
+                            Text(questionVM.currentQuestion?.warmUp.replacingOccurrences(of: "user", with: getName()) ?? "")
+                                .font(.paragraph)
+                        }
+                        
+                        TextFieldView(text: $questionVM.myWarmUpAnswer, placeholder: "Tulis jawabanmu disini")
+                            .padding(.vertical, 20)
+                        
+                        Spacer()
+                        
+                        ButtonView {
+                            if questionVM.myWarmUpAnswer.isNotEmpty {
+                                let customData = MultipeerData(dataType: .warmUpAnswer, data: questionVM.myWarmUpAnswer.data(using: .utf8))
+                                
+                                do {
+                                    let encodedData = try JSONEncoder().encode(customData)
+                                    
+                                    multipeerHandler.sendData(encodedData)
+                                } catch {
+                                    print("ERROR: \(error.localizedDescription)")
+                                }
+                                
                                 navigation.push(to: .warmup_result)
+                            }
+                        } label: {
+                            Text("Jawab")
                         }
+                        .buttonStyle(.fill(.primary))
                     }
-                
-                Text("Jawab pertanyaan ini dengan pasanganmu")
-                    .font(.paragraph)
-                    .padding(.vertical, 20)
-                
-                WarmUpCardView {
-                    Text(questionVM.currentQuestion?.warmUp.replacingOccurrences(of: "user", with: getName()) ?? "")
-                        .font(.paragraph)
                 }
-                
-                TextFieldView(text: $questionVM.myWarmUpAnswer, placeholder: "Tulis jawabanmu disini")
-                    .padding(.vertical, 20)
-                
-                Spacer()
-                
-                ButtonView {
-                    if questionVM.myWarmUpAnswer.isNotEmpty {
-                        let customData = MultipeerData(dataType: .warmUpAnswer, data: questionVM.myWarmUpAnswer.data(using: .utf8))
-                        
-                        do {
-                            let encodedData = try JSONEncoder().encode(customData)
-                            
-                            multipeerHandler.sendData(encodedData)
-                        } catch {
-                            print("ERROR: \(error.localizedDescription)")
-                        }
-                        
-                            navigation.push(to: .warmup_result)
-                    }
-                } label: {
-                    Text("Jawab")
-                }
-                .buttonStyle(.fill(.primary))
             }
         }
         .onChange(of: multipeerHandler.coupleReadyAt, perform: { newValue in
@@ -151,10 +156,13 @@ struct WarmUpScreen_Previews: PreviewProvider {
         StatefulObjectPreviewView(QuestionViewModel()) { question in
             StatefulObjectPreviewView(DashboardNavigationManager()) { nav in
                 StatefulObjectPreviewView(MultipeerHandler()) { multi in
-                    WarmUpScreen()
-                        .environmentObject(question)
-                        .environmentObject(nav)
-                        .environmentObject(multi)
+                    StatefulObjectPreviewView(UserViewModel()) { user in
+                        WarmUpScreen()
+                            .environmentObject(user)
+                            .environmentObject(question)
+                            .environmentObject(nav)
+                            .environmentObject(multi)
+                    }
                 }
             }
         }

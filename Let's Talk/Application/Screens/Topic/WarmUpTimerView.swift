@@ -21,7 +21,7 @@ struct WarmUpTimerView: View {
         .gaugeStyle(.accessoryCircularCapacity)
         .tint(Color("Tosca"))
         .scaleEffect(3)
-        .frame(maxHeight: 200)
+        .frame(height: 200)
     }
 }
  

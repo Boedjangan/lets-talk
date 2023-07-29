@@ -128,15 +128,19 @@ class MultipeerHandler: NSObject, ObservableObject {
     
     // Ini untuk send data ke peer
     func sendData(_ data: Data) {
-           do {
-               try session.send(data, toPeers: [session.connectedPeers.first!], with: .reliable)
-           } catch {
-               print("Error sending data: \(error.localizedDescription)")
-           }
+        guard let peer = session.connectedPeers.first else { return }
+        
+        do {
+            try session.send(data, toPeers: [peer], with: .reliable)
+        } catch {
+            print("Error sending data: \(error.localizedDescription)")
+        }
    }
     
     func sendFile(url: URL, fileName: String, onSuccess: @escaping () -> Void, onFailed: @escaping (_ error: Error) -> Void) {
-        session.sendResource(at: url, withName: fileName, toPeer: session.connectedPeers.first!) { error in
+        guard let peer = session.connectedPeers.first else { return }
+        
+        session.sendResource(at: url, withName: fileName, toPeer: peer) { error in
             if let error = error {
                 print("Error sending file: \(error.localizedDescription)")
                 onFailed(error)
