@@ -68,6 +68,7 @@ struct WarmUpCorrectScreen: View {
             .buttonStyle(.fill(.primary))
         }
         .toolbar(.hidden, for: .navigationBar)
+        .toolbar(.hidden, for: .tabBar)
         .onChange(of: multipeerHandler.coupleReadyAt, perform: { newValue in
             if newValue == "warmup_result" {
                 isReady = true
@@ -166,10 +167,14 @@ struct WarmUpCorrectScreen: View {
     }
     
     func checkWarmupAnswer(myAnswer: String, coupleAnswer: String) -> Bool {
+        if myAnswer.isEmpty && coupleAnswer.isEmpty {
+            return false
+        }
+        
         let A = myAnswer.lowercased()
         let B = coupleAnswer.lowercased()
         
-        return A == B
+        return  A == B
     }
 }
 

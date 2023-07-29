@@ -39,11 +39,11 @@ struct TabBarView: View {
                             AddQuestionMediaScreen()
                         case .overview:
                             QuestionSessionOverviewScreen()
+                        case .camera:
+                            CameraScreen()
                         }
                     }
-                    .toolbar(.hidden, for: .navigationBar)
             }
-            .toolbar(.hidden)
             .tabItem{
                 Label("Dashboard",systemImage: "heart.circle.fill")
             }

@@ -15,13 +15,18 @@ enum DashboardRoutes: Hashable {
     case question_receiver
     case add_media
     case overview
+    case camera
 }
 
 class DashboardNavigationManager: ObservableObject {
     @Published var navigationPaths = NavigationPath()
     
     func push(to route: DashboardRoutes) {
-        navigationPaths.append(route)
+        if navigationPaths.count > 0 {
+            navigationPaths = NavigationPath([route])
+        } else {
+            navigationPaths.append(route)
+        }
     }
     
     func goBack()  {

@@ -12,7 +12,7 @@ struct ButtonView<Label:View>: View {
     private let action: () -> Void
     private let label: () -> Label
     
-    init(role: ButtonRole? = nil, action: @escaping () -> Void, label: @escaping () -> Label) {
+    init(role: ButtonRole? = nil, action: @escaping () -> Void, @ViewBuilder label: @escaping () -> Label) {
         self.role = role
         self.action = action
         self.label = label
@@ -24,7 +24,6 @@ struct ButtonView<Label:View>: View {
         } label: {
             label()
         }
-
     }
 }
 

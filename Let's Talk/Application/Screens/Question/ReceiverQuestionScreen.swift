@@ -40,6 +40,7 @@ struct ReceiverQuestionScreen: View {
             }
         }
         .toolbar(.hidden, for: .navigationBar)
+        .toolbar(.hidden, for: .tabBar)
         .alert("Selamat", isPresented: $showFinishAlert, actions: {
             Button {
                 // MARK - Navigate to Add Media

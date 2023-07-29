@@ -15,10 +15,10 @@ enum SendingStatus {
 }
 
 struct AddQuestionMediaScreen: View {
-    @EnvironmentObject var questionVM: QuestionViewModel
     @EnvironmentObject var userVM: UserViewModel
     @EnvironmentObject var multipeerHandler: MultipeerHandler
     @EnvironmentObject var navigation: DashboardNavigationManager
+    @EnvironmentObject var questionVM: QuestionViewModel
     
     @State private var savedImage: UIImage? = nil
     
@@ -50,13 +50,15 @@ struct AddQuestionMediaScreen: View {
                     }
                     
                     VStack(spacing: 63) {
-                        if  let currectQuestion = questionVM.currentQuestion {
-                            AddPhotoView(questionVM: questionVM, savedImage: $savedImage, questionId: currectQuestion.id, imageName: getKeyString() ?? "gambar")
-                        }
+                        AddPhotoView(savedImage: $savedImage)
                         
                         ButtonView {
+                            // MARK: Must take pic before continue
+                            if savedImage == nil {
+                                return
+                            }
                             // MARK - Sending Photo
-                            guard let filenamePhoto = getKeyString() else { return }
+                            let filenamePhoto = questionVM.filename
                             
                             let urlPhoto = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(filenamePhoto)
                             
@@ -93,11 +95,18 @@ struct AddQuestionMediaScreen: View {
                 }
             }
             .toolbar(.hidden, for: .navigationBar)
+            .toolbar(.hidden, for: .tabBar)
             .onAppear {
                 // Disable the idle timer again when the view disappears
                 UIApplication.shared.isIdleTimerDisabled = true
                 
-                savedImage = questionVM.displaySavedImage(for: getKeyString() ?? "gambar")
+                if let savedImage {
+                    print(savedImage.description)
+                } else {
+                    print("SAVED IMAGE IS NULL")
+                }
+                
+                savedImage = questionVM.displaySavedImage(for: questionVM.filename)
             }
             .onDisappear {
                 // Enable the idle timer again when the view disappears
@@ -110,12 +119,6 @@ struct AddQuestionMediaScreen: View {
             }
     }
     
-    func getKeyString() -> String? {
-        guard let topicLevel =  questionVM.currentQuestion?.topicLevel else { return nil }
-        guard let questionOrder = questionVM.currentQuestion?.order else { return nil }
-        
-        return "T\(topicLevel)-Q\(questionOrder)"
-    }
 }
 
 //struct AddQuestionMediaScreen_Previews: PreviewProvider {

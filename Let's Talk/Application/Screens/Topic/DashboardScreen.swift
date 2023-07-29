@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct DashboardScreen: View {
     @EnvironmentObject var userVM: UserViewModel
@@ -13,6 +14,7 @@ struct DashboardScreen: View {
     @EnvironmentObject var multipeerHandler: MultipeerHandler
     
     @State var isReady = false
+    @State var observedCouleReadyAt: AnyCancellable?
     
     var body: some View {
         LayoutView(spacing: 40) {
@@ -34,20 +36,10 @@ struct DashboardScreen: View {
                 TopicListView(topics: topicVM.topics)
             }
         }
+        .toolbar(.hidden, for: .navigationBar)
         .onChange(of: multipeerHandler.coupleReadyAt, perform: { newValue in
-            print("WAT DEHEK COUPLE READY AT???")
             if newValue == "dashboard" {
                 isReady = true
-            }
-            
-            let customData = MultipeerData(dataType: .isReadyAt, data: "dashboard".data(using: .utf8))
-            
-            do {
-                let encodedData = try JSONEncoder().encode(customData)
-                
-                multipeerHandler.sendData(encodedData)
-            } catch {
-                print("ERROR: \(error.localizedDescription)")
             }
         })
         .onChange(of: multipeerHandler.state) { newState in
@@ -66,12 +58,11 @@ struct DashboardScreen: View {
             }
         }
         .onAppear {
-            print("ON APPEARRRRRRR")
-            
             if multipeerHandler.state == .connected {
                 if multipeerHandler.coupleReadyAt == "dashboard" {
                     isReady = true
                 }
+                
                 
                 let customData = MultipeerData(dataType: .isReadyAt, data: "dashboard".data(using: .utf8))
                 
