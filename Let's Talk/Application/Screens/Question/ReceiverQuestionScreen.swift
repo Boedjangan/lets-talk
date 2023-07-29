@@ -109,6 +109,9 @@ struct ReceiverQuestionScreen: View {
             }
         })
         .onAppear {
+            // Disable the idle timer again when the view disappears
+            UIApplication.shared.isIdleTimerDisabled = true
+            
             // MARK - Check if couple at sender yet
             if multipeerHandler.coupleReadyAt == "question_sender" {
                 isReady = true
@@ -126,6 +129,9 @@ struct ReceiverQuestionScreen: View {
             }
         }
         .onDisappear {
+            // Enable the idle timer again when the view disappears
+            UIApplication.shared.isIdleTimerDisabled = false
+            
             isReady = false
         }
     }
