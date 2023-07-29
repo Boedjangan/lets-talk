@@ -8,7 +8,8 @@
 import SwiftUI
 
 enum LoveLogRoutes: Hashable {
-    case lovelog
+    case calendarLoveLog
+    case loveLogDetail(UUID)
 }
 
 class LoveLogNavigationManager: ObservableObject {

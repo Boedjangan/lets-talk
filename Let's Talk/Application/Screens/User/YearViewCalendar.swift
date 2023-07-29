@@ -24,6 +24,9 @@ struct YearViewCalendar: View {
 
 struct YearViewCalendar_Previews: PreviewProvider {
     static var previews: some View {
-        YearViewCalendar()
+        StatefulObjectPreviewView(LoveLogViewModel()) { vm in
+            YearViewCalendar()
+                .environmentObject(vm)
+        }
     }
 }
