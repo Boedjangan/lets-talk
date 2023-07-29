@@ -25,12 +25,13 @@ struct LoveLogDetailScreen: View {
                         ImageView(imageName: question.image ?? "sample")
                         DetailOverview()
                         AudioPlayerSlider(sliderVal: $sliderVal)
-                        AudioPlayerButtons(key: question.answer?.recordedAnswer ?? "")
+                        AudioPlayerButtons(key: question.answer?.recordedAnswer ?? "", loveLogId: question.id)
                         Spacer()
                     }
                 }
             }
             .tabViewStyle(.page)
+            .id(UUID())
         })
         .onAppear {
             
@@ -81,21 +82,24 @@ struct ImageView: View {
 }
 
 struct AudioPlayerSlider: View {
+    @EnvironmentObject var questionVM: QuestionViewModel
     @Binding var sliderVal: Double
     var body: some View {
         VStack {
             //time slider
-            Slider(value: $sliderVal, in: 1...10) {
-                Text("lkjads")
+            Slider(value: $questionVM.currentTime, in: 0...questionVM.audioDuration, onEditingChanged: { _ in
+                questionVM.changeCurrentTime(to: questionVM.currentTime)
+            }) {
+                Text("Audio Slider")
             }
+            .onChange(of: questionVM.currentTime) { newValue in
+                questionVM.changeCurrentTime(to: newValue)
+            }
+
             HStack {
-                //total duration
-                Text("00.00")
-                    .padding(.horizontal)
+                Text("\(Int(questionVM.audioDuration) / 60):\(Int(questionVM.audioDuration) % 60)")
                 Spacer()
-                //left duration
-                Text("\(sliderVal)")
-                    .padding(.horizontal)
+                Text("\(Int(questionVM.currentTime) / 60):\(Int(questionVM.currentTime) % 60)")
             }
             .font(.topicButton)
         }
@@ -104,14 +108,46 @@ struct AudioPlayerSlider: View {
 
 struct AudioPlayerButtons: View {
     @EnvironmentObject var questionVM: QuestionViewModel
+    @EnvironmentObject var loveLogVM: LoveLogViewModel
     var key: String = ""
+    var loveLogId: UUID
     var body: some View {
         HStack {
-            ButtonView {
-                //setting
+            Menu {
+                Menu {
+                    Button {
+                        //setting
+                    } label: {
+                        Text("2x")
+                    }
+                    Button {
+                        //setting
+                    } label: {
+                        Text("1x")
+                    }
+                    Button {
+                        //setting
+                    } label: {
+                        Text("Normal")
+                    }
+                    Button {
+                        //setting
+                    } label: {
+                        Text("0.5x")
+                    }
+                    Button {
+                        //setting
+                    } label: {
+                        Text("0.25x")
+                    }
+                } label: {
+                    Text("Playback Speed")
+                }
             } label: {
                 Image(systemName: "slider.horizontal.3")
             }
+
+            
             Spacer()
             ButtonView {
                 questionVM.backwardPlayback(seconds: 15)
@@ -128,7 +164,6 @@ struct AudioPlayerButtons: View {
             } label: {
                 Image(systemName: questionVM.isPlayingAudio ? "pause.fill" : "play.fill")
                     .padding(.horizontal)
-                    .font(.headingBig)
             }
             ButtonView {
                 questionVM.forwardPlayback(seconds: 15)
@@ -138,12 +173,12 @@ struct AudioPlayerButtons: View {
             
             Spacer()
             ButtonView {
-                //delete
+                loveLogVM.deleteLoveLog(id: loveLogId)
             } label: {
                 Image(systemName: "trash")
             }
         }
-        .font(.heading)
+        .font(.subHeading)
     }
 }
 
@@ -151,9 +186,12 @@ struct AudioPlayerButtons: View {
 struct LoveLogDetailScreen_Previews: PreviewProvider {
     static var previews: some View {
         let questionEntity = QuestionEntity()
-        StatefulPreviewView(LoveLogViewModel()) { val in
+        let viewModel = LoveLogViewModel()
+        StatefulPreviewView(viewModel) { val in
             LoveLogDetailScreen(questions: [questionEntity])
-                .environmentObject(LoveLogViewModel())
+                .environmentObject(viewModel)
+                .environmentObject(QuestionViewModel()) // Add this
         }
     }
 }
+

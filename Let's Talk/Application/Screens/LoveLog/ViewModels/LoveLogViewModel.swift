@@ -52,6 +52,9 @@ class LoveLogViewModel: ObservableObject {
         }
     }
     
+    func deleteLoveLog(id: UUID) {
+        loveLogService.deleteLoveLog(id: id)
+
     func handleFinishSession(questionId: UUID) {
         if let lovelog = loveLogService.getTodayLoveLog() {
             addQuestionToLoveLog(id: lovelog.id, questionId: questionId)
