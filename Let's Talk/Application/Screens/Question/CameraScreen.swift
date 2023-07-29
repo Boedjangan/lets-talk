@@ -63,6 +63,7 @@ struct CameraScreen: View {
             Spacer()
             Button {
                 questionVM.camera.takePhoto()
+                
                 Task {
                     await questionVM.handleCameraPhotos(questionId: questionId, imageName: imageName)
                 }
