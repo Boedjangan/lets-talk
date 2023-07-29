@@ -69,6 +69,15 @@ struct GenderSelectorView: View {
                 }
             }
         }
+        .onAppear {
+            withAnimation {
+                if genderIsMale {
+                    rectanglePosition = CGPoint(x: -86, y: 0)
+                } else {
+                    rectanglePosition = CGPoint(x: 86, y: 0)
+                }
+            }
+        }
     }
 }
 
