@@ -19,7 +19,7 @@ struct WarmUpScreen: View {
     @State private var isError: Bool = false
     var errorMessage: String = "Silahkan isi ini terlebih dahulu"
     
-    @State var isReady = true
+    @State var isReady = false
     
     var body: some View {
         LayoutView {
@@ -115,9 +115,6 @@ struct WarmUpScreen: View {
         .toolbar(.hidden, for: .navigationBar)
         .toolbar(.hidden, for: .tabBar)
         .onChange(of: multipeerHandler.coupleReadyAt, perform: { newValue in
-            
-            print("WAT DEHEK COUPLE READY AT WARM UP???")
-            
             if newValue == "warmup" {
                 isReady = true
             }

@@ -19,16 +19,10 @@ struct DashboardScreen: View {
     var body: some View {
         LayoutView(spacing: 40) {
             if !isReady {
-                Text("\(multipeerHandler.coupleReadyAt) << COUPLE AT")
                 UserDisconectedScreen()
             }
            
             if isReady {
-                Text("\(multipeerHandler.coupleReadyAt) << COUPLE AT")
-                ForEach(topicVM.topics) { topic in
-                    Text("\(topic.progress) Progress, \(topic.isActive.description) Active, \(topic.questions!.count) q count")
-                }
-                
                 TalkTimeView(talkTime: userVM.user.talkDuration ?? 0)
                 
                 GreetingView(userName: userVM.user.username)

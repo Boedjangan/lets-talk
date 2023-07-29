@@ -20,7 +20,6 @@ struct QuestionSessionOverviewScreen: View {
     var body: some View {
         LayoutView {
             if !isReady {
-                Text("\(multipeerHandler.coupleReadyAt) << COUPLE AT")  
                 LoadingView()
             }
             
