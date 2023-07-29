@@ -105,6 +105,9 @@ struct WarmUpCorrectScreen: View {
             getAnswerTitle()
         })
         .onAppear(perform: {
+            // Disable the idle timer again when the view disappears
+            UIApplication.shared.isIdleTimerDisabled = true
+            
             // Update status if both are in this page
             if multipeerHandler.coupleReadyAt == "warmup_result" {
                 isReady = true
@@ -140,6 +143,9 @@ struct WarmUpCorrectScreen: View {
             }
         })
         .onDisappear {
+            // Enable the idle timer again when the view disappears
+            UIApplication.shared.isIdleTimerDisabled = false
+            
             isReady = false
             isChecked = false
         }

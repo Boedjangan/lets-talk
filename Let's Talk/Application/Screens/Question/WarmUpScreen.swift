@@ -93,6 +93,9 @@ struct WarmUpScreen: View {
             }
         })
         .onAppear {
+            // Prevent screen from being automatically slept
+            UIApplication.shared.isIdleTimerDisabled = true
+            
             if multipeerHandler.coupleReadyAt == "warmup" {
                 isReady = true
             }
@@ -108,6 +111,9 @@ struct WarmUpScreen: View {
             }
         }
         .onDisappear {
+            // Enable the idle timer again when the view disappears
+            UIApplication.shared.isIdleTimerDisabled = false
+            
             isReady = false
         }
         .toolbar(.hidden, for: .tabBar)

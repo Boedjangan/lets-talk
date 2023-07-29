@@ -88,6 +88,9 @@ struct QuestionSessionOverviewScreen: View {
             }
         })
         .onAppear{
+            // Disable the idle timer again when the view disappears
+            UIApplication.shared.isIdleTimerDisabled = true
+            
             if multipeerHandler.coupleReadyAt == "question_overview" {
                 isReady = true
             }
@@ -103,6 +106,9 @@ struct QuestionSessionOverviewScreen: View {
             }
         }
         .onDisappear{
+            // Enable the idle timer again when the view disappears
+            UIApplication.shared.isIdleTimerDisabled = false
+            
             isReady = false
         }
     }

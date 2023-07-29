@@ -93,11 +93,16 @@ struct AddQuestionMediaScreen: View {
                 }
             }
             .onAppear {
+                // Disable the idle timer again when the view disappears
+                UIApplication.shared.isIdleTimerDisabled = true
+                
                 savedImage = questionVM.displaySavedImage(for: getKeyString() ?? "gambar")
             }
+            .onDisappear {
+                // Enable the idle timer again when the view disappears
+                UIApplication.shared.isIdleTimerDisabled = false
+            }
             .onChange(of: isFinishedSending) { isFinished in
-                print("\(isFinished)", "<<<<< SENDING STATUS")
-                
                 if isFinished {
                     navigation.push(to: .overview)
                 }
