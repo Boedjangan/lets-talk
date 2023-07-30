@@ -84,7 +84,7 @@ struct QuestionSessionOverviewScreen: View {
             questionVM.updateQuestionAnswer(questionId: currentQuestion.id, newAnswer: newAnswer)
             
             // MARK - Sending Audio
-            let filenameAudio = "\(filename).m4a"
+            let filenameAudio = filename
             
             let urlAudio = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(filenameAudio)
             
@@ -169,14 +169,14 @@ struct TopicAdvancementDetailsView: View {
     var body: some View {
         HStack(alignment: .center) {
             VStack {
-                Text(convertSecondToMinute(time: totalTalkDuration))
+                Text("+\(convertSecondToMinute(duration: talkDuration)) Menit")
                     .font(.paragraph)
                 
                 AvatarView(iconImage: userVM.user.gender == .male ? "Male" : "Female", radius: 70, imageSize: 50)
             }
             
             VStack {
-                Text("\(totalTalkDuration) Menit")
+                Text("+\(convertSecondToMinute(duration: totalTalkDuration)) Menit")
                     .font(.headingBig)
                 
                 Text("Waktu kebersamaan kalian ketika mengobrol.")
@@ -186,7 +186,7 @@ struct TopicAdvancementDetailsView: View {
             .multilineTextAlignment(.center)
             
             VStack {
-                Text("+\(coupleTalkDuration) Menit")
+                Text("+\(convertSecondToMinute(duration: coupleTalkDuration	)) Menit")
                     .font(.paragraph)
                 
                 AvatarView(iconImage: userVM.user.gender == .male ? "Female" : "Male", radius: 70, imageSize: 50)

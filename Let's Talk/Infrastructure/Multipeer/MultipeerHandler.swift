@@ -157,6 +157,12 @@ class MultipeerHandler: NSObject, ObservableObject {
         do {
             let documentsURL = try fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
             let destinationURL = documentsURL.appendingPathComponent(fileName)
+            
+            // Check if a file with the same name already exists at the destination
+            if fileManager.fileExists(atPath: destinationURL.path) {
+                // If the file exists, remove it before moving the new file to the destination
+                try fileManager.removeItem(at: destinationURL)
+            }
 
             // Move or copy the file to the app's document directory
             try fileManager.moveItem(at: sourceURL, to: destinationURL)
