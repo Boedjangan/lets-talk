@@ -7,6 +7,12 @@
 
 import Foundation
 
+struct TimeObj {
+    let seconds: Int?
+    let minutes: Int?
+    let hour: Int?
+}
+
 func convertPixelToPoint(px: Double) -> CGFloat {
     let comparisonValue = CGFloat(4) / CGFloat(3)
     let point = CGFloat(px) / comparisonValue
@@ -15,12 +21,22 @@ func convertPixelToPoint(px: Double) -> CGFloat {
 }
 
 // how to use : totalin dlu detiknya baru itung menitnya
-func convertSecondToMinute(time:Int) -> String{
-    var hour,minute,second : String
-    second = String(time % 60)
-    minute = String(time / 60 % 60)
-    hour = String(time / 3600)
+func convertSecondToMinute(duration time:Int) -> String {
+    let formatter = NumberFormatter()
+    formatter.numberStyle = .decimal
+    formatter.maximumFractionDigits = 1
     
-    return "\(hour)J \(minute)M \(second)D "
+    let minutes = Double(time) / 60
+    let value = NSNumber(value: minutes)
     
+    return formatter.string(from: value)!
+}
+
+
+func convertSecondToTimeObject(durationInSeconds: Int) -> TimeObj {
+    let seconds = durationInSeconds % 60
+    let minutes = durationInSeconds / 60 % 60
+    let hours = durationInSeconds / 3600
+    
+    return TimeObj(seconds: seconds, minutes: minutes, hour: hours)
 }
