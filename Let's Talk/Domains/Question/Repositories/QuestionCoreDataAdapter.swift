@@ -242,7 +242,8 @@ class QuestionCoreDataAdapter: QuestionRepository {
             answer: answerEntity,
             subQuestions: subQuestionsEntity,
             topicId: question.topic?.id.unsafelyUnwrapped,
-            topicLevel: question.topic?.level.toInt
+            topicLevel: question.topic?.level.toInt,
+            topicTitle: question.topic?.title.unsafelyUnwrapped
         )
     }
     

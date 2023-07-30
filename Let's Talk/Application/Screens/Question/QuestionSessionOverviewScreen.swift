@@ -76,11 +76,23 @@ struct QuestionSessionOverviewScreen: View {
             questionVM.updateQuestionImage(questionId: currentQuestion.id, newImage: filename)
         })
         .onChange(of: multipeerHandler.receivedAudioName, perform: { filename in
+            // MARK: Saving answer audio to question
             guard let filename = filename, let currentQuestion = questionVM.currentQuestion, let coupleName = multipeerHandler.coupleName else { return }
             
             let newAnswer = AnswerEntity(name: coupleName, recordedAnswer: filename)
             
             questionVM.updateQuestionAnswer(questionId: currentQuestion.id, newAnswer: newAnswer)
+            
+            // MARK - Sending Audio
+            let filenameAudio = "\(filename).m4a"
+            
+            let urlAudio = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(filenameAudio)
+            
+            multipeerHandler.sendFile(url: urlAudio, fileName: filenameAudio) {
+                print("Success sending audio")
+            } onFailed: { error in
+                print("Failed sending audio: \(error)")
+            }
         })
         .onChange(of: multipeerHandler.coupleReadyAt, perform: {
             newValue in
