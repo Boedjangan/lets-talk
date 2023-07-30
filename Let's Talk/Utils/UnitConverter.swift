@@ -17,9 +17,9 @@ func convertPixelToPoint(px: Double) -> CGFloat {
 // how to use : totalin dlu detiknya baru itung menitnya
 func convertSecondToMinute(time:Int) -> String{
     var hour,minute,second : String
-    second = String(time % 3600)
-    minute = String(time % 60)
-    hour = String(time / 60)
+    second = String(time % 60)
+    minute = String(time / 60 % 60)
+    hour = String(time / 3600)
     
     return "\(hour)J \(minute)M \(second)D "
     

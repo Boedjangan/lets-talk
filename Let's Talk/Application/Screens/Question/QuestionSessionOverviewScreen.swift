@@ -169,14 +169,14 @@ struct TopicAdvancementDetailsView: View {
     var body: some View {
         HStack(alignment: .center) {
             VStack {
-                Text(convertSecondToMinute(time: totalTalkDuration))
+                Text("+\(talkDuration) Menit")
                     .font(.paragraph)
                 
                 AvatarView(iconImage: userVM.user.gender == .male ? "Male" : "Female", radius: 70, imageSize: 50)
             }
             
             VStack {
-                Text("\(totalTalkDuration) Menit")
+                Text("+\(convertSecondToMinute(time: totalTalkDuration)) Menit")
                     .font(.headingBig)
                 
                 Text("Waktu kebersamaan kalian ketika mengobrol.")
