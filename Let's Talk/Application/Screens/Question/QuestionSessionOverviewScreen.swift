@@ -20,7 +20,6 @@ struct QuestionSessionOverviewScreen: View {
     var body: some View {
         LayoutView {
             if !isReady {
-                Text("\(multipeerHandler.coupleReadyAt) << COUPLE AT")  
                 LoadingView()
             }
             
@@ -61,7 +60,7 @@ struct QuestionSessionOverviewScreen: View {
                         multipeerHandler.resetState()
                         
                         // MARK: Navigate back to dashboard
-                        navigation.reset()
+                        navigation.push(to: .dashboard)
                     }
                 } label: {
                     Text("Kembali ke Dashboard")
@@ -69,17 +68,31 @@ struct QuestionSessionOverviewScreen: View {
                 .buttonStyle(.fill(.primary))
             }
         }
+        .toolbar(.hidden, for: .navigationBar)
+        .toolbar(.hidden, for: .tabBar)
         .onChange(of: multipeerHandler.receivedPhotoName, perform: { filename in
             guard let filename = filename, let currentQuestion = questionVM.currentQuestion else { return }
             
             questionVM.updateQuestionImage(questionId: currentQuestion.id, newImage: filename)
         })
         .onChange(of: multipeerHandler.receivedAudioName, perform: { filename in
+            // MARK: Saving answer audio to question
             guard let filename = filename, let currentQuestion = questionVM.currentQuestion, let coupleName = multipeerHandler.coupleName else { return }
             
             let newAnswer = AnswerEntity(name: coupleName, recordedAnswer: filename)
             
             questionVM.updateQuestionAnswer(questionId: currentQuestion.id, newAnswer: newAnswer)
+            
+            // MARK - Sending Audio
+            let filenameAudio = "\(filename).m4a"
+            
+            let urlAudio = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(filenameAudio)
+            
+            multipeerHandler.sendFile(url: urlAudio, fileName: filenameAudio) {
+                print("Success sending audio")
+            } onFailed: { error in
+                print("Failed sending audio: \(error)")
+            }
         })
         .onChange(of: multipeerHandler.coupleReadyAt, perform: {
             newValue in
@@ -156,7 +169,7 @@ struct TopicAdvancementDetailsView: View {
     var body: some View {
         HStack(alignment: .center) {
             VStack {
-                Text("+\(talkDuration) Menit")
+                Text(convertSecondToMinute(time: totalTalkDuration))
                     .font(.paragraph)
                 
                 AvatarView(iconImage: userVM.user.gender == .male ? "Male" : "Female", radius: 70, imageSize: 50)

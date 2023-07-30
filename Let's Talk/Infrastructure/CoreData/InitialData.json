@@ -34,7 +34,7 @@
       {
         "image": null,
         "isCompleted": false,
-        "question": "Sebelum melakukan telepon, apakah kamu berlatih apa yang akan kamu katakan?",
+        "question": "Sebelum melakukan telepon, apakah kamu berlatih dengan apa yang akan kamu katakan?",
         "talkDuration": 0,
         "warmUp": "Sebutkan 4 digit terakhir dari nomor user?",
         "subQuestions": [
@@ -56,9 +56,9 @@
       {
         "image": null,
         "isCompleted": false,
-        "question": "Kapan kamu terakhir kali bernyanyi untuk dirimu sendiri? kalau didepan umum?",
+        "question": "Kapan terakhir kali kamu  bernyanyi untuk dirimu sendiri? kalau didepan umum?",
         "talkDuration": 0,
-        "warmUp": "Siapa penyanyi/band user?",
+        "warmUp": "Siapa penyanyi/band kesukaan user?",
         "subQuestions": [
           "Lagu apa yang kamu nyanyikan?",
           "Apakah kamu senang dengan jenis lagu tersebut?",
@@ -69,7 +69,7 @@
       {
         "image": null,
         "isCompleted": false,
-        "question": "Jika kamu hidup sampai usia 90 tahun dan kamu bisa memilih untuk mempertahankan pikiranmu atau tubuhmu yang diumur 30 untuk 60 tahun terakhirmu yang mana yang akan kamu inginkan?",
+        "question": "Jika kamu hidup sampai usia 90 tahun dan kamu bisa memilih untuk mempertahankan pikiranmu atau tubuhmu yang diumur 30 untuk 60 tahun terakhirmu yang mana kamu pilih?",
         "talkDuration": 0,
         "warmUp": "Sebutkan usia pasangan user saat ini?",
         "subQuestions": ["Kenapa kamu ingin mempertahankan hal itu ?"],
@@ -93,7 +93,7 @@
         "question": "Sebutkan 3 kesamaan dirimu dengan user ? ",
         "talkDuration": 0,
         "warmUp": "Sebutkan 1 benda yang pernah kamu berikan kepada pasanganmu?",
-        "subQuestions": [],
+        "subQuestions": [""],
         "order":8
       },
       {
@@ -102,13 +102,13 @@
         "question": "Apa hal yang kamu syukuri dalam hidupmu ?",
         "talkDuration": 0,
         "warmUp": " Apa hadiah terbaik yang pernah user terima?",
-        "subQuestions": ["Kenapa kamu merasakan hal tersebut?"],
+        "subQuestions": ["Kenapa kamu mensyukuri hal tersebut?"],
         "order":9
       },
       {
         "image": null,
         "isCompleted": false,
-        "question": "Jika kamu dapat mengubah bagaimana cara dirimu dibesarkan , apa yang ingin kamu ubah?",
+        "question": "Jika kamu dapat mengubah bagaimana cara dirimu dibesarkan, apa yang ingin kamu ubah?",
         "talkDuration": 0,
         "warmUp": "Siapa teman masa kecil user ?",
         "subQuestions": ["Kenapa kamu ingin mengubah itu? (jika ada)"],
@@ -128,9 +128,9 @@
       {
         "image": null,
         "isCompleted": false,
-        "question": "ika kamu besok bangun mendapatkan satu kemampuan atau  kepintaran , kemampuan apakah itu?",
+        "question": "Jika kamu besok bangun mendapatkan satu kemampuan atau  kepintaran, kemampuan apakah itu?",
         "talkDuration": 0,
-        "warmUp": "Siapa super hero user ",
+        "warmUp": "Siapa super hero kesukaan user ",
         "subQuestions": ["Kenapa kamu memilih kemampuan itu?"],
         "order":12
       }
@@ -147,7 +147,7 @@
       {
         "image": null,
         "isCompleted": false,
-        "question": "Jika kamu bisa tahu kebenaran tentang dirimu, kehidupanmu, masa depanmu atau hal apapun, apa yang ingin kamu ingin tahu?",
+        "question": "Jika kamu bisa tahu kebenaran tentang dirimu, kehidupanmu, masa depanmu atau hal apapun, apa yang ingin kamu  tahu?",
         "talkDuration": 0,
         "warmUp": "Siapa tokoh yang menjadi role model saat user dewasa?",
         "subQuestions": ["Kenapa kamu ingin tahu hal tersebut? "],
@@ -156,7 +156,7 @@
       {
         "image": null,
         "isCompleted": false,
-        "question": "Apakah ada sesuatu yang kamu sudah lama kamu impikan?",
+        "question": "Apakah ada sesuatu yang sudah lama kamu impikan?",
         "talkDuration": 0,
         "warmUp": "Sebutkan 1 barang yang user impikan untuk  dimiliki ?",
         "subQuestions": [
@@ -195,17 +195,18 @@
         "isCompleted": false,
         "question": "Apa kenangan paling berharga dalam hidupmu",
         "talkDuration": 0,
-        "warmUp": "Sebutkan 1 benda favorit yang sering dibawa user ?",
-        "subQuestions": ["Kenapa kenagan tersebut sangat berharga"]
+        "warmUp": "Sebutkan 1 benda favorit yang sering dibawa user?",
+        "subQuestions": ["Kenapa kenagan tersebut sangat berharga"],
+        "order":5
       },
       {
         "image": null,
         "isCompleted": false,
         "question": "Apa kejadian terburuk dalam hidupmu?",
         "talkDuration": 0,
-        "warmUp": "Sebutkan hal yang ditakuti user ?",
+        "warmUp": "Sebutkan hal yang ditakuti user?",
         "subQuestions": ["Apakah kejadian tersebut mengubah hidupmu?"],
-        "order":5
+        "order":6
       },
       {
         "image": null,
@@ -217,7 +218,7 @@
           "Dalam hal apa yang ingin kamu ubah?",
           "Kenapa kamu ingin mengubah cara hidupmu"
         ],
-        "order":6
+        "order":7
       },
       {
         "image": null,
@@ -226,7 +227,7 @@
         "talkDuration": 0,
         "warmUp": "Siapa teman yang paling sering user mintai tolong?",
         "subQuestions": ["Apakah kamu sudah menemukan teman yang seperti itu?"],
-        "order":7
+        "order":8
       },
       {
         "image": null,
@@ -238,7 +239,7 @@
           "Apakah kamu merasa sudah mendapatkan cinta dan kasih sayang yang seperti kamu inginkan?",
           "Apakah aku sudah memberikan cinta dan kasih sayang seperti itu kepada dirimu?"
         ],
-        "order":8
+        "order":9
       },
       {
         "image": null,
@@ -247,7 +248,7 @@
         "talkDuration": 0,
         "warmUp": "Sebutkan jumlah saudara kandung yang user miliki?",
         "subQuestions": [],
-        "order":9
+        "order":10
       },
       {
         "image": null,
@@ -259,19 +260,19 @@
           "Apakah kamu merasa masa kecilmu lebih bahagia daripada kebanyakan orang lain?",
           "Kenapa kamu merasa hal tersebut?"
         ],
-        "order":10
+        "order":11
       },
       {
         "image": null,
         "isCompleted": false,
         "question": "Bagaimana hubungan dirimu dengan ibumu",
         "talkDuration": 0,
-        "warmUp": "Phasellus sit amet erat.",
+        "warmUp": "Sebutkan nama Ibu pasanganmu",
         "subQuestions": [
           "Mengapa kamu merasa jauh dengan ibumu? (kalau tidak dekat)",
           "Hal apa yang membuat kamu merasa seperti itu? "
         ],
-        "order":11
+        "order":12
       }
     ]
   },
@@ -288,7 +289,7 @@
         "isCompleted": false,
         "question": "Buatlah masing masing 3 pernyataan dengan menggunakan kata \"kita\" secara jujur, contoh \"kita berdua di ruangan ini merasa ...\"",
         "talkDuration": 0,
-        "warmUp": "Suspendisse ornare consequat lectus.",
+        "warmUp": "Kapan kita terakhir kali berkencan ",
         "subQuestions": [],
         "order":1
       },
@@ -335,7 +336,7 @@
       {
         "image": null,
         "isCompleted": false,
-        "question": "Kapan terakhir kali kamu menangis di depan orang lain ? kalau menangis sendiri ?",
+        "question": "Kapan terakhir kali kamu menangis di depan orang lain? kalau menangis sendiri?",
         "talkDuration": 0,
         "warmUp": "Quisque id justo sit amet sapien dignissim vestibulum.",
         "subQuestions": [

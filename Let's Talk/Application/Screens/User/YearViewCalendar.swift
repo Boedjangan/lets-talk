@@ -19,6 +19,7 @@ struct YearViewCalendar: View {
                 }
             }
         }
+        .toolbar(.hidden, for: .navigationBar)
     }
 }
 

@@ -18,6 +18,7 @@ enum OnboardingRoutes: String {
 @main
 struct Let_s_TalkApp: App {
     @AppStorage("onboarding") var onboarding: String = OnboardingRoutes.welcome.rawValue
+//    var onboarding: String = "setup"
     
     // MARK - View Model Initialization
     @StateObject var userVM: UserViewModel = UserViewModel()

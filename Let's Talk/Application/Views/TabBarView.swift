@@ -39,6 +39,8 @@ struct TabBarView: View {
                             AddQuestionMediaScreen()
                         case .overview:
                             QuestionSessionOverviewScreen()
+                        case .camera:
+                            CameraScreen()
                         }
                     }
             }

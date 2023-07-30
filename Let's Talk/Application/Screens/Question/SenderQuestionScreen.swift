@@ -125,6 +125,8 @@ struct SenderQuestionScreen: View {
                 }
             }
         }
+        .toolbar(.hidden, for: .navigationBar)
+        .toolbar(.hidden, for: .tabBar)
         .onChange(of: multipeerHandler.coupleReadyAt, perform: { newValue in
             // Mark - Check if your couple is ready in receiver screen
             if newValue == "question_receiver" {

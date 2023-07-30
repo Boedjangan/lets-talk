@@ -20,19 +20,17 @@ struct LayoutView<Children: View>: View {
     }
     
     var body: some View {
-       
-            VStack(alignment: alignment, spacing: spacing) {
-                children()
-            }
-            .foregroundColor(Color.white)
-            .frame(
-                maxWidth: CGFloat.infinity,
-                maxHeight:  CGFloat.infinity
-            )
-            .padding(Edge.Set.horizontal, 24)
-            .padding(Edge.Set.top, 8)
-            .background(Color.background)
-        
+        VStack(alignment: alignment, spacing: spacing) {
+           children()
+        }
+        .foregroundColor(Color.white)
+        .frame(
+            maxWidth: CGFloat.infinity,
+            maxHeight:  CGFloat.infinity
+        )
+        .padding(Edge.Set.horizontal, 24)
+        .padding(Edge.Set.top, 8)
+        .background(Color.background)
     }
 }
 

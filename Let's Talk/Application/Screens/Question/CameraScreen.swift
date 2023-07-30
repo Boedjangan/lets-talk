@@ -8,10 +8,8 @@
 import SwiftUI
 
 struct CameraScreen: View {
-    @Environment(\.dismiss) var dismiss
-    @ObservedObject var questionVM: QuestionViewModel
-    var questionId: UUID
-    var imageName : String
+    @EnvironmentObject var navigation: DashboardNavigationManager
+    @EnvironmentObject var questionVM: QuestionViewModel
     
     private static let barHeightFactor = 0.15
     
@@ -37,10 +35,10 @@ struct CameraScreen: View {
                 }
                 .background(.black)
         }
+        .toolbar(.hidden, for: .navigationBar)
+        .toolbar(.hidden, for: .tabBar)
         .task {
             await questionVM.camera.start()
-            //                await model.loadPhotos()
-            //                await model.loadThumbnail()
         }
         .navigationTitle("Camera")
         .navigationBarTitleDisplayMode(.inline)
@@ -53,19 +51,23 @@ struct CameraScreen: View {
         HStack {
             Spacer()
             Button {
-                dismiss()
+                navigation.push(to: .add_media)
             } label: {
                 Label("", systemImage: questionVM.isImageSaved ? "checkmark.circle.fill" : "x.circle.fill")
                     .font(.headingBig)
                     .foregroundColor(.white)
             }
             .disabled(!questionVM.isImageSaved)
+            
             Spacer()
+            
             Button {
-                questionVM.camera.takePhoto()
-                
-                Task {
-                    await questionVM.handleCameraPhotos(questionId: questionId, imageName: imageName)
+                if let currentQuestion = questionVM.currentQuestion {
+                    questionVM.camera.takePhoto()
+                    
+                    Task {
+                        await questionVM.handleCameraPhotos(questionId: currentQuestion.id)
+                    }
                 }
             } label: {
                 Label {
@@ -81,7 +83,9 @@ struct CameraScreen: View {
                     }
                 }
             }
+            
             Spacer()
+            
             Button {
                 questionVM.camera.switchCaptureDevice()
             } label: {

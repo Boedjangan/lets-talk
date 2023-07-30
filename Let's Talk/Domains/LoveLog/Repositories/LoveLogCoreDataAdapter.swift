@@ -170,7 +170,7 @@ class LoveLogCoreDataAdapter: LoveLogRepository {
         }
         var answerEntity: AnswerEntity?
         if let answer = question.answer {
-            answerEntity = AnswerEntity(name: answer.name!, recordedAnswer: answer.recordedAnswer!)
+            answerEntity = AnswerEntity(id: answer.id!, name: answer.name!, recordedAnswer: answer.recordedAnswer!, createdAt: answer.createdAt!, updatedAt: answer.updatedAt!)
         }
         
         return QuestionEntity(

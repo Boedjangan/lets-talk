@@ -21,7 +21,8 @@ struct WarmUpCardView<Content: View>: View {
         .padding()
         .multilineTextAlignment(.center)
         .foregroundColor(Color.white)
-        .frame(maxWidth: .infinity, maxHeight: 200)
+        .frame(maxWidth: .infinity)
+        .frame(height: 200)
         .background(Color.warmUpCardBackground)
         .cornerRadius(10)
     }
