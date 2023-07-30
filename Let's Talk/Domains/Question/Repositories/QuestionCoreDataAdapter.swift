@@ -219,11 +219,6 @@ class QuestionCoreDataAdapter: QuestionRepository {
     
     
     func convertToQuestionEntity(question: Question) -> QuestionEntity {
-        if question.answer != nil {
-            print(question)
-        } else {
-            print("noQues")
-        }
         var subQuestionsEntity: [SubQuestionEntity]?
         if let subQuestions = question.subQuestion as? Set<SubQuestion> {
             subQuestionsEntity = subQuestions.map { convertToSubQuestionEntity(subQuestion: $0)}

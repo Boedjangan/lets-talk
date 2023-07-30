@@ -30,7 +30,7 @@ struct LoveLogDetailScreen: View {
                             ImageView(image: displaySavedImage(for: question.image ?? "sample"))
                             DetailOverview(date: question.createdAt)
                             AudioPlayerSlider(sliderVal: $sliderVal)
-                            AudioPlayerButtons(key: question.answer?.recordedAnswer ?? "", loveLogId: question.id)
+                            AudioPlayerButtons(key: question.image ?? "sample", loveLogId: question.id)
                             Spacer()
                         }
                     }
@@ -39,9 +39,6 @@ struct LoveLogDetailScreen: View {
             .tabViewStyle(.page)
             .id(UUID())
         })
-        .onAppear {
-            print(loveLog?.questions[0])
-        }
         .navigationBarBackButtonHidden(true)
     }
     
@@ -179,12 +176,13 @@ struct AudioPlayerButtons: View {
                 Image(systemName: "arrow.counterclockwise")
             }
             ButtonView {
-                questionVM.isPlayingAudio.toggle()
-                if !questionVM.isPlayingAudio {
-                    questionVM.startPlayback(key: key)
-                } else {
-                    questionVM.stopPlayback()
-                }
+                questionVM.startPlayback(key: key)
+            } label: {
+                Image(systemName: questionVM.isPlayingAudio ? "pause.fill" : "play.fill")
+                    .padding(.horizontal)
+            }
+            ButtonView {
+                questionVM.stopPlayback()
             } label: {
                 Image(systemName: questionVM.isPlayingAudio ? "pause.fill" : "play.fill")
                     .padding(.horizontal)

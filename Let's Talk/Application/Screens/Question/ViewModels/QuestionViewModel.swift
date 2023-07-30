@@ -197,7 +197,7 @@ class QuestionViewModel: ObservableObject {
     // MARK: - Audio Playback
     func startPlayback(key: String) {
         isPlayingAudio = true
-        audioManager.startPlayback(key: "\(key)")
+        audioManager.startPlayback(key: "\(key).m4a")
         audioDuration = audioManager.audioPlayer?.duration ?? 0
     }
     
