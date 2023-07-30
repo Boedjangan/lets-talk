@@ -19,7 +19,7 @@ struct TopicItemView: View {
             HStack(alignment: .center, spacing: 16){
                 TopIconView(foregroundColor: Color.buttonOutlineCommitment, icon: topic.iconName)
                  
-                TopicProgressView(color: Color.buttonOutlineCommitment, level: "Level \(topic.level)", label: topic.title, progress: Double(topic.progress / (topic.questions?.count  ?? 1 )  ), isActive: topic.isActive)
+                TopicProgressView(color: Color.buttonOutlineCommitment, level: "Level \(topic.level)", label: topic.title, progress: Double(topic.progress) / Double(topic.questions?.count  ?? topic.progress)  , isActive: topic.isActive)
                 
                 ButtonView() {
                     // MARK - Pick a Role
