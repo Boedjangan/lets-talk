@@ -32,7 +32,7 @@ struct TopicItemView: View {
                         }
                     } else {
                         let randomRole = randomRole()
-                        userVM.myRole = randomRole
+                        userVM.myRole = .receiver
                     }
                     
                     // MARK - Send Role
