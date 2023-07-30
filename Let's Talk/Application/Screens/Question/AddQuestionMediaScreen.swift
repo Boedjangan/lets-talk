@@ -23,6 +23,7 @@ struct AddQuestionMediaScreen: View {
     @State private var savedImage: UIImage? = nil
     
     @State var isReady = false
+    @State var isReceiving = false
     
     @State var photoSendingStatus: SendingStatus = .idle
     @State var audioSendingStatus: SendingStatus = .idle
@@ -37,11 +38,15 @@ struct AddQuestionMediaScreen: View {
     
     var body: some View {
             LayoutView(spacing: Spacing.card) {
-                if isSending {
-                    LoadingView(text: "Mengirim data...")
+                if isReceiving {
+                    LoadingView(text: "Menerima data pasangan...")
                 }
                 
-                if !isSending {
+                if isSending && !isReceiving {
+                    LoadingView(text: "Mengirim data ke pasangan...")
+                }
+                
+                if !isSending && !isReceiving {
                     VStack(alignment: .leading, spacing: 10) {
                         Text("Abadikan momen mengobrol kalian")
                             .font(.addMediaTitle)
@@ -111,14 +116,26 @@ struct AddQuestionMediaScreen: View {
             .onDisappear {
                 // Enable the idle timer again when the view disappears
                 UIApplication.shared.isIdleTimerDisabled = false
+                
+                isReady = false
+                isReceiving = false
             }
             .onChange(of: isFinishedSending) { isFinished in
                 if isFinished {
-                    navigation.push(to: .overview)
+                    isReceiving = true
                 }
             }
+            .onChange(of: multipeerHandler.receivedAudioName) { filename in
+                //MARK: Save received audio
+                guard let filename = filename, let currentQuestion = questionVM.currentQuestion, let coupleName = multipeerHandler.coupleName else { return }
+                
+                let newAnswer = AnswerEntity(name: coupleName, recordedAnswer: filename)
+                questionVM.updateQuestionAnswer(questionId: currentQuestion.id, newAnswer: newAnswer)
+                
+                //MARK: Navigate to overview
+                navigation.push(to: .overview)
+            }
     }
-    
 }
 
 //struct AddQuestionMediaScreen_Previews: PreviewProvider {
