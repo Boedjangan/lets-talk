@@ -9,6 +9,7 @@ import Foundation
 import CoreData
 
 class TopicCoreDataAdapter: TopicRepository {
+    
     private let coreDataContext = CoreDataConnection.shared.managedObjectContext
     
     func getTopics() -> [TopicEntity] {

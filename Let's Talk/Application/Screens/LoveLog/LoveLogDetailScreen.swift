@@ -40,7 +40,7 @@ struct LoveLogDetailScreen: View {
             .id(UUID())
         })
         .onAppear {
-            print(loveLog)
+            print(loveLog?.questions[0])
         }
         .navigationBarBackButtonHidden(true)
     }
@@ -61,7 +61,7 @@ struct LoveLogDetailScreen: View {
 }
 
 struct DetailOverview: View {
-    var date: Date = Date()
+    var date: Date
     var topic: String = "Commitment"
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -201,6 +201,7 @@ struct AudioPlayerButtons: View {
             } label: {
                 Image(systemName: "trash")
             }
+            .hidden()
         }
         .font(.subHeading)
     }

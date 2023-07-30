@@ -219,6 +219,11 @@ class QuestionCoreDataAdapter: QuestionRepository {
     
     
     func convertToQuestionEntity(question: Question) -> QuestionEntity {
+        if question.answer != nil {
+            print(question)
+        } else {
+            print("noQues")
+        }
         var subQuestionsEntity: [SubQuestionEntity]?
         if let subQuestions = question.subQuestion as? Set<SubQuestion> {
             subQuestionsEntity = subQuestions.map { convertToSubQuestionEntity(subQuestion: $0)}
@@ -227,6 +232,8 @@ class QuestionCoreDataAdapter: QuestionRepository {
         var answerEntity: AnswerEntity?
         if let answer = question.answer {
             answerEntity = AnswerEntity(name: answer.name!, recordedAnswer: answer.recordedAnswer!)
+        } else {
+            answerEntity = AnswerEntity(name: "No answer", recordedAnswer: "No recorded answer")
         }
         
         return QuestionEntity(
@@ -242,6 +249,7 @@ class QuestionCoreDataAdapter: QuestionRepository {
             answer: answerEntity,
             subQuestions: subQuestionsEntity,
             topicId: question.topic?.id.unsafelyUnwrapped,
+            topicName: question.topic?.title.unsafelyUnwrapped,
             topicLevel: question.topic?.level.toInt
         )
     }
