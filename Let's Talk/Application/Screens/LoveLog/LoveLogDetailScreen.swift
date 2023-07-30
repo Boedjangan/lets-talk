@@ -175,17 +175,20 @@ struct AudioPlayerButtons: View {
             } label: {
                 Image(systemName: "arrow.counterclockwise")
             }
-            ButtonView {
-                questionVM.startPlayback(key: key)
-            } label: {
-                Image(systemName: questionVM.isPlayingAudio ? "pause.fill" : "play.fill")
-                    .padding(.horizontal)
-            }
-            ButtonView {
-                questionVM.stopPlayback()
-            } label: {
-                Image(systemName: questionVM.isPlayingAudio ? "pause.fill" : "play.fill")
-                    .padding(.horizontal)
+            if !questionVM.isPlayingAudio {
+                ButtonView {
+                    questionVM.startPlayback(key: key)
+                } label: {
+                    Image(systemName: "play.fill")
+                        .padding(.horizontal)
+                }
+            } else {
+                ButtonView {
+                    questionVM.pausePlayback()
+                } label: {
+                    Image(systemName: "pause.fill" )
+                        .padding(.horizontal)
+                }
             }
             ButtonView {
                 questionVM.forwardPlayback(seconds: 15)

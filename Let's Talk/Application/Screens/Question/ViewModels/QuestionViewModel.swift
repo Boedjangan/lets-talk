@@ -209,6 +209,12 @@ class QuestionViewModel: ObservableObject {
     func backwardPlayback(seconds: Double) {
         audioManager.backwardPlayback(seconds: seconds)
     }
+    
+    func pausePlayback() {
+        audioManager.audioPlayer?.pause()
+        isPlayingAudio = false
+    }
+    
     func stopPlayback() {
         audioManager.stopPlayback()
         isPlayingAudio = false
