@@ -84,7 +84,7 @@ struct QuestionSessionOverviewScreen: View {
             questionVM.updateQuestionAnswer(questionId: currentQuestion.id, newAnswer: newAnswer)
             
             // MARK - Sending Audio
-            let filenameAudio = "\(filename).m4a"
+            let filenameAudio = filename
             
             let urlAudio = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(filenameAudio)
             

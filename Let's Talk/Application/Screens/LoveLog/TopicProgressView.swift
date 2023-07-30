@@ -23,7 +23,7 @@ struct TopicProgressView: View {
                 value: progress,
                 label: { Text(label) },
                 currentValueLabel: {
-                    if isActive{
+                    if isActive {
                         Text(String(progress * 100) + "%")
                     }
                     

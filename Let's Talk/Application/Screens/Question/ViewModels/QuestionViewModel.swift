@@ -78,8 +78,8 @@ class QuestionViewModel: ObservableObject {
         myWarmUpAnswer = ""
         
         // MARK: - Image
-//        viewfinderImage = nil
-//        thumbnailImage = nil
+        //        viewfinderImage = nil
+        //        thumbnailImage = nil
     }
     
     // MARK: - Question Service
@@ -140,7 +140,8 @@ class QuestionViewModel: ObservableObject {
         }
         
         questions = newQuestions
-        questionService.updateAnswer(questionId: questionId, newAnswer: newAnswer)
+        let newData = questionService.updateAnswer(questionId: questionId, newAnswer: newAnswer)
+        print(newData.debugDescription)
     }
     
     // TODO: Handle error handling on nil return
@@ -318,7 +319,7 @@ class QuestionViewModel: ObservableObject {
             
             return uiImage
         } else {
-             print("Failed to load image from photo collection.")
+            print("Failed to load image from photo collection.")
             return nil
         }
     }
