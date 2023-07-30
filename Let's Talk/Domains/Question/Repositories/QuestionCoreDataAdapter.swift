@@ -191,6 +191,7 @@ class QuestionCoreDataAdapter: QuestionRepository {
             }
             
             let answer = Answer(context: coreDataContext)
+            
             answer.id = UUID()
             answer.name = newAnswer.name
             answer.recordedAnswer = newAnswer.recordedAnswer
