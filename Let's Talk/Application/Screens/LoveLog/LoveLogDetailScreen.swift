@@ -30,7 +30,7 @@ struct LoveLogDetailScreen: View {
                             ImageView(image: displaySavedImage(for: question.image ?? "sample"))
                             DetailOverview(date: question.createdAt)
                             AudioPlayerSlider(sliderVal: $sliderVal)
-                            AudioPlayerButtons(key: question.image ?? "sample", loveLogId: question.id)
+                            AudioPlayerButtons(key: question.answer?.recordedAnswer ?? "sample", loveLogId: question.id)
                             Spacer()
                         }
                     }
