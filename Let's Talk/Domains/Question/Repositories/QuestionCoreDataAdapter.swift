@@ -228,6 +228,8 @@ class QuestionCoreDataAdapter: QuestionRepository {
         var answerEntity: AnswerEntity?
         if let answer = question.answer {
             answerEntity = AnswerEntity(name: answer.name!, recordedAnswer: answer.recordedAnswer!)
+        } else {
+            answerEntity = AnswerEntity(name: "No answer", recordedAnswer: "No recorded answer")
         }
         
         return QuestionEntity(

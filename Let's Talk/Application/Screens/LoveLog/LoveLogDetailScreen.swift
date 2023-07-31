@@ -15,32 +15,50 @@ struct LoveLogDetailScreen: View {
     @State private var audioPlayer: AVAudioPlayer!
     @State private var sliderVal: Double = 3
     
-    var questions: [QuestionEntity]
+    let id: UUID
     
     var body: some View {
+        let loveLog = loveLogVM.loveLogs.first(where: { loveLogEntity in
+            loveLogEntity.id == id})
         LayoutView(children: {
             TabView {
-                ForEach(questions) { question in
-                    VStack (alignment: .leading, spacing: 20) {
-                        ImageView(imageName: question.image ?? "sample")
-                        DetailOverview()
-                        AudioPlayerSlider(sliderVal: $sliderVal)
-                        AudioPlayerButtons(key: question.answer?.recordedAnswer ?? "", loveLogId: question.id)
-                        Spacer()
+                if let loveLog = loveLogVM.loveLogs.first(where: { loveLogEntity in
+                    loveLogEntity.id == id
+                }) {
+                    ForEach(loveLog.questions) { question in
+                        VStack (alignment: .leading, spacing: 20) {
+                            ImageView(image: displaySavedImage(for: question.image ?? "sample"))
+                            DetailOverview(date: question.createdAt)
+                            AudioPlayerSlider(sliderVal: $sliderVal)
+                            AudioPlayerButtons(key: question.image ?? "sample", loveLogId: question.id)
+                            Spacer()
+                        }
                     }
                 }
             }
             .tabViewStyle(.page)
             .id(UUID())
         })
-        .onAppear {
-            
+        .navigationBarBackButtonHidden(true)
+    }
+    
+    func displaySavedImage(for filename: String) -> UIImage? {
+        let filename = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent(filename)
+        
+        print("ACCESSING FILE >>>> ", filename)
+        
+        // TODO: figure out best way to call
+        if let imageData = try? Data(contentsOf: filename), let uiImage = UIImage(data: imageData) {
+            return uiImage
+        } else {
+            // logger.error("Failed to load image from photo collection.")
+            return nil
         }
     }
 }
 
 struct DetailOverview: View {
-    var date: Date = Date()
+    var date: Date
     var topic: String = "Commitment"
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -61,23 +79,26 @@ struct DetailOverview: View {
 }
 
 struct ImageView: View {
-    var imageName: String = "sample"
+    @EnvironmentObject var navigation: LoveLogNavigationManager
+    var image: UIImage?
     var body: some View {
-        Image(imageName)
-            .resizable()
-            .scaledToFill()
-            .frame(maxWidth: .infinity, maxHeight: 400)
-            .clipped()
-            .clipShape(RoundedRectangle(cornerRadius: 10))
-            .overlay (alignment: .topLeading) {
-                Button {
-                    //
-                } label: {
-                    Image(systemName: "chevron.left.circle.fill")
-                        .font(.headingBig)
+        if let image = image {
+            Image(uiImage: image)
+                .resizable()
+                .scaledToFill()
+                .frame(maxWidth: .infinity, maxHeight: 400)
+                .clipped()
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .overlay (alignment: .topLeading) {
+                    Button {
+                        navigation.goBack()
+                    } label: {
+                        Image(systemName: "chevron.left.circle.fill")
+                            .font(.headingBig)
+                    }
+                    .padding()
                 }
-                .padding()
-            }
+        }
     }
 }
 
@@ -95,7 +116,7 @@ struct AudioPlayerSlider: View {
             .onChange(of: questionVM.currentTime) { newValue in
                 questionVM.changeCurrentTime(to: newValue)
             }
-
+            
             HStack {
                 Text("\(Int(questionVM.audioDuration) / 60):\(Int(questionVM.audioDuration) % 60)")
                 Spacer()
@@ -146,7 +167,7 @@ struct AudioPlayerButtons: View {
             } label: {
                 Image(systemName: "slider.horizontal.3")
             }
-
+            
             
             Spacer()
             ButtonView {
@@ -154,16 +175,20 @@ struct AudioPlayerButtons: View {
             } label: {
                 Image(systemName: "arrow.counterclockwise")
             }
-            ButtonView {
-                questionVM.isPlayingAudio.toggle()
-                if !questionVM.isPlayingAudio {
+            if !questionVM.isPlayingAudio {
+                ButtonView {
                     questionVM.startPlayback(key: key)
-                } else {
-                    questionVM.stopPlayback()
+                } label: {
+                    Image(systemName: "play.fill")
+                        .padding(.horizontal)
                 }
-            } label: {
-                Image(systemName: questionVM.isPlayingAudio ? "pause.fill" : "play.fill")
-                    .padding(.horizontal)
+            } else {
+                ButtonView {
+                    questionVM.pausePlayback()
+                } label: {
+                    Image(systemName: "pause.fill" )
+                        .padding(.horizontal)
+                }
             }
             ButtonView {
                 questionVM.forwardPlayback(seconds: 15)
@@ -177,18 +202,17 @@ struct AudioPlayerButtons: View {
             } label: {
                 Image(systemName: "trash")
             }
+            .hidden()
         }
         .font(.subHeading)
     }
 }
 
-
 struct LoveLogDetailScreen_Previews: PreviewProvider {
     static var previews: some View {
-        let questionEntity = QuestionEntity()
         let viewModel = LoveLogViewModel()
         StatefulPreviewView(viewModel) { val in
-            LoveLogDetailScreen(questions: [questionEntity])
+            LoveLogDetailScreen( id: UUID())
                 .environmentObject(viewModel)
                 .environmentObject(QuestionViewModel()) // Add this
         }

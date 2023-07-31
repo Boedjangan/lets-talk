@@ -60,8 +60,8 @@ struct TabBarView: View {
                         switch(routes) {
                         case .calendarLoveLog:
                             LoveLogScreen()
-                        case let .loveLogDetail(_):
-                            LoveLogScreen()
+                        case .loveLogDetail(let id):
+                            LoveLogDetailScreen(id: id)
                         }
                     }
             }
